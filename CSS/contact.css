@@ -17,6 +17,11 @@ nav a {
       width: 100%;
       justify-content: space-evenly;
     }
+
+    footer a {
+      text-decoration: none;
+      color: white;
+      }
 /* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
     
     .content{
