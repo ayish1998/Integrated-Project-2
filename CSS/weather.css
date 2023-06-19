@@ -1,4 +1,5 @@
-a {
+/* copy from here */
+nav a {
   text-decoration: none;
   color: white;
 }
@@ -16,7 +17,8 @@ a {
     width: 100%;
     justify-content: space-evenly;
   }
-  
+  /* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
+
   .content{
     height: 900px;
   }
