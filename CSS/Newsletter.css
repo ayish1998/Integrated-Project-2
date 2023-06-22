@@ -7,9 +7,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  padding-top: 70px;
-}
+
 /* NAVBAR STYLING STARTS HERE */
 nav a {
   text-decoration: none;
@@ -29,13 +27,12 @@ nav a {
   width: 100%;
   justify-content: space-evenly;
 }
-
+.news {
+  margin-top: 100px;
+  padding-top: 30px;
+}
 footer a {
   text-decoration: none;
   color: white;
 }
-/* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
 
-/* .content{
-    height: 900px;
-  } */
