@@ -1,4 +1,5 @@
 function validateForm() {
+    document.getElementById('status').innerHTML = "Sending...";
     var fname = document.getElementById('fname').value;
     if (fname == "") {
         document.querySelector('.status').innerHTML = "Field can not be empty";
@@ -35,7 +36,7 @@ function validateForm() {
         document.querySelector('.status').innerHTML = "Message can not be empty";
         return false;
     }
-    document.getElementById('status').innerHTML = "Sending...";
+    document.querySelector('status').innerHTML = "Sending...";
     
     formData = {
         'fname': $('input[name=fname]').val(),
