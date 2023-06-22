@@ -8,6 +8,29 @@
     font-family: "Poppins", sans-serif;
 }
 
+nav a {
+    text-decoration: none;
+    color: white;
+  }
+  .navbar-brand {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    .navbar-brand span {
+      color: grey;
+    }
+  
+    .navbar-nav {
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  
+    footer a {
+    text-decoration: none;
+    color: white;
+    }
 
 #data {
     background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url(/IMAGES/service1.jpeg);
@@ -21,6 +44,7 @@
     align-items: center;
     text-align: center;
     padding-top: 40px;
+    margin-top: 100px;
 }
 
 #data h2 {
