@@ -29,52 +29,85 @@
 
   <!-- nav bar starts here -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <div class="container">
-      <a class="navbar-brand" href="#">JobInsight</a>
+  <!--navbar starts here-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
+          <!--Data dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              About Us
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Data
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Author</a></li>
-              <li><a class="dropdown-item" href="#"></a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Newsarticle</a>
-          </li>
-
+          <!--Tutorials dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Data Visualisation
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
             </ul>
           </li>
-
+          <!--Tutotrials dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Tutorials</a>
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
           </li>
-
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
           </li>
         </ul>
-
+        <!--Search bar and button-->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -106,9 +139,10 @@
             <div class="card-body">
               <div class="card-title">
                 <h4>
-                  <a href="../HTML/technologystocks.html">Technology Stocks With Revenue and Earnings Growth In Excess of 25%</a>
-                </h4>  
-                </div>            
+                  <a href="../HTML/technologystocks.html">Technology Stocks With Revenue and Earnings Growth In Excess
+                    of 25%</a>
+                </h4>
+              </div>
               <div class="card-text">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -130,7 +164,7 @@
             <div class="card-body">
               <div class="card-title">
                 <h4>
-                This is the Tile
+                  This is the Tile
                 </h4>
               </div>
               <div class="card-text">
