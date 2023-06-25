@@ -1,5 +1,6 @@
 /* Googlefont Poppins CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 * {
     margin: 0;
@@ -7,8 +8,6 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-
 
 /*Section Image*/
 .center {
@@ -95,7 +94,6 @@
 
 .center h3 {
     text-align: center;
-
     margin: 10px;
     align-items: center;
     font-size: 30px;
@@ -323,31 +321,47 @@ a:focus {
 }
 
 
-#wrapper{
-    margin-top: 40px;
+/**technologystocks css styles starts here**/
+
+#wrapper {
+    margin-top: 60px;
 }
 
-#title-out{
+#wrapper .container {
+    padding: 0 5rem 0 5rem;
+}
+
+#wrapper .container p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#title-out {
     text-align: center;
 }
-#title-out .meta-bar{
+
+#title-out .meta-bar {
     margin-bottom: 2rem;
 }
 
-#title-out h1{
+#wrapper .meta-bar a {
+    color: rgba(51, 51, 100, 0.678);
+    text-decoration: underline;
+}
+
+#title-out h1 {
     font-size: 1.8rem;
     margin-top: -2px;
-} 
+}
 
 
-#reports h4 a{
+#reports h4 a {
     color: #213138d6;
     font-size: 1rem;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
 }
 
-#reports h4 a:hover{
+#reports h4 a:hover {
     text-decoration: underline;
 }
 
@@ -411,3 +425,5 @@ a:focus {
     color: #fff;
     cursor: default;
 }
+
+/**technologystocks css styles ends here**/
