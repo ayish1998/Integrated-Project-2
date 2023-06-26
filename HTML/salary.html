@@ -17,7 +17,45 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <title>Job Insights</title>
+    <title>Estimated Salary</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.26.3/dist/apexcharts.min.js"></script>
+    <style>
+      .chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      .title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .chart-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
 </head>
 
 <body>
@@ -120,92 +158,170 @@
   <!--navbar ends here-->
   <!--Main Layout Section starts here-->
   <section id="data">
-    <h2>Job Insight/</h2>
-  </section>
-  <div id="data-home">
-    <h1>Data Visusalisation</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, impedit maiores? Accusamus ex accusantium
-      aliquid. Quis consequatur maxime, quod tempora dolorum sed praesentium nisi id quibusdam in veritatis.
-      Exercitationem, fugiat!</p>
-    <div>
-      <!-- Card starts here -->
-      <div class="container">
-        <h3 class="pb-3 mb-4  border-bottom"> Job Insight </h3>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-primary">Salary Distribution</strong>
-<<<<<<< HEAD
-                <h4 class="mb-0">
-                  <a class="text-dark" href="#">Explore Range and Variability of Salaries</a>
-                </h4>
-=======
-                <h6 class="mb-0">
-                  <a class="text-dark" href="salary.html">Explore Range and Variability of Salaries</a>
-                </h6>
->>>>>>> 08b722e5db662e0e7ac160dcabf142feedf09227
-                <!-- <div class="mb-1 text-muted small">Nov 12</div> -->
-                <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-                  additional content.</p>
-                <a class="btn btn-outline-primary btn-sm" role="button" href="salary.html">Continue reading</a>
-              </div>
-              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]"
-                src="../IMAGES/chart.jpg" style="width: 200px; height: 300px;">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-success">Geographic Salary Comparison</strong>
-                <h4 class="mb-0">
-                  <a class="text-body" href="#">Explore Salary Discrepancies Across Regions</a>
-                </h4>
-                <!-- <div class="mb-1 text-muted small">Nov 11</div> -->
-                <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-                  additional content.</p>
-                <a class="btn btn-outline-success btn-sm" href="#">Continue reading</a>
-              </div>
-              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]"
-                src="../IMAGES/chart2.jpg" style="width: 200px; height: 300px;">
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card border-primary flex-md-row mb-4 shadow-sm h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-primary">Industry Comparison</strong>
-                <h4 class="mb-0">
-                  <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics necessities</a>
-                </h4>
-                <!-- <div class="mb-1 text-muted small">Nov 12</div> -->
-                <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-                  additional content.</p>
-                <a class="btn btn-outline-primary btn-sm" role="button" href="#">Continue reading</a>
-              </div>
-              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]"
-                src="../IMAGES/chart2.jpg" style="width: 200px; height: 300px;">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-success">Gender Pay Gap</strong>
-                <h4 class="mb-0">
-                  <a class="text-dark" href="#">Women Earn 20% Less Than Men in Similar Roles</a>
-                </h4>
-                <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-                  additional content.</p>
-                <a class="btn btn-outline-success btn-sm" href="#">Continue reading</a>
-              </div>
-              <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]"
-                src="../IMAGES/chart3.jpg" style="width: 200px; height: 300px;">
-            </div>
-          </div>
-        </div>
+    <div class="title-container">
+        <h1 class="title">Estimated Salary</h1>
+        <p>Get estimated salaries for jobs around a specific location.</p>
+        <button class="chart-button" onclick="scrollToCharts()">Go to Charts</button>
       </div>
-    </div>
+  </section>
+  
+<body>
+    
+
+    
+  
+
+  <div class="chart-container" id="charts-section">
+    <div id="pie-chart"></div>
   </div>
+  <div class="chart-container">
+    <div id="bar-chart"></div>
+  </div>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Job Title</th>
+        <th>Min Salary</th>
+        <th>Max Salary</th>
+        <th>Median Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table data will be dynamically populated using JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    // Function to fetch data from the API
+    async function fetchData() {
+      const url =
+        'https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100';
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '94fc9d3c6fmshde40d7a8e2e37f5p12b547jsnc0f0f606c2fb',
+          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        return result.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Function to render the pie chart
+    function renderPieChart(data) {
+      const chartData = data.map(item => ({
+        x: item.location,
+        y: item.median_salary,
+      }));
+
+      const options = {
+        series: chartData,
+        chart: {
+          type: 'pie',
+        },
+        labels: chartData.map(item => item.x),
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 300,
+              },
+              legend: {
+                position: 'bottom',
+              },
+            },
+          },
+        ],
+      };
+
+      const chart = new ApexCharts(document.querySelector('#pie-chart'), options);
+      chart.render();
+    }
+
+    // Function to render the bar chart
+    function renderBarChart(data) {
+      const chartData = data.map(item => item.median_salary);
+      const locations = data.map(item => item.location);
+
+      const options = {
+        series: [
+          {
+            name: 'Median Salary',
+            data: chartData,
+          },
+        ],
+        chart: {
+          type: 'bar',
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded',
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: locations,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector('#bar-chart'), options);
+      chart.render();
+    }
+
+    // Function to render the data table
+    function renderDataTable(data) {
+      const tableBody = document.querySelector('#data-table tbody');
+
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.location}</td>
+          <td>${item.job_title}</td>
+          <td>${item.min_salary}</td>
+          <td>${item.max_salary}</td>
+          <td>${item.median_salary}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Fetch data from the API and render the charts and table
+    async function initialize() {
+      try {
+        const data = await fetchData();
+        renderPieChart(data);
+        renderBarChart(data);
+        renderDataTable(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Scroll to the charts section
+    function scrollToCharts() {
+      const chartsSection = document.getElementById('charts-section');
+      chartsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Call the initialize function
+    initialize();
+
+  </script>
+
+
   <!--Main Layout Section ends-->
   <footer>
     <div class="container-fluid bg-success text-white p-4">
