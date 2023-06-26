@@ -24,21 +24,21 @@ async function createBubbleChart() {
       // Prepare data for Chart.js
       const chartData = {
         datasets: [
-          {
-            label: 'Exchange Rates',
-            data: exchangeRates.map((rate) => ({
-              x: Math.random(), // Random x value for the bubble
-              y: rate, // Exchange rate value for the bubble
-              r: 10 // Radius of the bubble
-            })),
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            hoverBackgroundColor: 'rgba(54, 162, 235, 0.8)',
-            hoverBorderColor: 'rgba(54, 162, 235, 1)',
-            hoverRadius: 8
-          }
-        ]
-      };
+            {
+              label: 'Exchange Rates',
+              data: exchangeRates.map((rate) => ({
+                x: Math.random(), // Random x value for the bubble
+                y: rate, // Exchange rate value for the bubble
+                r: 10 // Radius of the bubble
+              })),
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              hoverBackgroundColor: 'green',
+              hoverBorderColor: 'green',
+              hoverRadius: 8
+            }
+          ]
+        };
       
   
       // Chart.js configuration
@@ -58,12 +58,14 @@ async function createBubbleChart() {
           plugins: {
             tooltip: {
               callbacks: {
-                label: context => `${context.label}: ${context.parsed.y}`
+                label: (context) =>
+                  `${currencies[context.dataIndex]}: ${context.parsed.y}`
               }
             }
           }
         }
       };
+  
   
       // Create the bubble chart
       const ctx = document.getElementById('bubbleChart').getContext('2d');

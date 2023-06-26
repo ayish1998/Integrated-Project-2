@@ -163,6 +163,20 @@ footer a {
     height: 180px;
 }
 
+.card a{
+    font-size: 1rem;
+    color: #333;
+}
+
+.card .card-text{
+    font-size: 13px;
+}
+
+#card-row #col .card-body{
+    height: 200px;
+} 
+
+
 
 
 
