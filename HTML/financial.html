@@ -29,55 +29,89 @@
 
   <!-- nav bar starts here -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-success">
-    <div class="container">
-      <a class="navbar-brand" href="#">JobInsight</a>
+   <!--navbar starts here-->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
+          <!--Data dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              About Us
+            <a class="nav-link dropdown-toggle active"  aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Data
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Author</a></li>
-              <li><a class="dropdown-item" href="#"></a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Newsarticle</a>
-          </li>
-
+          <!--Tutorials dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Data Visualisation
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
             </ul>
           </li>
-
+          <!--Tutotrials dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Tutorials</a>
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
           </li>
-
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
         </ul>
-
+        <!--Search bar and button-->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>
+  <!--navbar ends here-->
   <!-- nav bar ends here -->
 
   <!--Section starts -->
@@ -97,8 +131,8 @@
         <hr>
       </div>
 
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="row" id="card-row">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
           <div class="card mb-5 shadow-sm">
             <img src="../images/image_2.jpg" class="img-fluid" />
 
@@ -106,31 +140,8 @@
             <div class="card-body">
               <div class="card-title">
                 <h4>
-                  <a href="../HTML/technologystocks.html">Technology Stocks With Revenue and Earnings Growth In Excess of 25%</a>
-                </h4>  
-                </div>            
-              <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="../images/image_2.jpg" class="img-fluid" />
-            <a href="#" class="card-img-overlay"></a>
-
-            <div class="card-body">
-              <div class="card-title">
-                <h4>
-                This is the Tile
+                  <a href="../HTML/technologystocks.html">Technology Stocks With Revenue and Earnings Growth In Excess
+                    of 25%</a>
                 </h4>
               </div>
               <div class="card-text">
@@ -146,7 +157,31 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
+          <div class="card mb-5 shadow-sm">
+            <img src="../images/image_2.jpg" class="img-fluid" />
+            <a href="../HTML/currencyrates.html" class="card-img-overlay"></a>
+
+            <div class="card-body">
+              <div class="card-title">
+                <h4>
+                  <a href="../HTML/currencyrates.html">Latest Currency Rates</a>
+                </h4>
+              </div>
+              <div class="card-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Deleniti corporis quis ab. Exercitationem et quibusdam
+                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                  maxime facere, quod harum aliquid in...
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
           <div class="card mb-5 shadow-sm">
             <img src="../images/image_2.jpg" class="img-fluid" />
             <a href="#" class="card-img-overlay"></a>
@@ -167,7 +202,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
           <div class="card mb-5 shadow-sm">
             <img src="../images/image_2.jpg" class="img-fluid" />
             <a href="#" class="card-img-overlay"></a>
@@ -188,7 +223,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
           <div class="card mb-5 shadow-sm">
             <img src="../images/image_2.jpg" class="img-fluid" />
             <a href="#" class="card-img-overlay"></a>
@@ -209,7 +244,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="col">
           <div class="card mb-5 shadow-sm">
             <img src="../images/image_2.jpg" class="img-fluid" />
             <a href="#" class="card-img-overlay"></a>
@@ -260,78 +295,68 @@
 
 
     <!-- footer starts here -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="footer-about">
-              <div class="footer-logo">
-                <a href="#"><img src="img/footer-logo.png" alt=""></a>
-              </div>
-              <p>The Customer is at the heart of our unique bussiness model, which include design.</p>
-              <a href="#"><img src="img/payment.png" alt=""></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-            <div class="footer-widget">
-              <h6>Services</h6>
-              <ul>
-                <li><a href="#">Data Visualisation</a></li>
-                <li><a href="#">Newsarticle</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Tutorials</a></li>
-
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-2  col-md-3 col-sm-6">
-            <div class="footer-widget">
-              <h6>Links</h6>
-              <ul>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Data Visualisation</a></li>
-                <li><a href="#">Newsarticle</a></li>
-                <li><a href="#">About Us</a></li>
-
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
-            <div class="footer-widget">
-              <h6>NewsLetter</h6>
-              <div class="footer-newslatter">
-                <p>Be the first to know about new arrivals, look Jobs, promotions!</p>
-                <form action="#">
-                  <input type="text" placeholder="Your Email">
-                  <button type="submit"><span><i class="fa fa-envelope" arial-hidden="true"></i></span></button>
-                </form>
-              </div>
-
-            </div>
-          </div>
-
-
+  <footer>
+    <div class="container-fluid bg-success text-white p-4">
+      <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+          <a class="navbar-brand" href="index.html">
+            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center"/>
+            Job<span>Insights</span></a>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
+            quam, ad facere odio sunt mollitia asperiores
+            eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
         </div>
-
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <div class="footer-copyright-text">
-              <p>Copyright &copy; 2023 All rights reserved <i class="fa fa-heart-o" arial-hidden="true"></i>
-                by <a href="#">JobInsight</a></p>
-            </div>
-          </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+          <h5 class="fw-bold">USEFUL LINKS</h5>
+          <ul style="list-style-type: square;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="job.html">Job Data</a></li>
+            <li><a href="weather.html">Weather Data</a></li>
+            <li><a href="financial.html">Financial Data</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="website.html">About Website</a></li>
+            <li><a href="developers.html">About Developers</a></li>
+          </ul>
         </div>
-
-
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+          <h5 class="fw-bold">CONTACT</h5>
+          <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+            Mauritius</p>
+          <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+          <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+        </div>
       </div>
-
-    </footer>
+      <div class="row mx-auto d-flex justify-content-center pt-3">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <p>We are here to make your career decision easier!
+            <br>Sign up for our Newsletter.
+          </p>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+          <form class="d-block" role="email">
+            <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+            <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <!--Social media links-->
+      <div class="socials text-center">
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
+            style="color: #3b5998;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
+            style="color: #dd4b39;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
+            style="color: #ac2bac;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
+            style="color: #0082ca;"></i></a>
+      </div>
+    </div>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;">
+      © 2023 Copyright:
+      <a class="fw-bold" href="index.html">Job Insights</a>
+    </div>
+  </footer>
     <!-- footer ends here -->
 
 
