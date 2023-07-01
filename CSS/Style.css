@@ -256,7 +256,9 @@ width:100%
 
   .btn-primary:hover {
     background-color: #0056b3;
+    font-size: 0%;
   }
+
 
 
 
