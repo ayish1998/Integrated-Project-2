@@ -83,7 +83,7 @@ width:100%
     font-weight: 600;
 }
 .home-content h3 span{
-    color: rgb(35, 230, 244);
+    color: rgb(34, 192, 60);
     text-shadow: 0px 1px 1px black;
 }
 .home-content h2{
@@ -92,7 +92,7 @@ width:100%
     margin-top: 6px;
 }
 .home-content h2 span{
-    color: rgb(0, 234, 255);
+    color: rgb(30, 155, 55);
     text-shadow: 0px 1px 1px black;
 }
 .home-content p{
@@ -102,12 +102,40 @@ width:100%
     margin-bottom: 6px;
    
 }
+
+
+.arrow-icon {
+  position:relative;
+  top: 0;
+  left: 0;
+  font-weight:bolder;
+  font-size: 30px; /* Increase the font size to make it bigger */
+  color: white; /* Set the color of the icon */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: #097b0e; 
+  padding: 9px; 
+  border-radius: 50%; 
+  
+  z-index: 9999;
+  margin-top: 50px;
+
+ 
+  
+}
+
+.arrow-icon:hover {
+  transform: translateX(10px); /* Increase the translation for a larger hover effect */
+}
+
+
+
 #btn{
     width: 150px;
     height: 38px;
     font-size: 16px;
     font-weight: 500;
-    background-color: rgb(0, 234, 255);
+    background-color: rgb(28, 161, 59);
     color: white;
     border-radius: 5px;
     border: none;
