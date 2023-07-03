@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,45 +16,51 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <title>Estimated Salary</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.26.3/dist/apexcharts.min.js"></script>
-    <style>
-      .chart-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-      th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-      .title-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-      }
-      .title {
-        font-size: 28px;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-      .chart-button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    </style>
+  <title>Estimated Salary</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.26.3/dist/apexcharts.min.js"></script>
+  <style>
+    .chart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .chart-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
@@ -159,260 +164,256 @@
   <!--Main Layout Section starts here-->
   <section id="data">
     <div class="title-container">
-        <h1 class="title">Estimated Salary</h1>
-        <p>Get estimated salaries for jobs around a specific location.</p>
-        <button class="chart-button" onclick="scrollToCharts()">Go to Charts</button>
-      </div>
+      <h1 class="title">Estimated Salary</h1>
+      <p>Get estimated salaries for jobs around a specific location.</p>
+      <button class="chart-button" onclick="scrollToCharts()">Go to Charts</button>
+    </div>
   </section>
-  
-<body>
-    
+ <!--Chart container starts here-->
+    <div class="chart-container" id="charts-section">
+      <div id="pie-chart"></div>
+    </div>
+    <div class="chart-container">
+      <div id="bar-chart"></div>
+    </div>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Job Title</th>
+          <th>Min Salary</th>
+          <th>Max Salary</th>
+          <th>Median Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table data will be dynamically populated using JavaScript -->
+      </tbody>
+    </table>
 
-    
-  
+    <script>
+      // Function to fetch data from the API
+      async function fetchData() {
+        const url =
+          'https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100';
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': '94fc9d3c6fmshde40d7a8e2e37f5p12b547jsnc0f0f606c2fb',
+            'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
+          },
+        };
 
-  <div class="chart-container" id="charts-section">
-    <div id="pie-chart"></div>
-  </div>
-  <div class="chart-container">
-    <div id="bar-chart"></div>
-  </div>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Location</th>
-        <th>Job Title</th>
-        <th>Min Salary</th>
-        <th>Max Salary</th>
-        <th>Median Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table data will be dynamically populated using JavaScript -->
-    </tbody>
-  </table>
-
-  <script>
-    // Function to fetch data from the API
-    async function fetchData() {
-      const url =
-        'https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100';
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': '94fc9d3c6fmshde40d7a8e2e37f5p12b547jsnc0f0f606c2fb',
-          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        return result.data;
-      } catch (error) {
-        console.error(error);
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          return result.data;
+        } catch (error) {
+          console.error(error);
+        }
       }
-    }
 
-    // Function to render the pie chart
-    function renderPieChart(data) {
-      const chartData = data.map(item => ({
-        x: item.location,
-        y: item.median_salary,
-      }));
+      // Function to render the pie chart
+      function renderPieChart(data) {
+        const chartData = data.map(item => ({
+          x: item.location,
+          y: item.median_salary,
+        }));
 
-      const options = {
-        series: chartData,
-        chart: {
-          type: 'pie',
-        },
-        labels: chartData.map(item => item.x),
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 300,
-              },
-              legend: {
-                position: 'bottom',
+        const options = {
+          series: chartData,
+          chart: {
+            type: 'pie',
+          },
+          labels: chartData.map(item => item.x),
+          responsive: [
+            {
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 300,
+                },
+                legend: {
+                  position: 'bottom',
+                },
               },
             },
+          ],
+        };
+
+        const chart = new ApexCharts(document.querySelector('#pie-chart'), options);
+        chart.render();
+      }
+
+      // Function to render the bar chart
+      function renderBarChart(data) {
+        const chartData = data.map(item => item.median_salary);
+        const locations = data.map(item => item.location);
+
+        const options = {
+          series: [
+            {
+              name: 'Median Salary',
+              data: chartData,
+            },
+          ],
+          chart: {
+            type: 'bar',
+            height: 350,
           },
-        ],
-      };
-
-      const chart = new ApexCharts(document.querySelector('#pie-chart'), options);
-      chart.render();
-    }
-
-    // Function to render the bar chart
-    function renderBarChart(data) {
-      const chartData = data.map(item => item.median_salary);
-      const locations = data.map(item => item.location);
-
-      const options = {
-        series: [
-          {
-            name: 'Median Salary',
-            data: chartData,
+          plotOptions: {
+            bar: {
+              horizontal: false,
+              columnWidth: '55%',
+              endingShape: 'rounded',
+            },
           },
-        ],
-        chart: {
-          type: 'bar',
-          height: 350,
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded',
+          dataLabels: {
+            enabled: false,
           },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        xaxis: {
-          categories: locations,
-        },
-      };
+          xaxis: {
+            categories: locations,
+          },
+        };
 
-      const chart = new ApexCharts(document.querySelector('#bar-chart'), options);
-      chart.render();
-    }
+        const chart = new ApexCharts(document.querySelector('#bar-chart'), options);
+        chart.render();
+      }
 
-    // Function to render the data table
-    function renderDataTable(data) {
-      const tableBody = document.querySelector('#data-table tbody');
+      // Function to render the data table
+      function renderDataTable(data) {
+        const tableBody = document.querySelector('#data-table tbody');
 
-      data.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
           <td>${item.location}</td>
           <td>${item.job_title}</td>
           <td>${item.min_salary}</td>
           <td>${item.max_salary}</td>
           <td>${item.median_salary}</td>
         `;
-        tableBody.appendChild(row);
-      });
-    }
-
-    // Fetch data from the API and render the charts and table
-    async function initialize() {
-      try {
-        const data = await fetchData();
-        renderPieChart(data);
-        renderBarChart(data);
-        renderDataTable(data);
-      } catch (error) {
-        console.error(error);
+          tableBody.appendChild(row);
+        });
       }
-    }
 
-    // Scroll to the charts section
-    function scrollToCharts() {
-      const chartsSection = document.getElementById('charts-section');
-      chartsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+      // Fetch data from the API and render the charts and table
+      async function initialize() {
+        try {
+          const data = await fetchData();
+          renderPieChart(data);
+          renderBarChart(data);
+          renderDataTable(data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
 
-    // Call the initialize function
-    initialize();
+      // Scroll to the charts section
+      function scrollToCharts() {
+        const chartsSection = document.getElementById('charts-section');
+        chartsSection.scrollIntoView({ behavior: 'smooth' });
+      }
 
-  </script>
+      // Call the initialize function
+      initialize();
+
+    </script>
 
 
-  <!--Main Layout Section ends-->
-  <footer>
-    <div class="container-fluid bg-success text-white p-4">
-      <div class="row">
-        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="index.html">
-            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-            Job <span>Insights</span>
+    <!--Main Layout Section ends-->
+    <footer>
+      <div class="container-fluid bg-success text-white p-4">
+        <div class="row">
+          <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+            <a class="navbar-brand" href="index.html">
+              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
+                class="d-inline-block align-text-center" />
+              Job <span>Insights</span>
+            </a>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
+              quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
+              fugit?
+            </p>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+            <h5 class="fw-bold">USEFUL LINKS</h5>
+            <ul style="list-style-type: square;">
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="job.html">Job Data</a>
+              </li>
+              <li>
+                <a href="weather.html">Weather Data</a>
+              </li>
+              <li>
+                <a href="financial.html">Financial Data</a>
+              </li>
+              <li>
+                <a href="newsletter.html">Newsletter</a>
+              </li>
+              <li>
+                <a href="website.html">About Website</a>
+              </li>
+              <li>
+                <a href="developers.html">About Developers</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+            <h5 class="fw-bold">CONTACT</h5>
+            <p>
+              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+            </p>
+            <p>
+              <i class="fa-solid fa-phone"></i> +23056789042
+            </p>
+          </div>
+        </div>
+        <div class="row mx-auto d-flex justify-content-center pt-3">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+            <form class="d-block" role="email">
+              <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+              <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <hr>
+        <!--Social media links-->
+        <div class="socials text-center">
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
           </a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
-            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit?
-          </p>
-        </div>
-        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
-          <h5 class="fw-bold">USEFUL LINKS</h5>
-          <ul style="list-style-type: square;">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="job.html">Job Data</a>
-            </li>
-            <li>
-              <a href="weather.html">Weather Data</a>
-            </li>
-            <li>
-              <a href="financial.html">Financial Data</a>
-            </li>
-            <li>
-              <a href="newsletter.html">Newsletter</a>
-            </li>
-            <li>
-              <a href="website.html">About Website</a>
-            </li>
-            <li>
-              <a href="developers.html">About Developers</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
-          <h5 class="fw-bold">CONTACT</h5>
-          <p>
-            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
-          </p>
-          <p>
-            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-          </p>
-          <p>
-            <i class="fa-solid fa-phone"></i> +23056789042
-          </p>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-google" style="color: #dd4b39;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+          </a>
         </div>
       </div>
-      <div class="row mx-auto d-flex justify-content-center pt-3">
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-          <form class="d-block" role="email">
-            <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-            <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-          </form>
-        </div>
+      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+          href="index.html">Job Insights</a>
       </div>
-      <hr>
-      <!--Social media links-->
-      <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-google" style="color: #dd4b39;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-        </a>
-      </div>
-    </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-        href="index.html">Job Insights</a>
-    </div>
-  </footer>
-  <!--Footer ends here-->
-  <!--Bootstrap JS links-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Custom JS links-->
-  <script src="../JS/jobdata.js"></script>
-</body>
+    </footer>
+    <!--Footer ends here-->
+    <!--Bootstrap JS links-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Custom JS links-->
+    <script src="../JS/jobdata.js"></script>
+  </body>
 
 </html>
