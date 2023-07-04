@@ -1,0 +1,14 @@
+{
+  "name": "@bmschmidt/aha-job-listings",
+  "main": "93cb9b31d5c4cda7@625.js",
+  "version": "625.0.0",
+  "homepage": "https://observablehq.com/@bmschmidt/aha-job-listings",
+  "author": {
+    "name": "Benjamin Schmidt",
+    "url": "https://observablehq.com/@bmschmidt"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
