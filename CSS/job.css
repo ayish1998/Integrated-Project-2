@@ -161,3 +161,16 @@ h1 {
   padding: 20px;
   font-size: 20px;
 }
+#gap {
+  padding: 80px;
+  width: 100%;
+  max-width: 1200px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+  margin-top: 60px; /* Add top margin to avoid overlap with navbar */
+}
+
+@media (max-width: 767px) {
+  #gap {
+    padding: 40px;
+  }
+}

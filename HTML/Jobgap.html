@@ -119,84 +119,85 @@
     </div>
   </nav>
   <!--navbar ends here-->
-  <!--Main Layout Section starts here-->
-  <section id="data-view">
-    <h1>Data Visusalisation</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, impedit maiores? Accusamus ex accusantium
-      aliquid. Quis consequatur maxime, quod tempora dolorum sed praesentium nisi id quibusdam in veritatis.
-      Exercitationem, fugiat!</p>
-  </section>
-  <!-- Card starts here -->
-  <div class="container">
-    <!-- <h3 class="pb-3 mb-4  border-bottom"> Job Insight </h3> -->
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-          <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-primary">Salary Distribution</strong>
-            <h4 class="mb-0">
-              <a class="text-dark" href="../HTML/salary.html">Explore Range and Variability of Salaries</a>
-            </h4>
-            <!-- <div class="mb-1 text-muted small">Nov 12</div> -->
-            <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-              additional content.</p>
-          </div>
-          <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]" src="../IMAGES/chart.jpg"
-            style="width: 200px; height: 300px;">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-          <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-success">Job History</strong>
-            <h4 class="mb-0">
-              <a class="text-body" href="../HTML/jobhistory.html">Explore Job History Across Countries</a>
-            </h4>
-            <!-- <div class="mb-1 text-muted small">Nov 11</div> -->
-            <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in to
-              additional content.</p>
-          </div>
-          <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]" src="../IMAGES/chart2.jpg"
-            style="width: 200px; height: 300px;">
-        </div>
-      </div>
+  <!--Main body content starts here-->
+  <section id="gap">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
-          <div class="card border-primary flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">Industry Comparison</strong>
-              <h4 class="mb-0">
-                <a class="text-dark" href="../HTML/jobindustry.html">40 Percent of People Can’t Afford Basics necessities</a>
-              </h4>
-              <!-- <div class="mb-1 text-muted small">Nov 12</div> -->
-              <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in
-                to
-                additional content.</p>
-            </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]" src="../IMAGES/chart2.jpg"
-              style="width: 200px; height: 300px;">
-          </div>
+        <div class="col-lg-12">
+          <h1 class="text-center">Job Insights</h1>
+          <p class="text-center">This page displays the job details of the job you searched for.</p>
         </div>
-        <div class="col-md-6">
-          <div class="card border-success flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Gender Pay Gap</strong>
-              <h4 class="mb-0">
-                <a class="text-dark" href="../HTML/Jobgap.html">Women Earn 20% Less Than Men in Similar Roles</a>
-              </h4>
-              <p class="card-text mb-auto p-4">This is a wider card with supporting text below as a natural lead-in
-                to
-                additional content.</p>
-            </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x300]" src="../IMAGES/chart3.jpg"
-              style="width: 200px; height: 300px;">
-          </div>
+        <div>
+          <canvas id="jobDetailsChart"></canvas>
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  <!--Main Layout Section ends-->
+  </section>
+  <script>
+    async function fetchData() {
+      const url = 'https://jsearch.p.rapidapi.com/job-details?job_id=fFunVwyb9l4AAAAAAAAAAA%3D%3D&extended_publisher_details=false';
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'd04a271587msh1c8c70737cc9b87p1da6c7jsnf560bf3fe7c6',
+          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        console.log(data);
+
+        // Extract relevant data for the chart
+        const employmentType = data.data[0].job_employment_type;
+        const estimatedSalaries = data.data[0].estimated_salaries;
+        const salaryLabels = estimatedSalaries.map(salary => salary.job_title);
+        const salaryValues = estimatedSalaries.map(salary => salary.median_salary);
+
+        // Combine labels and values into a single dataset
+        const dataset = salaryLabels.map((label, index) => ({
+          label: label,
+          data: [salaryValues[index]],
+          backgroundColor: 'rgba(255, 99, 132, 0.6)'
+        }));
+
+        // Create the job details chart
+        const jobDetailsCanvas = document.getElementById('jobDetailsChart');
+        new Chart(jobDetailsCanvas, {
+          type: 'bar',
+          data: {
+            labels: ['Employment Type', ...salaryLabels],
+            datasets: [{
+              label: 'Salary Distribution',
+              data: [employmentType, ...salaryValues],
+              backgroundColor: ['rgba(54, 162, 235, 0.5)', ...Array(salaryLabels.length).fill('rgba(255, 99, 132, 0.6)')]
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  </script>
+
+
+
+
+
+  <!--Main body content ends here-->
+  <!--Footer-->
   <footer>
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
