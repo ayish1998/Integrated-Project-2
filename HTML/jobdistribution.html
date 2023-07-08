@@ -120,80 +120,91 @@
   </nav>
   <!--navbar ends here-->
   <!--Main body content starts here-->
-  <section id="gap">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="text-center">Job Insights</h1>
-          <p class="text-center">This page displays the job details of the job you searched for.</p>
-        </div>
-        <div>
-          <canvas id="jobDetailsChart"></canvas>
+  <section id="vis">
+    <h2>Below is a chart depicting the Regional Job Distribution</h2>
+  </section>
+  <section id="wrapper">
+    <div class="container">
+      <div id="title-out">
+        <div class="centered container">
+          <div class="meta-bar">
+            <strong> <a href="../HTML/job.html">Job Data Insight</a></strong> /
+            Regional Job Distribution:
+          </div>
         </div>
       </div>
+      <canvas id="chart"></canvas>
+      <p id="explanation"></p>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>Industry</th>
+            <th>Percentage of People Unable to Afford Basic Necessities</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
   </section>
+
   <script>
-    async function fetchData() {
-      const url = 'https://jsearch.p.rapidapi.com/job-details?job_id=fFunVwyb9l4AAAAAAAAAAA%3D%3D&extended_publisher_details=false';
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'd04a271587msh1c8c70737cc9b87p1da6c7jsnf560bf3fe7c6',
-          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-        }
-      };
+    // Data for the chart
+    const data = {
+      labels: ['Technology', 'Healthcare', 'Retail'],
+      datasets: [{
+        label: 'Percentage of People Unable to Afford Basic Necessities',
+        data: [30, 45, 50],
+        backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)'],
+        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+        borderWidth: 1
+      }]
+    };
 
-      try {
-        const response = await fetch(url, options);
-        const data = await response.json();
-
-        console.log(data);
-
-        // Extract relevant data for the chart
-        const employmentType = data.data[0].job_employment_type;
-        const estimatedSalaries = data.data[0].estimated_salaries;
-        const salaryLabels = estimatedSalaries.map(salary => salary.job_title);
-        const salaryValues = estimatedSalaries.map(salary => salary.median_salary);
-
-        // Combine labels and values into a single dataset
-        const dataset = salaryLabels.map((label, index) => ({
-          label: label,
-          data: [salaryValues[index]],
-          backgroundColor: 'rgba(255, 99, 132, 0.6)'
-        }));
-
-        // Create the job details chart
-        const jobDetailsCanvas = document.getElementById('jobDetailsChart');
-        new Chart(jobDetailsCanvas, {
-          type: 'bar',
-          data: {
-            labels: ['Employment Type', ...salaryLabels],
-            datasets: [{
-              label: 'Salary Distribution',
-              data: [employmentType, ...salaryValues],
-              backgroundColor: ['rgba(54, 162, 235, 0.5)', ...Array(salaryLabels.length).fill('rgba(255, 99, 132, 0.6)')]
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
+    // Options for the chart
+    const options = {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Percentage'
           }
-        });
-
-      } catch (error) {
-        console.error(error);
+        }
       }
-    }
+    };
 
-    fetchData();
+    // Create the chart
+    const ctx = document.getElementById('chart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: options
+    });
+
+    // Text explanation
+    const explanation = document.getElementById('explanation');
+    explanation.innerHTML = 'According to recent data on job seekers\' financial situations, a significant portion of individuals (40 percent) are unable to afford basic necessities. This statistic highlights the pressing issue of financial constraints faced by job seekers in various industries. To better understand the varying degrees of affordability across sectors, we conducted a comparison of three key industries: Technology, Healthcare, and Retail.';
+
+    // Table of information
+    const tableData = [
+      ['Technology', '30%'],
+      ['Healthcare', '45%'],
+      ['Retail', '50%']
+    ];
+    const tableBody = document.querySelector('#table tbody');
+    tableData.forEach(rowData => {
+      const row = document.createElement('tr');
+      rowData.forEach(cellData => {
+        const cell = document.createElement('td');
+        cell.textContent = cellData;
+        row.appendChild(cell);
+      });
+      tableBody.appendChild(row);
+    });
   </script>
-
-
-
+  <!--Back to main button-->
 
 
   <!--Main body content ends here-->
