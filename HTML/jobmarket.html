@@ -120,27 +120,71 @@
   </nav>
   <!--navbar ends here-->
   <!--Main body content starts here-->
-
-
   <section id="vis">
-    <h2>Below is a chart depicting a a common job world wide and average salary</h2>
+    <h2>Below is a chart depicting a Job Market Overview and insights</h2>
   </section>
-  <!-- d3.js data! -->
+  <section id="wrapper">
+    <div class="container">
+      <div id="title-out">
+        <div class="centered container">
+          <div class="meta-bar">
+            <strong> <a href="../HTML/job.html">Job Data Insight</a></strong> /
+            Job Market Overview
+          </div>
+        </div>
+      </div>
+      <div class="chart-container">
+        <h2>Bar Chart: Average Salaries for Different Job Titles</h2>
+        <canvas id="barChart"></canvas>
+      </div>
+      <p style="margin-top: 40px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
+        quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
+        quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.</p>
+
+      <div class="chart-container">
+        <h2>Line Graph: Average Salaries for Different Job Titles</h2>
+        <canvas id="lineGraph"></canvas>
+      </div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
+        quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.
+      </p>
+      <div class="chart-container">
+        <h2>Pie Chart: Job Titles Distribution based on Average Salaries</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <p style="margin-top: 40px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
+        quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
+        quod earum quas
+        vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
+        nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
+        porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
+        tempore? Ab, quo.</p>
+    </div>
+  </section>
+
 
 
   <!--Chart js data-->
-  <div class="chart-container">
-    <h2>Bar Chart: Average Salaries for Different Job Titles</h2>
-    <canvas id="barChart"></canvas>
-  </div>
-  <div class="chart-container">
-    <h2>Line Graph: Average Salaries for Different Job Titles</h2>
-    <canvas id="lineGraph"></canvas>
-  </div>
-  <div class="chart-container">
-    <h2>Pie Chart: Job Titles Distribution based on Average Salaries</h2>
-    <canvas id="pieChart"></canvas>
-  </div>
   <script>
     // Sample dataset
     const jobTitles = ['Software Engineer', 'Data Scientist', 'Project Manager', 'Marketing Specialist', 'Financial Analyst'];
@@ -218,10 +262,6 @@
       }
     });
   </script>
-  <!--Back to main button-->
-  <div style="margin: 20px;">
-    <a class="btn btn-outline-success btn-sm" href="../HTML/job.html">Continue</a>
-  </div>
   <!--Main body content ends here-->
   <!--Footer-->
   <footer>
