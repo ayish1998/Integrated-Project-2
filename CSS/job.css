@@ -67,6 +67,11 @@ footer a {
 
 
 /* Chart styling statrs here*/
+
+#my_dataviz {
+  width: 100%;
+  height: 400px;
+}
 #chart,
 #table {
   z-index: 100;
