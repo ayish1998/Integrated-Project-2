@@ -33,36 +33,6 @@ footer a {
   text-decoration: none;
   color: white;
 }
-
-#data-view {
-  background-image: white;
-  width: 100%;
-  height: 40vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 40px;
-  margin-top: 100px;
-}
-
-#data-view h1 {
-  font-size: 2.5rem;
-  color: #0a0859;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-#data-view p {
-  color: #1b1b1b;
-  font-size: 1.2rem;
-  padding: 20px;
-  border-bottom: #01010c 1px solid;
-}
-
 #data {
   background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url(/IMAGES/service1.jpeg);
   width: 100%;
@@ -97,28 +67,54 @@ footer a {
 
 
 /* Chart styling statrs here*/
+
+#my_dataviz {
+  width: 100%;
+  height: 400px;
+}
+#chart,
+#table {
+  z-index: 100;
+}
+#wrapper {
+  padding: 20px;
+  margin: 0;
+}
+#chart {
+  width: 100%;
+}
+
 .chart-container {
   padding: 50px;
   width: 60%;
   margin: 0 auto;
 }
 
+#wrapper {
+  padding: 100px;
+}
+
+#title-out {
+  text-align: center;
+}
+
+#title-out .meta-bar {
+  margin-bottom: 2rem;
+}
+
+#wrapper .meta-bar a {
+  color: rgba(51, 51, 100, 0.678);
+  text-decoration: underline;
+}
 @media screen and (max-width: 600px) {
   .chart-container {
     width: 100%;
     padding: 20px;
   }
 }
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 #chart {
-  padding: 50px;
-  width: 80%;
-  margin: 0 auto;
+  
+  width: 70%;
 }
 
 #explanation {
@@ -151,7 +147,7 @@ h1 {
   align-items: center;
   text-align: center;
   padding-top: 40px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 #vis h2 {
