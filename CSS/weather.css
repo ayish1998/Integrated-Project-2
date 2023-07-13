@@ -1,30 +1,467 @@
-/* copy from here */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* body {
+  background-color: #E0E3F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  color: #163D57
+} */
+
+/* Nav */
 nav a {
   text-decoration: none;
   color: white;
 }
+
 .navbar-brand {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 700;
-  }
-  
-  .navbar-brand span {
-    color: grey;
-  }
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+}
 
-  .navbar-nav {
-    width: 100%;
-    justify-content: space-evenly;
-  }
+.navbar-brand span {
+  color: grey;
+}
 
-  footer a {
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+footer a {
   text-decoration: none;
   color: white;
-  }
-  /* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
+}
+
+.content {
+  margin-top: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.darkmode .content {
+  background-color: #1A1B1F;
+  color: #8a8a8a;
+}
+
+.container {
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.darkmode .container {
+  background-color: #1A1B1F;
+  color: #8a8a8a;
+}
+.aside {
+  flex: 1;
+  padding: 20px;
+  height: 200px;
+  background-color: #f4f4f4;
+  border-radius: 18px;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+  margin-right: 20px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+.darkmode .aside {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+.tabs-container {
+  flex: 3;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 18px;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+  margin-right: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.darkmode .tabs-container {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+.tabs {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs a {
+  cursor: pointer;
+  padding: 12px 24px;
+  width: 120px;
+  text-decoration: none;
+  color: #198754;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 18px;
+  transition: background 0.1s, color 0.1s;
+  background: linear-gradient(145deg, #ffff, #dcdcdc);
+  box-shadow: 3px 3px 5px #bebebe,
+    -3px -3px 5px #ffff;
+}
+
+.darkmode .tabs a {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+.tabs a:hover {
+  background: linear-gradient(145deg, #f4f4f4, #cecece);
+  color: #8a8a8a;
+}
+
+.darkmode .tabs a:hover {
+  background: #141414;
+  color: #bbb;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+  background-color: #f4f4f4;
+  color: #bdbdbd;
+  cursor: default;
+  padding: 14px 22px 10px 26px;
+  background: #f4f4f4;
+  box-shadow: inset 3px 3px 5px #cbcbcb,
+    inset -3px -3px 5px #ffffff;
+}
+
+.darkmode .tabs a.active {
+  background: #1A1B1F;
+  box-shadow: inset 3px 3px 6px #101114,
+    inset -3px -3px 6px #24252a;
+  color: #6a6a6a;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 0px;
+  display: none;
+  overflow: hidden; /* Add this */
+  /* border-radius: 18px;
+  background: #f4f4f4;
+  box-shadow: 3px 3px 6px #bebebe,
+    -3px -3px 6px #ffffff; */
+}
+
+.darkmode .tabcontent {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+.tab-content .active {
+  display: block;
+}
+
+.tabcontent p {
+  margin-bottom: 12px;
+}
+
+.tabcontent p:last-child {
+  margin-bottom: 0;
+}
+
+/* #tabcontent3 {
+  max-height: 600px;
+  overflow-y: auto;
+} */
 
 
-  .content{
-    height: 900px;
+/* THE DARKMODE SWITCH */
+.dark-mode-switch {
+  margin-top: 70px;
+  position: fixed;
+  top: 30px;
+  right: 16px;
+  z-index: 9999;
+}
+
+.switch-label {
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+/* the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  margin-left: 4px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1A1B1F;
+  transition: .2s;
+  box-shadow: 2px 2px 3px #ffffff,
+    -2px -2px 3px #bebebe;
+}
+
+.darkmode .slider {
+  box-shadow: 2px 2px 3px #34353a,
+    -2px -2px 3px #000104;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background: #9294b8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #f4f4f4;
+}
+
+input:checked+.slider:before {
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 11px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.header-left {
+  width: 50%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-right: 2px solid hsl(156, 78%, 40%);;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.weather-icon.large {
+  width: 80px;
+  height: 80px;
+}
+
+.current-temp {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.header-right {
+  width: 50%;
+  display: grid;
+  justify-content: space-around;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.info-sub {
+  font-weight: lighter;
+  font-size: 0.75rem;
+}
+
+.info-sub:last-child {
+  margin-bottom: 0;
+}
+
+.daytime-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 75px);
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.daytime-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid hsl(200, 100%, 10%);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.daytime-card-hour {
+  font-size: 0.75rem;
+  color: #198754;
+  margin-top: 0.5rem;
+}
+
+.hour-section {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+}
+
+.hour-row > td {
+  padding: 0.25rem o.5rem;
+  color: white;
+  font-size: 0.75rem;
+} 
+
+.hour-details-row.hidden {
+  display: none;
+}
+
+.hour-details-row.show {
+  display: table-row;
+}
+
+.hour-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+}
+
+svg {
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+}
+
+#heatmap-svg{
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  /* position: absolute; /* Add this */
+  /* top: 0; /* Add this */
+  /* left: 0; Add this  */
+}
+.cell:hover{
+  fill: black
+}
+g{
+  color: #E0E3F0
+}
+#tooltip {
+  position: relative;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  z-index: 9999; /* Set a higher z-index value */
+  white-space: nowrap;
+  pointer-events: none;
+}
+#legend{
+  color: rgb(56, 58, 74);
+  font-size: 18px;
+  text-align: center;
+  min-height: 150px;
+}
+#title{
+  font-size: 28px;
+  color:#198754;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#x-axis, #y-axis{
+  font-size: 14px;
+  color: #E0E3F0;
+}
+
+.x-axis-label, .y-axis-label {
+  font-size: 18px;
+  color: #E0E3F0;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
   }
+  
+  .container {
+    flex-direction: column;
+  }
+  
+  .aside {
+    margin-bottom: 20px;
+  } 
+  .tabs-container {
+    margin-bottom: 20px;
+    padding: 7px;
+  }
+  
+  .tabs {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .tabs a {
+  padding: 6px 12px;
+  width: 100px;
+  margin: auto;
+  }
+  
+  .tabcontent {
+    padding: 20px;
+  }
+}
