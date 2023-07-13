@@ -105,8 +105,8 @@
   <!--navbar ends here-->
 
   <div class="content">
-  <div class="container w-100 d-flex m-auto" id="container">
-    <div class="aside">
+  <div class="container d-flex m-auto" id="container">
+    <div class="aside container">
       <div class="row">
         <h1>Air Quality</h1>
         <p>fcfvhbnxjmkksll</p>
@@ -114,34 +114,41 @@
       <div class="row">Sport News
         <p>fcfvhbnxjmkksll</p>
       </div>
-
     </div>
     <!--tab nav options-->
-    <div class="tabs-container m-auto" id="tabs">
+    <div class="container tabs-container m-auto" id="tabs">
       <div class="tabs d-flex mb-2">
-        <a class="tab" id="tab1" data-tab="1" role="tab">Current</a>
-        <a class="tab" id="tab2" data-tab="2" role="tab">1 hour</a>
-        <a class="tab" id="tab3" data-tab="3" role="tab">5 hours</a>
-        <a class="tab" id="tab4" data-tab="4" role="tab">1 day</a>
+        <a class="tab" id="tab1" data-tab="1" role="tab">Today</a>
+        <a class="tab" id="tab2" data-tab="2" role="tab">Tomorrow</a>
+        <a class="tab" id="tab3" data-tab="3" role="tab">7 days</a>
+        <a class="tab" id="tab4" data-tab="4" role="tab">Monthly</a>
+        <a class="tab" id="tab5" data-tab="5" role="tab">Visualization</a>
       </div>
 
     <!--Tab contents-->
-    <div class="tab-content">
+    <div class="tab-content" id="tab-content">
       <!--Tab1 content-->
       <div class="tabcontent fade show" id="tabcontent1" data-tab="1" role="tabpane">
-        fvgbhnjmk,l.;njmk,sdcfvgbhnjmk,l.;/'.;,lmknbvcx'
+        <!--Tab1 header dynamically added with javascript-->
+        <!--Tab1 body dynamically added with javascript-->
+        <!--Tab1 daytime section dynamically added with javascript-->
+        <!--hour section dynamically added with javascript-->
       </div>
       <!--Tab2 content-->
       <div class="tabcontent fade show" id="tabcontent2" data-tab="2" role="tabpane">
-        <div id="heatmap1"></div>
       </div>
       <!--Tab3 content-->
       <div class="tabcontent fade show" id="tabcontent3" data-tab="3" role="tabpane">
-        <div id="heatmap"></div>
+        rfgbnm,;lknbgb nm,;.,
       </div>
       <!--Tab4 content-->
       <div class="tabcontent fade show" id="tabcontent4" data-tab="4" role="tabpane">
         rfgbnm,;lknbgb nm,;.,
+      </div>
+      <div class="tabcontent fade show" id="tabcontent5" data-tab="5" role="tabpane">
+        <h3 id="title">Weather Heatmap</h1>
+        <svg id="heatmap-svg" viewBox="0 0 1200 600"></svg>
+        <div id="tooltip"></div>
       </div>
     </div>
     </div>
@@ -232,7 +239,8 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <!--External Javascript file-->
-  <script src="../JS/weather.js"></script>
+  <!-- <script src="../JS/weather.js"></script> -->
+  <script src="../JS/weather1.js"></script>
 </body>
 
 </html>

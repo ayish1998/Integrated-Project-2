@@ -4,7 +4,17 @@
   padding: 0;
 }
 
-/* copy from here */
+/* body {
+  background-color: #E0E3F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  color: #163D57
+} */
+
+/* Nav */
 nav a {
   text-decoration: none;
   color: white;
@@ -30,12 +40,11 @@ footer a {
   color: white;
 }
 
-/* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
-
 .content {
   margin-top: 80px;
   padding-top: 30px;
   padding-bottom: 30px;
+  overflow: hidden;
 }
 
 .darkmode .content {
@@ -43,23 +52,54 @@ footer a {
   color: #8a8a8a;
 }
 
-/* .container {
-  display: flex;
-} */
+.container {
+  flex-wrap: wrap;
+  overflow: hidden;
+}
 
 .darkmode .container {
   background-color: #1A1B1F;
   color: #8a8a8a;
 }
+.aside {
+  flex: 1;
+  padding: 20px;
+  height: 200px;
+  background-color: #f4f4f4;
+  border-radius: 18px;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+  margin-right: 20px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+}
+
+.darkmode .aside {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
 
 .tabs-container {
-  width: 540px;
-  max-width: 620px;
-  min-width: 420px;
+  flex: 3;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 18px;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff;
+  margin-right: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.darkmode .tabs-container {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
 }
 
 .tabs {
   justify-content: space-between;
+  align-items: center;
 }
 
 .tabs a {
@@ -67,6 +107,7 @@ footer a {
   padding: 12px 24px;
   width: 120px;
   text-decoration: none;
+  color: #198754;
   text-align: center;
   font-weight: bold;
   border-radius: 18px;
@@ -110,15 +151,15 @@ footer a {
   color: #6a6a6a;
 }
 
-
 /* Style the tab content */
 .tabcontent {
-  padding: 46px;
+  padding: 0px;
   display: none;
-  border-radius: 18px;
+  overflow: hidden; /* Add this */
+  /* border-radius: 18px;
   background: #f4f4f4;
   box-shadow: 3px 3px 6px #bebebe,
-    -3px -3px 6px #ffffff;
+    -3px -3px 6px #ffffff; */
 }
 
 .darkmode .tabcontent {
@@ -139,24 +180,19 @@ footer a {
   margin-bottom: 0;
 }
 
-/* .tabcontent .read-more-link a {
-  color: #626262;
-  text-decoration: none;
-  font-size: 0.85em;
-  font-weight: bold;
-}
-.darkmode .tabcontent .read-more-link a {
-  color: #d4d4d4;
-}
-.icon {
-  padding-left: 8px;
-  font-size: 16px;
+/* #tabcontent3 {
+  max-height: 600px;
+  overflow-y: auto;
 } */
+
 
 /* THE DARKMODE SWITCH */
 .dark-mode-switch {
-  top: 16px;
+  margin-top: 70px;
+  position: fixed;
+  top: 30px;
   right: 16px;
+  z-index: 9999;
 }
 
 .switch-label {
@@ -228,32 +264,204 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+.header-left {
+  width: 50%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-right: 2px solid hsl(156, 78%, 40%);;
+}
 
+.weather-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
 
-/* ==============================
-.small-screen {
+.weather-icon.large {
+  width: 80px;
+  height: 80px;
+}
+
+.current-temp {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.header-right {
+  width: 50%;
+  display: grid;
+  justify-content: space-around;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.info-sub {
+  font-weight: lighter;
+  font-size: 0.75rem;
+}
+
+.info-sub:last-child {
+  margin-bottom: 0;
+}
+
+.daytime-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 75px);
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.daytime-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid hsl(200, 100%, 10%);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.daytime-card-hour {
+  font-size: 0.75rem;
+  color: #198754;
+  margin-top: 0.5rem;
+}
+
+.hour-section {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+}
+
+.hour-row > td {
+  padding: 0.25rem o.5rem;
+  color: white;
+  font-size: 0.75rem;
+} 
+
+.hour-details-row.hidden {
   display: none;
-  background-color: #f4f4f4;
-  height: 100vh;
-  color: #a2a2a2;
-  font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
 }
-.darkmode .small-screen {
-  background-color: #1A1B1F; 
-  color: #8a8a8a;
+
+.hour-details-row.show {
+  display: table-row;
 }
-.small-screen-content {
-  width: 70%;
-  margin: auto;
+
+.hour-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
 }
-@media only screen and (max-width: 600px) {
+
+svg {
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+}
+
+#heatmap-svg{
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  /* position: absolute; /* Add this */
+  /* top: 0; /* Add this */
+  /* left: 0; Add this  */
+}
+.cell:hover{
+  fill: black
+}
+g{
+  color: #E0E3F0
+}
+#tooltip {
+  position: relative;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  z-index: 9999; /* Set a higher z-index value */
+  white-space: nowrap;
+  pointer-events: none;
+}
+#legend{
+  color: rgb(56, 58, 74);
+  font-size: 18px;
+  text-align: center;
+  min-height: 150px;
+}
+#title{
+  font-size: 28px;
+  color:#198754;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#x-axis, #y-axis{
+  font-size: 14px;
+  color: #E0E3F0;
+}
+
+.x-axis-label, .y-axis-label {
+  font-size: 18px;
+  color: #E0E3F0;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+  }
+  
   .container {
-      display: none;
+    flex-direction: column;
   }
-  .small-screen {
-      display: flex;
+  
+  .aside {
+    margin-bottom: 20px;
+  } 
+  .tabs-container {
+    margin-bottom: 20px;
+    padding: 7px;
   }
+  
+  .tabs {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .tabs a {
+  padding: 6px 12px;
+  width: 100px;
+  margin: auto;
+  }
+  
   .tabcontent {
-      display: block;
+    padding: 20px;
   }
-} */
+}
