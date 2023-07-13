@@ -138,7 +138,7 @@
         </div>
       </div>
       <!--Salary Trends starts here-->
-      <h3>Public Media Salary Survey Interactive Embeds</h3>
+      <h3>Public Media Salary Survey Interactive</h3>
       <div id="observablehq-viewof-role-de66b6fa"></div>
       <div id="observablehq-main-de66b6fa"></div>
       <div id="observablehq-usmap-de66b6fa"></div>
@@ -216,84 +216,7 @@
         <strong>Skilled Labor</strong> defined as the percentage of jobs in a metropolitan area that require a specialized skill set in order to complete some of the assigned tasks. See additional documentation on how BLS occupation titles were classified as skilled or unskilled jobs.
       </p>
     </section>
-    <!--Chart js data-->
-    <script>
-      // Sample dataset
-      const jobTitles = ['Software Engineer', 'Data Scientist', 'Project Manager', 'Marketing Specialist', 'Financial Analyst'];
-      const averageSalaries = [85000, 95000, 80000, 65000, 75000];
-      const industryTrends = ['Growing', 'Growing', 'Stable', 'Declining', 'Stable'];
-      // Bar Chart
-      new Chart(document.getElementById("barChart"), {
-        type: 'bar',
-        data: {
-          labels: jobTitles,
-          datasets: [{
-            label: 'Average Salary (USD)',
-            data: averageSalaries,
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: {
-            x: {
-              beginAtZero: true
-            }
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: 'Average Salaries for Different Job Titles'
-            }
-          }
-        }
-      });
-      // Line Graph
-      new Chart(document.getElementById("lineGraph"), {
-        type: 'line',
-        data: {
-          labels: jobTitles,
-          datasets: [{
-            label: 'Average Salary (USD)',
-            data: averageSalaries,
-            borderColor: 'rgba(255, 99, 132, 1)',
-            fill: false,
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: 'Average Salaries for Different Job Titles'
-            }
-          }
-        }
-      });
-      // Pie Chart
-      new Chart(document.getElementById("pieChart"), {
-        type: 'pie',
-        data: {
-          labels: jobTitles,
-          datasets: [{
-            data: averageSalaries,
-            backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)'],
-          }]
-        },
-        options: {
-          plugins: {
-            title: {
-              display: true,
-              text: 'Job Titles Distribution based on Average Salaries'
-            }
-          }
-        }
-      });
-    </script>
+   
     <!--Main body content ends here-->
     <!--Footer-->
     <footer>
