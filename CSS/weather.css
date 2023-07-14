@@ -264,7 +264,31 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #f4f4f4;
+  text-decoration: none;
+}
+.suggestion:hover {
+  background-color: #f4f4f4;
+}
+
+.suggestion a {
+  text-decoration: none;
+}
+
 .header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   margin: 0.5rem;
   padding: 0.5rem;
@@ -282,7 +306,7 @@ input:checked+.slider:before {
   height: 80px;
 }
 
-.current-temp {
+.current-temp, .forecast-temp {
   font-size: 2rem;
   margin-left: 1rem;
 }
