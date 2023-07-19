@@ -71,6 +71,7 @@ footer a {
   margin-right: 20px;
   margin-left: 0px;
   margin-bottom: 10px;
+  overflow-y: scroll;
 }
 
 .darkmode .aside {
@@ -322,6 +323,20 @@ input:checked+.slider:before {
   gap: 0.5rem;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(2, auto);
+}
+
+.weather-alert {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-alert .label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: red;
 }
 
 .air-quality {

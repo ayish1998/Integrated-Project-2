@@ -198,8 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create the header element
   const createHeader = (weatherData, forecastIndex) => {
-    console.log(weatherData);
-    console.log(forecastIndex);
+    // console.log(weatherData);
+    // console.log(forecastIndex);
     const header = document.createElement('header');
     header.className = 'header';
     const headerLeft = document.createElement('div');
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const infoGroupLabels = ['Max', 'Min', 'Wind', 'Precip', 'UV index', 'R-Humid'];
     const forecastDay = weatherData.forecast.forecastday[forecastIndex].day;
-    console.log(forecastDay);
+    // console.log(forecastDay);
 
     const infoGroupData = [
       `${forecastDay.maxtemp_c}`,
@@ -270,12 +270,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     header.appendChild(headerRight);
-
     return header;
   };
 
   // Create the daytime section
   const createDaytimeSection = (hourlyData) => {
+    console.log(hourlyData);
     const daytimeSection = document.createElement('section');
     daytimeSection.className = 'daytime-section';
     daytimeSection.dataset.daytimeSection = '';
@@ -476,6 +476,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const forecastTomorrow = weatherData.forecast.forecastday[1];
     const hourlyData = forecastToday.hour;
     const hourlyDataTomorrow = forecastTomorrow.hour;
+    const currentWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${currentWeather.condition.text}`);
+    const forecastWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${forecastTomorrow.day.condition.text}`);
 
     // Clear existing weather data and load new weather data
     clearWeatherData();
@@ -487,6 +489,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create tab 1 header
     const header1 = createHeader(weatherData, 0);
     tabcontent1.appendChild(header1);
+    tabcontent1.appendChild(currentWeatherAlertDiv);
 
     // Create tab 1 daytime section
     const daytimeSection1 = createDaytimeSection(hourlyData);
@@ -513,6 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create tab 2 header
     const header2 = createHeader(weatherData, 1);
     tabcontent2.appendChild(header2);
+    tabcontent2.appendChild(forecastWeatherAlertDiv);
 
     // Create tab 2 daytime section
     const daytimeSection2 = createDaytimeSection(hourlyDataTomorrow);
