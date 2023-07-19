@@ -105,20 +105,21 @@
   <!--navbar ends here-->
 
   <div class="content">
-    <div class="search-bar">
-      <input id="search-input" type="text" placeholder="Enter a city">
-      <button id="search-button" type="button">Search</button>
-      <ul id="suggestions"></ul>
+    <div>
+    <div class="search-bar d-flex w-50 mx-auto mb-2 my-2">
+      <input class="form-control me-2" id="search-input" type="text" placeholder="Enter a city or country">
+      <button class="btn btn-secondary btn-outline-light" id="search-button" type="button">Search</button>
     </div>
-    
+    <ul class="w-50 mx-auto" id="suggestions"></ul>
+  </div>
+
   <div class="container d-flex m-auto" id="container">
-    <div class="aside container">
-      <div class="row">
-        <h1>Air Quality</h1>
-        <p>fcfvhbnxjmkksll</p>
+    <div class="aside container" id="aside">
+      <div class="row" id="air-quality">
+        <!-- <h1>Air Quality</h1> -->
       </div>
-      <div class="row">Sport News
-        <p>fcfvhbnxjmkksll</p>
+      <div class="row">Severe Weather Alerts
+        <!--Severe Weather Alert-->
       </div>
     </div>
     <!--tab nav options-->
@@ -127,7 +128,7 @@
         <a class="tab" id="tab1" data-tab="1" role="tab">Today</a>
         <a class="tab" id="tab2" data-tab="2" role="tab">Tomorrow</a>
         <a class="tab" id="tab3" data-tab="3" role="tab">7 days</a>
-        <a class="tab" id="tab4" data-tab="4" role="tab">Monthly</a>
+        <!-- <a class="tab" id="tab4" data-tab="4" role="tab">Monthly</a> -->
         <a class="tab" id="tab5" data-tab="5" role="tab">Visualization</a>
       </div>
 
@@ -145,12 +146,11 @@
       </div>
       <!--Tab3 content-->
       <div class="tabcontent fade show" id="tabcontent3" data-tab="3" role="tabpane">
-        rfgbnm,;lknbgb nm,;.,
       </div>
       <!--Tab4 content-->
-      <div class="tabcontent fade show" id="tabcontent4" data-tab="4" role="tabpane">
+      <!-- <div class="tabcontent fade show" id="tabcontent4" data-tab="4" role="tabpane">
         rfgbnm,;lknbgb nm,;.,
-      </div>
+      </div> -->
       <div class="tabcontent fade show" id="tabcontent5" data-tab="5" role="tabpane">
         <h3 id="title">Weather Heatmap</h1>
         <svg id="heatmap-svg" viewBox="0 0 1200 600"></svg>
@@ -246,7 +246,9 @@
     crossorigin="anonymous"></script>
   <!--External Javascript file-->
   <!-- <script src="../JS/weather.js"></script> -->
-  <script src="../JS/weather1.js"></script>
+  <!-- <script src="../JS/weather.js"></script>-->
+  <script src="../JS/daily_weather.js"></script>
+  <!-- <script src="../JS/weather2.js"></script> -->
 </body>
 
 </html>
