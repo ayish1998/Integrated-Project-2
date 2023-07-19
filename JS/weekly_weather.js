@@ -206,6 +206,49 @@ document.addEventListener("DOMContentLoaded", function () {
     aside.appendChild(createDivWithLabel('air-data-group', 'Total Air Quality Index', airData));
   }
   
+    //weather News
+
+// Rapid API
+const newsApiUrl = 'https://weather338.p.rapidapi.com/news/list?offset=0&limit=10';
+const newsHeaders = {
+'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
+'X-RapidAPI-Host': 'weather338.p.rapidapi.com'
+};
+
+const getNews = async () => {
+const weatherNewsDiv = document.getElementById('weather-news');
+const weatherNewsLabel = createDiv('heading', 'Weather News');
+    aside.appendChild(weatherNewsLabel);
+
+try {
+  const response = await fetch(newsApiUrl, {
+    headers: newsHeaders
+  });
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  const data = await response.json();
+  console.log(data);
+
+  data.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.className = 'news';
+    const link = document.createElement('a');
+    link.href = item.url; // Fixed the issue by using `item.url` directly
+    link.textContent = item.title;
+
+    listItem.appendChild(link);
+    weatherNewsDiv.appendChild(listItem);
+    aside.appendChild(weatherNewsDiv);
+  });
+
+} catch (error) {
+  console.error('Error fetching weather news:', error);
+}
+}
+
   function loadWeeklyData(weatherData) {
     const weeklyData = weatherData.data;
     const weekSection = document.createElement('section');
@@ -301,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       const airQualityData = await airResponse.json();
       loadAirQualityData(airQualityData);
+      getNews();
     } catch (error) {
       console.error(error);
     }
