@@ -47,36 +47,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     activateTab(opentab)
 
-  // Rapid API
-  const apiUrl = 'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily';
-  const headers = {
-    'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-    'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
-  };
+  // // Rapid API
+  // const apiUrl = 'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily';
+  // const headers = {
+  //   'X-RapidAPI-Key': 'dc4b4555fdmsh5c18d8c366dfd18p132b94jsnf94eb119e74c',
+  //   'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+  // };
 
-  const getCurrentLocationWeather = async () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
+  // const getCurrentLocationWeather = async () => {
+  //   return new Promise((resolve, reject) => {
+  //     navigator.geolocation.getCurrentPosition(
+  //       async (position) => {
+  //         const latitude = position.coords.latitude;
+  //         const longitude = position.coords.longitude;
 
-          try {
-            const response = await fetch(`${apiUrl}?lat=${latitude}&lon=${longitude}&days=7`, {
-              headers: headers
-            });
-            const data = await response.json();
-            resolve(data);
-          } catch (error) {
-            reject(error);
-          }
-        },
-        (error) => {
-          reject(error);
-        }
-      );
-    });
-  };
+  //         try {
+  //           const response = await fetch(`${apiUrl}?lat=${latitude}&lon=${longitude}&days=7`, {
+  //             headers: headers
+  //           });
+  //           const data = await response.json();
+  //           resolve(data);
+  //         } catch (error) {
+  //           reject(error);
+  //         }
+  //       },
+  //       (error) => {
+  //         reject(error);
+  //       }
+  //     );
+  //   });
+  // };
 
   const renderHeatmap = (weatherData) => {
     

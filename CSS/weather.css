@@ -435,6 +435,30 @@ input:checked+.slider:before {
   margin-bottom: 0.5rem;
 }
 
+.week-section {
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, auto);
+}
+
+.week-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #198754;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.week-card-hour {
+  font-size: 0.75rem;
+  color: #198754;
+  margin-top: 0.5rem;
+}
+
 svg {
   background-color: grey;
   width: 100%;
@@ -491,6 +515,11 @@ g{
   text-transform: uppercase;
   font-weight: bold;
   margin: 20px;
+}
+
+#map {
+  width: 100vw;
+  height: 80vh;
 }
 
 /* Media query for smaller screens */
