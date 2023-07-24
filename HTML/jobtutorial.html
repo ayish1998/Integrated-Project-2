@@ -1,292 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--CSS-->
-    <link rel="stylesheet" href="../CSS/jobtutorial.css">
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <!--Bootstrap CDN-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <title>Job Insights</title>
-  </head>
-  <body>
-    <!--navbar starts here-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
-      <div class="container-fluid">
-        <!--Logo and name-->
-        <a class="navbar-brand" href="index.html">
-          <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
-        </a>
-        <!--Toggler-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!--Nav items-->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <!--Data dropdown-->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="job.html">Job</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="weather.html">Weather</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="financial.html">Financial</a>
-                </li>
-              </ul>
-            </li>
-            <!--Tutorials dropdown-->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tutorials </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
-                </li>
-              </ul>
-            </li>
-            <!--Tutotrials dropdown ends here-->
-            <li class="nav-item">
-              <a class="nav-link" href="newsletter.html">Newsletter</a>
-            </li>
-            <!--About dropdown-->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> About </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="website.html">Website</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="developers.html">Developers</a>
-                </li>
-              </ul>
-            </li>
-            <!--About dropdown ends here-->
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
-          <!--Search bar and button-->
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
-          </form>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--CSS-->
+  <link rel="stylesheet" href="../CSS/jobtutorial.css">
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!--Bootstrap CDN-->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- Observable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <title>Job Insights</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #observablehq-3f41ff1a {
+      margin-top: 20px;
+      padding: 50px;
+    }
+
+    .tutorial-section {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--navbar starts here-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job
+        <span>Insights</span>
+      </a>
+      <!--Toggler-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <!--Data dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Data </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="job.html">Job</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" href="weather.html">Weather</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" href="financial.html">Financial</a>
+              </li>
+            </ul>
+          </li>
+          <!--Tutorials dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"> Tutorials </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
+              </li>
+            </ul>
+          </li>
+          <!--Tutotrials dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+          </li>
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="website.html">Website</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" href="developers.html">Developers</a>
+              </li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <!--Search bar and button-->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
+        </form>
       </div>
-    </nav>
-    <!--navbar ends here-->
-    <!--Main Layout Section starts here-->
-    <section id="tut">
-      <h2>Learn to visualize your data like an expert with these practical how-tos for presentation, analysis, and understanding.</h2>
-    </section>
+    </div>
+  </nav>
+  <!--navbar ends here-->
+  <!--Main Layout Section starts here-->
+  <section id="tut">
+    <h2>Learn to visualize your data like an expert with these practical how-tos for presentation, analysis, and
+      understanding.</h2>
+  </section>
+  <div class="container">
+    <h3 class="mt-3 pb-3 mb-4  border-bottom">
+      <a href="#"> 1. API Visualization: D3.js and Observable Charts & Maps</a>
+    </h3>
+    <p style="font-size: 15px; padding: 10px;"> This tutorial shows how to use Trending Job Markets API and visualize with D3.js and
+      Observable to create interactive and dynamic data visualizations such as charts and maps </p>
+   
+    </a>
+  </div>
+  <!-- Main Layout Section starts here -->
+  <!-- Tutorial Content for Tutorial 1 -->
+
+  <section id="wrapper">
     <div class="container">
-      <h3 class="mt-3 pb-3 mb-4  border-bottom"> Tutorials </h3>
-      <div class="row p-4">
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="../IMAGES/salary1.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> How to add API </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="../IMAGES/salary3.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> How to display chart in code </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card bg-light">
-            <img class="card-img-top" src="../IMAGES/salary2.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> Displaying API data </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
+      <div style="background-color: #dadfe4; font-size: 20px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold; margin-bottom: 40px;">1. API Visualization: D3.js and Observable Charts & Maps
+        </h2>
       </div>
-      <!-- Another cards section -->
-      <div class="row p-4">
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="../IMAGES/salary3.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> How to add API </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
+      <hr>
+      <h2>Introduction</h2>
+      <p>
+        Welcome to the tutorial on how to use APIs and D3.js to visualize data! In this step-by-step tutorial, we will
+        explore how to fetch data from APIs, process and manipulate the data, and then use D3.js to create interactive
+        and dynamic data visualizations such as charts and maps. By the end of this tutorial, you will be able to create
+        compelling visualizations to gain insights and present data in a more engaging manner.
+      </p>
+    </div>
+  </section>
+
+  <!-- Step 1: API Access -->
+  <section id="api-access">
+    <div class="container">
+      <div class="tutorial-section">
+        <h2>Step 1: API Access</h2>
+        <p>
+          To access the data, we will be using the Trending Job Markets API. This API provides real-time data on job
+          markets from various industries and locations. We will use JavaScript to fetch data from the API and parse it
+          for further use in our visualizations.
+        </p>
+        <h3>How to Access the API</h3>
+        <p>
+          First, you need to sign up for an API key from the Trending Job Markets API website. Once you have the API
+          key, you can use it to make requests to the API and retrieve the data. The API provides various endpoints to
+          access different types of job market data, such as salary, job roles, and location-based data.
+        </p>
+        <p>
+          Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key:
+        </p>
+        <p> Click on the titles to expand and see the code blocks.</p>
+        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+          aria-expanded="false" aria-controls="codeBlock5">
+          JavaScript code to fetch data from the Trending Job Markets API
+        </button>
+        <div class="collapse mt-3" id="codeBlock5">
+          <pre><code>
+          // JavaScript code to fetch data from the Trending Job Markets API
+        const apiKey = "your-api-key";
+        const apiUrl = "https://api.trendingjobmarkets.com/data";
+
+        fetch(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Process and use the retrieved data for visualization
+            // (Example: Create charts or maps using D3.js and Observable)
+          })
+          .catch((error) => console.error("Error fetching data: ", error));
+        </code></pre>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top" src="../IMAGES/salary2.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> How to display chart in code </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
+
+        <p>
+          Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code will
+          make a request to the API, and upon successful retrieval, you can use the data to create visualizations using
+          D3.js and Observable.
+        </p>
+        <p>
+          With access to the API and data, let's move on to the next step to create visualizations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Visualization with D3.js -->
+  <section id="d3-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <h2>Step 2: Visualization with D3.js</h2>
+        <p>
+          D3.js is a powerful JavaScript library that allows us to create data-driven documents, enabling the creation
+          of dynamic and interactive data visualizations. It provides a set of tools for binding data to DOM elements,
+          and its powerful APIs make it easy to create various types of charts, maps, and other data visualizations.
+        </p>
+        <h3>Getting Started with D3.js</h3>
+        <p>
+          To begin using D3.js, you can include the D3.js library in your HTML file using a CDN link. Add the following
+          script tag in the head section of your HTML file to include D3.js:
+        </p>
+        <pre><code>
+        &lt;script src="https://d3js.org/d3.v6.min.js">&lt;/script>
+      </code></pre>
+        <p>
+          This script tag will load the latest version of D3.js into your HTML document. Once you have D3.js included,
+          you can start using its functions and methods to create data visualizations.
+        </p>
+        <p>
+          Now that we have D3.js set up, let's move on to creating different types of visualizations, starting with a
+          bar chart.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: Creating Charts with D3.js -->
+
+
+  <section id="chart-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <h2>Step 3: Creating Charts with D3.js</h2>
+        <p>
+          In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different job
+          roles in the job market. We'll assume that you have already fetched the relevant salary data from the API and
+          stored it in a variable.
+        </p>
+        <h3>Creating a Bar Chart</h3>
+        <p>
+          Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average salary
+          of different job roles in the job market. We'll use an SVG element to draw the chart and D3.js functions to
+          bind the data to the DOM elements and set the properties for the chart.
+        </p>
+
+        <p> Click on the titles to expand and see the code blocks.</p>
+        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
+          aria-expanded="false" aria-controls="codeBlock4">
+          Visualization Technique: Bar Chart
+        </button>
+        <div class="collapse mt-3" id="codeBlock4">
+          <pre><code>
+           <!-- HTML markup to display the chart -->
+        &lt;div id="bar-chart">&lt;/div>
+
+        // JavaScript code to create the bar chart using D3.js
+        const salaryData = [
+          { role: "Software Engineer", averageSalary: 80000 },
+          { role: "Data Analyst", averageSalary: 70000 },
+          { role: "Product Manager", averageSalary: 90000 },
+          // Add more data points as needed
+        ];
+
+        const svgWidth = 600;
+        const svgHeight = 400;
+        const barPadding = 5;
+
+        const svg = d3.select("#bar-chart")
+          .append("svg")
+          .attr("width", svgWidth)
+          .attr("height", svgHeight);
+
+        const barWidth = svgWidth / salaryData.length;
+
+        const barChart = svg.selectAll("rect")
+          .data(salaryData)
+          .enter()
+          .append("rect")
+          .attr("y", (d) => svgHeight - d.averageSalary / 1000)
+          .attr("height", (d) => d.averageSalary / 1000)
+          .attr("width", barWidth - barPadding)
+          .attr("transform", (d, i) => {
+            const translate = [barWidth * i, 0];
+            return "translate(" + translate + ")";
+          })
+          .style("fill", "steelblue");
+        </code></pre>
         </div>
-        <div class="col-md-4">
-          <div class="card bg-light">
-            <img class="card-img-top" src="../IMAGES/salary1.jpg" style="height: 250px;" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title border-bottom pb-3">
-                <a href="#"> Displaying API data </a>
-              </h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i>
-              </a>
-            </div>
-          </div>
+
+        <p>
+          The above code will create a bar chart displaying the average salaries of different job roles. The height of
+          each bar represents the average salary, and the width of each bar is determined based on the number of data
+          points.
+        </p>
+        <p>
+          After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to enhance the
+          user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Creating Map Visualizations with D3.js -->
+  <section id="map-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <h2>Step 4: Creating Map Visualizations with D3.js</h2>
+        <p>
+          In this step, we'll create a choropleth map using D3.js to visualize job market data for different
+          geographical regions. Choropleth maps use different colors to represent different data values, allowing users
+          to quickly grasp patterns and trends in the data.
+        </p>
+        <h3>Creating a Choropleth Map</h3>
+        <p>
+          Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data for
+          different geographical regions, such as average salaries, job demand, or job availability.
+        </p>
+        <pre><code>
+        <!-- HTML markup to display the map -->
+        &lt;div id="choropleth-map">&lt;/div>
+
+        // JavaScript code to create the choropleth map using D3.js
+        // (You may need to use a geoJSON file for mapping data to regions)
+        // ... (Add your code for creating a choropleth map using D3.js) ...
+      </code></pre>
+        <p>
+          The above code is just a placeholder for creating the choropleth map, as creating maps requires geographic
+          data and additional configurations. Depending on your use case, you may need to use a geoJSON file for mapping
+          data to specific regions on the map. You can use D3.js functions to bind the data and styles to the map
+          elements.
+        </p>
+        <p>
+          With the choropleth map created, you can now visualize job market data for different regions and explore
+          regional patterns and trends.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!--tutorial content starts here-->
+  <section id="wrapper">
+    <div class="container">
+      <div style="background-color: #dadfe4; font-size: 20px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold; margin-bottom: 40px;">2. API Visualization: Chart.js to display chart</h2>
+      </div>
+
+      <hr>
+      <h2>Introduction</h2>
+      <p>
+        Welcome to the tutorial on how to use APIs and D3.js to visualize data! In this tutorial, we will explore how to
+        fetch data from APIs, process and manipulate the data, and then use D3.js to create interactive and dynamic data
+        visualizations such as charts and maps. By the end of this tutorial, you will be able to create compelling
+        visualizations to gain insights and present data in a more engaging manner.
+      </p>
+    </div>
+  </section>
+
+  <section id="api-access">
+    <div class="container">
+      <h2>API Access</h2>
+      <p>
+        To access the data, we will be using the Trending Job Markets API. This API provides real-time data on job
+        markets from various industries and locations. We will use JavaScript to fetch data from the API and parse it
+        for further use in our visualizations.
+      </p>
+    </div>
+  </section>
+
+  <section id="d3-visualization">
+    <div class="container">
+      <h2>Visualization with D3.js</h2>
+      <p>
+        D3.js is a powerful JavaScript library that allows us to create data-driven documents, enabling the creation of
+        dynamic and interactive data visualizations. It provides a set of tools for binding data to DOM elements, and
+        its powerful APIs make it easy to create various types of charts, maps, and other data visualizations.
+      </p>
+    </div>
+  </section>
+
+  <section id="chart-visualization">
+    <div class="container">
+      <h2>Creating Charts with D3.js</h2>
+      <div class="tutorial-section">
+        <h3>Execution of Code for a Bar Chart</h3>
+        <p>
+          Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average salary
+          of different job roles in the job market.
+        </p>
+        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
+          aria-expanded="false" aria-controls="codeBlock4">
+          Visualization Technique: Bar Chart
+        </button>
+        <div class="collapse mt-3" id="codeBlock4">
+          <pre><code>
+            // Add your D3.js code for the bar chart here
+          </code></pre>
         </div>
       </div>
     </div>
-    <!--Main Layout Section ends-->
-    <!--Footer-->
-    <footer>
-      <div class="container-fluid bg-success text-white p-4">
-        <div class="row">
-          <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-            <a class="navbar-brand" href="index.html">
-              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
-            </a>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit? </p>
-          </div>
-          <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
-            <h5 class="fw-bold">USEFUL LINKS</h5>
-            <ul style="list-style-type: square;">
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>
-                <a href="job.html">Job Data</a>
-              </li>
-              <li>
-                <a href="weather.html">Weather Data</a>
-              </li>
-              <li>
-                <a href="financial.html">Financial Data</a>
-              </li>
-              <li>
-                <a href="newsletter.html">Newsletter</a>
-              </li>
-              <li>
-                <a href="website.html">About Website</a>
-              </li>
-              <li>
-                <a href="developers.html">About Developers</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
-            <h5 class="fw-bold">CONTACT</h5>
-            <p>
-              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
-            </p>
-            <p>
-              <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-            </p>
-            <p>
-              <i class="fa-solid fa-phone"></i> +23056789042
-            </p>
-          </div>
+  </section>
+
+
+  <div class="container">
+    <h2>Creating Map Visualizations with D3.js</h2>
+    <div class="tutorial-section">
+      <h3>Execution of Code for a Choropleth Map</h3>
+      <p>
+        Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data for
+        different geographical regions.
+      </p>
+      <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+        aria-expanded="false" aria-controls="codeBlock5">
+        Visualization Technique: Choropleth Map
+      </button>
+      <div class="collapse mt-3" id="codeBlock5">
+        <pre><code>
+            // Add your D3.js code for the choropleth map here
+          </code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ... (Existing Trending Job Markets Overview Code) ... -->
+  <div class="container">
+    <!-- Tutorial Section: Utilized Data -->
+    <div class="tutorial-section">
+      <h3>Utilized Data</h3>
+      <p>
+        The data used in this tutorial is sourced from the Public Media Salary Survey Interactive. It contains salary
+        information and demographics for various media organizations across the United States.
+      </p>
+    </div>
+
+    <!-- Tutorial Section: Data Content and Structure -->
+    <div class="tutorial-section">
+      <h3>Data Content and Structure</h3>
+      <p>
+        The dataset includes information on job roles, salaries, gender breakdown, race breakdown, union representation,
+        and age groups. It is structured in JSON format, allowing easy manipulation and extraction of data for
+        visualization.
+      </p>
+    </div>
+
+    <!-- Tutorial Section: API Access -->
+    <div class="tutorial-section">
+      <h3>API Access</h3>
+      <p>
+        The data can be accessed through the provided D3.js library and Observable. By importing the necessary modules,
+        you can interact with the data and create dynamic visualizations based on user inputs.
+      </p>
+    </div>
+
+    <!-- Tutorial Section: Execution of Visualization Techniques -->
+    <div class="tutorial-section">
+      <h3>Execution of Visualization Techniques</h3>
+      <p>
+        To execute the visualization techniques, follow these steps:
+      </p>
+      <ol>
+        <li>Select a role or job position from the dropdown menu.</li>
+        <li>Explore various visualizations, such as salary breakdowns, gender distribution, and organizational salary
+          comparisons.</li>
+        <li>Interact with the map to view salary data based on geographical regions.</li>
+        <li>Observe and analyze trends using different visualization techniques.</li>
+      </ol>
+    </div>
+
+    <!-- Tutorial Section: Execution of Code -->
+    <div class="tutorial-section">
+      <h3>Execution of Code</h3>
+      <p>
+        Below are code snippets that demonstrate how the visualization techniques are executed using D3.js and
+        Observable. Click on the titles to expand and see the code blocks.
+      </p>
+
+      <!-- Code Block: Visualization Technique 1 -->
+      <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock1"
+        aria-expanded="false" aria-controls="codeBlock1">
+        Visualization Technique 1: Role Salary Breakdown
+      </button>
+      <div class="collapse mt-3" id="codeBlock1">
+        <pre><code>
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/@jacoblagesse/public-media-salary-survey-interactives.js?v=3";
+          
+          const runtime = new Runtime();
+          const main = runtime.module(define, name => {
+            if (name === "roleSalary") return new Inspector(document.querySelector("#observablehq-roleSalary-de66b6fa"));
+          });
+        </code></pre>
+      </div>
+
+      <!-- Code Block: Visualization Technique 2 -->
+      <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock2"
+        aria-expanded="false" aria-controls="codeBlock2">
+        Visualization Technique 2: Gender Salary Breakdown
+      </button>
+      <div class="collapse mt-3" id="codeBlock2">
+        <pre><code>
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/@jacoblagesse/public-media-salary-survey-interactives.js?v=3";
+          
+          const runtime = new Runtime();
+          const main = runtime.module(define, name => {
+            if (name === "genderSalary") return new Inspector(document.querySelector("#observablehq-genderSalary-de66b6fa"));
+          });
+        </code></pre>
+      </div>
+
+      <!-- Code Block: Visualization Technique 3 -->
+      <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock3"
+        aria-expanded="false" aria-controls="codeBlock3">
+        Visualization Technique 3: Organization Salary Comparison
+      </button>
+      <div class="collapse mt-3" id="codeBlock3">
+        <pre><code>
+          import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+          import define from "https://api.observablehq.com/@jacoblagesse/public-media-salary-survey-interactives.js?v=3";
+          
+          const runtime = new Runtime();
+          const main = runtime.module(define, name => {
+            if (name === "orgSalary") return new Inspector(document.querySelector("#observablehq-orgSalary-de66b6fa"));
+          });
+        </code></pre>
+      </div>
+    </div>
+
+  </div>
+  <!--Main Layout Section ends-->
+  <!--Footer-->
+  <footer>
+    <div class="container-fluid bg-success text-white p-4">
+      <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+          <a class="navbar-brand" href="index.html">
+            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+            Job <span>Insights</span>
+          </a>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
+            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit?
+          </p>
         </div>
-        <div class="row mx-auto d-flex justify-content-center pt-3">
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-            <form class="d-block" role="email">
-              <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-              <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-            </form>
-          </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+          <h5 class="fw-bold">USEFUL LINKS</h5>
+          <ul style="list-style-type: square;">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="job.html">Job Data</a>
+            </li>
+            <li>
+              <a href="weather.html">Weather Data</a>
+            </li>
+            <li>
+              <a href="financial.html">Financial Data</a>
+            </li>
+            <li>
+              <a href="newsletter.html">Newsletter</a>
+            </li>
+            <li>
+              <a href="website.html">About Website</a>
+            </li>
+            <li>
+              <a href="developers.html">About Developers</a>
+            </li>
+          </ul>
         </div>
-        <hr>
-        <!--Social media links-->
-        <div class="socials text-center">
-          <a class="btn btn-secondary btn-outline-light m-1" href="#">
-            <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-          </a>
-          <a class="btn btn-secondary btn-outline-light m-1" href="#">
-            <i class="fab fa-google" style="color: #dd4b39;"></i>
-          </a>
-          <a class="btn btn-secondary btn-outline-light m-1" href="#">
-            <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-          </a>
-          <a class="btn btn-secondary btn-outline-light m-1" href="#">
-            <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-          </a>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+          <h5 class="fw-bold">CONTACT</h5>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+          </p>
+          <p>
+            <i class="fa-solid fa-phone"></i> +23056789042
+          </p>
         </div>
       </div>
-      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold" href="index.html">Job Insights</a>
+    </div>
+    <div class="row mx-auto d-flex justify-content-center pt-3">
+      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
       </div>
-    </footer>
-    <!--Footer ends here-->
-    <!--Bootstrap JS links-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--Custom JS links-->
-    <script src="../JS/jobdata.js"></script>
-  </body>
+      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+        <form class="d-block" role="email">
+          <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+          <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <hr>
+    <!--Social media links-->
+    <div class="socials text-center">
+      <a class="btn btn-secondary btn-outline-light m-1" href="#">
+        <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+      </a>
+      <a class="btn btn-secondary btn-outline-light m-1" href="#">
+        <i class="fab fa-google" style="color: #dd4b39;"></i>
+      </a>
+      <a class="btn btn-secondary btn-outline-light m-1" href="#">
+        <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+      </a>
+      <a class="btn btn-secondary btn-outline-light m-1" href="#">
+        <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+      </a>
+    </div>
+    </div>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+        href="index.html">Job Insights</a>
+    </div>
+
+
+  </footer>
+  <!--Footer ends here-->
+  <!--Bootstrap JS links-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Custom JS links-->
+  <script src="../JS/jobdata.js"></script>
+</body>
+
 </html>
