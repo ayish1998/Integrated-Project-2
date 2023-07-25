@@ -435,6 +435,48 @@ input:checked+.slider:before {
   margin-bottom: 0.5rem;
 }
 
+.week-section {
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: auto;
+}
+
+.week-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #198754;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.week-card-hour {
+  font-size: 1rem;
+  color: #198754;
+  margin-top: 0.5rem;
+}
+
+.data-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.locationtz {
+  text-align: center;
+}
+
+.timezone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 svg {
   background-color: grey;
   width: 100%;
@@ -445,9 +487,6 @@ svg {
   width: 100%;
   height: 100%;
   min-height: 0;
-  /* position: absolute;*/
-  /* top: 0; */
-  /* left: 0;*/
 }
 .cell:hover{
   fill: black
@@ -491,6 +530,42 @@ g{
   text-transform: uppercase;
   font-weight: bold;
   margin: 20px;
+}
+
+#map {
+  width: 100%;
+  height: 80vh;
+}
+
+#map-legend {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.813);
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#map-legend .color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+#map-legend .label {
+  white-space: nowrap;
+}
+
+#tutorial {
+  height: 900px;
 }
 
 /* Media query for smaller screens */
