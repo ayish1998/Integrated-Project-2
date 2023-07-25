@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,22 @@
   <!--CSS-->
   <link rel="stylesheet" href="../CSS/job.css">
   <link rel="stylesheet" href="../CSS/jobtutorial.css">
-  <!--Bootstrap CSS-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
   <!--Chart.js CDN-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Include D3.js library -->
+  <script src="https://d3js.org/d3.v4.js"></script>
   <title>Job Insights</title>
 </head>
+
 <body>
   <!--navbar starts here-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
@@ -119,189 +123,156 @@
   </nav>
   <!--navbar ends here-->
   <!--Main Layout Section starts here-->
-  <section id="tut">
+  <section id="tot">
     <h2>The Job Insight page offers visualizations that provide valuable insights into job trends and categories,
       helping users understand the job market at a glance.</h2>
+    </div>
   </section>
-  <!-- Card starts here -->
-  <div class="container">
-    <h3 class="mt-3 pb-3 mb-4  border-bottom"> Job Insights </h3>
-    <div class="row p-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="../IMAGES/chart.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobmarket.html">
-                Job Market Overview:
-              </a>
-            </h5>
-            <p class="card-text">Explore an overview of the current job market, including top industries, popular job
-              titles, and salary trends.</p>
-          </div>
-        </div>
+
+  <div class="how-section1">
+    <div class="row">
+      <div class="col-md-6 how-img">
+        <img src="https://image.ibb.co/dDW27U/Work_Section2_freelance_img1.png" class="rounded-circle img-fluid"
+          alt="" />
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="../IMAGES/chart2.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobdistribution.html">
-                Regional Job Distribution:
-              </a>
-            </h5>
-            <p class="card-text"> Discover the distribution of job opportunities across different regions, helping you
-              identify areas with high demand for specific professions.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-light">
-          <img class="card-img-top" src="../IMAGES/chart3.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobhiring.html">
-                Top Companies Hiring:
-              </a>
-            </h5>
-            <p class="card-text">Get insights into the top companies actively hiring, providing valuable information
-              about potential employers and industry leaders.</p>
-          </div>
+      <div class="col-md-6">
+        <h4>Job Insight</h4>
+        <h4 class="subheading">Get to the trending Job Insights</h4>
+        <p class="text-muted">Freedom to work on ideal projects. On GetLance, you run your own business and choose your
+          own clients and projects. Just complete your profile and we’ll highlight ideal jobs. Also search projects, and
+          respond to client invitations.
+          Wide variety and high pay. Clients are now posting jobs in hundreds of skill categories, paying top price for
+          great work.
+          More and more success. The greater the success you have on projects, the more likely you are to get hired by
+          clients that use GetLance.</p>
+        <div class="container mb-5 mb-md-6">
+          <button type="button" class="btn btn-outline-success"><a href="../HTML/jobskills.html">Job
+              Insights</a></button>
         </div>
       </div>
     </div>
-    <!-- Another cards section -->
-    <div class="row p-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="../IMAGES/chart4.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobanalysis.html">
-                Job Category Analysis:
-              </a>
-            </h5>
-            <p class="card-text">Dive into an analysis of job categories, highlighting the most in-demand fields and
-              offering insights into emerging industries.</p>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4> Visualisation</h4>
+        <h4 class="subheading">Different Visualisation Charts on Job surveys</h4>
+        <p class="text-muted">All invoices and payments happen through GetLance. Count on a simple and streamlined
+          process.
+          Hourly and fixed-price projects. For hourly work, submit timesheets through GetLance. For fixed-price jobs,
+          set milestones and funds are released via GetLance escrow features.
+          Multiple payment options. Choose a payment method that works best for you, from direct deposit or PayPal to
+          wire transfer and more.</p>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="../IMAGES/chart5.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobskills.html">
-                Skill Requirements:
-              </a>
-            </h5>
-            <p class="card-text">Gain an understanding of the skills employers are seeking, helping you focus on
-              developing the most relevant skills for your desired job.</p>
-          </div>
-        </div>
+      <div class="col-md-6 how-img">
+        <img src="https://image.ibb.co/gQ9iE9/Work_Section2_freelance_img4.png" class="rounded-circle img-fluid"
+          alt="" />
       </div>
-      <div class="col-md-4">
-        <div class="card bg-light">
-          <img class="card-img-top" src="../IMAGES/salary1.jpg" style="height: 250px;" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title border-bottom pb-3"> <a href="../HTML/jobsalary.html">
-                Salary Comparison:
-              </a>
-            </h5>
-            <p class="card-text">Compare salary ranges across various job titles and industries, empowering you to
-              negotiate better compensation packages and make informed career decisions.</p>
-          </div>
-        </div>
+      <div class="container mb-5 mb-md-6">
+        <button type="button" class="btn btn-outline-success"><a
+            href="../HTML/jobmarket.html">Visualisation</a></button>
       </div>
     </div>
   </div>
-  <!--Main Layout Section ends-->
-  <footer>
-    <div class="container-fluid bg-success text-white p-4">
-      <div class="row">
-        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="index.html">
-            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-            Job <span>Insights</span>
+    <!--Main Layout Section ends-->
+    <footer>
+      <div class="container-fluid bg-success text-white p-4">
+        <div class="row">
+          <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+            <a class="navbar-brand" href="index.html">
+              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
+                class="d-inline-block align-text-center" />
+              Job <span>Insights</span>
+            </a>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
+              iusto
+              quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
+              fugit?
+            </p>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+            <h5 class="fw-bold">USEFUL LINKS</h5>
+            <ul style="list-style-type: square;">
+              <li>
+                <a href="/index.html">Home</a>
+              </li>
+              <li>
+                <a href="../HTML/job.html">Job Data</a>
+              </li>
+              <li>
+                <a href="../HTML/weather.html">Weather Data</a>
+              </li>
+              <li>
+                <a href="../HTML/financial.html">Financial Data</a>
+              </li>
+              <li>
+                <a href="../HTML/Newsletter.html">Newsletter</a>
+              </li>
+              <li>
+                <a href="../HTML/website.html">About Website</a>
+              </li>
+              <li>
+                <a href="developers.html">About Developers</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+            <h5 class="fw-bold">CONTACT</h5>
+            <p>
+              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+              Mauritius
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+            </p>
+            <p>
+              <i class="fa-solid fa-phone"></i> +23056789042
+            </p>
+          </div>
+        </div>
+        <div class="row mx-auto d-flex justify-content-center pt-3">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+            <form class="d-block" role="email">
+              <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+              <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <hr>
+        <!--Social media links-->
+        <div class="socials text-center">
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
           </a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
-            iusto
-            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
-            fugit?
-          </p>
-        </div>
-        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
-          <h5 class="fw-bold">USEFUL LINKS</h5>
-          <ul style="list-style-type: square;">
-            <li>
-              <a href="/index.html">Home</a>
-            </li>
-            <li>
-              <a href="../HTML/job.html">Job Data</a>
-            </li>
-            <li>
-              <a href="../HTML/weather.html">Weather Data</a>
-            </li>
-            <li>
-              <a href="../HTML/financial.html">Financial Data</a>
-            </li>
-            <li>
-              <a href="../HTML/Newsletter.html">Newsletter</a>
-            </li>
-            <li>
-              <a href="../HTML/website.html">About Website</a>
-            </li>
-            <li>
-              <a href="developers.html">About Developers</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
-          <h5 class="fw-bold">CONTACT</h5>
-          <p>
-            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
-            Mauritius
-          </p>
-          <p>
-            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-          </p>
-          <p>
-            <i class="fa-solid fa-phone"></i> +23056789042
-          </p>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-google" style="color: #dd4b39;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+          </a>
         </div>
       </div>
-      <div class="row mx-auto d-flex justify-content-center pt-3">
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-          <form class="d-block" role="email">
-            <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-            <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-          </form>
-        </div>
+      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+          href="/index.html">Job Insights</a>
       </div>
-      <hr>
-      <!--Social media links-->
-      <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-google" style="color: #dd4b39;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-        </a>
-      </div>
-    </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-        href="/index.html">Job Insights</a>
-    </div>
-  </footer>
-  <!--Footer ends here-->
-  <!--Bootstrap JS links-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!--Custom JS links-->
-  <script src="../JS/jobdata.js"></script>
+    </footer>
+    <!--Footer ends here-->
+
+    <!-- JS links-->
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Custom JS links-->
+    <script src="../JS/jobdata.js"></script>
 </body>
 
 </html>
