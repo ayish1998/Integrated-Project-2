@@ -1,69 +1,211 @@
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+document.addEventListener('DOMContentLoaded', async () => {
+  // Helper function to convert a string to title case
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+  // Function to retrieve country list from the Rest Countries API
+  async function getCountryList() {
+    const url = 'https://restcountries.com/v3.1/all';
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.map((country) => country.name.common);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  // Function to retrieve job data from the API
+  // async function getJobData(selectedCountry) {
+  //   const countryList = await getCountryList();
+  //   const country = countryList.find(
+  //     (country) => country === toTitleCase(selectedCountry)
+  //   );
 
-// Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered.csv", function(data) {
+  //   if (!country) {
+  //     console.error('Country not found.');
+  //     return null;
+  //   }
 
-  // Group the data: I want to draw one line per group
-  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.name;})
-    .entries(data);
+  //   const formattedCountry = encodeURIComponent(country); // Format the country name for the API request
+  //   const jobTitle = 'NodeJS Developer'; // Set the desired job title here
 
-  // Add X axis --> it is a date format
-  var x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.year; }))
-    .range([ 0, width ]);
-  svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).ticks(5));
+  //   const jobUrl = `https://jsearch.p.rapidapi.com/search?query=${formattedCountry}&page=1&num_pages=1`;
+  //   const salaryUrl = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${encodeURIComponent(
+  //     jobTitle
+  //   )}&location=${formattedCountry}&radius=100`;
+  //   const jobOptions = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Key': '60ecf98851mshfffdee5656efa2ap15d724jsn20fe0d4a5e49',
+  //       'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+  //     },
+  //   };
 
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.n; })])
-    .range([ height, 0 ]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
+  //   const [jobResponse, salaryResponse] = await Promise.all([
+  //     fetch(jobUrl, jobOptions),
+  //     fetch(salaryUrl, jobOptions),
+  //   ]);
 
-  // Color palette
-  var res = sumstat.map(function(d){ return d.key; }) // list of group names
-  var color = d3.scaleOrdinal()
-    .domain(res)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+  //   const jobData = await jobResponse.json();
+  //   const salaryData = await salaryResponse.json();
 
-  // Draw the lines
-  svg.selectAll(".line")
-      .data(sumstat)
-      .enter()
-      .append("path")
-        .attr("class", "line")
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color(d.key); })
-        .attr("stroke-width", 1.5)
-        .attr("d", function(d){
-          return d3.line()
-            .x(function(d) { return x(d.year); })
-            .y(function(d) { return y(+d.n); })
-            (d.values)
-        })
-        .on("mouseover", function(d) {
-          // Add interactivity on mouseover
-          d3.select(this)
-            .attr("stroke-width", 3); // Increase stroke width on mouseover
-        })
-        .on("mouseout", function(d) {
-          // Remove interactivity on mouseout
-          d3.select(this)
-            .attr("stroke-width", 1.5); // Reset stroke width on mouseout
-        });
+  //   // Combine job data and salary data using job IDs
+  //   const combinedData = jobData.data.map((job) => ({
+  //     ...job,
+  //     estimated_salary: findEstimatedSalary(job.job_title, salaryData.data),
+  //   }));
+
+  //   return combinedData;
+  // }
+  // Helper function to find the estimated salary for a job ID from salary data
+  function findEstimatedSalary(jobId, salaryData) {
+    const jobSalary = salaryData.find((salary) => salary.job_id === jobId);
+    return jobSalary ? jobSalary.average_salary : 'N/A';
+  }
+
+  // Function to render the job data
+  function renderJobData(data) {
+    const explanation = document.getElementById('explanation');
+    explanation.innerHTML = ''; // Clear previous data
+
+    if (!data || data.length === 0) {
+      explanation.innerHTML = '<p>No data available.</p>';
+      return;
+    }
+
+    const jobData = data[0]; // Assuming only one job is returned from the API
+
+    const requiredSkills = jobData.job_required_skills ?
+      jobData.job_required_skills :
+      'N/A';
+
+    // Update the following lines with the correct property names based on the jobData object
+    explanation.innerHTML += `<p>Job Title: ${jobData.job_title}</p>`;
+    explanation.innerHTML += `<p>Job City: ${jobData.job_city}</p>`;
+    explanation.innerHTML += `<p>Job Country: ${jobData.job_country}</p>`;
+    explanation.innerHTML += `<p>Required Skills: ${requiredSkills}</p>`;
+    explanation.innerHTML += `<p>Job Description: ${jobData.job_description}</p>`;
+  }
+
+  // Declare a global variable to store the chart instance
+  let myChart;
+
+  // Function to render the chart with the provided job data and filter by country
+  function renderChart(data) {
+    // Show the loading spinner while fetching data
+    const loadingSpinner = document.getElementById('loading-spinner');
+    loadingSpinner.style.display = 'block';
+
+    // Sort the data based on the estimated salary from high to lowest
+    const sortedData = data.slice().sort((a, b) => b.estimated_salary - a.estimated_salary);
+
+    console.log("Data before sorting:", data);
+    console.log("Sorted data:", sortedData);
+
+    const jobTitles = sortedData.map((job) => job.job_title);
+    const estimatedSalaries = sortedData.map((job) => job.estimated_salary);
+
+    // Get the chart wrapper element
+    const chartWrapper = document.getElementById('chart-wrapper');
+
+    if (data && data.length > 0) {
+      // Show the chart wrapper when data is available
+      chartWrapper.style.display = 'block';
+    } else {
+      // Hide the chart wrapper when no data is available
+      chartWrapper.style.display = 'none';
+    }
+
+    // Get the canvas element
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    // Check if the chart instance already exists, and destroy it before creating a new one
+    if (myChart) {
+      myChart.destroy();
+    }
+
+    // Create the chart
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: jobTitles,
+        datasets: [
+          {
+            label: 'Estimated Salary (USD)',
+            data: estimatedSalaries,
+            backgroundColor: 'steelblue', // Set the color for the bars
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        indexAxis: 'y', // Use y-axis as the index axis for a horizontal bar chart effect
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Estimated Salary (USD)',
+            },
+            beginAtZero: true,
+            stepSize: 50000, // Customize the step size as needed
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Job Title',
+            },
+          },
+        },
+        plugins: {
+          tooltip: {
+            enabled: true,
+          },
+        },
+      },
+    });
+
+    // Hide the loading spinner once data is fetched and chart is rendered
+    loadingSpinner.style.display = 'none';
+  }
+
+  // Function to populate the country filter dropdown
+  async function populateCountryFilter() {
+    const countryList = await getCountryList();
+
+    // Sort the country list in alphabetical order
+    countryList.sort();
+
+    const countryFilter = document.getElementById('country-filter');
+    countryList.forEach((country) => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countryFilter.appendChild(option);
+    });
+  }
+
+
+  // Call populateCountryFilter to populate the country filter dropdown
+  populateCountryFilter();
+
+  // Call the getJobData function to fetch job data and render the initial content
+  getJobData('Ghana')
+    .then((data) => {
+      console.log(data); // Log the data to the console for inspection
+      renderJobData(data);
+      renderChart(data);
+    })
+    .catch((error) => console.error(error));
+
+  // Event listener for the country filter dropdown
+  const countryFilter = document.getElementById('country-filter');
+  countryFilter.addEventListener('change', async () => {
+    const selectedCountry = countryFilter.value;
+    const jobData = await getJobData(selectedCountry);
+    renderJobData(jobData);
+    renderChart(jobData);
+  });
 });
