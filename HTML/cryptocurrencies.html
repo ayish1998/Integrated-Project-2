@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jobinsights</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- FontAwesome -->
+
+  <!--Stylesheet-->
+  <link rel="stylesheet" href="../CSs/cryptocurrencies.css">
+
+
+
+</head>
+
+<body>
+  <!--navbar starts here-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="index.html">
+        <img src="../logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <!--Data dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Data
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+            </ul>
+          </li>
+          <!--Tutorials dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+            </ul>
+          </li>
+          <!--Tutotrials dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+          </li>
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+        <!--Search bar and button-->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--navbar ends here-->
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+      }
+
+      th,
+      td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+
+      }
+
+      thead th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      tbody tr:hover {
+        background-color: #f0f0f0;
+      }
+
+      #searchInput {
+        margin-top: 10px;
+        padding: 8px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .positive {
+        color: green;
+      }
+
+      .negative {
+        color: red;
+      }
+    </style>
+    </head>
+
+<body>
+  <header class="bg-dark text-white p-4">
+    <div class="container">
+      <h1>Welcome to the world of Cryptocurrencies!</h1>
+      <nav>
+        <!-- Add navigation items if needed -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    <h3>Cryptocurrencies are built on the foundation of decentralization</h3>
+    <p>Explore the world of cryptocurrencies and stay updated with the latest news and trends.</p>
+    <p>Cryptocurrencies have revolutionized the way we think about money, finance, and technology.</p>
+    <p>These digital assets offer decentralized, secure, and transparent transactions, free from traditional banking
+      institutions' control.</p>
+
+    <h4>Discover and learn about different cryptocurrencies:</h4>
+    <ul class="list-unstyled">
+      <li>Bitcoin (BTC)</li>
+      <li>Ethereum (ETH)</li>
+      <li>Ripple (XRP)</li>
+      <li>Litecoin (LTC)</li>
+      <li>Bitcoin Cash (BCH)</li>
+      <!-- Add more cryptocurrencies here -->
+    </ul>
+  </main>
+
+  <div class="container">
+    <h1 class="text-center">Cryptocurrency List</h1>
+    <div class="row mb-3">
+      <div class="col-md-6 offset-md-3">
+        <input id="searchInput" type="text" placeholder="Search Cryptocurrencies" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <datalist id="displayOptions">
+          <!-- Options will be populated dynamically -->
+        </datalist>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table id="cryptocurrencyData" class="table table-responsive">
+          <thead class="table-dark"  ></thead>
+            <tr>
+              <th>Name</th>
+              <th>Symbol</th>
+              <th>Price (USD)</th>
+              <th>Market Cap (USD)</th>
+              <th>Volume (24h)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+      <script>
+        const searchInput = document.getElementById('searchInput');
+        const cryptocurrencyData = document.getElementById('cryptocurrencyData');
+
+        let cryptocurrencyList = []; // Array to store the fetched cryptocurrency data
+
+        async function fetchCryptocurrencies() {
+          try {
+            const response = await fetch('https://all-cryptocurrency-list.p.rapidapi.com/v1/cryptocurrency/listings/latest', {
+              headers: {
+                'X-RapidAPI-Key': '24dbfe44c4msha0165c201d9d8b4p10f359jsn843b7d2bdb3a',
+                'X-RapidAPI-Host': 'all-cryptocurrency-list.p.rapidapi.com'
+              }
+            });
+            const data = await response.json();
+            cryptocurrencyList = data.data;
+
+            console.log(cryptocurrencyList); // Display the array of cryptocurrencies in the console
+
+            populateOptions(cryptocurrencyList);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+
+        function populateOptions(data) {
+          const options = new Set();
+
+          data.forEach(cryptocurrency => {
+            options.add(cryptocurrency.name);
+          });
+
+          options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            displayOptions.appendChild(optionElement);
+          });
+        }
+
+        function filterCryptocurrencies() {
+          const searchTerm = searchInput.value.toLowerCase();
+
+          const filteredCryptocurrencies = cryptocurrencyList.filter(cryptocurrency => {
+            const name = cryptocurrency.name.toLowerCase();
+            return name.includes(searchTerm);
+          });
+
+          renderCryptocurrencyRows(filteredCryptocurrencies);
+        }
+
+        function renderCryptocurrencyRows(data) {
+          cryptocurrencyData.innerHTML = ''; // Clear the existing table rows
+
+          data.forEach(cryptocurrency => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${cryptocurrency.name}</td>
+              <td>${cryptocurrency.symbol}</td>
+              <td class="${getPriceClass(cryptocurrency.quote.USD.price)}">$${cryptocurrency.quote.USD.price.toFixed(2)}</td>
+              <td class="${getPriceClass(cryptocurrency.quote.USD.market_cap)}">$${cryptocurrency.quote.USD.market_cap.toFixed(2)}</td>
+              <td class="${getPriceClass(cryptocurrency.quote.USD.volume_24h)}">$${cryptocurrency.quote.USD.volume_24h.toFixed(2)}</td>
+            `;
+            cryptocurrencyData.appendChild(row);
+          });
+        }
+
+        function getPriceClass(value) {
+          return value >= 0 ? 'positive' : 'negative';
+        }
+
+        searchInput.addEventListener('input', filterCryptocurrencies);
+
+        fetchCryptocurrencies();
+      </script>
+
+
+      <main>
+        <section class="crypto-section">
+          <div class="container">
+
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Bitcoin (BTC)</h3>
+                  <p>Bitcoin is a decentralized digital currency that operates on a peer-to-peer network called
+                    blockchain.</p>
+                  <a href="https://coinmarketcap.com/currencies/bitcoin/" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Ethereum (ETH)</h3>
+                  <p>Ethereum is a decentralized platform that enables the creation of smart contracts and decentralized
+                    applications (dApps).</p>
+                  <a href="https://coinmarketcap.com/currencies/ethereum/" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Ripple (XRP)</h3>
+                  <p>Ripple is a digital payment protocol and cryptocurrency.</p>
+                  <a href="https://coinmarketcap.com/currencies/xrp/" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Litecoin (LTC)</h3>
+                  <p>Litecoin is a peer-to-peer cryptocurrency created by Charlie Lee, a former Google engineer.</p>
+                  <a href="https://www.coindesk.com/price/litecoin/" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Cardano (ADA)</h3>
+                  <p>Cardano is a blockchain platform that aims to provide a secure and scalable infrastructure for the
+                    development of decentralized applications and smart contracts.</p>
+                  <a href="https://www.coinbase.com/price/cardano" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="crypto-item">
+                  <h3>Stellar (XLM)</h3>
+                  <p>Stellar is an open-source blockchain platform designed for fast and low-cost cross-border
+                    transactions.</p>
+                  <a href="https://www.binance.com/en-NG/price/stellar" class="text-decoration-none">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!--Footer-->
+      <footer>
+        <div class="container-fluid bg-success text-white p-4">
+          <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+              <a class="navbar-brand" href="index.html">
+                <img src="../logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+                Job<span>Insights</span></a>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
+                iusto
+                quam, ad facere odio sunt mollitia asperiores
+                eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+              <h5 class="fw-bold">USEFUL LINKS</h5>
+              <ul style="list-style-type: square;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="job.html">Job Data</a></li>
+                <li><a href="weather.html">Weather Data</a></li>
+                <li><a href="financial.html">Financial Data</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="website.html">About Website</a></li>
+                <li><a href="developers.html">About Developers</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+              <h5 class="fw-bold">CONTACT</h5>
+              <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+                Mauritius</p>
+              <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+              <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+            </div>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center pt-3">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <p>We are here to make your career decision easier!
+                <br>Sign up for our Newsletter.
+              </p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+              <form class="d-block" role="email">
+                <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+                <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+          <hr>
+          <!--Social media links-->
+          <div class="socials text-center">
+            <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
+                style="color: #3b5998;"></i></a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
+                style="color: #dd4b39;"></i></a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
+                style="color: #ac2bac;"></i></a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
+                style="color: #0082ca;"></i></a>
+          </div>
+        </div>
+        <div class="text-white text-center p-4" style="background-color: #6c757d;">
+          © 2023 Copyright:
+          <a class="fw-bold" href="index.html">Job Insights</a>
+        </div>
+      </footer>
+
+
+      <!--scripts-->
+      <!--Jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <!--Bootstrap-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
