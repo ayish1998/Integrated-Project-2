@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>undervaluedgrowthrates</title>
+    <title>technology stocks</title>
 
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,18 +24,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
-    <!-- <link rel="stylesheet" href="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.css"> -->
 
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <!--jQuery plugin-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <script crossorigin src="https://unpkg.com/country-to-currency"></script>
-
-    <!-- <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script> -->
-
-    <!--axios plugin-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script src="../JS/trading.js"></script>
 
 
 </head>
@@ -44,7 +37,7 @@
 
     <header>
         <!--navbar starts here-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 ">
             <div class="container-fluid">
                 <!--Logo and name-->
                 <a class="navbar-brand" href="index.html">
@@ -139,101 +132,107 @@
             <div id="title-out">
                 <div class="centered container">
                     <div class="meta-bar">
-                        <strong> <a href="../HTML/financial.html">financial data</a></strong> /
-                        undervalued growth rates
+                        <a href="../HTML/financial.html">financial data</a>/
+                        technology stocks
                     </div>
 
-                    <h1>Undervalued Growth Rates</h1>
+                    <h2>Insider Trading Transactions</h2>
 
                 </div>
             </div>
 
+            <h6 id="table-title">Form Screener</h6>
 
+            <table id="data-table" style="height: 500">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Shares Owned</th>
+                        <th>Relationship</th>
+                        <th>Owner Address</th>
+                        <th>Transaction Shares</th>
+                        <th>Symbol</th>
+                        <th>Total Value</th>
+                        <th>Transaction Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
 
+            <div style="margin-top: 40px;">
+            <p>The bubble chart below visualizes insider trading activity for various companies in a market. Each bubble
+                in the chart
+                represents an individual insider and is positioned based on the average price per share they transacted
+                and the number of shares they own. The size of each bubble is determined by the total value of their
+                transactions. This visualization helps to identify patterns and trends in insider trading behavior,
+                understand the distribution of transactions across different companies, and possibly gain insights into
+                how insiders' actions may impact the market sentiment or company performance.</p>
+</div>
+            <div id="chart"></div>
+            <div id="tooltip"></div>
 
-            <!-- EXCHANGE RATES AGAINST THE EURO <br>
-            <label for="currency">Select a currency:</label>
-            <select id="currency" aria-placeholder="USD">
-                <option value="USD">USD</option>
-            </select> -->
-
-            <div style="margin: 30px 0;">
-                <h6>Stocks Metrics Bubble Chart</h6>
-
-                <p>Relationship between a company's Price-to-Earnings (PE) ratio, Price/Earnings-to-Growth (PEG) ratio,
-                    and
-                    their Market Capitalization. Each bubble on the chart represents an individual stock, and its size
-                    corresponds to its Market Capitalization, while its color represents the company's projected
-                    Earnings
-                    Growth Rate.</p>
-
-                <p> Each bubble on the chart represents an individual stock, and its size corresponds to its Market
-                    Capitalization, while its color represents the company's projected Earnings Growth Rate.</p>
-
-            </div>
-
-
-
-            <svg id="chart-container" width="1000" height="700"></svg>
-
-            <div style="margin: 40px 0 30px 0;">
-            <h6>Stocks with earnings growth rates better than 25% and relatively low PE and PEG ratios</h6>
-
-            <p>Representing stock data with information about various stocks, including their earnings per share (EPS)
-                trailing twelve months, EPS forward, and trailing price-to-earnings (PE) ratio. The function filters the
-                stocks based on certain criteria and returns an array of filtered stocks.</p></div>
-
-            <div id="chart" class="chart" style="height: 600;"></div>
-
-            <div class="tooltip"></div>
-
-            <!-- SVG container for the bubble pie chart -->
-            <div id="bubble-chart"></div>
 
             <style>
-                /* Add CSS styling for the map container and tooltip */
-
+                /* Add CSS for the tooltip */
                 .tooltip {
                     position: absolute;
-                    padding: 5px;
-                    background-color: rgba(0, 0, 0, 0.7);
+                    background-color: rgba(0, 0, 0, 0.9);
                     color: #fff;
+                    padding: 5px;
                     border-radius: 5px;
                     pointer-events: none;
+                    font-size: 12px;
+                    white-space: nowrap;
                 }
 
-                .custom-tooltip {
+                table {
+                    border-collapse: collapse;
+                    border: 2px solid rgba(0, 0, 0, 0.9);
+                    border-radius: 15px;
+                    overflow: hidden;
+                }
+
+                #table-title {
+                    font-size: 20px;
+                    padding: 20px 0;
+                    margin: 10px 0;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    font-size: 12px;
+                    white-space: pre-line;
+                }
+
+                tr {
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+                }
+
+                tr:hover {
+                    background-color: #f2f2f2;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                    text-transform: uppercase;
+                }
+
+                #tooltip {
                     position: absolute;
                     pointer-events: none;
-                    font-size: 12px;
                     background-color: rgba(0, 0, 0, 0.8);
                     color: #fff;
-                    padding: 6px;
-                    border-radius: 3px;
-                    display: none;
-                }
-
-                .legend {
-                    font-size: 10px;
-                }
-
-                .legend rect {
-                    fill-opacity: 0.7;
-                }
-
-                .legend rect:hover {
-                    fill-opacity: 1;
-                }
-
-                .legend text {
-                    pointer-events: none;
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    opacity: 0;
                 }
             </style>
 
 
-
         </div>
-
     </section>
 
 
@@ -311,11 +310,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-
-
-
-    <script src="../JS/currency.js"></script>
-
 </body>
 
 </html>
