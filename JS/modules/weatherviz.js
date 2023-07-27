@@ -1,8 +1,11 @@
-
+import {
+  createSpan
+} from './weatherUtils.js';
 //*******************************************************************************************************
 //RENDER HEATMAP FUNCTION
 //*******************************************************************************************************
 export const renderHeatmap = (heatmapData) => {
+  console.log(heatmapData);
   const variables = ['temp', 'uv', 'precip', 'rh', 'wind_spd'];
   const variableLabels = {
     temp: 'Temperature',
@@ -13,6 +16,9 @@ export const renderHeatmap = (heatmapData) => {
   };
   const dates = heatmapData.data.map((day) => day.valid_date);
   const formatTime = d3.timeFormat("%d %B, %Y");
+  const title = document.createElement('h5');
+  title.textContent = `Weather Heatmap: ${heatmapData.city_name}, ${heatmapData.country_code}`;
+  document.getElementById('title').appendChild(title);
 
   const xScale = d3.scaleBand()
     .domain(dates)
