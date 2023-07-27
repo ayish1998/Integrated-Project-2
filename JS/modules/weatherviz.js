@@ -217,7 +217,7 @@ async function getWeatherDataForCountry(country) {
   if (response.ok) {
     const weatherData = {
       country: country,
-      temperature: data.main.temp,
+      temperature: Math.round(data.main.temp),
       weatherDescription: data.weather[0].description,
     };
     return weatherData;
@@ -230,7 +230,7 @@ async function getWeatherDataForCountry(country) {
 function createMapWithPolygon(map, weatherDataArray) {
   weatherDataArray.forEach((weatherData) => {
     const country = weatherData.country;
-    const temperature = weatherData.temperature;
+    const temperature = Math.round(weatherData.temperature);
 
     // Get the GeoJSON data for the country's border
     fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson')
