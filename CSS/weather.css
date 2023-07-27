@@ -513,7 +513,7 @@ g{
   text-align: center;
   min-height: 150px;
 }
-#title{
+.title{
   font-size: 28px;
   color:#198754;
   text-transform: uppercase;
@@ -569,7 +569,9 @@ g{
 #tutorial {
   height: 900px;
 }
-
+#spacer {
+  height: 100px;
+}
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   .content {
