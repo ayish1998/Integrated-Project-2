@@ -3,23 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Data</title>
+  <!--CSS-->
+  <link rel="stylesheet" href="../CSS/jobtutorial.css">
+  <link rel="stylesheet" href="../CSS/author.css">
+  <!-- Bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
-  <!--D3.js-->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <!-- D3.js color palettes -->
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <!--Leaflet-->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css">
-  <!--Stylesheet-->
-  <link rel="stylesheet" href="../CSS/weather.css">
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
+  <!-- Observable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <title>Weather Tutorial</title>
 </head>
 
 <body>
@@ -27,9 +27,10 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
     <div class="container-fluid">
       <!--Logo and name-->
-      <a class="navbar-brand" href="index.html">
-        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-        Job<span>Insights</span></a>
+      <a class="navbar-brand" href="../index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job
+        <span>Insights</span>
+      </a>
       <!--Toggler-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,41 +40,50 @@
         <!--Nav items-->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
           <!--Data dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Data
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Data </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <a class="dropdown-item" href="job.html">Job</a>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <a class="dropdown-item" href="weather.html">Weather</a>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+              <li>
+                <a class="dropdown-item" href="financial.html">Financial</a>
+              </li>
             </ul>
           </li>
           <!--Tutorials dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Tutorials
-            </a>
+            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"> Tutorials </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+              <li>
+                <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
+              </li>
             </ul>
           </li>
           <!--Tutotrials dropdown ends here-->
@@ -83,14 +93,17 @@
           <!--About dropdown-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About
-            </a>
+              About </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <a class="dropdown-item" href="website.html">Website</a>
+              </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+              <li>
+                <a class="dropdown-item" href="author.html">Developers</a>
+              </li>
             </ul>
           </li>
           <!--About dropdown ends here-->
@@ -98,60 +111,553 @@
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
         </ul>
-        <!--Search bar and button-->
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
   <!--navbar ends here-->
-
-    <!--Main content-->
-    <section id="tutorial">
-        
+  <!--Main Layout Section starts here-->
+  <section id="tut">
+    <section id="home-jobtutorial">
+      <h2 class="meet" style="font-weight: bold; margin-top:40px; color: white;font-size: 40px;">TUTORIALS/WEATHER</h2>
+      <h2 class="meet" style="font-weight: bold;  color: white; font-size: 30px;">Data Visualization: Practical How-Tos
+        for Presentation and Analysis</h2>
     </section>
+  </section>
+  <div class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col-md-6">
+        <p style="font-size: 15px; padding: 100px; margin-top:50px"> This tutorial shows how to combine and use live
+          APIs to fetch, display, and visualize weather data using Vanilla Javascript, D3.js, and Google Maps with
+          polygons.</p>
+      </div>
+      <!-- Slideshow Column -->
+      <div class="col-md-6" style="margin-top: 50px;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- First Image -->
+            <div class="carousel-item active">
+              <a href="https://d3js.org/">
+                <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="300">
+              </a>
+            </div>
+            <!-- Second Image -->
+            <div class="carousel-item">
+              <a href="https://d3js.org/">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 2" width="500" height="300">
+              </a>
+            </div>
+            <!-- Third Image -->
+            <div class="carousel-item">
+              <a href="https://d3js.org/">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 3" width="500" height="300">
+              </a>
+            </div>
+          </div>
+          <!-- Previous and Next buttons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Main Layout Section starts here -->
+  <!-- Tutorial Content for Tutorial 1 -->
+  <section id="wrapper">
+    <div class="container">
+      <div class="ps-3 py-3 "
+        style="background-color: #dadfe4; font-size: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold;">Overview</h2>
+      </div>
+      <hr>
+      <h2>Introduction</h2>
+      <p> Welcome to the tutorial on how to combine and use live APIs to fetch, display, and visualise weather data! In
+        this step-by-step tutorial, we will explore how to fetch data from eight (8) APIs using Vanilla JavaScript,
+        process and manipulate the data, and then use D3.js, Google Maps, and tables to create interactive and dynamic
+        data visualisations such as a heatmap, a colour-coded weather map with polygons, and a data table. By the end of
+        this tutorial, you will be able to create compelling visualisations to gain insights and present data in a more
+        engaging manner.</p>
 
+      <h4>Weather Data Page Overview</h4>
+      The weather page displays the current, hourly, and forecasted weather data, air quality, weather news, and
+      visualisation for the user's location on load. The weather page has search and suggestions/autocomplete
+      functionality that enables users to search for a city's or country's weather data easily. The weather page was
+      developed with HTML5, CSS3, Bootstrap 5.0, Vanilla Javascript, and D3.js but this tutorial will focus on
+      JavaScript. The JavaScript code is organised into modules to promote modularity and maintainability. Let's break
+      down the arrangement and discuss the best practices it follows:
+      <p><strong>File Structure</strong></p>
+      <div class="pt-2 my-3" style="background-color: #f8f9fa; border: 1px solid #ced4da; border-radius: 5px;">
+        <pre>
+                JS
+                |-- modules
+                |   |-- weatherUtils.js
+                |   |-- weatherdata.js
+                |   |-- weatherviz.js
+                |-- weather.js
+				</pre>
+      </div>
+      <p>The entry point of the page is the weather.js file. This file is linked to the weather.html file and serves as
+        the starting point for the page. The modules folder contains smaller modules that follow the Single
+        Responibility Principle (SRP) by containing functions related to a specific aspect of the page. The
+        weatherUtils.js contains utilities and helper functions that are exported and used by other files.The
+        weatherviz.js contains functions to visualise the weather data with heatmap and colour-coded weather map. The
+        code uses imports and exports to establish clear dependencies between modules, making it easier to identify
+        where each
+        function is defined and used. This promotes code reusability and maintainability.</p>
+      <p> The following sections will walk you through each of these sections in detail. </p>
+    </div>
+  </section>
+  <section id="wrapper">
+    <div class="container">
+      <div class="ps-3 py-3 "
+        style="background-color: #dadfe4; font-size: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold;">API Sources and Access</h2>
+      </div>
+      <hr>
+      <h4>API Sources</h4>
+      <p> The page fetches data from the eight (8) APIs sources below</p>
 
+      <table class="mb-4">
+        <tr>
+          <th>API Name</th>
+          <th>API Description</th>
+        </tr>
+        <tr>
+          <td><a href="">OpenWeatherMap API</a></td>
+          <td>Weather visualisation data</td>
+        </tr>
+        <tr>
+          <td><a href="">Weatherbit API</a></td>
+          <td>Weekly weather data</td>
+        </tr>
+        <tr>
+          <td><a href="">API Ninja API</a></td>
+          <td>Air quality data</td>
+        </tr>
+        <tr>
+          <td><a href="">Weather API</a></td>
+          <td>Daily weather data and search autocomplete and suggestions</td>
+        </tr>
+        <tr>
+          <td><a href="">API Dojo API</a></td>
+          <td>News data</td>
+        </tr>
+        <tr>
+          <td><a href="">Rest Countries API</a></td>
+          <td>List of all countries for weather data visualization</td>
+        </tr>
+        <tr>
+          <td><a href="">Natural Earth GeoJSON API</a></td>
+          <td>GeoJSON to create polygons for all countries</td>
+        </tr>
+        <tr>
+          <td><a href="">Google Maps API</a></td>
+          <td>World map</td>
+        </tr>
+      </table>
 
-  <!--Footer-->
+      <h4>API Access</h4>
+      <!-- Step 1: API Access -->
+      <section id="api-access">
+        <div class="container">
+          <div class="row">
+            <!-- Text Column -->
+            <div class="col-md-6">
+              <div class="tutorial-section">
+                <h2>Step 1: Fetch Data via API URL</h2>
+                <p>To access data from a live API, you need to sign up for an API key. Once you have
+                  the API key, you can use it to make requests to the API and retrieve the data. The API provides
+                  various endpoints to access different types of weather data, such as current and hourly weather data and 3
+                  days weather forecast. We will then proceed to define our API url and headers. The weather page
+                  fetches the user's current location on load. To achieve that we will use the
+                  <span class="format">navigator.geolocation.getCurrentPosition()</span> to get the user's latitude and
+                  longitude and pass it to the API url to fetch the weather data for two days.
+                </p>
+                <a href="https://d3js.org/" style="margin-bottom: 40px;"> API source link </a>
+              </div>
+            </div>
+            <!-- Slideshow Column -->
+            <div class="col-md-6">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- First Image -->
+                  <div class="carousel-item active">
+                    <img src="../IMAGES/d3.jpg" alt="Slide 1" width="500" height="250">
+                  </div>
+                  <!-- Second Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+                  </div>
+                  <!-- Third Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+                  </div>
+                </div>
+                <!-- Previous and Next buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Text Column -->
+            <div class="col-md-6">
+              <div class="tutorial-section">
+                <h3>Step 2: Process the Data</h3>
+                <p> First, you need to sign up for an API key from the Trending Job Markets API website. Once you have
+                  the
+                  API key, you can use it to make requests to the API and retrieve the data. The API provides various
+                  endpoints to access different types of job market data, such as salary, job roles, and location-based
+                  data. </p>
+              </div>
+            </div>
+            <!-- Image Column -->
+            <!-- Slideshow Column -->
+            <div class="col-md-6">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- First Image -->
+                  <div class="carousel-item active">
+                    <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+                  </div>
+                  <!-- Second Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+                  </div>
+                  <!-- Third Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+                  </div>
+                </div>
+                <!-- Previous and Next buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          </br>
+          <p> Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key: </p>
+          <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+          <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to fetch data
+            from the Trending Job Markets API </button>
+          <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+            <pre>
+																																	<code >
+          // JavaScript code to fetch data from the Trending Job Markets API
+        const apiKey = "your-api-key";
+        const apiUrl = "https://api.trendingjobmarkets.com/data";
+
+        fetch(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Process and use the retrieved data for visualization
+            // (Example: Create charts or maps using D3.js and Observable)
+          })
+          .catch((error) => console.error("Error fetching data: ", error));
+        </code>
+																																</pre>
+          </div>
+          <p> Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code
+            will
+            make a request to the API, and upon successful retrieval, you can use the data to create visualizations
+            using
+            D3.js and Observable. </p>
+          <p> With access to the API and data, let's move on to the next step to create visualizations. </p>
+        </div>
+    </div>
+  </section>
+  <!-- Step 2: Visualization with D3.js -->
+  <section id="d3-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <h3>Getting Started with D3.js</h3>
+        <p> To begin using D3.js, you can include the D3.js library in your HTML file using a CDN link. Add the
+          following script tag in the head section of your HTML file to include D3.js: </p>
+        <pre>
+																																<code>
+        &lt;script src="https://d3js.org/d3.v6.min.js">&lt;/script></code>
+																															</pre>
+        <p> This script tag will load the latest version of D3.js into your HTML document. Once you have D3.js included,
+          you can start using its functions and methods to create data visualizations. </p>
+        <p> Now that we have D3.js set up, let's move on to creating different types of visualizations, starting with a
+          bar chart. </p>
+      </div>
+    </div>
+  </section>
+  <!-- Step 3: Creating Charts with D3.js -->
+  <section id="chart-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <div class="row">
+          <!-- Text Column -->
+          <div class="col-md-6">
+            <div class="tutorial-section">
+              <h2>Step 3: Display the Data</h2>
+              <p> In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different
+                job roles in the job market. We'll assume that you have already fetched the relevant salary data from
+                the API and stored it in a variable. </p>
+              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
+            </div>
+          </div>
+          <!-- Image Column -->
+          <!-- Text Column -->
+          <!-- Text Column -->
+          <!-- Slideshow Column -->
+          <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <!-- First Image -->
+                <div class="carousel-item active">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="270">
+                  </a>
+                </div>
+                <!-- Second Image -->
+                <div class="carousel-item">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="270">
+                  </a>
+                </div>
+                <!-- Third Image -->
+                <div class="carousel-item">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="270">
+                  </a>
+                </div>
+              </div>
+              <!-- Previous and Next buttons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <h3>Creating a Bar Chart</h3>
+        <p> Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average
+          salary of different job roles in the job market. We'll use an SVG element to draw the chart and D3.js
+          functions to bind the data to the DOM elements and set the properties for the chart. </p>
+        <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
+          aria-expanded="false" aria-controls="codeBlock4" style="margin-bottom: 20px;"> Visualization Technique: Bar
+          Chart </button>
+        <div class="collapse mt-3" id="codeBlock4">
+          <pre>
+																																				<code>
+																																					<!-- HTML markup to display the chart -->
+        &lt;div id="bar-chart">&lt;/div>
+
+        // JavaScript code to create the bar chart using D3.js
+        const salaryData = [
+          { role: "Software Engineer", averageSalary: 80000 },
+          { role: "Data Analyst", averageSalary: 70000 },
+          { role: "Product Manager", averageSalary: 90000 },
+          // Add more data points as needed
+        ];
+
+        const svgWidth = 600;
+        const svgHeight = 400;
+        const barPadding = 5;
+
+        const svg = d3.select("#bar-chart")
+          .append("svg")
+          .attr("width", svgWidth)
+          .attr("height", svgHeight);
+
+        const barWidth = svgWidth / salaryData.length;
+
+        const barChart = svg.selectAll("rect")
+          .data(salaryData)
+          .enter()
+          .append("rect")
+          .attr("y", (d) => svgHeight - d.averageSalary / 1000)
+          .attr("height", (d) => d.averageSalary / 1000)
+          .attr("width", barWidth - barPadding)
+          .attr("transform", (d, i) => {
+            const translate = [barWidth * i, 0];
+            return "translate(" + translate + ")";
+          })
+          .style("fill", "steelblue");
+        
+																																				</code>
+																																			</pre>
+        </div>
+        <p> The above code will create a bar chart displaying the average salaries of different job roles. The height of
+          each bar represents the average salary, and the width of each bar is determined based on the number of data
+          points. </p>
+        <p> After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to enhance
+          the user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js. </p>
+      </div>
+    </div>
+  </section>
+  <!-- Step 4: Creating Map Visualizations with D3.js -->
+  <section id="map-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+        <div class="row">
+          <!-- Text Column -->
+          <div class="col-md-6">
+            <div class="tutorial-section">
+              <h2>Step 4: Creating Map Visualizations with D3.js</h2>
+              <p> In this step, we'll create a choropleth map using D3.js to visualize job market data for different
+                geographical regions. Choropleth maps use different colors to represent different data values, allowing
+                users to quickly grasp patterns and trends in the data. </p>
+              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
+            </div>
+          </div>
+          <!-- Image Column -->
+          <!-- Text Column -->
+          <!-- Slideshow Column -->
+          <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <!-- First Image -->
+                <div class="carousel-item active">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/map.jpg" alt="Slide 1" width="500" height="290">
+                  </a>
+                </div>
+                <!-- Second Image -->
+                <div class="carousel-item">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="290">
+                  </a>
+                </div>
+                <!-- Third Image -->
+                <div class="carousel-item">
+                  <a href="https://d3js.org/">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="290">
+                  </a>
+                </div>
+              </div>
+              <!-- Previous and Next buttons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <h3>Creating a Choropleth Map</h3>
+        <p> Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data for
+          different geographical regions, such as average salaries, job demand, or job availability. </p>
+        <pre>
+																																						<code>
+																																							<!-- HTML markup to display the map -->
+        &lt;div id="choropleth-map">&lt;/div>
+
+        // JavaScript code to create the choropleth map using D3.js
+        // (You may need to use a geoJSON file for mapping data to regions)
+        // ... (Add your code for creating a choropleth map using D3.js) ...
+      
+																																						</code>
+																																					</pre>
+        <p> The above code is just a placeholder for creating the choropleth map, as creating maps requires geographic
+          data and additional configurations. Depending on your use case, you may need to use a geoJSON file for mapping
+          data to specific regions on the map. You can use D3.js functions to bind the data and styles to the map
+          elements. </p>
+        <p> With the choropleth map created, you can now visualize job market data for different regions and explore
+          regional patterns and trends. </p>
+      </div>
+    </div>
+  </section>
+  <!--Main Layout Section ends-->
+  <!-- Footer section starts here-->
   <footer>
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
         <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
           <a class="navbar-brand" href="index.html">
             <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-            Job<span>Insights</span></a>
+            Job <span>Insights</span>
+          </a>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
-            quam, ad facere odio sunt mollitia asperiores
-            eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit?
+          </p>
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
           <h5 class="fw-bold">USEFUL LINKS</h5>
           <ul style="list-style-type: square;">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="job.html">Job Data</a></li>
-            <li><a href="weather.html">Weather Data</a></li>
-            <li><a href="financial.html">Financial Data</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="website.html">About Website</a></li>
-            <li><a href="developers.html">About Developers</a></li>
+            <li>
+              <a href="../index.html">Home</a>
+            </li>
+            <li>
+              <a href="job.html">Job Data</a>
+            </li>
+            <li>
+              <a href="weather.html">Weather Data</a>
+            </li>
+            <li>
+              <a href="financial.html">Financial Data</a>
+            </li>
+            <li>
+              <a href="Newsletter.html">Newsletter</a>
+            </li>
+            <li>
+              <a href="website.html">About Website</a>
+            </li>
+            <li>
+              <a href="author.html">About Developers</a>
+            </li>
           </ul>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
           <h5 class="fw-bold">CONTACT</h5>
-          <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
-            Mauritius</p>
-          <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
-          <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+          </p>
+          <p>
+            <i class="fa-solid fa-phone"></i> +23056789042
+          </p>
         </div>
       </div>
       <div class="row mx-auto d-flex justify-content-center pt-3">
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier!
-            <br>Sign up for our Newsletter.
-          </p>
+          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
           <form class="d-block" role="email">
@@ -163,36 +669,35 @@
       <hr>
       <!--Social media links-->
       <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
-            style="color: #3b5998;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
-            style="color: #dd4b39;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
-            style="color: #ac2bac;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
-            style="color: #0082ca;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-google" style="color: #dd4b39;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+        </a>
       </div>
     </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;">
-      © 2023 Copyright:
-      <a class="fw-bold" href="index.html">Job Insights</a>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+        href="../index.html">Job Insights</a>
     </div>
   </footer>
-
-
-  <!--scripts-->
+  <!--Footer ends here-->
   <!--Jquery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQb008yhHF8gs50DFD_67HaJopYtFfa2Y&libraries=visualization&callback=initMap"></script> -->
-
-  <!--External Javascript file-->
-  <script src="../JS/weather.js"></script>
-  <!-- <script type="module" src="../JS/weekly_weather.js"></script> -->
-
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Custom JS links-->
+  <script src="../JS/jobdata.js"></script>
 </body>
 
 </html>
