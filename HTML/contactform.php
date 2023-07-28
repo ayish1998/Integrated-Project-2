@@ -3,8 +3,8 @@
 if (isset($_POST['submit']) && $_POST['email'] != '') {
 
     
-    $fname = $_POST['firstname'];
-    $lname = $_POST['lastname'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $email = $_POST['email'];
     $tel = $_POST['tel'];
     $subject = $_POST['subject'];
