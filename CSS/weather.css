@@ -513,13 +513,6 @@ g{
   text-align: center;
   min-height: 150px;
 }
-.title{
-  font-size: 28px;
-  color:#198754;
-  text-transform: uppercase;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
 #x-axis, #y-axis{
   font-size: 14px;
