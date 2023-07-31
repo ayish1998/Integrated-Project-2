@@ -1,9 +1,9 @@
-import {
-  createSpan
-} from './weatherUtils.js';
+// Author: Ganiyat Adekunle
 //*******************************************************************************************************
 //RENDER HEATMAP FUNCTION
 //*******************************************************************************************************
+const titleDiv = document.getElementById('title');
+
 export const renderHeatmap = (heatmapData) => {
   console.log(heatmapData);
   const variables = ['temp', 'uv', 'precip', 'rh', 'wind_spd'];
@@ -18,7 +18,7 @@ export const renderHeatmap = (heatmapData) => {
   const formatTime = d3.timeFormat("%d %B, %Y");
   const title = document.createElement('h5');
   title.textContent = `Weather Heatmap: ${heatmapData.city_name}, ${heatmapData.country_code}`;
-  document.getElementById('title').appendChild(title);
+  titleDiv.appendChild(title);
 
   const xScale = d3.scaleBand()
     .domain(dates)
@@ -142,8 +142,8 @@ const padding = 80;
 //*******************************************************************************************************
 //INIT MAP FUNCTION
 //*******************************************************************************************************
-const apiKey = "df918deb135cc4c83828b9026095bfc1";
-const units = "metric";
+// const apiKey = "df918deb135cc4c83828b9026095bfc1";
+// const units = "metric";
 
 export function initMap(userLatLng) {
   console.log(userLatLng);
