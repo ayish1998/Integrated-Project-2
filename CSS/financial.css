@@ -129,9 +129,6 @@ footer a {
     font-size: 30px;
 }
 
-
-
-
 .center p {
     font-size: 1rem;
     margin: 40px auto;
@@ -177,10 +174,7 @@ footer a {
 } 
 
 
-
-
-
-/**technologystocks css styles starts here**/
+/**technology stocks css styles starts here**/
 
 #wrapper {
     margin-top: 60px;
@@ -203,8 +197,12 @@ footer a {
 }
 
 #wrapper .meta-bar a {
-    color: rgba(51, 51, 100, 0.678);
+    color: rgba(33, 33, 33, 0.55);
     text-decoration: underline;
+}
+
+#title-out h2{
+   color: rgba(0, 0, 0, 0.75);
 }
 
 #title-out h1 {
@@ -223,6 +221,13 @@ footer a {
 #reports h4 a:hover {
     text-decoration: underline;
 }
+
+/* currency rates styles starts here */
+
+/* currency rates styles ends here */
+
+
+/**technologystocks css styles ends here**/
 
 
 /* Pagination */
@@ -285,4 +290,3 @@ footer a {
     cursor: default;
 }
 
-/**technologystocks css styles ends here**/

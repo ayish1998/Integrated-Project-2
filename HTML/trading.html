@@ -1,0 +1,312 @@
+<!dOCTYPE html5>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>technology stocks</title>
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!--fontawesome icons-->
+    <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../CSS/financial.css">
+
+    <!--Add chart.js cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+
+    <!-- Include the chartjs-plugin-datalabels script -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+
+    <!--jQuery plugin-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script src="../JS/trading.js"></script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <!--navbar starts here-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3">
+            <div class="container-fluid">
+                <!--Logo and name-->
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
+                        class="d-inline-block align-text-center" />
+                    Job<span>Insights</span></a>
+                <!--Toggler-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!--Nav items-->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <!--Data dropdown-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Data
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../HTML/job.html">Job</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../HTML/weather.html">Weather</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../HTML/financial.html">Financial</a></li>
+                            </ul>
+                        </li>
+                        <!--Tutorials dropdown-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tutorials
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial Tutorial</a></li>
+                            </ul>
+                        </li>
+                        <!--Tutotrials dropdown ends here-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
+                        </li>
+                        <!--About dropdown-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../HTML/website.html">Website</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../HTML/author.html">Developers</a></li>
+                            </ul>
+                        </li>
+                        <!--About dropdown ends here-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+        <!--navbar ends here-->
+    </header>
+
+
+    <section id="wrapper">
+        <div class="container">
+            <div id="title-out">
+                <div class="centered container">
+                    <div class="meta-bar">
+                        <a href="../HTML/financial.html">financial data</a>/
+                        technology stocks
+                    </div>
+
+                    <h2>Latest Insider Trading Transactions</h2>
+
+                </div>
+            </div>
+
+            <h6 id="table-title">Form Screener</h6>
+
+            <table id="data-table" style="height: 500">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Shares Owned</th>
+                        <th>Relationship</th>
+                        <th>Owner Address</th>
+                        <th>Transaction Shares</th>
+                        <th>Symbol</th>
+                        <th>Total Value</th>
+                        <th>Transaction Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 40px;">
+                <h5><u>Buuble Chart Insider Trading Visualization</u></h5>
+            <p>The bubble chart below visualizes insider trading activity for various companies in a market. Each bubble
+                in the chart
+                represents an individual insider and is positioned based on the average price per share they transacted
+                and the number of shares they own. The size of each bubble is determined by the total value of their
+                transactions. This visualization helps to identify patterns and trends in insider trading behavior,
+                understand the distribution of transactions across different companies, and possibly gain insights into
+                how insiders' actions may impact the market sentiment or company performance.</p>
+</div>
+          <div class="container"><div id="chart"></div></div>
+            <div id="tooltip"></div>
+
+
+            <style>
+                /* Add CSS for the tooltip */
+                .tooltip {
+                    position: absolute;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    color: #fff;
+                    padding: 5px;
+                    border-radius: 5px;
+                    pointer-events: none;
+                    font-size: 12px;
+                    white-space: nowrap;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    border: 2px solid rgba(0, 0, 0, 0.9);
+                    border-radius: 15px;
+                    overflow: hidden;
+                }
+
+                #table-title {
+                    font-size: 20px;
+                    padding: 20px 0;
+                    margin: 10px 0;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    font-size: 12px;
+                    white-space: pre-line;
+                }
+
+                tr {
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+                }
+
+                tr:hover {
+                    background-color: #f2f2f2;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                    text-transform: uppercase;
+                }
+
+                #tooltip {
+                    position: absolute;
+                    pointer-events: none;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    color: #fff;
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    opacity: 0;
+                }
+            </style>
+
+
+        </div>
+    </section>
+
+
+
+
+    <!--Footer-->
+<footer>
+        <div class="container-fluid bg-success text-white p-4">
+            <div class="row">
+                <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
+                            class="d-inline-block align-text-center" />
+                        Job<span>Insights</span></a>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium
+                        quis iusto
+                        quam, ad facere odio sunt mollitia asperiores
+                        eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+                    <h5 class="fw-bold">USEFUL LINKS</h5>
+                    <ul style="list-style-type: square;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="job.html">Job Data</a></li>
+                        <li><a href="weather.html">Weather Data</a></li>
+                        <li><a href="financial.html">Financial Data</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="website.html">About Website</a></li>
+                        <li><a href="developers.html">About Developers</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+                    <h5 class="fw-bold">CONTACT</h5>
+                    <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+                        Mauritius</p>
+                    <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+                </div>
+            </div>
+            <div class="row mx-auto d-flex justify-content-center pt-3">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <p>We are here to make your career decision easier!
+                        <br>Sign up for our Newsletter.
+                    </p>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+                    <form class="d-block" role="email">
+                        <input class="form-control me-2 mb-2" type="email" placeholder="Email Address"
+                            aria-label="Email">
+                        <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <!--Social media links-->
+            <div class="socials text-center">
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
+                        style="color: #3b5998;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
+                        style="color: #dd4b39;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
+                        style="color: #ac2bac;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
+                        style="color: #0082ca;"></i></a>
+            </div>
+        </div>
+        <div class="text-white text-center p-4" style="background-color: #6c757d;">
+            © 2023 Copyright:
+            <a class="fw-bold" href="index.html">Job Insights</a>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

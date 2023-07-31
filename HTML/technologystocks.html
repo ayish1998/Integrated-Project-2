@@ -2,183 +2,234 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>technology stocks</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>technology stocks</title>
 
-    <!--Bootstrap CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!--Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <!--fontawesome icons-->
-    <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
+  <!--fontawesome icons-->
+  <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../CSS/financial.css">
+  <link rel="stylesheet" href="../CSS/financial.css">
 
-    <!--Add chart.js cdn-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+  <!--Add chart.js cdn-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
 
-    <!-- Include the chartjs-plugin-datalabels script -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <!-- Include the chartjs-plugin-datalabels script -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
 
-    <!--jQuery plugin-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!--jQuery plugin-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <script src="../JS/financial.js"></script>
+  <script src="../JS/financial.js"></script>
 
 
 </head>
 
 <body>
 
-    <header>
-         <!--navbar starts here-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 ">
-    <div class="container-fluid">
-      <!--Logo and name-->
-      <a class="navbar-brand" href="index.html">
-        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-        Job<span>Insights</span></a>
-      <!--Toggler-->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--Nav items-->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <!--Data dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active"  aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Data
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="job.html">Job</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
-            </ul>
-          </li>
-          <!--Tutorials dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Tutorials
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
-            </ul>
-          </li>
-          <!--Tutotrials dropdown ends here-->
-          <li class="nav-item">
-            <a class="nav-link" href="newsletter.html">Newsletter</a>
-          </li>
-          <!--About dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="website.html">Website</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
-            </ul>
-          </li>
-          <!--About dropdown ends here-->
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-        </ul>
-        <!--Search bar and button-->
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!--navbar ends here-->
-    </header>
-
-
-    <section id="wrapper">
-        <div class="container">
-            <div id="title-out">
-                <div class="centered container">
-                    <div class="meta-bar">
-                        <strong> <a href="../HTML/financial.html">Financial Data</a></strong> /
-                        technology stocks
-                    </div>
-
-                    <h1>Technology Stocks With Revenue and Earnings Growth In Excess of 25%</h1>
-
-                </div>
-            </div>
-
-
-            <p style="margin-top: 40px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae quod earum quas
-                vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
-                nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
-                porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
-                tempore? Ab, quo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
-                quod earum quas
-                vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
-                nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
-                porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
-                tempore? Ab, quo.</p>
-
-
-
-            <div id="chart" style="height: 110vh;"></div>
-
-
-
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae quod earum quas
-                vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
-                nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
-                porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
-                tempore? Ab, quo.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem qui repudiandae
-                quod earum quas
-                vel atque libero modi animi maiores, amet officia? At quae accusantium nihil labore maiores mollitia
-                nulla. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut molestias repudiandae omnis
-                porro cum voluptatem iure sed ut minus, nam enim. Sint ea velit, distinctio laudantium libero
-                tempore? Ab, quo. <p>The current date is: <span id="currentDate"></span></p>
-            </p>
-
-                <div id="chart2" style="height: 110vh;"></div>
+  <header>
+    <!--navbar starts here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3">
+      <div class="container-fluid">
+        <!--Logo and name-->
+        <a class="navbar-brand" href="../index.html">
+          <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+          Job<span>Insights</span></a>
+        <!--Toggler-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--Nav items-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <!--Data dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Data
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../HTML/job.html">Job</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../HTML/weather.html">Weather</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../HTML/financial.html">Financial</a></li>
+              </ul>
+            </li>
+            <!--Tutorials dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Tutorials
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial Tutorial</a></li>
+              </ul>
+            </li>
+            <!--Tutotrials dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
+            </li>
+            <!--About dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                About
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../HTML/website.html">Website</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../HTML/author.html">Developers</a></li>
+              </ul>
+            </li>
+            <!--About dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
+            </li>
+          </ul>
 
         </div>
-    </section>
+      </div>
+    </nav>
+    <!--navbar ends here-->
+  </header>
+
+
+  <section id="wrapper">
+    <div class="container">
+      <div id="title-out">
+        <div class="centered container">
+          <div class="meta-bar">
+            <strong> <a href="../HTML/financial.html">Financial Data</a></strong> /
+            technology stocks
+          </div>
+
+          <h1>Technology Stocks With Revenue and Earnings Growth In Excess of 25%</h1>
+
+        </div>
+      </div>
+
+
+      <p style="margin-top: 40px;">The primary goal of the chart below is to present a visual representation of the
+        stock prices of various companies. The chart helps display and compare the stock prices of different companies
+        in a visually appealing and understandable format.
+
+        By visualizing the stock prices, the chart allows viewers to easily identify patterns, trends, and relative
+        differences among the companies' stock values. It provides a quick overview of how the stock prices of different
+        companies vary and may help users make informed decisions or draw insights related to the performance of these
+        companies in the stock market.
+
+
+      </p>
+
+
+      <div id="form-container"></div>
+
+      <div id="chart" style="height: 600;"></div>
+
+      <h5 style="margin-bottom: 20px;"><u>Relationship between the market capitalization (market cap) and the forward
+          price-to-earnings ratio (forward
+          P/E ratio) of different companies</u></h5>
+
+      <p>The bubble chart below is intended to visualize the relationship between the market capitalization (market cap)
+        and the forward price-to-earnings ratio (forward P/E ratio) of different companies. Each bubble in the chart
+        represents a company, where its position on the x-axis corresponds to the company symbol, its position on the
+        y-axis corresponds to its market cap, and its size (radius) represents the forward P/E ratio. The chart allows
+        users to compare and analyze the market cap and valuation metrics of multiple companies simultaneously, making
+        it easier to identify patterns and trends in their financial performance.
+      <p>Name Change Date is: <span id="currentDate"></span></p>
+      </p>
+
+
+      <div id="chart-container" style="height: 800;"></div>
+
+      <div class="container" id="related">
+        <h6>Other Financial Visualizations:</h6>
+        <ul class="list-unstyled components mb-5" style="list-style: circle;">
+          <li><a href="../HTML/currencyrates.html">Currency Rates</a> </li>
+          <li><a href="../HTML/trading.html">Insider Trading Transactions</a> </li>
+          <li><a href="#pageSubmenu1">Lastest Cryptocurrencies Updates</a></li>
+        </ul>
+      </div>
+
+      <style>
+        #form-container label{
+           margin: 2rem;
+        }
+        #related li a {
+          font-size: 14px;
+          color: green;
+        }
+
+        .tooltip {
+          position: absolute;
+          opacity: 0;
+          background-color: black;
+          color: #fff;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 12px;
+          pointer-events: none;
+        }
+
+        #sidebar ul li a {
+          padding: 10px 0;
+          display: block;
+          color: black;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .bubbles {
+          stroke-width: 2px;
+          stroke: white;
+        }
+
+        .bubbles:hover {
+          stroke: black;
+        }
+      </style>
+
+    </div>
+  </section>
 
 
 
 
-     <!--Footer-->
+  <!--Footer-->
+
   <footer>
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
         <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="index.html">
-            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center"/>
+          <a class="navbar-brand" href="../index.html">
+            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
             Job<span>Insights</span></a>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
             quam, ad facere odio sunt mollitia asperiores
@@ -187,13 +238,13 @@
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
           <h5 class="fw-bold">USEFUL LINKS</h5>
           <ul style="list-style-type: square;">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="job.html">Job Data</a></li>
-            <li><a href="weather.html">Weather Data</a></li>
-            <li><a href="financial.html">Financial Data</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="website.html">About Website</a></li>
-            <li><a href="developers.html">About Developers</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../HTML/job.html">Job Data</a></li>
+            <li><a href="../HTML/weather.html">Weather Data</a></li>
+            <li><a href="../HTML/financial.html">Financial Data</a></li>
+            <li><a href="../HTML/Newsletter.html">Newsletter</a></li>
+            <li><a href="../HTML/website.html">About Website</a></li>
+            <li><a href="../HTML/author.html">About Developers</a></li>
           </ul>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
@@ -232,15 +283,20 @@
     </div>
     <div class="text-white text-center p-4" style="background-color: #6c757d;">
       © 2023 Copyright:
-      <a class="fw-bold" href="index.html">Job Insights</a>
+      <a class="fw-bold" href="../index.html">Job Insights</a>
     </div>
   </footer>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <script src="../JS/finTu.js"></script>
+
+
+
 </body>
 
 </html>
