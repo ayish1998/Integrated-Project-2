@@ -1,0 +1,230 @@
+/* Googlefont Poppins CDN Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* NAVBAR STYLING STARTS HERE */
+nav a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.navbar-brand {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  color: grey;
+}
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+#data {
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
+    url(/IMAGES/service1.jpeg);
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 100px;
+}
+
+#data h2 {
+  color: #efeff7;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+#data h1 {
+  color: #efeff7;
+  font-size: 2.2rem;
+}
+
+#data p {
+  color: #efeff7;
+  font-size: 1.2rem;
+}
+/* home card starts here */
+#tot {
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
+    url(/IMAGES/chart.jpg);
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 100px;
+}
+
+#tot h2 {
+  color: #eaeaf1;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.how-section1 {
+  margin-top: -15%;
+  padding: 10%;
+}
+.how-section1 h4 {
+  color: #1f6f32;
+  font-weight: bold;
+  font-size: 30px;
+}
+.how-section1 .subheading {
+  color: #28282b;
+  font-size: 20px;
+}
+.how-section1 .row {
+  margin-top: 10%;
+}
+.how-img {
+  text-align: center;
+}
+.how-img img {
+  width: 40%;
+}
+
+/* Chart styling statrs here*/
+
+#my_dataviz {
+  width: 100%;
+  height: 400px;
+}
+#chart,
+#table {
+  z-index: 100;
+}
+#wrapper {
+  padding: 20px;
+  margin: 0;
+}
+#chart {
+  width: 100%;
+}
+
+.chart-container {
+  padding: 50px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.btn a {
+  text-decoration: none;
+  color: rgb(21, 100, 37);
+}
+.btn a:hover {
+  text-decoration: none;
+  color: rgb(226, 236, 227);
+}
+#wrapper {
+  padding: 100px;
+}
+#title-out {
+  text-align: center;
+}
+
+#title-out .meta-bar {
+  margin-bottom: 2rem;
+}
+
+#wrapper .meta-bar a {
+  color: rgba(51, 51, 100, 0.678);
+  text-decoration: underline;
+}
+
+#title-out h1 {
+  font-size: 1.8rem;
+  margin-top: -2px;
+}
+#title-out .meta-bar {
+  margin-bottom: 2rem;
+}
+
+#wrapper .meta-bar a {
+  color: rgba(51, 51, 100, 0.678);
+  text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+  .chart-container {
+    width: 100%;
+    padding: 20px;
+  }
+}
+#chart {
+  width: 70%;
+}
+#table {
+  width: 400px;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+#table th,
+#table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#vis {
+  background-image: white;
+  width: 100%;
+  height: 20vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 50px;
+}
+
+#vis h2 {
+  color: #01010c;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  padding: 20px;
+  font-size: 20px;
+}
+#gap {
+  padding: 80px;
+  width: 100%;
+  max-width: 1200px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+  margin-top: 60px; /* Add top margin to avoid overlap with navbar */
+}
+
+@media (max-width: 767px) {
+  #gap {
+    padding: 40px;
+  }
+}

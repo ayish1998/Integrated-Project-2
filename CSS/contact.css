@@ -1,0 +1,113 @@
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-brand {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  color: grey;
+}
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.content {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding-top: 30px;
+}
+
+.title {
+  font-size: 28px;
+  color: #198754;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-container {
+ position: relative;
+ display: flex;
+  justify-content: center;
+}
+
+.grey {
+  background-color: grey;
+  position: relative;
+  transform: skewY(-2deg);
+  transition: 2s;
+}
+
+.grey:hover {
+  transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.grey:hover > .green{
+  transform: skewY(-2deg);
+  transition: 1s;
+  z-index: -1;
+}
+
+.green{
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+#contact-form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#social-text {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#social-links {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.spacer {
+  height: 100px;
+}
+
+
+/* Styles for smaller screens*/
+@media (max-width: 768px) {
+  .green {
+    transform: skewY(0);
+    translate: 0;
+    height: auto;
+  }
+
+  #contact-form .container,
+  .socials {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+}
