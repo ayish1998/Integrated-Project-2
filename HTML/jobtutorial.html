@@ -155,14 +155,22 @@
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    <!-- Main Layout Section starts here -->
-    <!-- Tutorial Content for Tutorial 1 -->
-    <section id="wrapper">
-      <div class="container">
-        <div style="background-color: #dadfe4; font-size: 20px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <h2 style="font-weight: bold; margin-bottom: 40px;">1. API Visualization: D3.js and Observable Charts & Maps </h2>
+
+
+      <div class="row">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h2>Step 2: How to Access the API</h2>
+            <p>
+              First, you need to sign up for an API key from the Trending Job Markets API website. Once you have the API
+              key, you can use it to make requests to the API and retrieve the data. The API provides various endpoints
+              to
+              access different types of job market data, such as salary, job roles, and location-based data.
+            </p>
+
+          </div>
+
         </div>
         <hr>
         <h2>Introduction</h2>
@@ -210,12 +218,106 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <!-- Text Column -->
-          <div class="col-md-6">
-            <div class="tutorial-section">
-              <h3>How to Access the API</h3>
-              <p> First, you need to sign up for an API key from the Trending Job Markets API website. Once you have the API key, you can use it to make requests to the API and retrieve the data. The API provides various endpoints to access different types of job market data, such as salary, job roles, and location-based data. </p>
+
+
+      </div>
+
+
+      </br>
+      <div class="tutorial-section">
+<h2> Step 3: How to fetch data from the API using the API key</h2>
+      <p>
+        Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key:
+      </p>
+      <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+      <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+        aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;">
+        JavaScript code to fetch data from the Trending Job Markets API
+      </button>
+      <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+        <pre><code >
+          // JavaScript code to fetch data from the Trending Job Markets API
+        const apiKey = "your-api-key";
+        const apiUrl = "https://api.trendingjobmarkets.com/data";
+
+        fetch(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Process and use the retrieved data for visualization
+            // (Example: Create charts or maps using D3.js and Observable)
+          })
+          .catch((error) => console.error("Error fetching data: ", error));
+        </code></pre>
+      </div>
+
+      <p>
+        Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code will
+        make a request to the API, and upon successful retrieval, you can use the data to create visualizations using
+        D3.js and Observable.
+      </p>
+      <p>
+        With access to the API and data, let's move on to the next step to create visualizations.
+      </p>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Visualization with D3.js -->
+  <section id="d3-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+
+
+
+
+
+        <h2>Step 4: Getting Started with D3.js</h2>
+        <p>
+          To begin using D3.js, you can include the D3.js library in your HTML file using a CDN link. Add the following
+          script tag in the head section of your HTML file to include D3.js:
+        </p>
+        <pre><code>
+        &lt;script src="https://d3js.org/d3.v6.min.js">&lt;/script>
+      </code></pre>
+        <p>
+          This script tag will load the latest version of D3.js into your HTML document. Once you have D3.js included,
+          you can start using its functions and methods to create data visualizations.
+        </p>
+        <p>
+          Now that we have D3.js set up, let's move on to creating different types of visualizations, starting with a
+          bar chart.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: Creating Charts with D3.js -->
+
+
+  <section id="chart-visualization">
+    <div class="container">
+
+
+      <div class="tutorial-section">
+
+=======
+
+
+              <h2>Step 5: Creating Charts with D3.js</h2>
+              <p>
+                In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different
+                job
+                roles in the job market. We'll assume that you have already fetched the relevant salary data from the
+                API and
+                stored it in a variable.
+              </p>
+              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
+
             </div>
           </div>
           <!-- Image Column -->
@@ -393,19 +495,28 @@
           <p> After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to enhance the user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js. </p>
         </div>
       </div>
-    </section>
-    <!-- Step 4: Creating Map Visualizations with D3.js -->
-    <section id="map-visualization">
-      <div class="container">
-        <div class="tutorial-section">
-          <div class="row">
-            <!-- Text Column -->
-            <div class="col-md-6">
-              <div class="tutorial-section">
-                <h2>Step 4: Creating Map Visualizations with D3.js</h2>
-                <p> In this step, we'll create a choropleth map using D3.js to visualize job market data for different geographical regions. Choropleth maps use different colors to represent different data values, allowing users to quickly grasp patterns and trends in the data. </p>
-                <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
-              </div>
+
+    </div>
+  </section>
+
+  <!-- Step 4: Creating Map Visualizations with D3.js -->
+  <section id="map-visualization">
+    <div class="container">
+      <div class="tutorial-section">
+
+        <div class="row">
+          <!-- Text Column -->
+          <div class="col-md-6">
+            <div class="tutorial-section">
+              <h2>Step 6: Creating Map Visualizations with D3.js</h2>
+              <p>
+                In this step, we'll create a choropleth map using D3.js to visualize job market data for different
+                geographical regions. Choropleth maps use different colors to represent different data values, allowing
+                users
+                to quickly grasp patterns and trends in the data.
+              </p>
+              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
+
             </div>
             <!-- Image Column -->
             <!-- Text Column -->
