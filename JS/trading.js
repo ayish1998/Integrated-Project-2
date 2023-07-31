@@ -23,7 +23,7 @@ async function drawBubbleChart() {
   const data = await fetchData();
 
   const width = 1000;
-  const height = 800;
+  const height = 600;
   const margin = 40;
 
   const svg = d3.select("#chart")
