@@ -173,7 +173,7 @@ footer a {
 } */
 
 
-/* THE DARKMODE SWITCH */
+/* The darkmode switch */
 .dark-mode-switch {
   margin-top: 70px;
   position: fixed;
@@ -579,11 +579,19 @@ g{
   }
   
   .aside {
+    order: 2;
+    flex: 1;
+    margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 0;
+
   } 
   .tabs-container {
+    order:1;
+    flex: 1;
+    margin-left: 0;
     margin-bottom: 20px;
-    padding: 7px;
+    padding: 4px;
   }
   
   .tabs {
