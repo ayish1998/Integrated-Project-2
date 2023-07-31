@@ -1,534 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
-    <link rel="stylesheet" href="/CSS/Newsletter.css">
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="../CSS/Newsletter.css">
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <!--Bootstrap CDN-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <title>JobData</title>
-</head>
-
-<body>
-    <!--Nav bar Section with logo starts here-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="/IMAGES/3D Mode Design Logo.png"  alt="Logo" height="30">
-            </a>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+    <!--Chart.js CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Job Insights</title>
+  </head>
+  <body>
+    <!--navbar starts here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+      <div class="container-fluid">
+        <!--Logo and name-->
+        <a class="navbar-brand" href="/index.html">
+          <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
+        </a>
+        <!--Toggler-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--Nav items-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <!--Data dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/job.html">Job</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/weather.html">Weather</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/financial.html">Financial</a>
+                </li>
+              </ul>
+            </li>
+            <!--Tutorials dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tutorials </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./weathertutorial.html">Weather Tutorial</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
+                </li>
+              </ul>
+            </li>
+            <!--Tutotrials dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link active" href="../HTML/Newsletter.html">Newsletter</a>
+            </li>
+            <!--About dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> About </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/website.html">Website</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/author.html">Developers</a>
+                </li>
+              </ul>
+            </li>
+            <!--About dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-    <!--Nav bar Section with links starts here-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info p-3">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">JobData</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link mx-2 active" aria-current="page">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" href="#">Visualisation</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Visualisation</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Visualisation</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link mx-2 " aria-current="page">Tutorials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/HTML/Newsletter.html" class="nav-link mx-2 " aria-current="page">Newsletter</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> About Us </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" href="#">Website</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Developers</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link mx-2 " aria-current="page">Contact Us</a>
-                    </li>
-                </ul>
-                <!--Nav Socials-->
-                <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-dark h5" href="" target="blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a href="" class="nav-link text-dark h5" target="blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-dark h5" href="" target="blank">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!--navbar ends here-->
     <!--Main Layout Section starts here-->
+    <!-- background section starts here-->
+    <section id="newsletter">
+      <h2>Breaking News: Stay Updated with the Latest Developments from Around the World</h2>
+    </section>
     <div class="container">
-        <!--section 1:news of the day start-->
-        <section class="border-bottom pb-4 mb-5 m-5">
-            <div class="row gx-5">
-                <div class="col-md-6 mb-4">
-                    <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/slides/080.webp" class="img-fluid" />
-                        <a href="#">
-                            <div class="mask" style="background-color: rgba(251,251,251,0.15);"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span>
-                    <h4>
-                        <strong>Preparation for Website</strong>
-                    </h4>
-                    <p class="text-muted"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti neque
-                        assumenda nemo consequuntur ratione mollitia suscipit similique quibusdam, facere nostrum
-                        maiores atque aliquid, corrupti porro provident maxime consectetur saepe dolore? </p>
-                    <button type="button" class="btn btn-primary">Read More</button>
-                </div>
+      <h3 class="mt-3 pb-3 mb-4  border-bottom">News Arena</h3>
+      <!--Section for the buttons-->
+      <button type="button" class="btn btn-outline-success">General</button>
+      <button type="button" class="btn btn-outline-success">Sport</button>
+      <button type="button" class="btn btn-outline-success">Weather</button>
+      <button type="button" class="btn btn-outline-success">Technology</button>
+      <button type="button" class="btn btn-outline-success">Business</button>
+    </div>
+    <div class="container">
+      <!--section 1:news of the day start-->
+      <section class="border-bottom pb-4 mb-5 m-5 p-5">
+        <div class="row gx-5">
+          <div class="col-md-6 mb-4">
+            <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/slides/080.webp" class="img-fluid" />
+              <a href="#">
+                <div class="mask" style="background-color: rgba(251,251,251,0.15);"></div>
+              </a>
             </div>
-        </section>
-        <!--section: news of the day ends-->
-        <!--==section 2: Content-->
-        <section>
-            <div class="row gx-lg-5">
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                    <!--News block-->
-                    <div>
-                        <!--Featured image-->
-                        <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
-                            data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="img-fluid" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251,251,251,0.15);"></div>
-                            </a>
-                        </div>
-                        <!--Article data-->
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <a href="" class="text-info">
-                                    <i class="fas fa-book"></i> Media Release </a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <u>15.07.2023</u>
-                            </div>
-                        </div>
-                        <!--Article title and description-->
-                        <a href="" class="text-dark">
-                            <h5>This is title of the news</h5>
-                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti neque assumenda nemo
-                                consequuntur ratione mollitia suscipit similique quibusdam, facere nostrum maiores atque
-                                aliquid, corrupti porro provident maxime consectetur saepe dolore?</p>
-                        </a>
-                        <hr />
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Hollywood Sign on The Hill" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem, ipsum Lorem, ipsum.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.09.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Palm Springs Road" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem, ipsum dolor.</strong>
-                                    </p>
-                                    <p>
-                                        <u>17.05/2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Los Angeles Skyscrapers" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.05.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Skyscrapers" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.05.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!--News block-->
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <!--News block-->
-                    <div>
-                        <!--Featured image-->
-                        <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
-                            data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/011.webp" class="img-fluid"
-                                alt="Brooklyn Bridge" />
-                            <a href="!#">
-                                <div class="mask" style="background-color: rgba(251,251,251,0.15);"></div>
-                            </a>
-                        </div>
-                        <!--Article data-->
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <a href="" class="text-danger">
-                                    <i class="fas fa-chart-pie"></i> Business </a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <u>15.05.2023</u>
-                            </div>
-                        </div>
-                        <!--Article title and description-->
-                        <a href="" class="text-dark">
-                            <h5>This is title of the news</h5>
-                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti neque assumenda nemo
-                                consequuntur ratione mollitia suscipit similique quibusdam, facere nostrum maiores atque
-                                aliquid, corrupti porro provident maxime consectetur saepe dolore?</p>
-                        </a>
-                        <hr />
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Five Lands National Park" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.03.2023 </u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/032.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Paris - Eiffel Tower" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.02.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/033.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Louvre" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.05.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/034.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Times Square" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.03.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!--News block-->
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <!--News block-->
-                    <div>
-                        <!--Featured image-->
-                        <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
-                            data-mdb-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/018.webp" class="img-fluid"
-                                alt="Golden Gate National Recreation Area" />
-                            <a href="!#">
-                                <div class="mask" style="background-color: rgba(251,251,251,0.15);"></div>
-                            </a>
-                        </div>
-                        <!--Article data-->
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <a href="" class="text-warning">
-                                    <i class="fas fa-code"></i> Technology </a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <u>14.05.2023</u>
-                            </div>
-                        </div>
-                        <!--Article title and description-->
-                        <a href="" class="text-dark">
-                            <h5>This is title of the news</h5>
-                            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti neque assumenda nemo
-                                consequuntur ratione mollitia suscipit similique quibusdam, facere nostrum maiores atque
-                                aliquid, corrupti porro provident maxime consectetur saepe dolore? </p>
-                        </a>
-                        <hr />
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/011.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Brooklyn Bridge" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>17.04.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/012.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Hamilton Park" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>08.05.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/013.webp"
-                                        class="img-fluid shadow-1-strong rounded"
-                                        alt="Perdana Botanical Garden Kuala Lumpur" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>15.04.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--News-->
-                        <a href="" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
-                                <div class="col-3">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/014.webp"
-                                        class="img-fluid shadow-1-strong rounded" alt="Perdana Botanical Garden" />
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-2">
-                                        <strong>Lorem ipsum dolor sit amet.</strong>
-                                    </p>
-                                    <p>
-                                        <u>14.05.2023</u>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!--News block-->
-                </div>
-            </div>
-        </section>
-        <!--Section: Content-->
-        <!--Pagination-->
-        <nav class="my-4 m-4" aria-label="...">
-            <ul class="pagination pagination-circle justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
+          </div>
+          <div class="col-md-6 mb-4">
+            <span class="badge bg-success px-2 py-1 shadow-1-strong mb-3">Weather News</span>
+            <h5>
+              <strong>Stay Informed with Latest Weather Updates</strong>
+            </h5>
+            <p class="text-muted"> Stay updated with the latest weather news from around the world. Get accurate and timely weather forecasts, storm alerts, and more.</p>
+            <!-- <button type="button" class="btn btn-primary">Read More</button> -->
+          </div>
+        </div>
+      </section>
+    </div>
+    <!--section: news of the day ends-->
+    <section id="news">
+      <div class=" row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" id="news_container">
+        <!-- Generated news through the api will be displayed here -->
+      </div>
+    </section>
+    <!--section: news of the day ends-->
+    <!--Footer-->
+    <footer>
+      <div class="container-fluid bg-success text-white p-4">
+        <div class="row">
+          <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+            <a class="navbar-brand" href="index.html">
+              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
+            </a>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit? </p>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+            <h5 class="fw-bold">USEFUL LINKS</h5>
+            <ul style="list-style-type: square;">
+              <li>
+                <a href="/index.html">Home</a>
+              </li>
+              <li>
+                <a href="../HTML/job.html">Job Data</a>
+              </li>
+              <li>
+                <a href="../HTML/weather.html">Weather Data</a>
+              </li>
+              <li>
+                <a href="../HTML/financial.html">Financial Data</a>
+              </li>
+              <li>
+                <a href="../HTML/newsletter.html">Newsletter</a>
+              </li>
+              <li>
+                <a href="../HTML/website.html">About Website</a>
+              </li>
+              <li>
+                <a href="../HTML/author.html">About Developers</a>
+              </li>
             </ul>
-        </nav>
-    </div>
-    <!--Main Layout Section ends-->
-
-    <!--======Footer Section Starts here===-->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                        <div class="logo-widget footer-widget">
-                            <figure class="logo-box"><a href="#"><img src="https://i.ibb.co/QDy827D/ak-logo.png"
-                                        alt=""></a></figure>
-                            <div class="text">
-                                <p>Lorem ipsum dolor amet consectetur adi pisicing elit sed eiusm tempor incididunt ut
-                                    labore dolore magna aliqua enim ad minim veniam quis.nostrud exercita.laboris nisi
-                                    ut aliquip ea commodo conse quatuis aute irure.</p>
-                            </div>
-                            <ul class="footer-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
-                        <div class="service-widget footer-widget">
-                            <div class="footer-title">Quick Links</div>
-                            <ul class="list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Tutorials</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
-                        <div class="contact-widget footer-widget">
-                            <div class="footer-title">Contacts</div>
-                            <div class="text">
-                                <p>Lorem Ipsum, simply dummy text, printing, Chandigarh</p>
-                                <p>+2(784) 1223323</p>
-                                <p>info@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+            <h5 class="fw-bold">CONTACT</h5>
+            <p>
+              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+            </p>
+            <p>
+              <i class="fa-solid fa-phone"></i> +23056789042
+            </p>
+          </div>
         </div>
+        <div class="row mx-auto d-flex justify-content-center pt-3">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+            <form class="d-block" role="email">
+              <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+              <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <hr>
+        <!--Social media links-->
+        <div class="socials text-center">
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-google" style="color: #dd4b39;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+          </a>
+          <a class="btn btn-secondary btn-outline-light m-1" href="#">
+            <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold" href="/index.html">Job Insights</a>
+      </div>
     </footer>
-    <!-- main-footer end -->
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 column">
-                    <div class="copyright"><a href="#">JobData</a> &copy; 2023 All Right Reserved</div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 column">
-                    <ul class="footer-nav">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!--Footer ends here-->
     <!--Bootstrap JS links-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
-
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!--Custom JS links-->
+    <script src="../JS/newsletter.js"></script>
+  </body>
 </html>
