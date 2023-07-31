@@ -1,217 +1,71 @@
+import {
+  createDiv,
+  createDivWithLabel,
+  createSpan,
+  handleSearchInput,
+  searchWeatherData,
+  displaySuggestions,
+  fetchData
+} from './weatherUtils.js';
+
 document.addEventListener("DOMContentLoaded", function () {
-  // DOM Elements
-  const tabs = document.querySelectorAll('.tab')
-  const tabContents = document.querySelectorAll('.tabcontent')
-  const darkModeSwitch = document.querySelector('#dark-mode-switch')
+  // // Get current location weather data
+  // const getCurrentLocationWeather = async () => {
+  //   return new Promise((resolve, reject) => {
+  //     navigator.geolocation.getCurrentPosition(
+  //       async (position) => {
+  //         const latitude = position.coords.latitude;
+  //         const longitude = position.coords.longitude;
 
-  // Functions
-  const activateTab = tabnum => {
-
-    tabs.forEach(tab => {
-      tab.classList.remove('active')
-    })
-
-    tabContents.forEach(tabContent => {
-      tabContent.classList.remove('active')
-    })
-
-    document.querySelector('#tab' + tabnum).classList.add('active')
-    document.querySelector('#tabcontent' + tabnum).classList.add('active')
-    localStorage.setItem('jstabs-opentab', JSON.stringify(tabnum))
-
-  }
-
-  // Event Listeners
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      activateTab(tab.dataset.tab)
-    })
-  })
-
-  darkModeSwitch.addEventListener('change', () => {
-    document.querySelector('body').classList.toggle('darkmode')
-    localStorage.setItem('jstabs-darkmode', JSON.stringify(!darkmodeModeSwitch.checked));
-  })
-
-  // Retrieve stored data
-  let darkmode = JSON.parse(localStorage.getItem('jstabs-darkmode'))
-  const opentab = JSON.parse(localStorage.getItem('jstabs-opentab')) || '3'
-
-  // and..... Action!
-  if (darkmode === null) {
-    darkmode = window.matchMedia("(prefers-color-scheme: dark)").matches // match to OS theme
-  }
-  if (darkmode) {
-    document.querySelector('body').classList.add('darkmode')
-    document.querySelector('#dark-mode-switch').checked = 'true'
-  }
-  activateTab(opentab)
-
-  // Rapid API
-  const apiUrl = 'https://weatherapi-com.p.rapidapi.com/forecast.json';
-  const headers = {
-    'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-  };
-
-  const getCurrentLocationWeather = async () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-          try {
-            const response = await fetch(`${apiUrl}?q=${latitude},${longitude}&days=2`, {
-              headers: headers
-            });
-            const data = await response.json();
-            resolve(data);
-          } catch (error) {
-            reject(error);
-          }
-        },
-        (error) => {
-          reject(error);
-        }
-      );
-    });
-  };
+  //         try {
+  //           const response = await fetch(`${dailyAPIUrl}?q=${latitude},${longitude}&days=2`, {
+  //             headers: dailyHeaders
+  //           });
+  //           const data = await response.json();
+  //           resolve(data);
+  //           console.log(data);
+  //         } catch (error) {
+  //           reject(error);
+  //         }
+  //       },
+  //       (error) => {
+  //         reject(error);
+  //       }
+  //     );
+  //   });
+  // };
 
   const searchInput = document.getElementById('search-input');
   const suggestionsList = document.getElementById('suggestions');
   const searchButton = document.getElementById('search-button');
+  const tabcontent1 = document.getElementById('tabcontent1');
+  const tabcontent2 = document.getElementById('tabcontent2');
 
-  // SearchWeatherData function
-  const searchWeatherData = async (latitude, longitude) => {
-    const searchValue = searchInput.value;
-
-    try {
-      // Fetch city data
-      const cityResponse = await fetch(`https://weatherapi-com.p.rapidapi.com/search.json?q=${searchValue}`, {
-        headers: headers
-      });
-      const cityData = await cityResponse.json();
-      console.log(cityData);
-
-      // Get lat and lon of the searched city
-      const { lat, lon } = cityData[0];
-
-      console.log(lat, lon);
-
-      // Fetch weather data for the searched city
-      const weatherResponse = await fetch(`${apiUrl}?q=${lat},${lon}&days=2`, {
-        headers: headers
-      });
-      const weatherData = await weatherResponse.json();
-
-      // Clear existing weather data and load new weather data
-      clearWeatherData();
-      loadWeatherData(weatherData);
-    } catch (error) {
-      console.log('An error occurred while fetching the data:', error);
-    }
-  };
-
-
-  searchInput.addEventListener('input', async () => {
-    const searchQuery = searchInput.value.trim();
-
-    // Clear previous suggestions
-    suggestionsList.innerHTML = '';
-
-    if (searchQuery.length > 0) {
-      try {
-        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/search.json?q=${searchQuery}`, {
-          headers: {
-            'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-          }
-        });
-        const data = await response.json();
-
-        // Parse suggestions from the response
-        const suggestions = data.map(item => `${item.name}, ${item.country}`);
-
-        // Display suggestions in the suggestion list
-        suggestions.forEach((suggestion, index) => {
-          const listItem = document.createElement('li');
-          listItem.className = 'suggestion';
-          const link = document.createElement('a');
-          link.href = '#';
-          link.textContent = suggestion;
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const clickedItem = data[index]; // Get the clicked item from the data array
-            const lat = clickedItem.lat;
-            const lon = clickedItem.lon;
-            searchInput.value = `${clickedItem.name}`;
-            searchWeatherData(lat, lon);
-            suggestionsList.innerHTML = ''; // Clear suggestion list after selecting an item
-          });
-          listItem.appendChild(link);
-          suggestionsList.appendChild(listItem);
-        });
-
-      } catch (error) {
-        console.log('Error fetching suggestions:', error);
-      }
-    }
+  // Function to handle search input
+  searchInput.addEventListener('input', () => {
+    handleSearchInput(searchInput, suggestionsList, displaySuggestions, loadAirQualityData, loadWeeklyData, getNews);
   });
 
-  // Attach event listener to search button
-  searchButton.addEventListener('click', searchWeatherData);
+  // Function to search weather data
+  searchButton.addEventListener('click', () => {
+    searchWeatherData(searchInput, loadAirQualityData, loadWeeklyData, getNews);
+  });
 
-  // Create div element
-  const createDiv = (className, text) => {
-    const div = document.createElement('div');
-    div.className = className;
-    div.textContent = text;
-    return div;
-  };
 
-  // Create div element with label
-  const createDivWithLabel = (className, label, text) => {
-    const div = document.createElement('div');
-    div.className = className;
-
-    const labelDiv = document.createElement('div');
-    labelDiv.className = 'label';
-    labelDiv.textContent = label;
-
-    const dataDiv = document.createElement('div');
-    dataDiv.textContent = text;
-
-    div.appendChild(labelDiv);
-    div.appendChild(dataDiv);
-
-    return div;
-  };
-
-  // Create span element
-  const createSpan = (className, text) => {
-    const span = document.createElement('span');
-    span.className = className;
-    span.textContent = text;
-    return span;
-  };
-
-  // Create the header element
-  const createHeader = (weatherData, forecastIndex) => {
-    // console.log(weatherData);
-    // console.log(forecastIndex);
+  //Function to create the header element
+  const createHeader = (weather, forecastIndex) => {
     const header = document.createElement('header');
     header.className = 'header';
     const headerLeft = document.createElement('div');
     headerLeft.className = 'header-left container';
     const locationDetails = document.createElement('div');
-    const locationDiv = createDiv('location', `${weatherData.location.name}, ${weatherData.location.region}`);
+    const locationDiv = createDiv('location', `${weather.location.name}, ${weather.location.region}`);
     locationDiv.className = 'location';
-    const countryDiv = createDiv('country', `${weatherData.location.country}`);
+    const countryDiv = createDiv('country', `${weather.location.country}`);
     countryDiv.className = 'country';
     locationDetails.appendChild(locationDiv);
     locationDetails.appendChild(countryDiv);
-    const forecastDate = new Date(weatherData.forecast.forecastday[forecastIndex].date);
+    const forecastDate = new Date(weather.forecast.forecastday[forecastIndex].date);
     const dateDiv = createDiv('date', `${forecastDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}`);
     dateDiv.className = 'date';
     locationDetails.appendChild(dateDiv);
@@ -220,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
     locationDetails.appendChild(timeDiv);
     headerLeft.appendChild(locationDetails);
 
-    const currentIcon = weatherData.current.condition.icon;
+    const currentIcon = weather.current.condition.icon;
     const weatherIcon = document.createElement('img');
     weatherIcon.className = 'weather-icon large';
     weatherIcon.src = `https:${currentIcon}`;
     weatherIcon.alt = 'weather-icon';
     headerLeft.appendChild(weatherIcon);
 
-    const currentTemp = weatherData.current.temp_c;
+    const currentTemp = weather.current.temp_c;
     const currentTempDiv = document.createElement('div');
     currentTempDiv.className = 'current-temp';
 
@@ -243,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     headerRight.className = 'header-right';
 
     const infoGroupLabels = ['Max', 'Min', 'Wind', 'Precip', 'UV index', 'R-Humid'];
-    const forecastDay = weatherData.forecast.forecastday[forecastIndex].day;
+    const forecastDay = weather.forecast.forecastday[forecastIndex].day;
     // console.log(forecastDay);
 
     const infoGroupData = [
@@ -273,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return header;
   };
 
-  // Create the daytime section
+  //Function to create the daytime section
   const createDaytimeSection = (hourlyData) => {
     console.log(hourlyData);
     const daytimeSection = document.createElement('section');
@@ -302,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return daytimeSection;
   };
 
-  // Create the hour row
+  //Function to create the hour row
   const createHourRow = (hourlyData, index) => {
     const hourRow = document.createElement('tr');
     hourRow.className = 'hour-row';
@@ -369,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return hourRow;
   };
 
-  // Create the details row
+  //Function to create the details row
   const createDetailsRow = (hourlyData) => {
     const detailsRow = document.createElement('tr');
     detailsRow.className = 'hour-details-row';
@@ -402,92 +256,42 @@ document.addEventListener("DOMContentLoaded", function () {
     return detailsRow;
   };
 
-  // Separate the clearWeatherData function
-  const clearWeatherData = () => {
-    const tabcontent1 = document.getElementById('tabcontent1');
-    tabcontent1.innerHTML = '';
-    const tabcontent2 = document.getElementById('tabcontent2');
-    tabcontent2.innerHTML = '';
-  };
+  // // clearWeatherData function
+  // const clearWeatherData = () => {
+  //   const tabcontent1 = document.getElementById('tabcontent1');
+  //   tabcontent1.innerHTML = '';
+  //   const tabcontent2 = document.getElementById('tabcontent2');
+  //   tabcontent2.innerHTML = '';
+  // };
 
-  // Attach event listener to search button
-  searchButton.addEventListener('click', searchWeatherData);
 
-  // Search input event listener
-  searchInput.addEventListener('input', async () => {
-    const searchQuery = searchInput.value.trim();
+  // // FetchData function
+  // const fetchData = async () => {
+  //   try {
+  //     const weather = await getCurrentLocationWeather();
+  //     loadWeatherData(weather);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-    // Clear previous suggestions
-    suggestionsList.innerHTML = '';
-
-    if (searchQuery.length > 0) {
-      try {
-        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/search.json?q=${searchQuery}`, {
-          headers: {
-            'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-          }
-        });
-        const data = await response.json();
-
-        // Parse suggestions from the response
-        const suggestions = data.map(item => `${item.name}, ${item.country}`);
-
-        // Display suggestions in the suggestion list
-        suggestions.forEach((suggestion, index) => {
-          const listItem = document.createElement('li');
-          listItem.className = 'suggestion';
-          const link = document.createElement('a');
-          link.href = '#';
-          link.textContent = suggestion;
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const clickedItem = data[index]; // Get the clicked item from the data array
-            const lat = clickedItem.lat;
-            const lon = clickedItem.lon;
-            searchInput.value = `${clickedItem.name}`;
-            searchWeatherData(lat, lon);
-            suggestionsList.innerHTML = ''; // Clear suggestion list after selecting an item
-          });
-          listItem.appendChild(link);
-          suggestionsList.appendChild(listItem);
-        });
-
-      } catch (error) {
-        console.log('Error fetching suggestions:', error);
-      }
-    }
-  });
-
-  // Separate the fetchData function
-  const fetchData = async () => {
-    try {
-      const weatherData = await getCurrentLocationWeather();
-      loadWeatherData(weatherData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // Separate the loadWeatherData function
-  const loadWeatherData = async (weatherData) => {
-    const currentWeather = weatherData.current;
-    const forecastToday = weatherData.forecast.forecastday[0];
-    const forecastTomorrow = weatherData.forecast.forecastday[1];
+  // LoadWeatherData function
+  const loadWeatherData = async (weather) => {
+    const currentWeather = weather.current;
+    const forecastToday = weather.forecast.forecastday[0];
+    const forecastTomorrow = weather.forecast.forecastday[1];
     const hourlyData = forecastToday.hour;
     const hourlyDataTomorrow = forecastTomorrow.hour;
     const currentWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${currentWeather.condition.text}`);
     const forecastWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${forecastTomorrow.day.condition.text}`);
 
-    // Clear existing weather data and load new weather data
-    clearWeatherData();
+    // // Clear existing weather data and load new weather data
+    // clearWeatherData();
 
     // Tab 1
-    const tabcontent1 = document.getElementById('tabcontent1');
-    const tabcontent2 = document.getElementById('tabcontent2');
 
     // Create tab 1 header
-    const header1 = createHeader(weatherData, 0);
+    const header1 = createHeader(weather, 0);
     tabcontent1.appendChild(header1);
     tabcontent1.appendChild(currentWeatherAlertDiv);
 
@@ -514,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Tab 2
     // Create tab 2 header
-    const header2 = createHeader(weatherData, 1);
+    const header2 = createHeader(weather, 1);
     tabcontent2.appendChild(header2);
     tabcontent2.appendChild(forecastWeatherAlertDiv);
 

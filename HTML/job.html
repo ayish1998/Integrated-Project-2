@@ -1,192 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--CSS-->
-  <link rel="stylesheet" href="../CSS/job.css">
-  <link rel="stylesheet" href="../CSS/jobtutorial.css">
-  <!-- Bootstrap css -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
-  <!--Chart.js CDN-->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Include D3.js library -->
-  <script src="https://d3js.org/d3.v4.js"></script>
-  <title>Job Insights</title>
-</head>
-
-<body>
-  <!--navbar starts here-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
-    <div class="container-fluid">
-      <!--Logo and name-->
-      <a class="navbar-brand" href="/index.html">
-        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job
-        <span>Insights</span>
-      </a>
-      <!--Toggler-->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--Nav items-->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/index.html">Home</a>
-          </li>
-          <!--Data dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="../HTML/job.html">Job</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="../HTML/weather.html">Weather</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="../HTML/financial.html">Financial</a>
-              </li>
-            </ul>
-          </li>
-          <!--Tutorials dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Tutorials </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="./weathertutorial.html">Weather Tutorial</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
-              </li>
-            </ul>
-          </li>
-          <!--Tutotrials dropdown ends here-->
-          <li class="nav-item">
-            <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
-          </li>
-          <!--About dropdown-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="../HTML/website.html">Website</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="developers.html">Developers</a>
-              </li>
-            </ul>
-          </li>
-          <!--About dropdown ends here-->
-          <li class="nav-item">
-            <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
-          </li>
-        </ul>
-        <!--Search bar and button-->
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
-        </form>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../CSS/job.css">
+    <link rel="stylesheet" href="../CSS/jobtutorial.css">
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
+    <!--Chart.js CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include D3.js library -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <title>Job Insights</title>
+  </head>
+  <body>
+    <!--navbar starts here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+      <div class="container-fluid">
+        <!--Logo and name-->
+        <a class="navbar-brand" href="/index.html">
+          <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
+        </a>
+        <!--Toggler-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--Nav items-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <!--Data dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/job.html">Job</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/weather.html">Weather</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/financial.html">Financial</a>
+                </li>
+              </ul>
+            </li>
+            <!--Tutorials dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tutorials </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./weathertutorial.html">Weather Tutorial</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
+                </li>
+              </ul>
+            </li>
+            <!--Tutotrials dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
+            </li>
+            <!--About dropdown-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> About </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../HTML/website.html">Website</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../HTML/author.html">Developers</a>
+                </li>
+              </ul>
+            </li>
+            <!--About dropdown ends here-->
+            <li class="nav-item">
+              <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!--navbar ends here-->
-  <!--Main Layout Section starts here-->
-  <section id="tot">
-    <h2>The Job Insight page offers visualizations that provide valuable insights into job trends and categories,
-      helping users understand the job market at a glance.</h2>
-    </div>
-  </section>
-
-  <div class="how-section1">
-    <div class="row">
-      <div class="col-md-6 how-img">
-        <img src="https://image.ibb.co/dDW27U/Work_Section2_freelance_img1.png" class="rounded-circle img-fluid"
-          alt="" />
+    </nav>
+    <!--navbar ends here-->
+    <!--Main Layout Section starts here-->
+    <section id="tot">
+      <h2>The Job Insight page offers visualizations that provide valuable insights into job trends and categories, helping users understand the job market at a glance.</h2>
       </div>
-      <div class="col-md-6">
-        <h4>Job Insight</h4>
-        <h4 class="subheading">Get to the trending Job Insights</h4>
-        <p class="text-muted">Freedom to work on ideal projects. On GetLance, you run your own business and choose your
-          own clients and projects. Just complete your profile and we’ll highlight ideal jobs. Also search projects, and
-          respond to client invitations.
-          Wide variety and high pay. Clients are now posting jobs in hundreds of skill categories, paying top price for
-          great work.
-          More and more success. The greater the success you have on projects, the more likely you are to get hired by
-          clients that use GetLance.</p>
+    </section>
+    <div class="how-section1">
+      <div class="row">
+        <div class="col-md-6 how-img">
+          <img src="https://image.ibb.co/dDW27U/Work_Section2_freelance_img1.png" class="rounded-circle img-fluid" alt="" />
+        </div>
+        <div class="col-md-6">
+          <h4>Job Insight</h4>
+          <h4 class="subheading">Get to the trending Job Insights</h4>
+          <p class="text-muted">Explore Job Insights - Your source for real-time job data and valuable insights worldwide. Filter, search,
+             and compare job categories to stay informed and make informed career decisions. Discover trending job opportunities and salary trends.
+             Find your path to success today!</p>
+          <div class="container mb-5 mb-md-6">
+            <button type="button" class="btn btn-outline-success">
+              <a href="../HTML/jobskills.html">Job Insights</a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h4> Visualisation</h4>
+          <h4 class="subheading">Different Visualisation Charts on Job surveys</h4>
+          <p class="text-muted">Explore Job Surveys with Dynamic Visualizations - This web application offers an array of interactive 
+            charts to visualize diverse job survey data, providing insightful and engaging ways to explore 
+            job trends, salaries, and required skills worldwide</p>
+        </div>
+        <div class="col-md-6 how-img">
+          <img src="https://image.ibb.co/gQ9iE9/Work_Section2_freelance_img4.png" class="rounded-circle img-fluid" alt="" />
+        </div>
         <div class="container mb-5 mb-md-6">
-          <button type="button" class="btn btn-outline-success"><a href="../HTML/jobskills.html">Job
-              Insights</a></button>
+          <button type="button" class="btn btn-outline-success">
+            <a href="../HTML/jobmarket.html">Visualisation</a>
+          </button>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h4> Visualisation</h4>
-        <h4 class="subheading">Different Visualisation Charts on Job surveys</h4>
-        <p class="text-muted">All invoices and payments happen through GetLance. Count on a simple and streamlined
-          process.
-          Hourly and fixed-price projects. For hourly work, submit timesheets through GetLance. For fixed-price jobs,
-          set milestones and funds are released via GetLance escrow features.
-          Multiple payment options. Choose a payment method that works best for you, from direct deposit or PayPal to
-          wire transfer and more.</p>
-      </div>
-      <div class="col-md-6 how-img">
-        <img src="https://image.ibb.co/gQ9iE9/Work_Section2_freelance_img4.png" class="rounded-circle img-fluid"
-          alt="" />
-      </div>
-      <div class="container mb-5 mb-md-6">
-        <button type="button" class="btn btn-outline-success"><a
-            href="../HTML/jobmarket.html">Visualisation</a></button>
-      </div>
-    </div>
-  </div>
     <!--Main Layout Section ends-->
     <footer>
       <div class="container-fluid bg-success text-white p-4">
         <div class="row">
           <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
             <a class="navbar-brand" href="index.html">
-              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
-                class="d-inline-block align-text-center" />
-              Job <span>Insights</span>
+              <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" /> Job <span>Insights</span>
             </a>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
-              iusto
-              quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
-              fugit?
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit? </p>
           </div>
           <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
             <h5 class="fw-bold">USEFUL LINKS</h5>
@@ -210,15 +182,14 @@
                 <a href="../HTML/website.html">About Website</a>
               </li>
               <li>
-                <a href="developers.html">About Developers</a>
+                <a href="../HTML/author.html">About Developers</a>
               </li>
             </ul>
           </div>
           <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
             <h5 class="fw-bold">CONTACT</h5>
             <p>
-              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
-              Mauritius
+              <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
             </p>
             <p>
               <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
@@ -256,23 +227,18 @@
           </a>
         </div>
       </div>
-      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-          href="/index.html">Job Insights</a>
+      <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold" href="/index.html">Job Insights</a>
       </div>
     </footer>
     <!--Footer ends here-->
-
     <!-- JS links-->
     <!--Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!--Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--Custom JS links-->
     <script src="../JS/jobdata.js"></script>
-</body>
-
+  </body>
 </html>
