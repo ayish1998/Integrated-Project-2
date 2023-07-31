@@ -121,7 +121,7 @@ function createBarChart(data) {
   svg.append("text")
     .attr("transform", "rotate(-90)")
     .attr("x", -250)
-    .attr("y", 9)
+    .attr("y", 11)
     .attr("text-anchor", "middle")
     .text("Stock Regular Market Price");
 
@@ -202,7 +202,7 @@ function createBubbleChart(data) {
   const container = d3.select("#chart-container");
   const svg = container.append("svg")
     .attr("width", 1000)
-    .attr("height", 800);
+    .attr("height", 900);
 
   const chartData = data.map(d => ({
     symbol: d.symbol,
@@ -282,7 +282,7 @@ function createBubbleChart(data) {
   svg.append("text")
     .attr("transform", "rotate(-90)")
     .attr("x", -200)
-    .attr("y", 9)
+    .attr("y", 11)
     .attr("text-anchor", "middle")
     .text("Market Cap");
 

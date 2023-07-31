@@ -125,7 +125,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgb(86, 136, 86);
+      background-color: rgb(123 184 123);
       height: 90vh;
   }
 
@@ -168,6 +168,15 @@
     line-height: 1.7em;
     font-size: 18px;
     margin: 0 10% 0 10%;
+}
+
+#head-to #row4 button{
+    background-color: #88ab5a;
+    border-color: #88ab5a;
+}
+
+#head-to #row4 button:hover{
+    background-color: #98BF64;
 }
 
   /* Row 4 ends here */
