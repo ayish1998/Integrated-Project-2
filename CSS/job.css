@@ -33,23 +33,9 @@ footer a {
   text-decoration: none;
   color: white;
 }
-#data {
-  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
-    url(/IMAGES/service1.jpeg);
-  width: 100%;
-  height: 60vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 40px;
-  margin-top: 100px;
-}
 
-#data h2 {
+
+/* #data h2 {
   color: #efeff7;
   font-size: 2.2rem;
   letter-spacing: 1px;
@@ -63,7 +49,7 @@ footer a {
 #data p {
   color: #efeff7;
   font-size: 1.2rem;
-}
+} */
 /* home card starts here */
 #tot {
   background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
@@ -78,7 +64,7 @@ footer a {
   align-items: center;
   text-align: center;
   padding-top: 40px;
-  margin-top: 100px;
+  margin-top: 0; /* Remove the margin-top or adjust it to your preference */
 }
 
 #tot h2 {
@@ -147,6 +133,11 @@ footer a {
 #wrapper {
   padding: 100px;
 }
+#market,
+#wrapper {
+  margin-bottom: -20px;
+  padding-bottom: 20px;
+}
 #title-out {
   text-align: center;
 }
@@ -193,10 +184,11 @@ footer a {
   border: 1px solid #ccc;
 }
 
-#vis {
-  background-image: white;
+#market {
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)),
+    url(/IMAGES/chart.jpg);
   width: 100%;
-  height: 20vh;
+  height: 50vh;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -205,16 +197,16 @@ footer a {
   align-items: center;
   text-align: center;
   padding-top: 40px;
-  margin-top: 50px;
-}
-
-#vis h2 {
-  color: #01010c;
+  margin-top: 0; /* Remove the margin-top or adjust it to your preference */
+  }
+  
+  #market h2 {
+  color: #eaeaf1;
   font-size: 2.2rem;
   letter-spacing: 1px;
   padding: 20px;
   font-size: 20px;
-}
+  }
 #gap {
   padding: 80px;
   width: 100%;
@@ -226,5 +218,25 @@ footer a {
 @media (max-width: 767px) {
   #gap {
     padding: 40px;
+  }
+}
+
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 767px) {
+  /* Adjust the top padding for mobile screens in the media query */
+  body {
+    padding-top: 50px;
+  }
+
+  /* Your existing styles for the #tot section in the media query */
+  #market {
+    height: 30vh; /* Adjust the height for mobile screens */
+    padding-top: 20px; /* Adjust the top padding for mobile screens */
+  }
+
+  #market h2 {
+    font-size: 18px; /* Adjust the font size for mobile screens */
+    padding: 10px; /* Adjust the padding for mobile screens */
   }
 }
