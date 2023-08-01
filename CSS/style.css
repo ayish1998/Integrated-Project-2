@@ -38,13 +38,6 @@ footer a {
   color: white;
 }
 
- 
-  
-  
-    
-
-
-
 /* Home section Start */
 .home{
     width: 100%;
@@ -104,29 +97,7 @@ width:100%
 }
 
 
-.arrow-icon {
-  position:relative;
-  top: 0;
-  left: 0;
-  font-weight:bolder;
-  font-size: 30px; /* Increase the font size to make it bigger */
-  color: white; /* Set the color of the icon */
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  background-color: #097b0e; 
-  padding: 9px; 
-  border-radius: 50%; 
-  
-  z-index: 9999;
-  margin-top: 50px;
 
- 
-  
-}
-
-.arrow-icon:hover {
-  transform: translateX(10px); /* Increase the translation for a larger hover effect */
-}
 
 
 
@@ -173,15 +144,7 @@ width:100%
     
   }
 
-  .arrow{
-    position:fixed;
-    height: 50px;
-    bottom: 40px;
-    left: 50px;
-    text-decoration: none;
-    text-align:center;
-    line-height: 50px;
-}
+  
 
 .text-center h2{
      margin-top: 10px;
@@ -238,26 +201,170 @@ width:100%
     color: #888;
 }
 
-  .btn btn-primary {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-   
-  }
-
   
+
+        /* Additional CSS for better layout on small devices */
+        .home-content {
+            padding-bottom: 20px;
+        }
+        .home-image {
+            margin-top: 20px;
+        }
 
   .btn-primary:hover {
     background-color: #0056b3;
   } 
 
+  /*Section Image*/
+.center {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 104px 0 110px;
+    position: relative;
+    width: 100%;
+}
 
 
-  
+.center::before {
+    background: rgba(5, 2, 2, 0.8) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+
+
+
+/*** Center styling ***/
+#center {
+    background-image: linear-gradient(rgba(15, 13, 13, 0.3), rgba(5, 4, 46, 0.7)), url(../IMAGES/istockphoto-1133595964-612x612.webp);
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center h2{
+    margin-top: 10px;
+   font-size: 30px;
+   font-weight: 500;
+   color: rgb(33, 132, 10);
+   text-shadow: 0px 1px 1px rgb(234, 198, 198);
+}
+
+#center h2 {
+    color: #DDDDDD;
+    font-size: 33px;
+
+}
+#center h1 {
+    color: #DDDDDD;
+    font-size: 45px;
+
+}
+#center h3 {
+    color: #DDDDDD;
+    font-size: 28px;
+
+}
+
+#center h4 {
+    color: #DDDDDD;
+    font-size: 18px;
+
+}
+
+.container1 {
+    width: 100%;
+}
+
+.container1 h3 {
+    font-size: 50px
+}
+
+.center {
+    padding: 5% 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    font-size: 30px;
+}
+
+.center .left {
+    padding: 2% 0;
+    float: left;
+    width: 50%;
+
+}
+
+.center .right {
+    width: 50%;
+    display: inline-block;
+}
+
+.center .right img {
+    width: 100%
+}
+
+.center h3 {
+    text-align: center;
+    margin: 10px;
+    align-items: center;
+    font-size: 30px;
+}
+
+
+
+
+.center p {
+    font-size: 1rem;
+    margin: 40px auto;
+    width: 80%
+}
+
+
+/* Media About Us */
+@media(max-width:1200px) {
+
+    .center p {
+        font-size: .8rem;
+        margin: 20px auto;
+    }
+}
+
+@media(max-width:992px) {
+    .center {
+        width: 100%;
+    }
+
+    .center {
+        width: 100%;
+    }
+}
+
+.blink-text {
+    animation: blink-animation 2s linear infinite;
+}
+
+@keyframes blink-animation {
+    0% { color: white; }
+    30% { color: green; }
+    100% { color: white; }
+}
+
+/* Additional CSS for better layout on small devices */
+#center {
+    padding: 50px 0;
+}
+.btn-success {
+    background-color: green;
+    border-color: green;
+}
