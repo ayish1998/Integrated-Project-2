@@ -26,10 +26,11 @@
       .explanation {
         margin-top: 20px;
         padding: 50px;
-        background-color: #f9f9f9;
+        background-color: #f3f0f0;
         border-radius: 10px;
         color: #333;
         font-size: 16px;
+        margin-bottom: 20px;
       }
 
       /* Media query for screens with a maximum width of 768px (e.g., mobile devices) */
@@ -150,28 +151,31 @@
         </div>
       </div>
       <!--Salary Trends starts here-->
-      <h3>Public Media Salary Survey Interactive</h3>
-      <div id="observablehq-viewof-role-de66b6fa"></div>
-      <div id="observablehq-main-de66b6fa"></div>
-      <div id="observablehq-usmap-de66b6fa"></div>
-      <div id="observablehq-roleSalary-de66b6fa"></div>
-      <div id="observablehq-raceBreakdown-de66b6fa"></div>
-      <div id="observablehq-genderBreakdown-de66b6fa"></div>
-      <div id="observablehq-genderSalary-de66b6fa"></div>
-      <div id="observablehq-unionSalary-de66b6fa"></div>
-      <div id="observablehq-unionSalaryNews-de66b6fa"></div>
-      <div id="observablehq-colUnion-de66b6fa"></div>
-      <div id="observablehq-colNonunion-de66b6fa"></div>
-      <div id="observablehq-orgSalary-de66b6fa"></div>
-      <div id="observablehq-newsOrgSalary-de66b6fa"></div>
-      <div id="observablehq-licenseeSalary-de66b6fa"></div>
-      <div id="observablehq-licenseeSalaryNews-de66b6fa"></div>
-      <div id="observablehq-ageSalary-de66b6fa"></div>
-      <div id="observablehq-genderBreakdownExec-de66b6fa"></div>
-      <div id="observablehq-genderSalaryExec-de66b6fa"></div>
-      <div id="observablehq-orgSalaryExec-de66b6fa"></div>
-      <div id="observablehq-licenseeSalaryExec-de66b6fa"></div>
-      <div id="observablehq-colLicensee-de66b6fa"></div>
+      <h3>Public Media Salary Interactive</h3>
+      <div id="observablehq-950044ff"></div>
+      <div id="observablehq-viewof-role-20dd52d3"></div>
+      <div id="observablehq-main-20dd52d3"></div>
+      <div class="explanation"> The chart "Salary Distribution by Role, All" provides an insightful overview of the salary distribution across various job roles. With its visual representation using a histogram in a captivating "steelblue" color, it offers users a clear understanding of the different salary ranges associated with each role. This visualization empowers users to gain valuable insights into the earnings potential for different roles within the dataset. </div>
+      <div id="observablehq-usmap-20dd52d3"></div>
+      <div class="explanation"> The chart titled "Median Salary by City" represents the average salary level at which the midpoint divides the income distribution of various cities. It provides a concise overview of the median earnings in different locations, offering insights into the comparative earning potential in these cities. </div>
+      <div id="observablehq-roleSalary-20dd52d3"></div>
+      <div class="explanation"> The "Median Salary by Role" chart displays the central value of salaries across various job roles, providing a quick and informative overview of the compensation landscape for different positions. </div>
+      <div id="observablehq-genderSalary-20dd52d3"></div>
+      <div class="explanation"> The "Median Salary by Gender" chart provides a visual representation of the median salaries categorized by gender. It offers valuable insights into the salary disparities between different genders in a given context or industry </div>
+      <div id="observablehq-unionSalary-20dd52d3"></div>
+      <div class="explanation"> The chart displays the median salary based on union membership status. It provides insights into the salary differences between union members and non-union members in the specified context. </div>
+      <div id="observablehq-unionSalaryNews-20dd52d3"></div>
+      <div class="explanation"> The chart displays the median salary distribution for news positions based on union membership. It provides insights into how union membership may impact salary levels across various news roles. </div>
+      <div id="observablehq-colUnion-20dd52d3"></div>
+      <div class="explanation"> The chart displays the median salary distribution for news positions based on union membership. It provides insights into how union membership may impact salary levels across various news roles. </div>
+      <div id="observablehq-colNonunion-20dd52d3"></div>
+      <div class="explanation"> The "Cost of Living Index for Nonunionized Employees" chart provides insights into the relative cost of living for employees not affiliated with a labor union. It helps compare the expenses associated with living in different locations and serves as a valuable resource for decision-making regarding salary and compensation adjustments. </div>
+      <div id="observablehq-orgSalary-20dd52d3"></div>
+      <div class="explanation"> The chart provides insights into the median salary distribution across different organization types for various news positions. It offers valuable information on salary trends in the news industry, helping users understand the earning potential based on the organization they work for and their specific job roles. </div>
+      <div id="observablehq-ageSalary-20dd52d3"></div>
+      <div class="explanation"> The chart title "Median Salary by Age Range" provides a concise description of the data visualization, indicating that it displays the median salaries of individuals across different age groups. </div>
+      <div id="observablehq-genderSalaryExec-20dd52d3"></div>
+      <div class="explanation"> This chart title provides a concise summary of the data visualization, which showcases the median salary in executive positions based on gender Charting </div>
     </section>
     <!-- Script for the visualisation starts here -->
     <script type="module">
@@ -179,29 +183,20 @@
         Runtime,
         Inspector
       } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-      import define from "https://api.observablehq.com/@jacoblagesse/public-media-salary-survey-interactives.js?v=3";
+      import define from "https://api.observablehq.com/d/ea74219c04ca8617@545.js?v=3";
       new Runtime().module(define, name => {
-        if (name === "viewof role") return new Inspector(document.querySelector("#observablehq-viewof-role-de66b6fa"));
-        if (name === "main") return new Inspector(document.querySelector("#observablehq-main-de66b6fa"));
-        if (name === "usmap") return new Inspector(document.querySelector("#observablehq-usmap-de66b6fa"));
-        if (name === "roleSalary") return new Inspector(document.querySelector("#observablehq-roleSalary-de66b6fa"));
-        if (name === "raceBreakdown") return new Inspector(document.querySelector("#observablehq-raceBreakdown-de66b6fa"));
-        if (name === "genderBreakdown") return new Inspector(document.querySelector("#observablehq-genderBreakdown-de66b6fa"));
-        if (name === "genderSalary") return new Inspector(document.querySelector("#observablehq-genderSalary-de66b6fa"));
-        if (name === "unionSalary") return new Inspector(document.querySelector("#observablehq-unionSalary-de66b6fa"));
-        if (name === "unionSalaryNews") return new Inspector(document.querySelector("#observablehq-unionSalaryNews-de66b6fa"));
-        if (name === "colUnion") return new Inspector(document.querySelector("#observablehq-colUnion-de66b6fa"));
-        if (name === "colNonunion") return new Inspector(document.querySelector("#observablehq-colNonunion-de66b6fa"));
-        if (name === "orgSalary") return new Inspector(document.querySelector("#observablehq-orgSalary-de66b6fa"));
-        if (name === "newsOrgSalary") return new Inspector(document.querySelector("#observablehq-newsOrgSalary-de66b6fa"));
-        if (name === "licenseeSalary") return new Inspector(document.querySelector("#observablehq-licenseeSalary-de66b6fa"));
-        if (name === "licenseeSalaryNews") return new Inspector(document.querySelector("#observablehq-licenseeSalaryNews-de66b6fa"));
-        if (name === "ageSalary") return new Inspector(document.querySelector("#observablehq-ageSalary-de66b6fa"));
-        if (name === "genderBreakdownExec") return new Inspector(document.querySelector("#observablehq-genderBreakdownExec-de66b6fa"));
-        if (name === "genderSalaryExec") return new Inspector(document.querySelector("#observablehq-genderSalaryExec-de66b6fa"));
-        if (name === "orgSalaryExec") return new Inspector(document.querySelector("#observablehq-orgSalaryExec-de66b6fa"));
-        if (name === "licenseeSalaryExec") return new Inspector(document.querySelector("#observablehq-licenseeSalaryExec-de66b6fa"));
-        if (name === "colLicensee") return new Inspector(document.querySelector("#observablehq-colLicensee-de66b6fa"));
+        if (name === "viewof role") return new Inspector(document.querySelector("#observablehq-viewof-role-20dd52d3"));
+        if (name === "main") return new Inspector(document.querySelector("#observablehq-main-20dd52d3"));
+        if (name === "usmap") return new Inspector(document.querySelector("#observablehq-usmap-20dd52d3"));
+        if (name === "roleSalary") return new Inspector(document.querySelector("#observablehq-roleSalary-20dd52d3"));
+        if (name === "genderSalary") return new Inspector(document.querySelector("#observablehq-genderSalary-20dd52d3"));
+        if (name === "unionSalary") return new Inspector(document.querySelector("#observablehq-unionSalary-20dd52d3"));
+        if (name === "unionSalaryNews") return new Inspector(document.querySelector("#observablehq-unionSalaryNews-20dd52d3"));
+        if (name === "colUnion") return new Inspector(document.querySelector("#observablehq-colUnion-20dd52d3"));
+        if (name === "colNonunion") return new Inspector(document.querySelector("#observablehq-colNonunion-20dd52d3"));
+        if (name === "orgSalary") return new Inspector(document.querySelector("#observablehq-orgSalary-20dd52d3"));
+        if (name === "ageSalary") return new Inspector(document.querySelector("#observablehq-ageSalary-20dd52d3"));
+        if (name === "genderSalaryExec") return new Inspector(document.querySelector("#observablehq-genderSalaryExec-20dd52d3"));
       });
     </script>
     <!--Main body content ends here-->
@@ -288,7 +283,5 @@
     <!--Footer ends here-->
     <!--Bootstrap JS links-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Custom JS links-->
-    <script src="../JS/jobdata.js"></script>
   </body>
 </html>
