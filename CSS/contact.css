@@ -80,11 +80,12 @@ footer a {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 2; 
 }
 
 #social-links {
   position: absolute;
+  display: flex;
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -97,17 +98,22 @@ footer a {
 
 
 /* Styles for smaller screens*/
-@media (max-width: 768px) {
+@media (max-width: 769px) {
+.grey {
+    transform: skewY(0);
+    height: 600px;
+  }
+
   .green {
     transform: skewY(0);
-    translate: 0;
-    height: auto;
+    height: 600px;
   }
 
   #contact-form .container,
   .socials {
     position: static;
     transform: none;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }

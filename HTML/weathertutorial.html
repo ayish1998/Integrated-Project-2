@@ -168,9 +168,9 @@
       </div>
     </div>
   </div>
-  </div>
   <!-- Main Layout Section starts here -->
-  <!-- Tutorial Content for Tutorial 1 -->
+  <!-- Tutorial Content for Weather Tutorial-->
+  <!--Introduction-->
   <section id="wrapper">
     <div class="container">
       <div class="ps-3 py-3 "
@@ -215,11 +215,14 @@
       <p> The following sections will walk you through each of these sections in detail. </p>
     </div>
   </section>
+
+  
   <section id="wrapper">
     <div class="container">
+      <!--API Access and Data Display-->
       <div class="ps-3 py-3 "
         style="background-color: #dadfe4; font-size: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-weight: bold;">API Sources and Access</h2>
+        <h2 style="font-weight: bold;">API Access and Data Display</h2>
       </div>
       <hr>
       <h4>API Sources</h4>
@@ -266,7 +269,7 @@
 
       <h4>API Access</h4>
       <!-- Step 1: API Access -->
-      <section id="api-access">
+      <section id="steps">
         <div class="container">
           <div class="row">
             <!-- Text Column -->
@@ -275,13 +278,15 @@
                 <h2>Step 1: Fetch Data via API URL</h2>
                 <p>To access data from a live API, you need to sign up for an API key. Once you have
                   the API key, you can use it to make requests to the API and retrieve the data. The API provides
-                  various endpoints to access different types of weather data, such as current and hourly weather data and 3
+                  various endpoints to access different types of weather data, such as current and hourly weather data
+                  and 3
                   days weather forecast. We will then proceed to define our API url and headers. The weather page
                   fetches the user's current location on load. To achieve that we will use the
                   <span class="format">navigator.geolocation.getCurrentPosition()</span> to get the user's latitude and
-                  longitude and pass it to the API url to fetch the weather data for two days.
+                  longitude and pass it to the API url to fetch the weather data for two days. We will also create
+                  helper functions that will make it easy to create divs and span to hold our data. The weatherUtils.js
+                  is a utility module that exports most of its functions to be used by other modules.
                 </p>
-                <a href="https://d3js.org/" style="margin-bottom: 40px;"> API source link </a>
               </div>
             </div>
             <!-- Slideshow Column -->
@@ -315,16 +320,104 @@
               </div>
             </div>
           </div>
+
+          <p> Let's take a look at the JavaScript code snippet to fetch user's current location weather data from
+            the API using the API key: </p>
+          <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+          <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to fetch data
+            from the Weather API </button>
+          <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+            <pre>
+																																	<code >
+          weatherUtils.js
+          // JavaScript code to fetch data from the Weather API
+           //Daily weather Rapid API
+           const dailyAPIUrl = 'https://weatherapi-com.p.rapidapi.com/forecast.json';
+           const dailyHeaders = {
+             'X-RapidAPI-Key': 'your_api_key',
+             'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+           };
+           async function getCurrentLocationWeather() {
+            return new Promise((resolve, reject) => {
+              navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                  const { latitude, longitude } = position.coords;
+          
+                  try {
+                    const response = await fetch(`${dailyAPIUrl}?q=${latitude},${longitude}&days=2`, {
+                      headers: dailyHeaders
+                    });
+                    const data = await response.json();
+                    resolve(data);
+                  } catch (error) {
+                    reject(error);
+                  }
+                },
+                (error) => {
+                  reject(error);
+                }
+              );
+            });
+          }
+
+          //Helper functions
+          //Function to create div
+          export function createDiv(className, text) {
+            const div = document.createElement('div');
+            div.className = className;
+            div.textContent = text;
+            return div;
+          }
+          
+          //Function to create div with label
+          export function createDivWithLabel(className, label, text) {
+            const div = document.createElement('div');
+            div.className = classNam
+            const labelDiv = document.createElement('div');
+            labelDiv.className = 'label';
+            labelDiv.textContent = labe
+            const dataDiv = document.createElement('div');
+            dataDiv.textContent = tex
+            div.appendChild(labelDiv);
+            div.appendChild(dataDiv)
+            return div;
+          }
+
+          //Function to create span
+          export function createSpan(className, text) {
+            const span = document.createElement('span');
+            span.className = className;
+            span.textContent = text;
+            return span;
+          }
+         </code>
+																																</pre>
+          </div>
+          <p> Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code
+            will
+            make a request to the API, and upon successful retrieval, you can process and use the data to create
+            visualizations. The "export" keyword is used to export the helper functions.</p>
+          <p> With access to the API and data, let's move on to the next step to process the data and display it on the
+            page. </p>
+
+          <!--Step 2-->
           <div class="row">
             <!-- Text Column -->
             <div class="col-md-6">
               <div class="tutorial-section">
                 <h3>Step 2: Process the Data</h3>
-                <p> First, you need to sign up for an API key from the Trending Job Markets API website. Once you have
-                  the
-                  API key, you can use it to make requests to the API and retrieve the data. The API provides various
-                  endpoints to access different types of job market data, such as salary, job roles, and location-based
-                  data. </p>
+                <p> To process the retrieved data, we need to understand the data structure. The data returned by the
+                  API call is an object of objects with arrays and it contains a lot of data that we cannot process it
+                  as it is. So, we need to extract only the data that we need. The code block below defines a
+                  loadWeatherData() function
+                  in the weatherdata.js module that takes the returned weather data as a parameter and extracts the
+                  weather
+                  data that we need. The weatherdata.js module contains and exports all the functions that handles the
+                  processing and displaying of the weather data. The loadWeatherData() function extract the current
+                  minute, today's forecast, tomorrow's forecast, today's hourly (24hrs) and tomorrow's hourly weather
+                  data from the returned weather data. Fig 1 and 2 show the returned weather data and the
+                  extracted current weather data structures respectively.</p>
               </div>
             </div>
             <!-- Image Column -->
@@ -359,43 +452,471 @@
               </div>
             </div>
           </div>
-          </br>
-          <p> Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key: </p>
+          <!--Images-->
+          <div class="data-image container">
+            <img src="../IMAGES/weather-object.png" alt="weather-data" />
+            <img src="../IMAGES/current-weather.png" alt="current-weather" />
+          </div>
+          <p> Let's take a look at the JavaScript code snippet that extracts only the data that we need from the returned
+            weather data: </p>
           <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
           <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
-            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to fetch data
-            from the Trending Job Markets API </button>
+            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to extract
+            data</button>
           <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
             <pre>
 																																	<code >
-          // JavaScript code to fetch data from the Trending Job Markets API
-        const apiKey = "your-api-key";
-        const apiUrl = "https://api.trendingjobmarkets.com/data";
-
-        fetch(apiUrl, {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            // Process and use the retrieved data for visualization
-            // (Example: Create charts or maps using D3.js and Observable)
-          })
-          .catch((error) => console.error("Error fetching data: ", error));
-        </code>
+          weatherdata.js
+          // JavaScript code to extract data from the Weather data
+          export const loadWeatherData = async (weather) => {
+            const currentWeather = weather.current;
+            const forecastToday = weather.forecast.forecastday[0];
+            const forecastTomorrow = weather.forecast.forecastday[1];
+            const hourlyData = forecastToday.hour;
+            const hourlyDataTomorrow = forecastTomorrow.hour;
+          
+            console.log(currentWeather);
+          };
+         </code>
 																																</pre>
           </div>
-          <p> Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code
-            will
-            make a request to the API, and upon successful retrieval, you can use the data to create visualizations
-            using
-            D3.js and Observable. </p>
-          <p> With access to the API and data, let's move on to the next step to create visualizations. </p>
+          <p> "console.log(currentWeather)" is used to log the current weather data to the console for us to examine its
+            structure. </p>
+          <p> Now that we have extracted the data that we need, let's move on to the next step to display the data. </p>
+
+          <!--Step 3-->
+          <div class="row">
+            <!-- Text Column -->
+            <div class="col-md-6">
+              <div class="tutorial-section">
+                <h3>Step 3: Display the Data</h3>
+                <p> The Today and Tomorrow weather tabs contain three sections each: the header section, the daytime
+                  section, and the hourly section. In this step, we will create each section and display the data
+                  accordingly. The header section displays the location, weather icon current temperature, humidity,
+                  precipitation, wind speed, UV and weather alert. The daytime section displays the temperature in the
+                  morning, afternoon, evening, and midnight. The hourly section displays the 24 hours weather
+                  information.
+                  To avoid repetitive codes for the Today and Tomorrow tabs, we will create functions that create each
+                  sections. That means that we need a createHeader() function that creates the header, a
+                  createDaytimeSection() function that creates the daytime section, and a createHourSection function()
+                  that
+                  creates the hour section.
+                  To display the weather data, we need to select the tab content container in the DOM and we also need
+                  to
+                  create DOM elements, hence, we need to import the helper
+                  functions
+                  from weatherUtils.js.</p>
+              </div>
+            </div>
+            <!-- Image Column -->
+            <!-- Slideshow Column -->
+            <div class="col-md-6">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- First Image -->
+                  <div class="carousel-item active">
+                    <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+                  </div>
+                  <!-- Second Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+                  </div>
+                  <!-- Third Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+                  </div>
+                </div>
+                <!-- Previous and Next buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <br />
+          <p> Let's take a look at the JavaScript code snippet that displays the data: </p>
+          <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+          <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to load and
+            display the data
+            data</button>
+          <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+            <pre>
+																																	<code >
+          weatherdata.js
+          //Import helper functions
+          import {
+            createDiv,
+            createDivWithLabel,
+            createSpan,
+          } from './weatherUtils.js';
+
+          //DOM elements
+          //select tab content containers
+          const tabcontent1 = document.getElementById('tabcontent1');
+          const tabcontent2 = document.getElementById('tabcontent2');
+
+          // JavaScript code to load and display weather data
+          export const loadWeatherData = async (weather) => {
+            //------Existing code
+          
+            // Tab 1 -> Today's weather data
+            // Create tab 1 header
+            const header1 = createHeader(weather, 0);
+            const currentWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${currentWeather.condition.text}`);
+            tabcontent1.appendChild(header1);
+            tabcontent1.appendChild(currentWeatherAlertDiv);
+
+            // Create tab 1 daytime section
+            const daytimeSection1 = createDaytimeSection(hourlyData);
+            tabcontent1.appendChild(daytimeSection1);
+
+            // Create tab 1 hour section
+            const hourSection1 = document.createElement('table');
+            hourSection1.className = 'hour-section';
+            const hourSectionBody1 = document.createElement('tbody');
+            hourSectionBody1.dataset.hourSection = '';
+
+            hourlyData.forEach((hourData, index) => {
+              const hourRow = createHourRow(hourData, index, 0);
+              const detailsRow = createDetailsRow(hourData);
+
+              hourSectionBody1.appendChild(hourRow);
+              hourSectionBody1.appendChild(detailsRow);
+            });
+
+            hourSection1.appendChild(hourSectionBody1);
+            tabcontent1.appendChild(hourSection1);
+
+            // Tab 2 -> Tomorrow's weather data
+            // Create tab 2 header
+            const header2 = createHeader(weather, 1);
+            const forecastWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${forecastTomorrow.day.condition.text}`);
+            tabcontent2.appendChild(header2);
+            tabcontent2.appendChild(forecastWeatherAlertDiv);
+
+            // Create tab 2 daytime section
+            const daytimeSection2 = createDaytimeSection(hourlyDataTomorrow);
+            tabcontent2.appendChild(daytimeSection2);
+
+            // Create tab 2 hour section
+            const hourSection2 = document.createElement('table');
+            hourSection2.className = 'hour-section';
+            const hourSectionBody2 = document.createElement('tbody');
+            hourSectionBody2.dataset.hourSection2 = '';
+
+            hourlyDataTomorrow.forEach((hourData, index) => {
+              const hourRow = createHourRow(hourData, index, 1);
+              const detailsRow = createDetailsRow(hourData);
+
+              hourSectionBody2.appendChild(hourRow);
+              hourSectionBody2.appendChild(detailsRow);
+            });
+
+            hourSection2.appendChild(hourSectionBody2);
+            tabcontent2.appendChild(hourSection2);
+          };
+                      
+
+         </code>
+																																</pre>
+          </div>
+          <p> In the code above, we firstly import the helper functions from weatherUtils.js, then we select the DOM
+            elements (tabcontent1 and tabcontent2). We proceed to create the three sections for each tabs (Today and
+            Tomorrow) and append them to their respective container. We also create other DOM elements such as table as
+            needed </p>
+          <p> Note that the createHeader(), createDaytimeSection(), createHourRow(), and createDetailsRow() functions
+            are not defined yet. We will define them in the next step. </p>
+
+          <!--Step 4-->
+          <div class="row">
+            <!-- Text Column -->
+            <div class="col-md-6">
+              <div class="tutorial-section">
+                <h3>Step 4: Define Other Functions</h3>
+                <p>Now, we will define the createHeader(), createDaytimeSection(), createHourRow(), and createDetailsRow() functions
+                  that are called in the loadWeatherData() function so that we will not get an "undefined" error.</p>
+              </div>
+            </div>
+            <!-- Image Column -->
+            <!-- Slideshow Column -->
+            <div class="col-md-6">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- First Image -->
+                  <div class="carousel-item active">
+                    <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+                  </div>
+                  <!-- Second Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+                  </div>
+                  <!-- Third Image -->
+                  <div class="carousel-item">
+                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+                  </div>
+                </div>
+                <!-- Previous and Next buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--Images-->
+          <div class="data-image container">
+            <img src="../IMAGES/weather-object.png" alt="weather-data" />
+            <img src="../IMAGES/current-weather.png" alt="current-weather" />
+          </div>
+          <p> Let's take a look at the JavaScript code snippet that defines the other functions: </p>
+          <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+          <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+            aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to define other functions</button>
+          <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+            <pre>
+						                                                            <code >
+              weatherdata.js
+              //Import helper functions
+              import {
+                createDiv,
+                createDivWithLabel,
+                createSpan,
+              } from './weatherUtils.js';
+    
+              //DOM elements
+              //select tab content containers
+              const tabcontent1 = document.getElementById('tabcontent1');
+              const tabcontent2 = document.getElementById('tabcontent2');
+    
+              // JavaScript code to load and display weather data
+              export const loadWeatherData = async (weather) => {
+                //------Existing code
+              }
+
+              //Function to create the header
+              const createHeader = (weather, forecastIndex) => {
+                const header = document.createElement('header');
+                header.className = 'header';
+                const headerLeft = document.createElement('div');
+                headerLeft.className = 'header-left container';
+                const locationDetails = document.createElement('div');
+                const locationDiv = createDiv('location', `${weather.location.name}, ${weather.location.region}`);
+                locationDiv.className = 'location';
+                const countryDiv = createDiv('country', `${weather.location.country}`);
+                countryDiv.className = 'country';
+                locationDetails.appendChild(locationDiv);
+                locationDetails.appendChild(countryDiv);
+                const forecastDate = new Date(weather.forecast.forecastday[forecastIndex].date);
+                const dateDiv = createDiv('date', `${forecastDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}`);
+                dateDiv.className = 'date';
+                locationDetails.appendChild(dateDiv);
+                const timeDiv = createDiv('time', `${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`);
+                timeDiv.className = 'time';
+                locationDetails.appendChild(timeDiv);
+                headerLeft.appendChild(locationDetails);
+              
+                const currentIcon = weather.current.condition.icon;
+                const weatherIcon = document.createElement('img');
+                weatherIcon.className = 'weather-icon large';
+                weatherIcon.src = `https:${currentIcon}`;
+                weatherIcon.alt = 'weather-icon';
+                headerLeft.appendChild(weatherIcon);
+              
+                const currentTemp = weather.current.temp_c;
+                const currentTempDiv = document.createElement('div');
+                currentTempDiv.className = 'current-temp';
+              
+                const currentTempSpan = createSpan('current-temp', `${currentTemp}`);
+                const degreeSymbol = document.createTextNode('\u00B0C');
+                currentTempDiv.appendChild(currentTempSpan);
+                currentTempDiv.appendChild(degreeSymbol);
+              
+                headerLeft.appendChild(currentTempDiv);
+                header.appendChild(headerLeft);
+              
+                const headerRight = document.createElement('div');
+                headerRight.className = 'header-right';
+              
+                const infoGroupLabels = ['Max', 'Min', 'Wind', 'Precip', 'UV index', 'R-Humid'];
+                const forecastDay = weather.forecast.forecastday[forecastIndex].day;
+              
+                const infoGroupData = [
+                  `${forecastDay.maxtemp_c}`,
+                  `${forecastDay.mintemp_c}`,
+                  `${forecastDay.maxwind_mph}`,
+                  `${forecastDay.totalprecip_in}`,
+                  `${forecastDay.uv}`,
+                  `${forecastDay.avghumidity}`
+                ]
+              
+                const infoGroupUnits = ['\u00B0C', '\u00B0C', 'mph', 'in', '', '%rh'];
+              
+                infoGroupLabels.forEach((label) => {
+                  const infoGroup = document.createElement('div');
+                  infoGroup.className = 'info-group';
+                  const infoGroupLabel = createDiv('label', label);
+                  const infoGroupDataDiv = createDiv('info-group-data', infoGroupData[infoGroupLabels.indexOf(label)]);
+                  const infoGroupUnitsSpan = createSpan('info-sub', infoGroupUnits[infoGroupLabels.indexOf(label)]);
+                  infoGroupDataDiv.appendChild(infoGroupUnitsSpan);
+                  infoGroup.appendChild(infoGroupLabel);
+                  infoGroup.appendChild(infoGroupDataDiv);
+                  headerRight.appendChild(infoGroup);
+                });
+              
+                header.appendChild(headerRight);
+                return header;
+              };
+
+              //Function to create the daytime section
+              const createDaytimeSection = (hourlyData) => {
+                const daytimeSection = document.createElement('section');
+                daytimeSection.className = 'daytime-section';
+                daytimeSection.dataset.daytimeSection = '';
+              
+                const daytimeCardLabels = ['Morning', 'Afternoon', 'Evening', 'Midnight'];
+              
+                daytimeCardLabels.forEach((label, index) => {
+                  const daytimeCard = document.createElement('div');
+                  daytimeCard.className = 'daytime-card';
+                
+                  const icon = document.createElement('img');
+                  icon.src = `https:${hourlyData[index].condition.icon}`;
+                  icon.alt = 'weather-icon';
+                  daytimeCard.appendChild(icon);
+                
+                  const daytimeCardHour = createDiv('daytime-card-hour', label);
+                  const tempDiv = createDiv('', `${hourlyData[index].temp_c}\u00B0C`);
+                
+                  daytimeCard.appendChild(daytimeCardHour);
+                  daytimeCard.appendChild(tempDiv);
+                  daytimeSection.appendChild(daytimeCard);
+                });
+              
+                return daytimeSection;
+              };
+
+              //Function to create the hour row
+              const createHourRow = (hourlyData, index, forecastIndex) => {
+                const hourRow = document.createElement('tr');
+                hourRow.className = 'hour-row';
+                //alternating row colors
+                if (index % 2 === 0) {
+                  hourRow.style.backgroundColor = '#198754';
+                } else {
+                  hourRow.style.backgroundColor = '#6adaa5';
+                }
+              
+                const arrowCell = document.createElement('td');
+                const arrowIcon = document.createElement('i');
+                arrowIcon.className = 'fas fa-chevron-down';
+                arrowCell.appendChild(arrowIcon);
+              
+                const handleClick = () => {
+                  const detailsRow = hourRow.nextElementSibling;
+                  detailsRow.classList.toggle('show');
+                };
+              
+                const timeCell = document.createElement('td');
+                const infoGroup = document.createElement('div');
+                infoGroup.className = 'info-group';
+                hourRow.addEventListener('click', handleClick);
+              
+                const labelDiv = createDivWithLabel('label', forecastIndex === 0 ? 'Today' : 'Tomorrow', new Date(hourlyData.time).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
+                infoGroup.appendChild(labelDiv);
+                timeCell.appendChild(infoGroup);
+                hourRow.appendChild(timeCell);
+              
+                const iconCell = document.createElement('td');
+                const icon = document.createElement('img');
+                icon.src = `https:${hourlyData.condition.icon}`;
+                icon.alt = 'weather-icon';
+                iconCell.appendChild(icon);
+                hourRow.appendChild(iconCell);
+              
+                const tempCell = document.createElement('td');
+                const tempDiv = createDivWithLabel('info-group', 'Temp', `${hourlyData.temp_c}\u00B0C`);
+                tempCell.appendChild(tempDiv);
+                hourRow.appendChild(tempCell);
+              
+                const humidityCell = document.createElement('td');
+                const humidityDiv = createDivWithLabel('info-group', 'Humidity', `${hourlyData.humidity}%rh`);
+                humidityCell.appendChild(humidityDiv);
+                hourRow.appendChild(humidityCell);
+              
+                const windCell = document.createElement('td');
+                const windDiv = createDivWithLabel('info-group', 'Wind', `${hourlyData.wind_mph}mph`);
+                windCell.appendChild(windDiv);
+                hourRow.appendChild(windCell);
+              
+                const precipCell = document.createElement('td');
+                const precipDiv = createDivWithLabel('info-group', 'Precip', `${hourlyData.precip_in}in`);
+                precipCell.appendChild(precipDiv);
+                hourRow.appendChild(precipCell);
+              
+                const uvCell = document.createElement('td');
+                const uvDiv = createDivWithLabel('info-group', 'UV Index', `${hourlyData.uv}`);
+                uvCell.appendChild(uvDiv);
+                hourRow.appendChild(uvCell);
+                hourRow.appendChild(arrowCell);
+              
+                return hourRow;
+              };
+
+              //Function to create the details row
+              const createDetailsRow = (hourlyData) => {
+                const detailsRow = document.createElement('tr');
+                detailsRow.className = 'hour-details-row';
+                detailsRow.classList.add('hidden');
+              
+                const detailsCell = document.createElement('td');
+                detailsCell.colSpan = '8';
+              
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'hour-details';
+              
+                const additionalData = [
+                  { label: 'Condition', value: hourlyData.condition.text },
+                  { label: 'Feels Like', value: `${hourlyData.feelslike_c}\u00B0C` },
+                  { label: 'Chance of Rain', value: `${hourlyData.chance_of_rain}%` },
+                  { label: 'Chance of Snow', value: `${hourlyData.chance_of_snow}%` },
+                  { label: 'Dewpoint', value: `${hourlyData.dewpoint_c}\u00B0C` },
+                  { label: 'Gust', value: `${hourlyData.gust_mph} mph` },
+                  { label: 'Pressure', value: `${hourlyData.pressure_in} in` },
+                ];
+              
+                additionalData.forEach((data) => {
+                  const dataDiv = createDivWithLabel('hour-detail', data.label, data.value);
+                  detailsDiv.appendChild(dataDiv);
+                });
+              
+                detailsCell.appendChild(detailsDiv);
+                detailsRow.appendChild(detailsCell);
+              
+                return detailsRow;
+              };
+         </code>
+																																</pre>
+          </div>
+          <p> The sections are divided into functions so that each functions handles a specific aspect of the page to promote readability, reusability and maintainability </p>
+          <p> Now that we have extracted the data that we need, let's move on to the next step to display the data. </p>
+
         </div>
-    </div>
-  </section>
-  <!-- Step 2: Visualization with D3.js -->
+      </section>
+      <!-- Step 2: Visualization with D3.js
   <section id="d3-visualization">
     <div class="container">
       <div class="tutorial-section">
@@ -412,72 +933,87 @@
           bar chart. </p>
       </div>
     </div>
-  </section>
-  <!-- Step 3: Creating Charts with D3.js -->
-  <section id="chart-visualization">
-    <div class="container">
-      <div class="tutorial-section">
-        <div class="row">
-          <!-- Text Column -->
-          <div class="col-md-6">
-            <div class="tutorial-section">
-              <h2>Step 3: Display the Data</h2>
-              <p> In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different
-                job roles in the job market. We'll assume that you have already fetched the relevant salary data from
-                the API and stored it in a variable. </p>
-              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
-            </div>
-          </div>
-          <!-- Image Column -->
-          <!-- Text Column -->
-          <!-- Text Column -->
-          <!-- Slideshow Column -->
-          <div class="col-md-6">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <!-- First Image -->
-                <div class="carousel-item active">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="270">
-                  </a>
-                </div>
-                <!-- Second Image -->
-                <div class="carousel-item">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="270">
-                  </a>
-                </div>
-                <!-- Third Image -->
-                <div class="carousel-item">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="270">
-                  </a>
+  </section> -->
+      <!-- Step 3: Displaying the data -->
+      <section id="chart-visualization">
+        <div class="container">
+          <div class="tutorial-section">
+            <div class="row">
+              <!-- Text Column -->
+              <div class="col-md-6">
+                <div class="tutorial-section">
+                  <h2>Step 3: Display the Data</h2>
+                  <p>The Today and Tomorrow weather tabs contain three sections each: the header section, the daytime
+                    section, and the hourly section. In this step, we will create each section and display the data
+                    accordingly. The header section displays the location, weather icon current temperature, humidity,
+                    precipitation, wind speed, UV and weather alert. The daytime section displays the temperature in the
+                    morning, afternoon, evening, and midnight. The hourly section displays the 24 hours weather
+                    information.
+                    To avoid repetitive codes for the Today and Tomorrow tabs, we will create functions that create each
+                    sections. That means that we need a createHeader() function that creates the header, a
+                    createDaytimeSection() function that creates the daytime section, and a createHourSection function()
+                    that
+                    creates the hour section.
+                    To display the weather data, we need to select the tab content container in the DOM and we also need
+                    to
+                    create DOM elements, hence, we need to import the helper
+                    functions
+                    from weatherUtils.js.
+                  </p>
+                  <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
                 </div>
               </div>
-              <!-- Previous and Next buttons -->
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <!-- Image Column -->
+              <!-- Text Column -->
+              <!-- Text Column -->
+              <!-- Slideshow Column -->
+              <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <!-- First Image -->
+                    <div class="carousel-item active">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="270">
+                      </a>
+                    </div>
+                    <!-- Second Image -->
+                    <div class="carousel-item">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="270">
+                      </a>
+                    </div>
+                    <!-- Third Image -->
+                    <div class="carousel-item">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="270">
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Previous and Next buttons -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <h3>Creating a Bar Chart</h3>
-        <p> Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average
-          salary of different job roles in the job market. We'll use an SVG element to draw the chart and D3.js
-          functions to bind the data to the DOM elements and set the properties for the chart. </p>
-        <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
-        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
-          aria-expanded="false" aria-controls="codeBlock4" style="margin-bottom: 20px;"> Visualization Technique: Bar
-          Chart </button>
-        <div class="collapse mt-3" id="codeBlock4">
-          <pre>
+            <h3>Creating a Bar Chart</h3>
+            <p> Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average
+              salary of different job roles in the job market. We'll use an SVG element to draw the chart and D3.js
+              functions to bind the data to the DOM elements and set the properties for the chart. </p>
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
+              aria-expanded="false" aria-controls="codeBlock4" style="margin-bottom: 20px;"> Visualization Technique:
+              Bar
+              Chart </button>
+            <div class="collapse mt-3" id="codeBlock4">
+              <pre>
 																																				<code>
 																																					<!-- HTML markup to display the chart -->
         &lt;div id="bar-chart">&lt;/div>
@@ -516,73 +1052,79 @@
         
 																																				</code>
 																																			</pre>
-        </div>
-        <p> The above code will create a bar chart displaying the average salaries of different job roles. The height of
-          each bar represents the average salary, and the width of each bar is determined based on the number of data
-          points. </p>
-        <p> After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to enhance
-          the user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js. </p>
-      </div>
-    </div>
-  </section>
-  <!-- Step 4: Creating Map Visualizations with D3.js -->
-  <section id="map-visualization">
-    <div class="container">
-      <div class="tutorial-section">
-        <div class="row">
-          <!-- Text Column -->
-          <div class="col-md-6">
-            <div class="tutorial-section">
-              <h2>Step 4: Creating Map Visualizations with D3.js</h2>
-              <p> In this step, we'll create a choropleth map using D3.js to visualize job market data for different
-                geographical regions. Choropleth maps use different colors to represent different data values, allowing
-                users to quickly grasp patterns and trends in the data. </p>
-              <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
             </div>
+            <p> The above code will create a bar chart displaying the average salaries of different job roles. The
+              height of
+              each bar represents the average salary, and the width of each bar is determined based on the number of
+              data
+              points. </p>
+            <p> After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to
+              enhance
+              the user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js.
+            </p>
           </div>
-          <!-- Image Column -->
-          <!-- Text Column -->
-          <!-- Slideshow Column -->
-          <div class="col-md-6">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <!-- First Image -->
-                <div class="carousel-item active">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/map.jpg" alt="Slide 1" width="500" height="290">
-                  </a>
-                </div>
-                <!-- Second Image -->
-                <div class="carousel-item">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="290">
-                  </a>
-                </div>
-                <!-- Third Image -->
-                <div class="carousel-item">
-                  <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="290">
-                  </a>
+        </div>
+      </section>
+      <!-- Step 4: Creating Map Visualizations with D3.js -->
+      <section id="map-visualization">
+        <div class="container">
+          <div class="tutorial-section">
+            <div class="row">
+              <!-- Text Column -->
+              <div class="col-md-6">
+                <div class="tutorial-section">
+                  <h2>Step 4: Creating Map Visualizations with D3.js</h2>
+                  <p> In this step, we'll create a choropleth map using D3.js to visualize job market data for different
+                    geographical regions. Choropleth maps use different colors to represent different data values,
+                    allowing
+                    users to quickly grasp patterns and trends in the data. </p>
+                  <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
                 </div>
               </div>
-              <!-- Previous and Next buttons -->
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <!-- Image Column -->
+              <!-- Text Column -->
+              <!-- Slideshow Column -->
+              <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <!-- First Image -->
+                    <div class="carousel-item active">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/map.jpg" alt="Slide 1" width="500" height="290">
+                      </a>
+                    </div>
+                    <!-- Second Image -->
+                    <div class="carousel-item">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="290">
+                      </a>
+                    </div>
+                    <!-- Third Image -->
+                    <div class="carousel-item">
+                      <a href="https://d3js.org/">
+                        <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="290">
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Previous and Next buttons -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <h3>Creating a Choropleth Map</h3>
-        <p> Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data for
-          different geographical regions, such as average salaries, job demand, or job availability. </p>
-        <pre>
+            <h3>Creating a Choropleth Map</h3>
+            <p> Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data
+              for
+              different geographical regions, such as average salaries, job demand, or job availability. </p>
+            <pre>
 																																						<code>
 																																							<!-- HTML markup to display the map -->
         &lt;div id="choropleth-map">&lt;/div>
@@ -593,111 +1135,116 @@
       
 																																						</code>
 																																					</pre>
-        <p> The above code is just a placeholder for creating the choropleth map, as creating maps requires geographic
-          data and additional configurations. Depending on your use case, you may need to use a geoJSON file for mapping
-          data to specific regions on the map. You can use D3.js functions to bind the data and styles to the map
-          elements. </p>
-        <p> With the choropleth map created, you can now visualize job market data for different regions and explore
-          regional patterns and trends. </p>
-      </div>
-    </div>
-  </section>
-  <!--Main Layout Section ends-->
-  <!-- Footer section starts here-->
-  <footer>
-    <div class="container-fluid bg-success text-white p-4">
-      <div class="row">
-        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="index.html">
-            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-            Job <span>Insights</span>
-          </a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
-            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur fugit?
-          </p>
+            <p> The above code is just a placeholder for creating the choropleth map, as creating maps requires
+              geographic
+              data and additional configurations. Depending on your use case, you may need to use a geoJSON file for
+              mapping
+              data to specific regions on the map. You can use D3.js functions to bind the data and styles to the map
+              elements. </p>
+            <p> With the choropleth map created, you can now visualize job market data for different regions and explore
+              regional patterns and trends. </p>
+          </div>
         </div>
-        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
-          <h5 class="fw-bold">USEFUL LINKS</h5>
-          <ul style="list-style-type: square;">
-            <li>
-              <a href="../index.html">Home</a>
-            </li>
-            <li>
-              <a href="job.html">Job Data</a>
-            </li>
-            <li>
-              <a href="weather.html">Weather Data</a>
-            </li>
-            <li>
-              <a href="financial.html">Financial Data</a>
-            </li>
-            <li>
-              <a href="Newsletter.html">Newsletter</a>
-            </li>
-            <li>
-              <a href="website.html">About Website</a>
-            </li>
-            <li>
-              <a href="author.html">About Developers</a>
-            </li>
-          </ul>
+      </section>
+      <!--Main Layout Section ends-->
+      <!-- Footer section starts here-->
+      <footer>
+        <div class="container-fluid bg-success text-white p-4">
+          <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+              <a class="navbar-brand" href="index.html">
+                <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
+                  class="d-inline-block align-text-center" />
+                Job <span>Insights</span>
+              </a>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
+                iusto
+                quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
+                fugit?
+              </p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+              <h5 class="fw-bold">USEFUL LINKS</h5>
+              <ul style="list-style-type: square;">
+                <li>
+                  <a href="../index.html">Home</a>
+                </li>
+                <li>
+                  <a href="job.html">Job Data</a>
+                </li>
+                <li>
+                  <a href="weather.html">Weather Data</a>
+                </li>
+                <li>
+                  <a href="financial.html">Financial Data</a>
+                </li>
+                <li>
+                  <a href="Newsletter.html">Newsletter</a>
+                </li>
+                <li>
+                  <a href="website.html">About Website</a>
+                </li>
+                <li>
+                  <a href="author.html">About Developers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+              <h5 class="fw-bold">CONTACT</h5>
+              <p>
+                <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+              </p>
+              <p>
+                <i class="fa-solid fa-phone"></i> +23056789042
+              </p>
+            </div>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center pt-3">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+              <form class="d-block" role="email">
+                <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
+                <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+          <hr>
+          <!--Social media links-->
+          <div class="socials text-center">
+            <a class="btn btn-secondary btn-outline-light m-1" href="#">
+              <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+            </a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#">
+              <i class="fab fa-google" style="color: #dd4b39;"></i>
+            </a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#">
+              <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+            </a>
+            <a class="btn btn-secondary btn-outline-light m-1" href="#">
+              <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+            </a>
+          </div>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
-          <h5 class="fw-bold">CONTACT</h5>
-          <p>
-            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
-          </p>
-          <p>
-            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-          </p>
-          <p>
-            <i class="fa-solid fa-phone"></i> +23056789042
-          </p>
+        <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+            href="../index.html">Job Insights</a>
         </div>
-      </div>
-      <div class="row mx-auto d-flex justify-content-center pt-3">
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-          <form class="d-block" role="email">
-            <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-            <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <hr>
-      <!--Social media links-->
-      <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-google" style="color: #dd4b39;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-        </a>
-      </div>
-    </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-        href="../index.html">Job Insights</a>
-    </div>
-  </footer>
-  <!--Footer ends here-->
-  <!--Jquery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <!--Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Custom JS links-->
-  <script src="../JS/jobdata.js"></script>
+      </footer>
+      <!--Footer ends here-->
+      <!--Jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <!--Bootstrap-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!--Custom JS links-->
+      <script src="../JS/jobdata.js"></script>
 </body>
 
 </html>

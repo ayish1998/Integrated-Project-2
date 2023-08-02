@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="./CSS/style.css">
+    <!--Font Awesome-->
+
+    <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!--Bootstrap CDN-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Job Insights</title>
+</head>
+
+<body>
+    <!-- navbar starts here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+        <div class="container-fluid">
+            <!--Logo and name-->
+            <a class="navbar-brand" href="index.html">
+                <img src="./IMAGES/logo.png" alt="logo" width="60" height="60"
+                    class="d-inline-block align-text-center" /> Job
+                <span>Insights</span>
+            </a>
+            <!--Toggler-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--Nav items-->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Home</a>
+                    </li>
+                    <!--Data dropdown-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Data </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./HTML/job.html">Job</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./HTML/weather.html">Weather</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./HTML/financial.html">Financial</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Tutorials dropdown-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tutorials </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./HTML/jobtutorial.html">Job Tutorial</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./HTML/weathertutorial.html">Weather Tutorial</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./HTML/finacialtutorial.html">Financial Tutorial</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Tutotrials dropdown ends here-->
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./HTML/Newsletter.html">Newsletter</a>
+                    </li>
+                    <!--About dropdown-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            About </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./HTML/website.html">Website</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./HTML/author.html">Developers</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--About dropdown ends here-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./HTML/contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!--navbar ends here-->
+
+
+    <!-- Home Section Start -->
+    <section id="center">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="blink-text" id="blinking-text" onclick="toggleBlinking()">Welcome To Jo<span>b</span>
+                    insights</h1>
+                <h3 class="slide-in-text" onclick="toggleSlideIn()">Data Visualization & Visual Insig<span>ht</span>
+                </h3>
+
+                <h4> This serves as a showcase for various types of charts, graphs, and maps, each designed to convey
+                    specific insights and patterns derived from the data.</h4>
+                <!-- Responsive Link -->
+                <a href="https://drive.google.com/drive/u/0/my-drive" class="btn btn-success">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!--Section starts -->
+    <section id="center blog">
+        <div class="text-center my-5">
+            <h2>Captivating world of data visualization</h2>
+            <h4> Unleash the Power of Data with Visual Insights
+                </h2>
+                <P> The application focuses on visualizing data related to jobs worldwide.
+                    It is a web-based platform that showcases various
+                    data visualizations
+                    applied to different datasets
+                    obtained from live sources via APIs.
+
+                    This approach provides an understanding
+                    of global job market trends,
+                    financial performance,
+                    and weather patterns.
+
+                </P>
+
+        </div>
+    </section>
+    <!--Section ends -->
+
+
+
+    <!--Main layout starts-->
+    <main id="site-main">
+        <div class="container-fluid">
+            <div class="text-center my-5">
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 ">
+                    <div class="card mb-3 shadow-sm">
+                        <img src="./IMAGES/image_2.jpg" class="img-fluid" />
+                        <a href="./HTML/job.html" class="card-img-overlay"></a>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>Job Visualization</h4>
+                            </div>
+                            <div class="card-text">
+                                <p>
+                                    Explore the dynamic world of job opportunities worldwide through our interactive
+                                    data visualizations.
+                                    presenting a comprehensive view of the job market,
+                                    allowing you to uncover valuable insights
+                                    .
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card mb-5 shadow-sm">
+                        <img src="./IMAGES/pexels-lukas-590016.jpg" class="img-fluid" />
+                        <a href="./HTML/weather.html" class="card-img-overlay"></a>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>Weather Visualization</h4>
+                            </div>
+                            <div class="card-text">
+                                <p>
+                                    Immerse in weather patterns and climatic
+                                    variations worldwide through our interactive data visualizations.
+                                    Gain insights into temperature trends,
+                                    rainfall, and weather conditions.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card mb-5 shadow-sm">
+                        <img src="./IMAGES/pexels-kampus-production-8353802.jpg" class="img-fluid" />
+                        <a href="./HTML/financial.html" class="card-img-overlay"></a>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>Financial Visualization</h4>
+                            </div>
+                            <div class="card-text">
+                                <p>
+                                    Delve into the fascinating world of finance through our data visualizations.
+                                    From stock market trends to investment portfolios,
+                                    we present financial data in an
+                                    engaging and informative manner.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="flex">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                        <h4>Jobs News: </h4>
+                        <hr>
+                        <h5>News and Update<span class="date">May 31, 2023</span></h4>
+                            <p>Stay on top of the dynamic job market with our curated news and updates
+                                related to employment trend, job opportunities,
+                                and workforce insights.
+
+                            </p>
+
+
+
+
+
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <h4>Finance News </h4>
+                        <hr>
+                        <h5>News and Update<span class="date">May 31, 2023</span></h5>
+                        <p>Explore the world of finance with the latest news on stock market trends,
+                            economic indicators, investment strategies,
+                            and more.</p>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 ">
+                        <h4>Weather Updates</h4>
+                        <hr>
+                        <h5>News and Update<span class="date">May 31, 2023</span></h5>
+                        <p>From temperature fluctuations to severe weather warnings,
+                            our weather updates keep you prepared for any climate conditions
+                            and help you plan your daily activities accordingly.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!--Main layout end -->
+
+
+
+
+
+    <!--Footer-->
+    <footer>
+        <div class="container-fluid bg-success text-white p-4">
+            <div class="row">
+                <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+                    <a class="navbar-brand" href="/index.html">
+                        <img src="./IMAGES/logo.png" alt="logo" width="60" height="60"
+                            class="d-inline-block align-text-center" />
+                        Job<span>Insights</span></a>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium
+                        quis iusto
+                        quam, ad facere odio sunt mollitia asperiores
+                        eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+                    <h5 class="fw-bold">USEFUL LINKS</h5>
+                    <ul style="list-style-type: square;">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./HTML/job.html">Job Data</a></li>
+                        <li><a href="./HTML/weather.html">Weather Data</a></li>
+                        <li><a href="./HTML/financial.html">Financial Data</a></li>
+                        <li><a href="./HTML/Newsletter.html">Newsletter</a></li>
+                        <li><a href="./HTML/website.html">About Website</a></li>
+                        <li><a href="./HTML/author.html">About Developers</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+                    <h5 class="fw-bold">CONTACT</h5>
+                    <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+                        Mauritius</p>
+                    <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+                </div>
+            </div>
+            <div class="row mx-auto d-flex justify-content-center pt-3">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <p>We are here to make your career decision easier!
+                        <br>Sign up for our Newsletter.
+                    </p>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+                    <form class="d-block" role="email">
+                        <input class="form-control me-2 mb-2" type="email" placeholder="Email Address"
+                            aria-label="Email">
+                        <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <!--Social media links-->
+            <div class="socials text-center">
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
+                        style="color: #3b5998;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
+                        style="color: #dd4b39;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
+                        style="color: #ac2bac;"></i></a>
+                <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
+                        style="color: #0082ca;"></i></a>
+            </div>
+        </div>
+        <div class="text-white text-center p-4" style="background-color: #6c757d;">
+            © 2023 Copyright:
+            <a class="fw-bold" href="./index.html">Job Insights</a>
+        </div>
+    </footer>
+
+
+    <!--scripts-->
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

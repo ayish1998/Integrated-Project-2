@@ -17,15 +17,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
     <title>Job Insights</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
       #observablehq-3f41ff1a {
         margin-top: 20px;
         padding: 50px;
+      }
+
+      /* Default styles for the explanation div */
+      .explanation {
+        margin-top: 20px;
+        padding: 50px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        color: #333;
+        font-size: 16px;
+      }
+
+      /* Media query for screens with a maximum width of 768px (e.g., mobile devices) */
+      @media (max-width: 768px) {
+        .explanation {
+          padding: 20px;
+          font-size: 14px;
+        }
       }
     </style>
   </head>
@@ -118,17 +130,23 @@
     </nav>
     <!--navbar ends here-->
     <!--Main body content starts here-->
+    <section id="market">
+      <h2>Trending Job Markets Overview</h2>
+    </section>
     <section id="wrapper">
       <div class="container">
         <div id="title-out">
           <div class="centered container">
-            <h2>Trending Job Markets Overview</h2>
             <div class="meta-bar">
               <strong>
                 <a href="../HTML/job.html">Job Data Insight</a>
               </strong> / Job Market Overview
             </div>
           </div>
+        </div>
+        <!-- Explanation -->
+        <div class="explanation">
+          <p>Welcome to the Public Media Salary Survey Interactive! This page provides valuable insights into the salary trends within the public media industry. Explore various interactive charts and graphs to gain a comprehensive overview of salary distributions based on different factors. Simply scroll down to discover the latest trends in job market salaries, demographics, gender, age, and more. Enjoy an engaging and informative experience on any device with our responsive design. Start exploring now to make informed decisions about your career in the public media sector!</p>
         </div>
       </div>
       <!--Salary Trends starts here-->

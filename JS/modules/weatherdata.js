@@ -118,7 +118,7 @@ const createDaytimeSection = (hourlyData) => {
 };
 
 //Function to create the hour row
-const createHourRow = (hourlyData, index) => {
+const createHourRow = (hourlyData, index, forecastIndex) => {
   const hourRow = document.createElement('tr');
   hourRow.className = 'hour-row';
   //alternating row colors
@@ -143,7 +143,7 @@ const createHourRow = (hourlyData, index) => {
   infoGroup.className = 'info-group';
   hourRow.addEventListener('click', handleClick);
 
-  const labelDiv = createDivWithLabel('label', 'Today', new Date(hourlyData.time).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
+  const labelDiv = createDivWithLabel('label', forecastIndex === 0 ? 'Today' : 'Tomorrow', new Date(hourlyData.time).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
   infoGroup.appendChild(labelDiv);
   timeCell.appendChild(infoGroup);
   hourRow.appendChild(timeCell);
@@ -224,12 +224,11 @@ export const loadWeatherData = async (weather) => {
   const forecastTomorrow = weather.forecast.forecastday[1];
   const hourlyData = forecastToday.hour;
   const hourlyDataTomorrow = forecastTomorrow.hour;
-  const currentWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${currentWeather.condition.text}`);
-  const forecastWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${forecastTomorrow.day.condition.text}`);
 
   // Tab 1 ---> Today's weather data
   // Create tab 1 header
   const header1 = createHeader(weather, 0);
+  const currentWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${currentWeather.condition.text}`);
   tabcontent1.appendChild(header1);
   tabcontent1.appendChild(currentWeatherAlertDiv);
 
@@ -244,7 +243,7 @@ export const loadWeatherData = async (weather) => {
   hourSectionBody1.dataset.hourSection = '';
 
   hourlyData.forEach((hourData, index) => {
-    const hourRow = createHourRow(hourData, index);
+    const hourRow = createHourRow(hourData, index, 0);
     const detailsRow = createDetailsRow(hourData);
 
     hourSectionBody1.appendChild(hourRow);
@@ -257,6 +256,7 @@ export const loadWeatherData = async (weather) => {
   // Tab 2 ---> Tomorrow's weather data
   // Create tab 2 header
   const header2 = createHeader(weather, 1);
+  const forecastWeatherAlertDiv = createDivWithLabel('weather-alert', 'Weather Alert:', `${forecastTomorrow.day.condition.text}`);
   tabcontent2.appendChild(header2);
   tabcontent2.appendChild(forecastWeatherAlertDiv);
 
@@ -271,7 +271,7 @@ export const loadWeatherData = async (weather) => {
   hourSectionBody2.dataset.hourSection2 = '';
 
   hourlyDataTomorrow.forEach((hourData, index) => {
-    const hourRow = createHourRow(hourData, index);
+    const hourRow = createHourRow(hourData, index, 1);
     const detailsRow = createDetailsRow(hourData);
 
     hourSectionBody2.appendChild(hourRow);

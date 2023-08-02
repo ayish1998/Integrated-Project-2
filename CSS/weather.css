@@ -95,8 +95,7 @@ footer a {
 
 .tabs a {
   cursor: pointer;
-  padding: 12px 24px;
-  width: 120px;
+  padding: 12px 16px;
   text-decoration: none;
   color: #198754;
   text-align: center;
@@ -147,6 +146,7 @@ footer a {
   padding: 0px;
   display: none;
   overflow: hidden;
+  min-height: 300px;
 }
 
 .darkmode .tabcontent {
@@ -166,12 +166,6 @@ footer a {
 .tabcontent p:last-child {
   margin-bottom: 0;
 }
-
-/* #tabcontent3 {
-  max-height: 600px;
-  overflow-y: auto;
-} */
-
 
 /* The darkmode switch */
 .dark-mode-switch {
@@ -254,6 +248,15 @@ input:checked+.slider:before {
 .header {
   display: flex;
   align-items: center;
+}
+
+.search-bar{
+  width: 50%;
+  margin-top: 35px;
+}
+
+.note {
+width: 50%;
 }
 
 .suggestion {
@@ -603,12 +606,22 @@ g{
   }
   
   .tabs a {
-  padding: 6px 12px;
-  width: 100px;
+  padding: 6px 10px;
   margin: auto;
+  font-size: 14px;
   }
   
   .tabcontent {
     padding: 20px;
+  }
+
+  .search-bar {
+    width: 70%;
+    margin-top: 30px;
+  }
+
+  .note {
+    font-size: 14px;
+    width: 70%;
   }
 }
