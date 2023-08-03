@@ -8,26 +8,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* NAVBAR STYLING STARTS HERE */
-nav a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar-brand {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.navbar-brand span {
-  color: grey;
-}
-
-.navbar-nav {
-  width: 100%;
-  justify-content: space-evenly;
-}
 
 /*Main section styling*/
 #skills {
@@ -163,9 +143,4 @@ nav a {
   }
 }
 
-/* styles for the footer */
-footer a {
-  text-decoration: none;
-  color: white;
-}
 
