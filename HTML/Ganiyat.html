@@ -186,7 +186,14 @@
         </div>
     </section>
 
-
+    <!--Dark mode-->
+  <div class="dark-mode-switch">
+    <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-switch">
+      <span class="slider round"></span>
+    </label>
+  </div>
 
      <!--Footer-->
   <footer>
@@ -255,6 +262,21 @@
 
  <!--Bootstrap JS links-->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+ <!--Darkmode-->
+<script>
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+    // Get body element
+    const body = document.querySelector('body');
+
+    // Toggle the 'darkmode' class on the body element
+    body.classList.toggle('darkmode');
+  }
+
+  // event listener for the dark mode switch
+  const darkModeSwitch = document.getElementById('dark-mode-switch');
+  darkModeSwitch.addEventListener('change', toggleDarkMode);
+</script>
 </body>
 
 </html>

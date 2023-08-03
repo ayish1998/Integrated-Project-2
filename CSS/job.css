@@ -154,6 +154,10 @@ body.darkmode {
     padding-top: 20px;
 }
 
+.darkmode #blog-container .blogs .post h3 {
+  color: #8a8a8a;
+}
+
 /* The darkmode switch */
 .dark-mode-switch {
   margin-top: 70px;

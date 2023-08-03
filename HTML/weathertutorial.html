@@ -1744,6 +1744,15 @@
 
   <div id="spacer" style="margin-bottom: 100px;"></div>
 
+  <!--Dark mode-->
+  <div class="dark-mode-switch">
+    <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-switch">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
   <!--Main Layout Section ends-->
   <!-- Footer section starts here-->
    <!--Footer-->
@@ -1818,8 +1827,23 @@
     crossorigin="anonymous"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Custom JS links-->
-  <script src="../JS/jobdata.js"></script>
+  
+<!--Darkmode-->
+<script>
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+    // Get body element
+    const body = document.querySelector('body');
+
+    // Toggle the 'darkmode' class on the body element
+    body.classList.toggle('darkmode');
+  }
+
+  // event listener for the dark mode switch
+  const darkModeSwitch = document.getElementById('dark-mode-switch');
+  darkModeSwitch.addEventListener('change', toggleDarkMode);
+</script>
+
 </body>
 
 </html>
