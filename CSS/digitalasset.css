@@ -15,9 +15,10 @@ nav a {
 
     .container{
     margin-top:120px;
+    margin-left: 100px;
     }
 
-  
+    
     .navbar-nav {
       width: 100%;
       justify-content: space-evenly;
@@ -40,14 +41,14 @@ nav a {
   }
   .section-heading {
       color: #29711b;
+    
+      
      
   }
   .subsection-heading {
       color: #1d7b2f;
       margin-top: 30px;
-      margin-left: 100px;
   }
-  
   .heading{
       margin-top: 50px
   }
@@ -56,111 +57,35 @@ nav a {
     width: 900px;
     height: 500px;
     margin: 30px auto;
-     padding-right:160px 
   }
-
-  /* #chart-containerrr{
-    padding-right: 350px;
-
-  } */
 
   .tooltip {
     position: absolute;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
     border-radius: 5px;
     pointer-events: none;
     opacity: 0;
-  }
-
-  .chart-title {
-    font-size: 18px;
-    font-weight: bold;
-   
-  }
-
-  .axis-label {
-    font-size: 14px;
-    font-weight:bold ;
-    margin-bottom: 100px;
-  }
-
-  .dot {
-    fill: steelblue;
-    stroke: #fff;
-  }
-
-  .dot:hover {
-    fill: rgb(46, 228, 168);
+    transition: opacity 0.2s ease-in-out;
   }
 
   .charts {
-    width: 900px;
-    height: 500px;
+    width: 800px;
+    height: 400px;
     margin: 30px auto;
   }
 
   .tooltips {
-    position: absolute;
+    position:relative;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 5px;
     pointer-events: none;
     opacity: 0;
+    margin-top: 50px;
+
   }
 
-  .chart-title {
-    font-size: 18px;
-    font-weight: bold;
-    text-anchor:start;
-  }
-
-  .axis-label {
-    font-size: 14px;
-    font-weight:bold ;
-    margin-bottom: 100px;
-  }
-
-  .bar {
-    fill: steelblue;
-  }
-
-  .bar:hover {
-    fill:rgb(46, 228, 168);
-  }
-
-
-  /* Custom styles for spacing */
-  body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.chart-section {
-    margin-bottom: 40px;
-}
-
-.chart-description {
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-
-    .chart {
-    max-width: 100%;
-}
-}
-
-/* Blink animation */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.blink {
-    animation: blink 1s infinite;
-}
- 
-  
-  
