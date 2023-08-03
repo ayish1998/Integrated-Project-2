@@ -444,17 +444,6 @@ width: 50%;
   justify-content: center;
 }
 
-.news {
-  color: #198754;
-}
-
-.news a {
-  color: black
-}
-
-.news a:hover {
-  color: #198754;
-}
 
 svg {
   background-color: grey;
