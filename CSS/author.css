@@ -183,6 +183,7 @@ h6 {
         }
         .read-more:hover {
             background-color: #ffffff;
+            color: rgb(150, 152, 155);;
         }
 
         .pro-links a i.fa-facebook {
