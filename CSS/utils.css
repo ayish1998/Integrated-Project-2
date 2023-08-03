@@ -6,11 +6,12 @@ nav a {
   
   .navbar-brand {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 2rem !important;
     font-weight: 700;
   }
   
   .navbar-brand span {
+    font-size: 2rem !important;
     color: grey;
   }
   

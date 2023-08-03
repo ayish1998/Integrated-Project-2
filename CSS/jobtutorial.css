@@ -26,29 +26,20 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
-/* NAVBAR STYLING STARTS HERE */
-nav a {
-  text-decoration: none;
-  color: white;
-}
-.navbar-brand {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
-}
 
-.navbar-brand span {
-  color: grey;
-}
-
-.navbar-nav {
+#home-jobtutorial {
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url(../IMAGES/chart2.jpg);
   width: 100%;
-  justify-content: space-evenly;
-}
-
-footer a {
-  text-decoration: none;
-  color: white;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 0px;
+  
 }
 
 /* home card starts here */
