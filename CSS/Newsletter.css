@@ -144,8 +144,16 @@ h4 {
 
 /* news section ends here */
 
-.darkmode .content {
+body.darkmode {
   background-color: #1A1B1F;
+  color: #8a8a8a;
+}
+
+.darkmode .container {
+  color: #8a8a8a;
+}
+
+.darkmode #newsletter h2 {
   color: #8a8a8a;
 }
 
@@ -226,6 +234,7 @@ input:checked+.slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
 
 
 /* Add responsive styles for tablet and mobile devices */

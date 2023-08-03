@@ -1,27 +1,3 @@
-//**********************************************************************************************************
-  // DARK MODE SWITCH
-  //**********************************************************************************************************
-
-  // Dark mode switch event listener
-document.getElementById('dark-mode-switch').addEventListener('change', () => {
-  document.querySelector('body').classList.toggle('darkmode');
-  localStorage.setItem('darkmode', JSON.stringify(!darkmode));
-});
-
-// Retrieve stored data
-let darkmode = JSON.parse(localStorage.getItem('darkmode'));
-
-if (darkmode === null) {
-  darkmode = window.matchMedia('(prefers-color-scheme: dark)').matches; // Match OS theme
-}
-
-// Apply dark mode class if darkmode is true
-if (darkmode) {
-  document.querySelector('body').classList.add('darkmode');
-  document.getElementById('dark-mode-switch').checked = 'checked';
-}
-
-
 
 const url = "https://climate-news-feed.p.rapidapi.com/page/1?limit=10";
 const options = {

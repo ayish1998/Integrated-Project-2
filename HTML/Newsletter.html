@@ -159,11 +159,11 @@
   <!--navbar ends here-->
     <!--Main Layout Section starts here-->
     <!-- background section starts here-->
-    <div class="content darkmode">
+    <div class="container">
     <section id="newsletter">
       <h2>Breaking News: Stay Updated with the Latest Developments from Around the World</h2>
     </section>
-    <div class="container darkmode">
+    <div class="container">
       <h3 class="mt-3 pb-3 mb-4 border-bottom">News Arena</h3>
       <!-- Section for the buttons -->
       <button type="button" class="btn btn-outline-success" onclick="showNews('general')">General</button>
@@ -172,12 +172,12 @@
     </div>
     
     <!-- Container to display the news -->
-    <div id="news-container" class="darkmode"></div>
+    <div id="news-container">
     
       <!-- News content will be displayed here -->
     </div>
     
-    <div class="container darkmode">
+    <div class="container">
       <!--section 1:news of the day start-->
       <section class="border-bottom pb-4 mb-5 m-5 p-5">
         <div class="row gx-5">
@@ -194,20 +194,21 @@
             <h5>
               <strong>Stay Informed with Latest Weather Updates</strong>
             </h5>
-            <p class="text-muted"> Stay updated with the latest weather news from around the world. Get accurate and timely weather forecasts, storm alerts, and more.</p>
+            <p> Stay updated with the latest weather news from around the world. Get accurate and timely weather forecasts, storm alerts, and more.</p>
             <!-- <button type="button" class="btn btn-primary">Read More</button> -->
           </div>
         </div>
       </section>
     </div>
     <!--section: news of the day ends-->
-    <section id="news" class="container darkmode">
+    <section id="news" class="container">
       <div class=" row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 " id="news_container">
         <!-- Generated news through the api will be displayed here -->
       </div>
     </section>
     <!--section: news of the day ends-->
-  </div>
+
+    <div id="spacer" style="height: 100px;"></div>
 
     <!--Dark mode-->
     <div class="dark-mode-switch">
@@ -284,10 +285,28 @@
     </div>
   </footer>
 
+  <!--Darkmode-->
+  <script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      // Get body element
+      const body = document.querySelector('body');
+  
+      // Toggle the 'darkmode' class on the body element
+      body.classList.toggle('darkmode');
+    }
+  
+    // event listener for the dark mode switch
+    const darkModeSwitch = document.getElementById('dark-mode-switch');
+    darkModeSwitch.addEventListener('change', toggleDarkMode);
+  </script>
+
     <!--Bootstrap JS links-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <!--Custom JS links-->
     <script src="../JS/newsletter.js"></script>
     <script src="../JS/newsletter1.js"></script>
+
   </body>
 </html>
