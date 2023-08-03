@@ -2,9 +2,9 @@
 //*******************************************************************************************************
 //RENDER HEATMAP FUNCTION
 //*******************************************************************************************************
-const titleDiv = document.getElementById('title');
 
 export const renderHeatmap = (heatmapData) => {
+  const titleDiv = document.getElementById('title');
   console.log(heatmapData);
   const variables = ['temp', 'uv', 'precip', 'rh', 'wind_spd'];
   const variableLabels = {
