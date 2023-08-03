@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
 	// Helper function to convert a string to title case
 	function toTitleCase(str) {
-		return str.replace(/\w\S*/g, function (txt) {
+		return str.replace(/\w\S*/g, function(txt) {
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 		});
 	}
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 					label: 'Estimated Salary (USD)',
 					data: estimatedSalaries,
 					backgroundColor: 'steelblue', // Set the color for the bars
-				},],
+				}, ],
 			},
 			options: {
 				responsive: true,
