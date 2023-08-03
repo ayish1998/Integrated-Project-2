@@ -388,17 +388,14 @@ export function loadAirQualityData(airQualityData) {
 export function getNews(newsData) {
   const weatherNewsDiv = document.createElement('div');
   weatherNewsDiv.className = 'weather-news row';
-  const weatherNewsLabel = createDiv('heading', 'Weather News');
+  const weatherNewsLabel = createDiv('heading', 'News Headlines');
   aside.appendChild(weatherNewsLabel);
 
   newsData.forEach(item => {
     const listItem = document.createElement('li');
     listItem.className = 'news';
-    const link = document.createElement('a');
-    link.href = `https://weather338.p.rapidapi.com/news/list${item.url}`;
-    link.textContent = item.title;
+    listItem.textContent = item.title;
 
-    listItem.appendChild(link);
     weatherNewsDiv.appendChild(listItem);
     aside.appendChild(weatherNewsDiv);
   });

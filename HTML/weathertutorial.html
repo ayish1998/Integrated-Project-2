@@ -96,7 +96,7 @@
           </li>
           <!--About dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
+            <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -204,7 +204,8 @@
           Responibility Principle (SRP) by containing functions related to a specific aspect of the page. The
           <span class="format font-weight-bold font-italic">weatherUtils.js</span> contains utilities and helper
           functions that are exported and used by other files.The
-          <span class="format font-weight-bold font-italic">weatherviz.js contains</span> functions to visualise the weather data with heatmap and colour-coded weather map. The
+          <span class="format font-weight-bold font-italic">weatherviz.js contains</span> functions to visualise the
+          weather data with heatmap and colour-coded weather map. The
           code uses imports and exports to establish clear dependencies between modules, making it easier to identify
           where each
           function is defined and used. This promotes code reusability and maintainability.
@@ -238,19 +239,23 @@
             <td>Weather visualisation data</td>
           </tr>
           <tr>
-            <td><a href="https://rapidapi.com/weatherbit/api/weather/" style="text-decoration: none;">Weatherbit API</a></td>
+            <td><a href="https://rapidapi.com/weatherbit/api/weather/" style="text-decoration: none;">Weatherbit API</a>
+            </td>
             <td>Weekly weather data</td>
           </tr>
           <tr>
-            <td><a href="https://rapidapi.com/apininjas/api/air-quality-by-api-ninjas" style="text-decoration: none;">API Ninja API</a></td>
+            <td><a href="https://rapidapi.com/apininjas/api/air-quality-by-api-ninjas"
+                style="text-decoration: none;">API Ninja API</a></td>
             <td>Air quality data</td>
           </tr>
           <tr>
-            <td><a href="https://rapidapi.com/weatherapi/api/weatherapi-com/" style="text-decoration: none;">Weather API</a></td>
+            <td><a href="https://rapidapi.com/weatherapi/api/weatherapi-com/" style="text-decoration: none;">Weather
+                API</a></td>
             <td>Daily weather data and search autocomplete and suggestions</td>
           </tr>
           <tr>
-            <td><a href="https://rapidapi.com/apidojo/api/weather338/" style="text-decoration: none;">API Dojo API</a></td>
+            <td><a href="https://rapidapi.com/apidojo/api/weather338/" style="text-decoration: none;">API Dojo API</a>
+            </td>
             <td>News data</td>
           </tr>
           <tr>
@@ -258,11 +263,14 @@
             <td>List of all countries for weather data visualization</td>
           </tr>
           <tr>
-            <td><a href="https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson" style="text-decoration: none;">Natural Earth GeoJSON API</a></td>
+            <td><a
+                href="https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+                style="text-decoration: none;">Natural Earth GeoJSON API</a></td>
             <td>GeoJSON to create polygons for all countries</td>
           </tr>
           <tr>
-            <td><a href="https://developers.google.com/maps/documentation/javascript" style="text-decoration: none;">Google Maps API</a></td>
+            <td><a href="https://developers.google.com/maps/documentation/javascript"
+                style="text-decoration: none;">Google Maps API</a></td>
             <td>World map</td>
           </tr>
         </table>
@@ -417,9 +425,11 @@
                     API call is an object of objects with arrays and it contains a lot of data that we cannot process it
                     as it is. So, we need to extract only the data that we need. The code block below defines a
                     <span class="format font-weight-bold font-italic">loadWeatherData() function</span>
-                    in the <span class="format font-weight-bold font-italic">weatherdata.js</span> module that takes the returned weather data as a parameter and extracts the
+                    in the <span class="format font-weight-bold font-italic">weatherdata.js</span> module that takes the
+                    returned weather data as a parameter and extracts the
                     weather
-                    data that we need. The <span class="format font-weight-bold font-italic">weatherdata.js</span> module contains and exports all the functions that handles the
+                    data that we need. The <span class="format font-weight-bold font-italic">weatherdata.js</span>
+                    module contains and exports all the functions that handles the
                     processing and displaying of the weather data. The <span
                       class="format font-weight-bold font-italic">loadWeatherData()</span> function extract the current
                     minute, today's forecast, tomorrow's forecast, today's hourly (24hrs) and tomorrow's hourly weather
@@ -462,9 +472,9 @@
             </div>
             <!--Images-->
             <div class="weather-image container">
-              <img src="../IMAGES/weather-object.png" alt="weather-data" class="img-fluid"/>
+              <img src="../IMAGES/weather-object.png" alt="weather-data" class="img-fluid" />
               <p class="text-center mb-5" style="font-size: small;">Fig 1: Returned weather data</p>
-              <img src="../IMAGES/current-weather.png" alt="current-weather" class="img-fluid"/>
+              <img src="../IMAGES/current-weather.png" alt="current-weather" class="img-fluid" />
               <p class="text-center mb-5" style="font-size: small;">Fig 2: Extracted current weather data</p>
             </div>
             <p> Let's take a look at the JavaScript code snippet that extracts only the data that we need from the
@@ -647,7 +657,8 @@
          </code>
 																																</pre>
             </div>
-            <p> In the code above, we firstly import the helper functions from <span class="format font-weight-bold font-italic">weatherUtils.js</span>, then we select the DOM
+            <p> In the code above, we firstly import the helper functions from <span
+                class="format font-weight-bold font-italic">weatherUtils.js</span>, then we select the DOM
               elements (tabcontent1 and tabcontent2). We proceed to create the three sections for each tabs (Today and
               Tomorrow) and append them to their respective container. We also create other DOM elements such as table
               as
@@ -940,7 +951,8 @@
               promote readability, reusability and maintainability. We are done with the <span
                 class="format font-weight-bold font-italic">loadWeatherData()</span> function but
               we
-              are yet to initiate it. We will initiate it in the <span class="format font-weight-bold font-italic">weather.js</span> which is the main script.</p>
+              are yet to initiate it. We will initiate it in the <span
+                class="format font-weight-bold font-italic">weather.js</span> which is the main script.</p>
             <p>Before that let us work on the data visualization too.</p>
 
           </div>
@@ -991,7 +1003,10 @@
                 <div class="col-md-6">
                   <div class="tutorial-section">
                     <h2>Step 2: Creating a Weather Heatmap with D3.js</h2>
-                    <p>The Weather heatmap has <span class="format font-weight-bold font-italic">x-axis</span> and <span class="format font-weight-bold font-italic">y-axis</span>. The <span class="format font-weight-bold font-italic">x-axis</span> represents dates, the <span class="format font-weight-bold font-italic">y-axis</span> represents
+                    <p>The Weather heatmap has <span class="format font-weight-bold font-italic">x-axis</span> and <span
+                        class="format font-weight-bold font-italic">y-axis</span>. The <span
+                        class="format font-weight-bold font-italic">x-axis</span> represents dates, the <span
+                        class="format font-weight-bold font-italic">y-axis</span> represents
                       weather variables, and
                       each cell of the heatmap represents the value of a specific weather variable on a specific date.
                       The
@@ -1216,8 +1231,10 @@
 																																				</code>
 																																			</pre>
               </div>
-              <p>The function is created in the <span class="format font-weight-bold font-italic">weatherviz.js</span> module which contains the functions to visualize the
-                weather data and export them to be initiated in the <span class="format font-weight-bold font-italic">weather.js</span> file.</p>
+              <p>The function is created in the <span class="format font-weight-bold font-italic">weatherviz.js</span>
+                module which contains the functions to visualize the
+                weather data and export them to be initiated in the <span
+                  class="format font-weight-bold font-italic">weather.js</span> file.</p>
             </div>
           </div>
         </section>
@@ -1564,14 +1581,16 @@
           <div class="container">
             <div class="tutorial-section">
               <h2>Step 1: Link the main script file to the HTML</h2>
-              <p> To execute all the code we have written, we need to link the main JavaScript, <span class="format font-weight-bold font-italic">weather.js</span>, to the HTML
+              <p> To execute all the code we have written, we need to link the main JavaScript, <span
+                  class="format font-weight-bold font-italic">weather.js</span>, to the HTML
                 file and specify its type as module. Add the
                 following script tag before the closing body tag in the HTML file: </p>
               <pre>
 																																<code>
         &lt;script type="module" src="../JS/weather.js">&lt;/script></code>
 																															</pre>
-              <p> This script tag will load the <span class="format font-weight-bold font-italic">weather.js</span> file which also serves as the entry point to other modules.
+              <p> This script tag will load the <span class="format font-weight-bold font-italic">weather.js</span> file
+                which also serves as the entry point to other modules.
               </p>
               <p> Now, let's move on to initialising the functions.</p>
             </div>
@@ -1648,10 +1667,10 @@
               </p>
               <p> Below is the code snippet that creates the functions that execute the code.</p>
               <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
-              <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock7"
-                aria-expanded="false" aria-controls="codeBlock7" style="margin-bottom: 20px;"> JavaScript code that
+              <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock8"
+                aria-expanded="false" aria-controls="codeBlock8" style="margin-bottom: 20px;"> JavaScript code that
                 executes the code.</button>
-              <div class="collapse mt-3" id="codeBlock7">
+              <div class="collapse mt-3" id="codeBlock8">
                 <pre>
 																																						<code>
 
@@ -1713,7 +1732,8 @@
                 imported and called in <span class="format font-weight-bold font-italic">weather.js</span> to reduce the
                 lines of code in the <span class="format font-weight-bold font-italic">weather.js file.</span></p>
               <p>This is the end of the tutorial. You can also take a look at this project's source code in our <a
-                  href="https://github.com/ayish1998/Integrated-Project-2" style="text-decoration: none;">Github repository</a>. Thank you!</p>
+                  href="https://github.com/ayish1998/Integrated-Project-2" style="text-decoration: none;">Github
+                  repository</a>. Thank you!</p>
             </div>
           </div>
         </section>
@@ -1725,89 +1745,68 @@
 
   <!--Main Layout Section ends-->
   <!-- Footer section starts here-->
+  <!--Footer-->
   <footer>
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
         <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
           <a class="navbar-brand" href="index.html">
             <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
-            Job <span>Insights</span>
-          </a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
-            iusto
-            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
-            fugit?
-          </p>
+            Job<span>Insights</span></a>
+          <p> One-stop destination for global job, weather, and financial data and visualizations.
+            Explore the world of opportunities, stay updated with the latest weather forecasts, and keep track of
+            financial trends—all in one place.</p>
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
           <h5 class="fw-bold">USEFUL LINKS</h5>
           <ul style="list-style-type: square;">
-            <li>
-              <a href="../index.html">Home</a>
-            </li>
-            <li>
-              <a href="job.html">Job Data</a>
-            </li>
-            <li>
-              <a href="weather.html">Weather Data</a>
-            </li>
-            <li>
-              <a href="financial.html">Financial Data</a>
-            </li>
-            <li>
-              <a href="Newsletter.html">Newsletter</a>
-            </li>
-            <li>
-              <a href="website.html">About Website</a>
-            </li>
-            <li>
-              <a href="author.html">About Developers</a>
-            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="job.html">Job Data</a></li>
+            <li><a href="weather.html">Weather Data</a></li>
+            <li><a href="financial.html">Financial Data</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="website.html">About Website</a></li>
+            <li><a href="developers.html">About Developers</a></li>
           </ul>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
           <h5 class="fw-bold">CONTACT</h5>
-          <p>
-            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses, Mauritius
-          </p>
-          <p>
-            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-          </p>
-          <p>
-            <i class="fa-solid fa-phone"></i> +23056789042
-          </p>
+          <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+            Mauritius</p>
+          <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+          <p><i class="fa-solid fa-phone"></i> +23056789042</p>
         </div>
       </div>
       <div class="row mx-auto d-flex justify-content-center pt-3">
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
+          <p>We are here to make your career decision easier!
+            <br>Sign up for our Newsletter.
+          </p>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-          <form class="d-block" role="email">
-            <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-            <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+          <form class="d-block" action="../PHP/subscribe.php" method="post">
+            <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
+              aria-label="Email">
+            <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
           </form>
         </div>
       </div>
       <hr>
       <!--Social media links-->
       <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-google" style="color: #dd4b39;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-        </a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#">
-          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
+            style="color: #3b5998;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
+            style="color: #dd4b39;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
+            style="color: #ac2bac;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
+            style="color: #0082ca;"></i></a>
       </div>
     </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-        href="../index.html">Job Insights</a>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;">
+      © 2023 Copyright:
+      <a class="fw-bold" href="index.html">Job Insights</a>
     </div>
   </footer>
   <!--Footer ends here-->
