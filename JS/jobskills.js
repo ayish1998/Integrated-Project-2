@@ -5,6 +5,61 @@ document.addEventListener('DOMContentLoaded', async () => {
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 		});
 	}
+	
+	// Function to retrieve country list from the Rest Countries API
+	async function getCountryList() {
+		const url = 'https://restcountries.com/v3.1/all';
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+			return data.map((country) => country.name.common);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+	// Function to retrieve job data from the API
+	async function getJobData(selectedCountry) {
+		const countryList = await getCountryList();
+		const country = countryList.find(
+			(country) => country === toTitleCase(selectedCountry)
+		);
+
+		if (!country) {
+			console.error('Country not found.');
+			return null;
+		}
+
+		const formattedCountry = encodeURIComponent(country); // Format the country name for the API request
+		const jobTitle = 'NodeJS Developer'; // Set the desired job title here
+
+		const jobUrl = `https://jsearch.p.rapidapi.com/search?query=${formattedCountry}&page=1&num_pages=1`;
+		const salaryUrl = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${encodeURIComponent(
+			jobTitle
+		)}&location=${formattedCountry}&radius=100`;
+		const jobOptions = {
+			method: 'GET',
+			headers: {
+				'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+				'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+			},
+		};
+
+		const [jobResponse, salaryResponse] = await Promise.all([
+			fetch(jobUrl, jobOptions),
+			fetch(salaryUrl, jobOptions),
+		]);
+
+		const jobData = await jobResponse.json();
+		const salaryData = await salaryResponse.json();
+
+		// Combine job data and salary data using job IDs
+		const combinedData = jobData.data.map((job) => ({
+			...job,
+			estimated_salary: findEstimatedSalary(job.job_title, salaryData.data),
+		}));
+
+		return combinedData;
+	}
 	// Helper function to find the estimated salary for a job ID from salary data
 	function findEstimatedSalary(jobId, salaryData) {
 		const jobSalary = salaryData.find((salary) => salary.job_id === jobId);
