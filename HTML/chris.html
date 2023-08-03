@@ -9,8 +9,10 @@
     <!--Main Css -->
     <link rel="stylesheet" href="../CSS/author.css">
     <link rel="stylesheet" href="../CSS/job.css">
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="../CSS/utils.css">
+    <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -27,106 +29,84 @@
 
 <body>
     <!--navbar starts here-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
-        <div class="container-fluid">
-            <!--Logo and name-->
-            <a class="navbar-brand" href="/index.html">
-                <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
-                    class="d-inline-block align-text-center" /> Job
-                <span>Insights</span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <!--Data dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Data
             </a>
-            <!--Toggler-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!--Nav items-->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Home</a>
-                    </li>
-                    <!--Data dropdown-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Data </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="../HTML/job.html">Job</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="../HTML/weather.html">Weather</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="../HTML/financial.html">Financial</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--Tutorials dropdown-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Tutorials </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="./weathertutorial.html">Weather Tutorial</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--Tutotrials dropdown ends here-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
-                    </li>
-                    <!--About dropdown-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            About </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="../HTML/website.html">Website</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="developers.html">Developers</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--About dropdown ends here-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
-                    </li>
-                </ul>
-                <!--Search bar and button-->
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-secondary btn-outline-light" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!--navbar ends here-->
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+            </ul>
+          </li>
+          <!--Tutorials dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+            </ul>
+          </li>
+          <!--Tutotrials dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+          </li>
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="author.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--navbar ends here-->
 
 
     <!--  author content  section starts here-->
@@ -158,19 +138,18 @@
             </div>
             <div class="post" id="data-visualization">
                 <img src="../IMAGES/jobapi.jpg" alt="">
-                <h3>2. 2nd page of data visualization using Financial API
+                <h3>2. Financial page
                 </h3>
                 <p>Christiana and Mary formed the dynamic development and dynamic UI/UX team, bringing their coding
-                    expertise to the project. They took charge of developing the second page of
-                    data visualization, ensuring seamless functionality and smooth user interactions.
+                    expertise to the project. They took charge of developing the Financial page, ensuring seamless functionality and smooth user interactions.
                 </p>
 
             </div>
             <div class="post" id="tutorial-page">
                 <img src="../IMAGES/jobapi.jpg" alt="">
-                <h3>3. Tutorial page of 2nd data visualization </h3>
+                <h3>3. Financial Tutorial page </h3>
                 <p> Collaboratively, they created a tutorial page to guide users through the intricacies
-                    of the 2nd data visualization, simplifying complex concepts and providing step-by-step
+                    of the financial data visualization, simplifying complex concepts and providing step-by-step
                     instructions.</p>
 
             </div>
@@ -189,9 +168,9 @@
             <hr>
             1. <a href="#Coordinator">Role: Coordinator </a>
             <hr>
-            2. <a href="#data-visualization">2nd page of data visualization using Financial API </a>
+            2. <a href="#data-visualization">Financial page</a>
             <hr>
-            3. <a href="#tutorial-page">Tutorial page of 2nd data visualization </a>
+            3. <a href="#tutorial-page">Financial Tutorial page</a>
             <hr>
             4. <a href="#About">About the website page </a>
             <hr>
@@ -201,98 +180,71 @@
 
 
 
-    <!-- Footer section starts here-->
-    <footer>
-        <div class="container-fluid bg-success text-white p-4">
-            <div class="row">
-                <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
-                            class="d-inline-block align-text-center" />
-                        Job <span>Insights</span>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium
-                        quis
-                        iusto
-                        quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum
-                        pariatur
-                        fugit?
-                    </p>
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
-                    <h5 class="fw-bold">USEFUL LINKS</h5>
-                    <ul style="list-style-type: square;">
-                        <li>
-                            <a href="/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="../HTML/job.html">Job Data</a>
-                        </li>
-                        <li>
-                            <a href="../HTML/weather.html">Weather Data</a>
-                        </li>
-                        <li>
-                            <a href="../HTML/financial.html">Financial Data</a>
-                        </li>
-                        <li>
-                            <a href="../HTML/Newsletter.html">Newsletter</a>
-                        </li>
-                        <li>
-                            <a href="../HTML/website.html">About Website</a>
-                        </li>
-                        <li>
-                            <a href="developers.html">About Developers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
-                    <h5 class="fw-bold">CONTACT</h5>
-                    <p>
-                        <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
-                        Mauritius
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-phone"></i> +23056789042
-                    </p>
-                </div>
-            </div>
-            <div class="row mx-auto d-flex justify-content-center pt-3">
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                    <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-                    <form class="d-block" role="email">
-                        <input class="form-control me-2 mb-2" type="email" placeholder="Email Address"
-                            aria-label="Email">
-                        <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <hr>
-            <!--Social media links-->
-            <div class="socials text-center">
-                <a class="btn btn-secondary btn-outline-light m-1" href="#">
-                    <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
-                </a>
-                <a class="btn btn-secondary btn-outline-light m-1" href="#">
-                    <i class="fab fa-google" style="color: #dd4b39;"></i>
-                </a>
-                <a class="btn btn-secondary btn-outline-light m-1" href="#">
-                    <i class="fab fa-instagram" style="color: #ac2bac;"></i>
-                </a>
-                <a class="btn btn-secondary btn-outline-light m-1" href="#">
-                    <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
-                </a>
-            </div>
+    <!--Footer-->
+  <footer>
+    <div class="container-fluid bg-success text-white p-4">
+      <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+            Job<span>Insights</span></a>
+          <p>One-stop destination for global job, weather, and financial data and visualizations.
+            Explore the world of opportunities, stay updated with the latest weather forecasts, and keep track of
+            financial trends—all in one place.</p>
         </div>
-        <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
-                href="/index.html">Job Insights</a>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
+          <h5 class="fw-bold">USEFUL LINKS</h5>
+          <ul style="list-style-type: square;">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="job.html">Job Data</a></li>
+            <li><a href="weather.html">Weather Data</a></li>
+            <li><a href="financial.html">Financial Data</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="website.html">About Website</a></li>
+            <li><a href="author.html">About Developers</a></li>
+          </ul>
         </div>
-    </footer>
-    <!--Footer ends here-->
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
+          <h5 class="fw-bold">CONTACT</h5>
+          <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+            Mauritius</p>
+          <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
+          <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+        </div>
+      </div>
+      <div class="row mx-auto d-flex justify-content-center pt-3">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <p>We are here to make your career decision easier!
+            <br>Sign up for our Newsletter.
+          </p>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
+          <form class="d-block" action="../PHP/subscribe.php" method="post">
+            <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
+              aria-label="Email">
+            <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <!--Social media links-->
+      <div class="socials text-center">
+        <a class="btn btn-secondary btn-outline-light m-1" href="https://www.facebook.com/102034579294518/posts/102035352627774/?d=n&substory_index=0"><i class="fab fa-facebook-f"
+            style="color: #3b5998;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="admin@jobinsights.com"><i class="fab fa-google"
+            style="color: #dd4b39;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="https://twitter.com/ThePhenomenalW8"><i class="fab fa-twitter"
+            style="color: #0082ca;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="https://www.linkedin.com/in/the-phenomenal-women-undefined-2b8640248"><i class="fab fa-linkedin-in"
+            style="color: #0082ca;"></i></a>
+      </div>
+    </div>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;">
+      © 2023 Copyright:
+      <a class="fw-bold" href="../index.html">Job Insights</a>
+    </div>
+  </footer>
+
  <!--Bootstrap JS links-->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
