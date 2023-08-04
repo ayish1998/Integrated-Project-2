@@ -279,6 +279,10 @@
     </div>
   </footer>
 
+   <!--Back to top button-->
+<div id="topbtn" class="back-to-top">
+  <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+</div>
 
   <!--scripts-->
   <!--Jquery-->
@@ -293,10 +297,25 @@
     async defer></script>
 
   <!--External Javascript file-->
+  <!--Modules-->
   <!-- <script type="module" src="../JS/weatherviz.js"></script> -->
   <!-- <script type="module" src="../JS/weatherdata.js"></script> -->
   <!-- <script type="module" src="../JS/weatherUtils.js"></script> -->
   <script type="module" src="../JS/weather.js"></script>
+
+  <!--Script for Back-to-top button-->
+<script>
+  topBtn = document.getElementById("topbtn");
+  var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 500) {
+      topBtn.className = " back-to-top open"
+    } else {
+      topBtn.className = " back-to-top keep"
+    }
+  };
+  window.addEventListener("scroll", myScrollFunc);
+</script>
 
 </body>
 
