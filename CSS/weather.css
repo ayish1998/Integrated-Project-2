@@ -531,6 +531,46 @@ g{
 #spacer {
   height: 100px;
 }
+
+/* added styles to the back-to-top button */
+.back-to-top {
+  background-color: rgba(87, 85, 85, 0.7);
+  position: fixed;
+  display: none;
+  right: 0px;
+  bottom: 15px;
+  z-index: 100;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.back-to-top:hover {
+  background-color: #fff;
+  box-shadow: 5px 10px 25px #555;
+}
+
+.back-to-top i {
+  color: #198754;
+  font-size: 50px;
+  padding: 5px;
+}
+
+.back-to-top i:hover {
+  font-size: 50px;
+  padding: 5px;
+}
+
+.keep {
+  opacity: 0;
+}
+
+.open {
+  opacity: 1;
+  display: block;
+}
+
+
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   .content {
