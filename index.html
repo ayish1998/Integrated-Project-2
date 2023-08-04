@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/utils.css">
+
     <!--Font Awesome-->
 
     <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
@@ -111,7 +113,7 @@
                     </li>
                     <!--About dropdown ends here-->
                     <li class="nav-item">
-                        <a class="nav-link" href="./HTML/contact.html">Contact Us</a>
+                        <a class="nav-link" href="./PHP/contact.php">Contact Us</a>
                     </li>
                 </ul>
 
@@ -333,11 +335,11 @@
                     </p>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-                    <form class="d-block" role="email">
-                        <input class="form-control me-2 mb-2" type="email" placeholder="Email Address"
-                            aria-label="Email">
-                        <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
-                    </form>
+                    <form class="d-block" action="./PHP/subscribe.php" method="post">
+                        <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
+                          aria-label="Email">
+                        <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
+                      </form>
                 </div>
             </div>
             <hr>
