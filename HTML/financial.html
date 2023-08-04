@@ -15,10 +15,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
   <!-- Stylesheet -->
 
 
@@ -104,7 +102,7 @@
           </li>
           <!--About dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
+            <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
           </li>
         </ul>
 
@@ -283,7 +281,7 @@
     <!--Main layout end-->
 
 
-
+    <div id="spacer" style="height: 100px;"></div>
 
 
 
@@ -299,9 +297,9 @@
               <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
                 class="d-inline-block align-text-center" />
               Job<span>Insights</span></a>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
-              quam, ad facere odio sunt mollitia asperiores
-              eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+            <p>One-stop destination for global job, weather, and financial data and visualizations.
+              Explore the world of opportunities, stay updated with the latest weather forecasts, and keep track of
+              financial trends—all in one place.</p>
           </div>
           <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
             <h5 class="fw-bold">USEFUL LINKS</h5>
@@ -330,9 +328,10 @@
             </p>
           </div>
           <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
-            <form class="d-block" role="email">
-              <input class="form-control me-2 mb-2" type="email" placeholder="Email Address" aria-label="Email">
-              <button class="btn btn-secondary btn-outline-light" type="submit">Subscribe</button>
+            <form class="d-block" action="../PHP/subscribe.php" method="post">
+              <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
+                aria-label="Email">
+              <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
             </form>
           </div>
         </div>
