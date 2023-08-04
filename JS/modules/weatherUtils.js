@@ -17,7 +17,7 @@ const dailyHeaders = {
 //Weekly weather data api
 const apiUrl = 'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily';
 const headers = {
-  'X-RapidAPI-Key': '9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795', //'6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892', //'1ca8a0fb66msh23fd26fd3e1d4f5p19d955jsndb437160b2d1', 
+  'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795', //'9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795', //'6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892', //'1ca8a0fb66msh23fd26fd3e1d4f5p19d955jsndb437160b2d1', 
   'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
 };
 
