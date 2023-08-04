@@ -9,22 +9,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Nav */
 nav a {
     text-decoration: none;
     color: white;
-}
-
-.navbar-brand {
+  }
+  
+  .navbar-brand {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 2rem !important;
     font-weight: 700;
-}
-
-.navbar-brand span {
+  }
+  
+  .navbar-brand span {
+    font-size: 2rem !important;
     color: grey;
-}
-
-.navbar-nav {
+  }
+  
+  .navbar-nav {
     width: 100%;
     justify-content: space-evenly;
 }
