@@ -15,6 +15,8 @@
   <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../CSS/financial.css">
+  <link rel="stylesheet" href="../CSS/utils.css">
+
 
   <!--Add chart.js cdn-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
@@ -74,7 +76,7 @@
             </li>
             <!--Tutorials dropdown-->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              <a class="nav-link dropdown-toggle" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Tutorials
               </a>
@@ -151,7 +153,8 @@
 
       <div id="form-container"></div>
 
-      <div id="chart" style="height: 600;"></div>
+
+      <div id="chart" style="height: 600; margin-top: 120px;"></div>
 
       <h5 style="margin-bottom: 20px;"><u>Relationship between the market capitalization (market cap) and the forward
           price-to-earnings ratio (forward
@@ -163,7 +166,6 @@
         y-axis corresponds to its market cap, and its size (radius) represents the forward P/E ratio. The chart allows
         users to compare and analyze the market cap and valuation metrics of multiple companies simultaneously, making
         it easier to identify patterns and trends in their financial performance.
-      <p>Name Change Date is: <span id="currentDate"></span></p>
       </p>
 
 
@@ -179,9 +181,10 @@
       </div>
 
       <style>
-        #form-container label{
-           margin: 2rem;
+        #form-container label {
+          margin: 2rem;
         }
+
         #related li a {
           font-size: 14px;
           color: green;

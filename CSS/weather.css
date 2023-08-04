@@ -531,6 +531,8 @@ g{
 #spacer {
   height: 100px;
 }
+
+
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   .content {

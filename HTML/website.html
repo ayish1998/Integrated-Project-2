@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../CSS/website.css">
+    <link rel="stylesheet" href="../CSS/utils.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -121,16 +122,16 @@
                 </div>
 
                 <div class="col-md-6" id="col2">
-                    <img src="../IMAGES/clay-banks-no2blvVYoJw-unsplash.jpg">
+                    <img src="../IMAGES/luke-chesser-JKUTrJ4vK00-unsplash.jpg">
                 </div>
             </div>
 
             <div class="row" id="row2">
-                <div class="col-md-3 slide-in-right" id="col1">
+                <div class="col-md-3 slide-in" id="col1">
                     <h3 class="vertical-text">About</h3>
                 </div>
 
-                <div class="col-md-6 fade-slide-in" id="col2">
+                <div class="col-md-6" id="col2">
                     <div class="container">
                         <p class="centered-text-1 fade-slide-in">At JobInsights, we are committed to empowering
                             individuals with the tools they need to make informed decisions about their careers,
@@ -151,14 +152,43 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 slide-in-left" id="col3"></div>
+                <div class="col-md-3 d-flex" style="justify-content: center; align-items: center;" id="col3">
+                    <div class="container d-flex" style="justify-content: center; align-items: center; gap: 20px;">
+                        <div class="icons">
+                            <ul class="list-unstyled list-inline sticky">
+                                <li>
+                                    <a href="https://www.facebook.com/102034579294518/posts/102035352627774/?d=n&substory_index=0"
+                                        target="_blank" class="btn-floating btn-sm text-white"
+                                        style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/ThePhenomenalW8" target="_blank"
+                                        class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                            class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="mailto: thephenomenalwomen3@gmail.com" target="_blank"
+                                        class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                            class="fab fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/the-phenomenal-women-undefined-2b8640248"
+                                        target="_blank" class="btn-floating btn-sm text-white"
+                                        style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2 style="text-align: center; font-size: 1.1rem; color: rgba(0, 0, 0, 0.701);" class="verti"> Follow us on social media</h2>
+
+                    </div>
+                </div>
 
             </div>
 
-
             <div class="row" id="row3">
                 <div class="col-md-6 fade-slide-in" id="col1">
-                    <img src="../IMAGES/luke-chesser-JKUTrJ4vK00-unsplash.jpg" title="Group Photo">
+                    <img src="../IMAGES/clay-banks-no2blvVYoJw-unsplash.jpg" title="Group Photo">
                 </div>
 
                 <div class="col-md-6 fade-slide-in" id="col2">
@@ -183,66 +213,41 @@
                 </div>
                 <div class="col-md-9 fade-slide-in" id="col2">
                     <div class="container">
-                        <p class="centered-text-1">We are five passionate students, united by our love for computing and
-                            a shared desire to make a positive impact. As students studying at the African Leadership
-                            College, we recognized the immense potential of harnessing technology to empower individuals
-                            in our community and beyond.
+                        <p class="centered-text-1"> <strong>Our Mission</strong> is to empower individuals with the
+                            knowledge, data, and visualizations they need to confidently navigate their careers,
+                            finances, and daily lives. We are committed to providing comprehensive and up-to-date job,
+                            financial, and weather information through intuitive visualizations, enabling our users to
+                            make informed decisions that positively impact their personal and professional well-being.
+                        </p>
+                        <br>
 
-                            Driven by this vision, we embarked on a journey to create a platform that would provide
+                        <p class="centered-text-1">
+                            <strong>Our Vision</strong> is to be the leading platform that bridges the gap between
+                            information and decision-making. We strive to create a world where individuals have easy
+                            access to reliable job market trends, financial insights, and weather forecasts. Through our
+                            dedication to technology, data analysis, and user experience, we aim to empower people from
+                            diverse backgrounds to thrive and prosper in an ever-changing world.
+                        </p>
+                        <br>
+
+                        <p class="centered-text-1">
+                            Driven by this vision, a team of five passionate students studying at the African Leadership
+                            College embarked on a journey to create a platform that would provide
                             valuable insights and data-driven solutions to help people make informed decisions in their
                             lives. With our combined skills in web development, data analysis, and user experience
-                            design, we set out to build JobInsights from the ground up.</p><br>
-
-                        <p class="centered-text-1">Through countless hours of collaboration, learning, and determination, we crafted a platform
-                            that encompasses job, financial, and weather data visualizations. Our mission was clear - to
-                            bridge the gap between information and decision-making, making complex data accessible to
-                            all.
+                            design, we set out to build JobInsights from the ground up.
                         </p>
 
                         <div class="container" style="display: flex; justify-content: center; margin-top: 30px;">
-                        <button id="viewStoriesBtn" class="btn btn-primary" type="button">View Individual Stories</button>
+                            <button id="viewStoriesBtn" class="btn btn-primary" type="button">View Individual
+                                Stories</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <style>
-            /* CSS for fade-in and slide-in animation */
-            .fade-slide-in {
-                opacity: 0;
-                transform: translateY(15px);
-                transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-            }
 
-            .fade-slide-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* CSS for slide-in animation */
-            .slide-in-left {
-                opacity: 0;
-                transform: translateX(-15px);
-                transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-            }
-
-            .slide-in-left.visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .slide-in-right {
-                opacity: 0;
-                transform: translateX(20px);
-                transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-            }
-
-            .slide-in-right.visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        </style>
 
         <script>
             $(document).ready(function () {
@@ -269,14 +274,14 @@
                 $(window).on('scroll', handleScroll);
             });
 
-        // Get a reference to the button element
-        const viewStoriesBtn = document.getElementById('viewStoriesBtn');
+            // Get a reference to the button element
+            const viewStoriesBtn = document.getElementById('viewStoriesBtn');
 
-        // Add an event listener to handle the button click
-        viewStoriesBtn.addEventListener('click', () => {
-            // Replace 'individual_stories.html' with the actual file name or URL of the page with individual stories
-            window.location.href = '../HTML/author.html';
-        });
+            // Add an event listener to handle the button click
+            viewStoriesBtn.addEventListener('click', () => {
+                // Replace 'individual_stories.html' with the actual file name or URL of the page with individual stories
+                window.location.href = '../HTML/author.html';
+            });
 
 
         </script>

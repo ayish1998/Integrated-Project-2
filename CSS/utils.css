@@ -1,27 +1,127 @@
 /* Nav */
 nav a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .navbar-brand {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 700;
-  }
-  
-  .navbar-brand span {
-    color: grey;
-  }
-  
-  .navbar-nav {
-    width: 100%;
-    justify-content: space-evenly;
-  }
+  text-decoration: none;
+  color: white;
+}
 
-  
-  footer a {
-    text-decoration: none;
-    color: white;
+.navbar-brand {
+  display: inline-block;
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  font-size: 2rem !important;
+  color: grey;
+}
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+/* added styles to the back-to-top button */
+.back-to-top {
+  background-color: rgba(87, 85, 85, 0.7);
+  position: fixed;
+  display: none;
+  right: 0px;
+  bottom: 15px;
+  z-index: 100;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.back-to-top:hover {
+  background-color: #fff;
+  box-shadow: 5px 10px 25px #555;
+}
+
+.back-to-top i {
+  color: #198754;
+  font-size: 50px;
+  padding: 5px;
+}
+
+.back-to-top i:hover {
+  font-size: 50px;
+  padding: 5px;
+}
+
+.keep {
+  opacity: 0;
+}
+
+.open {
+  opacity: 1;
+  display: block;
+}
+
+#disqus_thread {
+  padding: 5px;
+  margin: 10px;
+  border: 3px solid #999;
+  border-radius: 5px;
+
+}
+
+.darkmode #disqus_thread {
+  color: #8a8a8a;
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+/*media queries*/
+@media (min-width: 768px) {
+  #disqus_thread {
+    padding: 15px;
+    margin: 85px;
   }
-  
+}
+
+/*media queries*/
+@media (min-width: 768px) {
+  #disqus_thread {
+    padding: 15px;
+    margin: 85px;
+  }
+}
+
+@media (min-width: 992px) {
+
+  #disqus_thread {
+    padding: 20px;
+    margin: 90px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #disqus_thread {
+    padding: 20px;
+    margin: 90px;
+  }
+}
+
+@media (min-width: 1400px) {
+
+  #disqus_thread {
+    padding: 20px;
+    margin: 90px;
+  }
+}
+
+@media (min-width: 1600px) {
+
+  #disqus_thread {
+    padding: 20px;
+    margin: 90px;
+  }
+}

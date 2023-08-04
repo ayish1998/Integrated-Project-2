@@ -1,3 +1,4 @@
+
 const url = "https://climate-news-feed.p.rapidapi.com/page/1?limit=10";
 const options = {
   method: "GET",

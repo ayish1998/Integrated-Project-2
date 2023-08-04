@@ -1,635 +1,1077 @@
-<!dOCTYPE html5>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>financialtutorial</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--CSS-->
+  <link rel="stylesheet" href="../CSS/jobtutorial.css">
+  <link rel="stylesheet" href="../CSS/author.css">
+  <link rel="stylesheet" href="../CSS/utils.css">
 
-    <!--Bootstrap CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- Bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
 
-    <!--fontawesome icons-->
-    <script src="https://kit.fontawesome.com/4eb0e146e9.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="../CSS/financial.css">
-
-    <!--Add chart.js cdn-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
-
-    <!-- Include the chartjs-plugin-datalabels script -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain/bsb.css" />
-    <!-- Observable -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-
-
-    <!--jQuery plugin-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-
-
+  <!-- Observable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <title>Financial Tutorial</title>
 </head>
 
 <body>
+  <!--navbar starts here-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <!--Data dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Data
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+            </ul>
+          </li>
+          <!--Tutorials dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+            </ul>
+          </li>
+          <!--Tutotrials dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+          </li>
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="author.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
+    <div class="container-fluid">
+      <!--Logo and name-->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+        Job<span>Insights</span></a>
+      <!--Toggler-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--Nav items-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <!--Data dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Data
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+            </ul>
+          </li>
+          <!--Tutorials dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" aria-current="page"   href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorials
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+            </ul>
+          </li>
+          <!--Tutotrials dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+          </li>
+          <!--About dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="author.html">Developers</a></li>
+            </ul>
+          </li>
+          <!--About dropdown ends here-->
+          <li class="nav-item">
+            <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <header>
-        <!--navbar starts here-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3">
-            <div class="container-fluid">
-                <!--Logo and name-->
-                <a class="navbar-brand" href="../index.html">
-                    <img src="../IMAGES/logo.png" alt="logo" width="60" height="60"
-                        class="d-inline-block align-text-center" />
-                    Job<span>Insights</span></a>
-                <!--Toggler-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!--Nav items-->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Home</a>
-                        </li>
-                        <!--Data dropdown-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Data
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../HTML/job.html">Job</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../HTML/weather.html">Weather</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../HTML/financial.html">Financial</a></li>
-                            </ul>
-                        </li>
-                        <!--Tutorials dropdown-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Tutorials
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial Tutorial</a></li>
-                            </ul>
-                        </li>
-                        <!--Tutotrials dropdown ends here-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="../HTML/Newsletter.html">Newsletter</a>
-                        </li>
-                        <!--About dropdown-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                About
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../HTML/website.html">Website</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../HTML/author.html">Developers</a></li>
-                            </ul>
-                        </li>
-                        <!--About dropdown ends here-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="../HTML/contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </nav>
-        <!--navbar ends here-->
-    </header>
-
-    <section id="tut">
-        <section id="home-jobtutorial">
-          <h2 class="meet" style="font-weight: bold; margin-top:40px; color: white;font-size: 40px;">TUTORIALS - JOB</h2>
-          <h2 class="meet" style="font-weight: bold;  color: white; font-size: 30px;">Master Data Visualization: Practical How-Tos for Presentation and Analysis</h2>
-        </section>
-      </section>
+  <!--navbar ends here-->
+  <!--Main Layout Section starts here-->
+  <section id="tut">
+    <section id="home-jobtutorial" style="height: 40vh;">
       <div class="container">
-        <h3 class="mt-3 pb-3 mb-4  border-bottom"></h3>
+        <h2 class="meet" style="font-weight: bold; margin-top:40px; color: white;font-size: 40px;">TUTORIALS/FINANCIAL
+        </h2>
+        <h2 class="meet" style="font-weight: bold;  color: white; font-size: 30px;">Data Visualization: Practical
+          How-Tos for Presentation and Analysis</h2>
+      </div>
+    </section>
+  </section>
+
+
+  <!-- Main Layout Section starts here -->
+  <!-- Tutorial Content for Weather Tutorial-->
+  <!--Introduction-->
+  <section id="wrapper" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container">
+      <div class="ps-3 py-3 "
+        style="background-color: #dadfe4; font-size: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold;">Overview</h2>
+      </div>
+      <hr>
+
+      <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <p style="font-size: 15px; padding: 100px; margin-top:50px"> This tutorial shows how to use Trending Job Markets API and visualize with D3.js and Observable to create interactive and dynamic data visualizations such as charts and maps </p>
+
+          <div class="col-lg-6 col-md-12">
+            <h2>Introduction</h2>
+            <p> Welcome to this comprehensive tutorial on harnessing the power of live APIs to effortlessly fetch,
+              display,
+              and visualize weather data! Over the course of this step-by-step guide, we will delve into the world of
+              web
+              development using Vanilla JavaScript, where we'll master the art of data retrieval from finance APIs.
+              We'll
+              then
+              seamlessly process and manipulate this data using cutting-edge techniques.</p>
+
+            <p> We'll delve into mesmerizing data visualization with D3.js, crafting appealing bar charts to showcase
+              company
+              details. Color-coded bars with interactive tooltips will enrich the experience.
+
+              Next, we'll create captivating bubble charts, displaying financial data like market capitalization and P/E
+              ratios. Interactive bubbles reveal insights when hovered. Our tutorial delves deep into crafting
+              functional
+              data
+              tables. Learn to structure, populate, and add sorting for
+              easy data navigation.</p>
+
           </div>
-          <!-- Slideshow Column -->
-          <div class="col-md-6" style="margin-top: 50px;">
+
+          <div class="col-lg-6 col-md-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <!-- First Image -->
                 <div class="carousel-item active">
                   <a href="https://d3js.org/">
-                    <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="300">
+                    <img src="../IMAGES/2023-08-04 16_48_07-undervaluedgrowthrates.png" alt="Slide 1" width="500" height="400">
                   </a>
                 </div>
                 <!-- Second Image -->
                 <div class="carousel-item">
                   <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 2" width="500" height="300">
+                    <img src="../IMAGES/2023-08-04 16_51_16-technology stocks.png" alt="Slide 2" width="500" height="400">
                   </a>
                 </div>
                 <!-- Third Image -->
                 <div class="carousel-item">
                   <a href="https://d3js.org/">
-                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 3" width="500" height="300">
+                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 3" width="500" height="400">
                   </a>
                 </div>
               </div>
               <!-- Previous and Next buttons -->
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
           </div>
+
         </div>
-  
-  
+
+      </div>
+
+      <div class="container">
+        <p style="margin-top: 15px;"><strong>File Structure</strong></p>
+        The financial data landing page harnesses the potential of the <i>financial.js</i> file as its cornerstone. This
+        pivotal
+        file serves as the entry point, seamlessly linking with the main <i>financial.html</i> page to orchestrate the
+        immersive
+        financial data experience. Through strategic utilization of HTML5, CSS3, and Bootstrap 5.0, this page sets the
+        stage for a dynamic journey into the world of finance. </p>
+
+        <p>Upon arrival, users are greeted by six informative cards, each acting as a gateway to dedicated pages
+          abundant
+          with relevant financial information and associated visualizations. The financial.js file's orchestration
+          facilitates this seamless navigation, ensuring that users effortlessly access their desired insights. For
+          captivating visualizations, other vital JavaScript files reside in the broader JS folder.</p>
+
+        <p></p>
+        <p> The following sections will walk you through each of these sections in detail. </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="wrapper">
+    <div class="container">
+      <!--API Access and Data Display-->
+      <div class="ps-3 py-3 "
+        style="background-color: #dadfe4; font-size: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-weight: bold;">API Access and Data Display</h2>
+      </div>
+      <hr>
+
+      <div class="container" id="sou">
         <div class="row">
-          <!-- Text Column -->
-          <div class="col-md-6">
-            <div class="tutorial-section">
-              <h2>Step 2: How to Access the API</h2>
-              <p>
-                First, you need to sign up for an API key from the Trending Job Markets API website. Once you have the API
-                key, you can use it to make requests to the API and retrieve the data. The API provides various endpoints
-                to
-                access different types of job market data, such as salary, job roles, and location-based data.
-              </p>
-  
-            </div>
-  
-          </div>
-          <hr>
-          <h2>Introduction</h2>
-          <p> Welcome to the tutorial on how to use APIs and D3.js to visualize data! In this step-by-step tutorial, we will explore how to fetch data from APIs, process and manipulate the data, and then use D3.js to create interactive and dynamic data visualizations such as charts and maps. By the end of this tutorial, you will be able to create compelling visualizations to gain insights and present data in a more engaging manner. </p>
+          <div class="col-lg-6 col-md-12">
+          <h4>API Sources</h4>
+          <p> The page fetches data from the sources below</p>
+
+          <table class="mb-4" id="api-table">
+            <tbody>
+              <tr>
+                <th>API Name</th>
+                <th>API Description</th>
+              </tr>
+              <tr>
+                <td><a href="https://rapidapi.com/sparior/api/mboum-finance" target="_blank">Mboum Finance API</a></td>
+                <td>Stocks visualisation data</td>
+              </tr>
+              <tr>
+                <td><a href="https://rapidapi.com/apininjas/api/interest-rate-by-api-ninjas" target="_blank">Interest
+                    Rate by API-Ninjas</a></td>
+                <td>Interest Rates</td>
+              </tr>
+              <tr>
+                <td><a href="https://rapidapi.com/ujjalruidas/api/all-cryptocurrency-list" target="_blank">All
+                    Cryptocurrency List API</a></td>
+                <td>Cryptocurrencies data</td>
+              </tr>
+              <tr>
+                <td><a href="https://rapidapi.com/kidddevs/api/calcx-investment-api" target="_blank">CalcX API</a></td>
+                <td>Investment data</td>
+              </tr>
+              <tr>
+                <td><a
+                    href="https://rapidapi.com/eod-historical-data-eod-historical-data-default/api/eod-historical-data"
+                    target="_blank">EOD Historical Data API</a></td>
+                <td>Stock data</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </section>
-      <!-- Step 1: API Access -->
-      <section id="api-access">
-        <div class="container">
-          <div class="row">
-            <!-- Text Column -->
-            <div class="col-md-6">
-              <div class="tutorial-section">
-                <h2>Step 1: API Access</h2>
-                <p> To access the data, we will be using the Trending Job Markets API. This API provides real-time data on job markets from various industries and locations. We will use JavaScript to fetch data from the API and parse it for further use in our visualizations. </p>
-                <a href="https://d3js.org/" style="margin-bottom: 40px;"> API source link </a>
-              </div>
-            </div>
-            <!-- Slideshow Column -->
-            <div class="col-md-6">
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <!-- First Image -->
-                  <div class="carousel-item active">
-                    <img src="../IMAGES/d3.jpg" alt="Slide 1" width="500" height="250">
-                  </div>
-                  <!-- Second Image -->
-                  <div class="carousel-item">
-                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
-                  </div>
-                  <!-- Third Image -->
-                  <div class="carousel-item">
-                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
-                  </div>
-                </div>
-                <!-- Previous and Next buttons -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-          </div>
-  
-  
-        </div>
-  
-  
-        </br>
-        <div class="tutorial-section">
-  <h2> Step 3: How to fetch data from the API using the API key</h2>
-        <p>
-          Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key:
-        </p>
-        <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
-        <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
-          aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;">
-          JavaScript code to fetch data from the Trending Job Markets API
-        </button>
-        <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
-          <pre><code >
-            // JavaScript code to fetch data from the Trending Job Markets API
-          const apiKey = "your-api-key";
-          const apiUrl = "https://api.trendingjobmarkets.com/data";
-  
-          fetch(apiUrl, {
-            headers: {
-              Authorization: `Bearer ${apiKey}`,
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Process and use the retrieved data for visualization
-              // (Example: Create charts or maps using D3.js and Observable)
-            })
-            .catch((error) => console.error("Error fetching data: ", error));
-          </code></pre>
-        </div>
-  
-        <p>
-          Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code will
-          make a request to the API, and upon successful retrieval, you can use the data to create visualizations using
-          D3.js and Observable.
-        </p>
-        <p>
-          With access to the API and data, let's move on to the next step to create visualizations.
-        </p>
-      </div>
-      </div>
-      </div>
-    </section>
-  
-    <!-- Step 4: Visualization with D3.js -->
-    <section id="d3-visualization">
-      <div class="container">
-        <div class="tutorial-section">
-  
-  
-  
-  
-  
-          <h2>Step 4: Getting Started with D3.js</h2>
-          <p>
-            To begin using D3.js, you can include the D3.js library in your HTML file using a CDN link. Add the following
-            script tag in the head section of your HTML file to include D3.js:
-          </p>
-          <pre><code>
-          &lt;script src="https://d3js.org/d3.v6.min.js">&lt;/script>
-        </code></pre>
-          <p>
-            This script tag will load the latest version of D3.js into your HTML document. Once you have D3.js included,
-            you can start using its functions and methods to create data visualizations.
-          </p>
-          <p>
-            Now that we have D3.js set up, let's move on to creating different types of visualizations, starting with a
-            bar chart.
-          </p>
-        </div>
-      </div>
-    </section>
-  
-    <!-- Step 3: Creating Charts with D3.js -->
-  
-  
-    <section id="chart-visualization">
-      <div class="container">
-  
-  
-        <div class="tutorial-section">
-  
-  =======
-  
-  
-                <h2>Step 5: Creating Charts with D3.js</h2>
-                <p>
-                  In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different
-                  job
-                  roles in the job market. We'll assume that you have already fetched the relevant salary data from the
-                  API and
-                  stored it in a variable.
-                </p>
-                <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
-  
-              </div>
-            </div>
-            <!-- Image Column -->
-            <!-- Slideshow Column -->
-            <div class="col-md-6">
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <!-- First Image -->
-                  <div class="carousel-item active">
-                    <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
-                  </div>
-                  <!-- Second Image -->
-                  <div class="carousel-item">
-                    <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
-                  </div>
-                  <!-- Third Image -->
-                  <div class="carousel-item">
-                    <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
-                  </div>
-                </div>
-                <!-- Previous and Next buttons -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          </br>
-          <p> Let's take a look at a sample JavaScript code snippet to fetch data from the API using the API key: </p>
-          <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
-          <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5" aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to fetch data from the Trending Job Markets API </button>
-          <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
-            <pre>
-                                                                                                                                      <code >
-            // JavaScript code to fetch data from the Trending Job Markets API
-          const apiKey = "your-api-key";
-          const apiUrl = "https://api.trendingjobmarkets.com/data";
-  
-          fetch(apiUrl, {
-            headers: {
-              Authorization: `Bearer ${apiKey}`,
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Process and use the retrieved data for visualization
-              // (Example: Create charts or maps using D3.js and Observable)
-            })
-            .catch((error) => console.error("Error fetching data: ", error));
-          </code>
-                                                                                                                                  </pre>
-          </div>
-          <p> Make sure to replace "your-api-key" with the actual API key you obtained from the API provider. This code will make a request to the API, and upon successful retrieval, you can use the data to create visualizations using D3.js and Observable. </p>
-          <p> With access to the API and data, let's move on to the next step to create visualizations. </p>
-        </div>
-        </div>
-      </section>
-      <!-- Step 2: Visualization with D3.js -->
-      <section id="d3-visualization">
-        <div class="container">
-          <div class="tutorial-section">
-            <h3>Getting Started with D3.js</h3>
-            <p> To begin using D3.js, you can include the D3.js library in your HTML file using a CDN link. Add the following script tag in the head section of your HTML file to include D3.js: </p>
-            <pre>
-                                                                                                                                  <code>
-          &lt;script src="https://d3js.org/d3.v6.min.js">&lt;/script></code>
-                                                                                                                              </pre>
-            <p> This script tag will load the latest version of D3.js into your HTML document. Once you have D3.js included, you can start using its functions and methods to create data visualizations. </p>
-            <p> Now that we have D3.js set up, let's move on to creating different types of visualizations, starting with a bar chart. </p>
-          </div>
-        </div>
-      </section>
-      <!-- Step 3: Creating Charts with D3.js -->
-      <section id="chart-visualization">
-        <div class="container">
-          <div class="tutorial-section">
-            <div class="row">
-              <!-- Text Column -->
-              <div class="col-md-6">
-                <div class="tutorial-section">
-                  <h2>Step 3: Creating Charts with D3.js</h2>
-                  <p> In this step, we'll create a simple bar chart using D3.js to visualize the average salary of different job roles in the job market. We'll assume that you have already fetched the relevant salary data from the API and stored it in a variable. </p>
-                  <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
-                </div>
-              </div>
-              <!-- Image Column -->
-              <!-- Text Column -->
-              <!-- Text Column -->
-              <!-- Slideshow Column -->
-              <div class="col-md-6">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <!-- First Image -->
-                    <div class="carousel-item active">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/bar1.jpg" alt="Slide 1" width="500" height="270">
-                      </a>
-                    </div>
-                    <!-- Second Image -->
-                    <div class="carousel-item">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="270">
-                      </a>
-                    </div>
-                    <!-- Third Image -->
-                    <div class="carousel-item">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="270">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- Previous and Next buttons -->
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <h3>Creating a Bar Chart</h3>
-            <p> Below is the code snippet to create a simple bar chart using D3.js. This chart will display the average salary of different job roles in the job market. We'll use an SVG element to draw the chart and D3.js functions to bind the data to the DOM elements and set the properties for the chart. </p>
-            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
-            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4" aria-expanded="false" aria-controls="codeBlock4" style="margin-bottom: 20px;"> Visualization Technique: Bar Chart </button>
-            <div class="collapse mt-3" id="codeBlock4">
-              <pre>
-                                                                                                                                                  <code>
-                                                                                                                                                      <!-- HTML markup to display the chart -->
-          &lt;div id="bar-chart">&lt;/div>
-  
-          // JavaScript code to create the bar chart using D3.js
-          const salaryData = [
-            { role: "Software Engineer", averageSalary: 80000 },
-            { role: "Data Analyst", averageSalary: 70000 },
-            { role: "Product Manager", averageSalary: 90000 },
-            // Add more data points as needed
-          ];
-  
-          const svgWidth = 600;
-          const svgHeight = 400;
-          const barPadding = 5;
-  
-          const svg = d3.select("#bar-chart")
-            .append("svg")
-            .attr("width", svgWidth)
-            .attr("height", svgHeight);
-  
-          const barWidth = svgWidth / salaryData.length;
-  
-          const barChart = svg.selectAll("rect")
-            .data(salaryData)
-            .enter()
-            .append("rect")
-            .attr("y", (d) => svgHeight - d.averageSalary / 1000)
-            .attr("height", (d) => d.averageSalary / 1000)
-            .attr("width", barWidth - barPadding)
-            .attr("transform", (d, i) => {
-              const translate = [barWidth * i, 0];
-              return "translate(" + translate + ")";
-            })
-            .style("fill", "steelblue");
-          
-                                                                                                                                                  </code>
-                                                                                                                                              </pre>
-            </div>
-            <p> The above code will create a bar chart displaying the average salaries of different job roles. The height of each bar represents the average salary, and the width of each bar is determined based on the number of data points. </p>
-            <p> After creating the bar chart, you can further customize it by adding axes, labels, and tooltips to enhance the user experience. With the bar chart created, let's move on to visualizing data on maps using D3.js. </p>
-          </div>
-        </div>
-  
-      </div>
-    </section>
-  
-    <!-- Step 4: Creating Map Visualizations with D3.js -->
-    <section id="map-visualization">
-      <div class="container">
-        <div class="tutorial-section">
-  
-          <div class="row">
-            <!-- Text Column -->
-            <div class="col-md-6">
-              <div class="tutorial-section">
-                <h2>Step 6: Creating Map Visualizations with D3.js</h2>
-                <p>
-                  In this step, we'll create a choropleth map using D3.js to visualize job market data for different
-                  geographical regions. Choropleth maps use different colors to represent different data values, allowing
-                  users
-                  to quickly grasp patterns and trends in the data.
-                </p>
-                <a href="https://d3js.org/" style="margin-bottom: 40px;"> Charts with D3.js source link </a>
-  
-              </div>
-              <!-- Image Column -->
-              <!-- Text Column -->
-              <!-- Slideshow Column -->
-              <div class="col-md-6">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <!-- First Image -->
-                    <div class="carousel-item active">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/map.jpg" alt="Slide 1" width="500" height="290">
-                      </a>
-                    </div>
-                    <!-- Second Image -->
-                    <div class="carousel-item">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="290">
-                      </a>
-                    </div>
-                    <!-- Third Image -->
-                    <div class="carousel-item">
-                      <a href="https://d3js.org/">
-                        <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="290">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- Previous and Next buttons -->
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <h3>Creating a Choropleth Map</h3>
-            <p> Below is the code snippet to create a choropleth map using D3.js. This map will show the job market data for different geographical regions, such as average salaries, job demand, or job availability. </p>
-            <pre>
-                                                                                                                                                          <code>
-                                                                                                                                                              <!-- HTML markup to display the map -->
-          &lt;div id="choropleth-map">&lt;/div>
-  
-          // JavaScript code to create the choropleth map using D3.js
-          // (You may need to use a geoJSON file for mapping data to regions)
-          // ... (Add your code for creating a choropleth map using D3.js) ...
         
-                                                                                                                                                          </code>
-                                                                                                                                                      </pre>
-            <p> The above code is just a placeholder for creating the choropleth map, as creating maps requires geographic data and additional configurations. Depending on your use case, you may need to use a geoJSON file for mapping data to specific regions on the map. You can use D3.js functions to bind the data and styles to the map elements. </p>
-            <p> With the choropleth map created, you can now visualize job market data for different regions and explore regional patterns and trends. </p>
+        <div class="col-lg-6 col-md-12">
+          <h4>Navigation</h4>
+          <p>You can easily navigate different sections of the tutorial by clicking on the navigation links below.</p>
+          <ul>
+            <li><a href="#tu-row1">Step 1: Fetch Data From The API</a></li>
+            <li><a href="#tu-row2">Step 2: Filtering The Data </a></li>
+            <li><a href="#tu-row3">Step 3: Fetching Data and Creating the Visualization</a></li>
+            <li><a href="#tu-row4">Step 4: Creating the Bar Chart and Bubble Chart</a></li>
+            <li><a href="#tu-row5">Step 5: Adding Bars, Bubbles with Tooltips</a></li>
+            <li><a href="#tu-row6">Step 6: Adding Legends and Axis Titles</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <hr>
+    </div>
+  </section>
+
+  <!-- Step 1: API Access -->
+  <section id="steps">
+    <div class="container">
+
+      <div class="row" id="tu-row1">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h2>Step 1: Fetch Data From The API</h2>
+            <p>To access data from a live API, the first step is to obtain an API key by signing up on the API
+              provider's website. This key is essential for making requests and retrieving data. In the provided
+              code snippet, the API key is integrated into the headers of the request for authentication purposes.
+              Here's a breakdown of how the data fetching process works:
+            </p>
+
+            <h6>1. API Key Setup:</h6>
+            <p>The API key is included in the headers of the request to the API. It is used to authenticate your
+              request and gain access to the data.</p>
+
+            <p style="font-weight: bold; "> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock1"
+              aria-expanded="false" aria-controls="codeBlock1" style="margin-bottom: 20px;"> JavaScript code to gain
+              access to
+              Mboum Finance API </button>
+            <div class="collapse mt-3" id="codeBlock1" style="margin-bottom: 20px;">
+              <pre>
+											<code >
+                         const options = {
+                           method: 'GET',
+                           headers: {
+                           'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+                           'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+                            }
+                            };
+                      </code>
+									</pre>
+            </div>
+
+            <h6>2. Making the Request:</h6>
+            <p>The fetch function is used to send a GET request to the specified API URL along with the provided
+              headers. This will retrieve the data from the API.</p>
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock2"
+              aria-expanded="false" aria-controls="codeBlock2" style="margin-bottom: 20px;"> JavaScript code to fetch
+              the data</button>
+            <div class="collapse mt-3" id="codeBlock2" style="margin-bottom: 20px;">
+              <pre>
+											<code >
+                        const url = 'https://mboum-finance.p.rapidapi.com/co/collections/growth_technology_stocks?start=0';
+
+                        try {
+                          const response = await fetch(url, options);
+                          const data = await response.json();
+                          return data;
+                        } catch (error) {
+                          console.error(error);
+                        }                        
+                      </code>
+									</pre>
+            </div>
           </div>
         </div>
-      </section>
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
 
-    <!--Footer-->
-    
-<footer>
+      <!--Step 2-->
+      <div class="row" id="tu-row2">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h3>Step 2: Filtering The Data</h3>
+            <p>After fetching the data, we apply a filtering process to narrow down the stocks based on specific
+              criteria. These criteria help us identify stocks with promising potential for growth. The filterStocks
+              function calculates the earnings growth rate, PE ratio, and PEG ratio for each stock and then filters
+              out those stocks that meet certain conditions. This step ensures that we're focusing on stocks that
+              align with our investment strategy.
+              Here's the code to filter the stocks:</p>
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock3"
+              aria-expanded="false" aria-controls="codeBlock3" style="margin-bottom: 20px;"> JavaScript code to filter
+              the data</button>
+            <div class="collapse mt-3" id="codeBlock3" style="margin-bottom: 20px;">
+              <pre>
+                        <code >
+                          function filterStocks(data) {
+                            const filteredStocks = data.quotes.filter(stock => {
+                              const earningsGrowthRate = (stock.epsTrailingTwelveMonths / stock.epsForward - 1) * 100;
+                              const peRatio = stock.trailingPE;
+                              const pegRatio = peRatio / earningsGrowthRate;
+                              return earningsGrowthRate > 25 && peRatio < 20 && pegRatio < 1.5;
+                            });
+                            return filteredStocks;
+                          }                          
+                        </code>
+                    </pre>
+            </div>
+
+          </div>
+        </div>
+        <!-- Image Column -->
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Step 3-->
+      <div class="row" id="tu-row3">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h3>Step 3: Fetching Data and Creating the Visualization</h3>
+            <p> Now that we have a clearer understanding of the data and have applied filtering, we're ready to
+              create visualizations. We start by fetching the data using the fetchData function and then filtering
+              it using the filterStocks function. This filtered data will be the basis for our visualizations. In
+              this example, we'll create a bar chart to visualize the earnings growth rates of the selected stocks.
+            </p>
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock4"
+              aria-expanded="false" aria-controls="codeBlock4" style="margin-bottom: 20px;"> JavaScript code to create
+              the visualization</button>
+            <div class="collapse mt-3" id="codeBlock4" style="margin-bottom: 20px;">
+              <pre>
+                        <code >
+                          // Fetch data and create the visualization
+                          fetchData().then(data => {
+                            const filteredData = filterStocks(data);
+                          
+                            // Extract stock symbols and earnings growth rates from filtered data
+                            const stockSymbols = filteredData.map(stock => stock.symbol);
+                            const earningsGrowthRates = filteredData.map(stock => (stock.epsTrailingTwelveMonths / stock.epsForward - 1) * 100);
+                          
+                            // Create a bar chart using d3.js
+                            const margin = { top: 20, right: 30, bottom: 40, left: 50 };
+                            const width = 900 - margin.left - margin.right;
+                            const height = 600 - margin.top - margin.bottom;
+                          
+                            // ... (continued in the next step)
+                          });                                                   
+                        </code>
+                    </pre>
+            </div>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Step 4-->
+      <div class="row" id="tu-row4">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h3>Step 4: Creating the Bar Chart and Bubble Chart</h3>
+            <p>Continuing from the previous step, we'll create a bar chart using
+              D3.js to visualize the earnings growth rate of each stock. We'll set up scales for the axes, append
+              SVG elements, and handle mouse events for interactivity.The x and y scales are defined to map the
+              stock symbols and earnings growth rates to the chart's coordinates. These scales ensure that the data
+              is
+              appropriately positioned and scaled within the chart area.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock5"
+              aria-expanded="false" aria-controls="codeBlock5" style="margin-bottom: 20px;"> JavaScript code to create
+              the bar chart</button>
+            <div class="collapse mt-3" id="codeBlock5" style="margin-bottom: 20px;">
+              <pre>
+                        <code >
+// Create a bar chart using d3.js (continued from the previous step)
+const svg = d3.select("#chart")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+const x = d3.scaleBand()
+  .domain(stockSymbols)
+  .range([0, width])
+  .padding(0.1);
+
+const y = d3.scaleLinear()
+  .domain([0, d3.max(earningsGrowthRates)])
+  .range([height, 0]);
+
+// ... (continued in the next step)
+                          
+                        </code>
+                    </pre>
+            </div>
+
+            <p>In this step, we'll also create a bubble chart using D3.js to visualize the market capitalization, PE
+              ratio, and PEG ratio of the selected undervalued growth stocks.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock6"
+              aria-expanded="false" aria-controls="codeBlock6" style="margin-bottom: 20px;"> JavaScript code to create
+              the bubble chart</button>
+            <div class="collapse mt-3" id="codeBlock6" style="margin-bottom: 20px;">
+              <pre>
+                        <code >
+                          // Create the bubble chart using D3.js
+                          const bubbleChartWidth = 900;
+                          const bubbleChartHeight = 600;
+                        
+                          const svg = d3.select("#bubble-chart") // Use the appropriate ID for your chart container
+                            .append("svg")
+                            .attr("width", bubbleChartWidth)
+                            .attr("height", bubbleChartHeight);
+                        
+                          // Define scales for bubble size, color, and positioning
+                          const marketCapScale = d3.scaleSqrt()
+                            .domain(d3.extent(data, d => d.marketCap))
+                            .range([5, 50]);
+                        
+                          const growthRateScale = d3.scaleLinear()
+                            .domain(d3.extent(data, d => d.epsForward * 100))
+                            .range(["lightgreen", "darkgreen"]);
+                        
+                          const peRatioScale = d3.scaleLinear()
+                            .domain(d3.extent(data, d => d.trailingPE))
+                            .range([50, bubbleChartWidth - 50]);
+                        
+                          const pegRatioScale = d3.scaleLinear()
+                            .domain(d3.extent(data, d => d.epsForward / d.epsTrailingTwelveMonths))
+                            .range([bubbleChartHeight - 50, 50]);
+                          
+                        </code>
+                    </pre>
+            </div>
+
+          </div>
+        </div>
+        <!-- Image Column -->
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Step 5-->
+      <div class="row" id="tu-row5">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h3>Step 5: Adding Bars, Bubbles with Tooltips</h3>
+            <p>Continuing from the previous step, we'll create a bar chart using
+              D3.js to visualize the earnings growth rate of each stock. We'll set up scales for the axes, append
+              SVG elements, and handle mouse events for interactivity.The x and y scales are defined to map the
+              stock symbols and earnings growth rates to the chart's coordinates. These scales ensure that the data
+              is
+              appropriately positioned and scaled within the chart area.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock7"
+              aria-expanded="false" aria-controls="codeBlock7" style="margin-bottom: 20px;"> JS code to add bars with
+              tooltip to
+              the bar chart</button>
+            <div class="collapse mt-3" id="codeBlock7" style="margin-bottom: 20px;">
+              <pre>
+                      <code >
+
+                        // Add bars to the bar chart
+                        svg.selectAll(".bar")
+                          .data(filteredData)
+                          .enter()
+                          .append("rect")
+                          .attr("class", "bar")
+                          .attr("x", stock => x(stock.symbol))
+                          .attr("y", stock => y((stock.epsTrailingTwelveMonths / stock.epsForward - 1) * 100))
+                          .attr("width", x.bandwidth())
+                          .attr("height", stock => height - y((stock.epsTrailingTwelveMonths / stock.epsForward - 1) * 100))
+                          .attr("fill", "steelblue");                
+                          .on("mouseover", (event, stock) => handleMouseOver(event, stock))
+                          .on("mouseout", handleMouseOut);
+
+                          // Mouseover event handler for the bars
+                          function handleMouseOver(event, stock) {
+                           tooltip.transition()
+                           .duration(200)
+                           .style("opacity", 0.9);
+
+                          const earningsGrowthRate = (stock.epsTrailingTwelveMonths / stock.epsForward - 1) * 100;
+                          const peRatio = stock.trailingPE;
+                          const pegRatio = peRatio / earningsGrowthRate;
+                        
+                          tooltip.html(
+                            `<strong>${stock.symbol}</strong><br>
+                              Earnings Growth Rate: ${earningsGrowthRate.toFixed(2)}%<br>
+                              PE Ratio: ${peRatio.toFixed(2)}<br>
+                              PEG Ratio: ${pegRatio.toFixed(2)}`
+                          )
+                            .style("left", event.pageX + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                        }
+                        
+                        // Mouseout event handler for the bars
+                        function handleMouseOut() {
+                          tooltip.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                        }                        
+                        
+                      </code>
+                  </pre>
+            </div>
+
+            <p>In this step, we'll also create a bubble chart using D3.js to visualize the market capitalization, PE
+              ratio, and PEG ratio of the selected undervalued growth stocks.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock8"
+              aria-expanded="false" aria-controls="codeBlock8" style="margin-bottom: 20px;"> JS code to add circles with
+              tooltip to
+              the bubble chart</button>
+            <div class="collapse mt-3" id="codeBlock8" style="margin-bottom: 20px;">
+              <pre>
+                      <code >
+                        // Create circles for each stock (bubble chart)
+                        svg.selectAll("circle")
+                          .data(data)
+                          .enter()
+                          .append("circle")
+                          .attr("cx", d => peRatioScale(d.trailingPE))
+                          .attr("cy", d => pegRatioScale(d.epsForward / d.epsTrailingTwelveMonths))
+                          .attr("r", d => marketCapScale(d.marketCap))
+                          .attr("fill", d => growthRateScale(d.epsForward * 100))
+                          .attr("opacity", 0.7)
+                          .on("mouseover", (event, d) => handleMouseOver(event, d))
+                          .on("mouseout", handleMouseOut);
+
+                          // Show custom tooltip on mouseover and hide it on mouseout
+                          function handleMouseOver(event, d) {
+                         const [x, y] = d3.pointer(event);
+                         customTooltip
+                        .style("display", "block")
+                        .style("left", x + 10 + "px")
+                        .style("top", y + 10 + "px")
+                        .html(`
+                        <strong>${d.displayName}</strong><br>
+                         Market Cap: $${d.marketCap.toFixed(2)}B<br>
+                         PE Ratio: ${d.trailingPE.toFixed(2)}<br>
+                         PEG Ratio: ${(d.epsForward / d.epsTrailingTwelveMonths).toFixed(2)}<br>
+                         Earnings Growth Rate: ${(d.epsForward * 100).toFixed(2)}%
+                     `);
+                    }
+
+                        function handleMouseOut() {
+                             customTooltip.style("display", "none");
+                          }
+                      </code>
+                  </pre>
+            </div>
+
+            <p>This code defines two functions: <strong>'handleMouseOver'</strong> and
+              <strong>'handleMouseOut'</strong>. The <strong>'handleMouseOver'</strong> function
+              displays a custom tooltip with information about the hovered bubble's stock. The
+              <strong>'handleMouseOut'</strong> function
+              hides the tooltip when the mouse leaves the bubble.
+            </p>
+
+            <p>Additionally, make sure you have the <strong>custom-tooltip</strong> class defined in your CSS file to
+              style the
+              appearance of the tooltips.</p>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--Step 6-->
+      <div class="row" id="tu-row6">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <div class="tutorial-section">
+            <h3>Step 6: Adding Legends and Axis Titles</h3>
+            <p>Enhance the readability and context of your visualizations by adding legends to distinguish different
+              data points and titles to label your axes.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock8"
+              aria-expanded="false" aria-controls="codeBlock8" style="margin-bottom: 20px;"> JS code to add a legend to
+              the chart
+            </button>
+            <div class="collapse mt-3" id="codeBlock8" style="margin-bottom: 20px;">
+              <pre>
+                      <code >
+                        // Create legend
+                        const legend = svg.append("g")
+                          .attr("class", "legend")
+                          .attr("transform", "translate(900, 10)");
+                        
+                        const legendItems = legend.selectAll(".legend-item")
+                          .data(filteredData)
+                          .enter()
+                          .append("g")
+                          .attr("class", "legend-item")
+                          .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+                        
+                        legendItems.append("rect")
+                          .attr("width", 15)
+                          .attr("height", 15)
+                          .attr("fill", d => colorScale(d.symbol));
+                        
+                        legendItems.append("text")
+                          .attr("x", 25)
+                          .attr("y", 10)
+                          .style("font-size", "12px")
+                          .text(d => d.symbol);
+                                            
+                      </code>
+                  </pre>
+            </div>
+
+            <p> The code above creates a legend to distinguish different stocks using colors. It adds colored squares
+              and labels
+              for each stock in the legend.</p>
+
+            <p>The code below adds labels to both the x and y axes. The x-axis label is centered below the x-axis, and
+              the
+              y-axis label is rotated and centered along the y-axis.</p>
+
+
+            <p style="font-weight: bold;"> Click on the titles to expand and see the code blocks.</p>
+            <button class="btn btn-secondary btn-outline-light" data-bs-toggle="collapse" data-bs-target="#codeBlock9"
+              aria-expanded="false" aria-controls="codeBlock9" style="margin-bottom: 20px;"> JS code to add titles to
+              axes
+            </button>
+            <div class="collapse mt-3" id="codeBlock9" style="margin-bottom: 20px;">
+              <pre>
+                      <code >
+                        // Add x and y axis with labels
+                        svg.append("g")
+                          .attr("transform", "translate(0," + height + ")")
+                          .call(d3.axisBottom(x));
+                        
+                        // Append the x-axis label
+                        svg.append("text")
+                          .attr("class", "axis-label")
+                          .attr("x", width / 2)
+                          .attr("y", height + margin.bottom - 10) // Adjust the position of the x-axis label
+                          .style("text-anchor", "middle")
+                          .text("Price-to-Earnings (PE) Ratio");
+                        
+                        svg.append("g")
+                          .call(d3.axisLeft(y));
+                        
+                        // Append the y-axis label
+                        svg.append("text")
+                          .attr("class", "axis-label")
+                          .attr("transform", "rotate(-90)")
+                          .attr("x", -height / 2)
+                          .attr("y", 20)
+                          .style("text-anchor", "middle")
+                          .text("Price/Earnings-to-Growth (PEG) Ratio");
+                        
+                      </code>
+                  </pre>
+            </div>
+
+          </div>
+        </div>
+        <!-- Image Column -->
+        <!-- Slideshow Column -->
+        <div class="col-md-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- First Image -->
+              <div class="carousel-item active">
+                <img src="../IMAGES/d3.2.jpg" alt="Slide 1" width="500" height="250">
+              </div>
+              <!-- Second Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart2 copy.jpg" alt="Slide 2" width="500" height="250">
+              </div>
+              <!-- Third Image -->
+              <div class="carousel-item">
+                <img src="../IMAGES/chart3 copy.jpg" alt="Slide 3" width="500" height="250">
+              </div>
+            </div>
+            <!-- Previous and Next buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--Main Layout Section ends-->
+  <!-- Footer section starts here-->
+  <footer>
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
         <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="../index.html">
-            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center"/>
-            Job<span>Insights</span></a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
-            quam, ad facere odio sunt mollitia asperiores
-            eum optio unde, debitis voluptatibus quos cum pariatur fugit?</p>
+          <a class="navbar-brand" href="index.html">
+            <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
+            Job <span>Insights</span>
+          </a>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis
+            iusto
+            quam, ad facere odio sunt mollitia asperiores eum optio unde, debitis voluptatibus quos cum pariatur
+            fugit?
+          </p>
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
           <h5 class="fw-bold">USEFUL LINKS</h5>
           <ul style="list-style-type: square;">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../HTML/job.html">Job Data</a></li>
-            <li><a href="../HTML/weather.html">Weather Data</a></li>
-            <li><a href="../HTML/financial.html">Financial Data</a></li>
-            <li><a href="../HTML/Newsletter.html">Newsletter</a></li>
-            <li><a href="../HTML/website.html">About Website</a></li>
-            <li><a href="../HTML/author.html">About Developers</a></li>
+            <li>
+              <a href="../index.html">Home</a>
+            </li>
+            <li>
+              <a href="job.html">Job Data</a>
+            </li>
+            <li>
+              <a href="weather.html">Weather Data</a>
+            </li>
+            <li>
+              <a href="financial.html">Financial Data</a>
+            </li>
+            <li>
+              <a href="Newsletter.html">Newsletter</a>
+            </li>
+            <li>
+              <a href="website.html">About Website</a>
+            </li>
+            <li>
+              <a href="author.html">About Developers</a>
+            </li>
           </ul>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
           <h5 class="fw-bold">CONTACT</h5>
-          <p><i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
-            Mauritius</p>
-          <p><i class="fa-solid fa-envelope"></i> admin@jobinsights.com</p>
-          <p><i class="fa-solid fa-phone"></i> +23056789042</p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> African Leadership College, Beau Plan, Pamplemousses,
+            Mauritius
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> admin@jobinsights.com
+          </p>
+          <p>
+            <i class="fa-solid fa-phone"></i> +23056789042
+          </p>
         </div>
       </div>
       <div class="row mx-auto d-flex justify-content-center pt-3">
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <p>We are here to make your career decision easier!
-            <br>Sign up for our Newsletter.
-          </p>
+          <p>We are here to make your career decision easier! <br>Sign up for our Newsletter. </p>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
           <form class="d-block" role="email">
@@ -641,31 +1083,35 @@
       <hr>
       <!--Social media links-->
       <div class="socials text-center">
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-facebook-f"
-            style="color: #3b5998;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-google"
-            style="color: #dd4b39;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-instagram"
-            style="color: #ac2bac;"></i></a>
-        <a class="btn btn-secondary btn-outline-light m-1" href="#"><i class="fab fa-linkedin-in"
-            style="color: #0082ca;"></i></a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-facebook-f" style="color: #3b5998;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-google" style="color: #dd4b39;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-instagram" style="color: #ac2bac;"></i>
+        </a>
+        <a class="btn btn-secondary btn-outline-light m-1" href="#">
+          <i class="fab fa-linkedin-in" style="color: #0082ca;"></i>
+        </a>
       </div>
     </div>
-    <div class="text-white text-center p-4" style="background-color: #6c757d;">
-      © 2023 Copyright:
-      <a class="fw-bold" href="../index.html">Job Insights</a>
+    <div class="text-white text-center p-4" style="background-color: #6c757d;"> © 2023 Copyright: <a class="fw-bold"
+        href="../index.html">Job Insights</a>
     </div>
   </footer>
-
-
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-
-
+  <!--Footer ends here-->
+  <!--Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <!--Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Custom JS links-->
+  <script src="../JS/jobdata.js"></script>
 </body>
 
 </html>

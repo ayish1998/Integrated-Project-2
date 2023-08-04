@@ -1,6 +1,36 @@
 /* Googlefont Poppins CDN Link */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
+/* Nav */
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-brand {
+  display: inline-block;
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  font-size: 2rem !important;
+  color: grey;
+}
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +42,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 #observablehq-3f41ff1a {
@@ -26,36 +57,11 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
-/* NAVBAR STYLING STARTS HERE */
-nav a {
-  text-decoration: none;
-  color: white;
-}
-.navbar-brand {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
-}
 
-.navbar-brand span {
-  color: grey;
-}
-
-.navbar-nav {
+#home-jobtutorial, .darkmode #home-jobtutorial {
+  background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url(../IMAGES/chart2.jpg);
   width: 100%;
-  justify-content: space-evenly;
-}
-
-footer a {
-  text-decoration: none;
-  color: white;
-}
-
-/* home card starts here */
-#tut {
-  background-image: white;
-  width: 100%;
-  height: 20vh;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -63,8 +69,24 @@ footer a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 40px;
-  margin-top: 100px;
+  padding-top: 0px;
+  
+}
+
+
+/* home card starts here */
+#tut {
+  background-image: white;
+  width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
 }
 
 #tut h2 {
@@ -77,6 +99,116 @@ footer a {
 
 h5 {
   cursor: pointer;
+}
+
+#api-table th, td{
+ padding: 0.3rem;
+}
+
+#steps .row{
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#steps .tutorial-section{
+  margin-bottom: 0;
+}
+
+#sou a{
+    color: #01010cab;
+}
+
+/* Dark mode styles */
+body.darkmode {
+  background-color: #1A1B1F;
+  color: #8a8a8a;
+}
+.darkmode #wrapper {
+  background: linear-gradient(145deg, #1c1d21, #17181c);
+  box-shadow: 3px 3px 6px #101114,
+    -3px -3px 6px #24252a;
+}
+
+/* The darkmode switch */
+.dark-mode-switch {
+  margin-top: 70px;
+  position: fixed;
+  top: 30px;
+  right: 16px;
+  z-index: 9999;
+}
+
+.switch-label {
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+/* the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  margin-left: 4px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1A1B1F;
+  transition: .2s;
+  box-shadow: 2px 2px 3px #ffffff,
+    -2px -2px 3px #bebebe;
+}
+
+.darkmode .slider {
+  box-shadow: 2px 2px 3px #34353a,
+    -2px -2px 3px #000104;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background: #9294b8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #f4f4f4;
+}
+
+input:checked+.slider:before {
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 11px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 table {
@@ -94,3 +226,15 @@ table {
     background-color: #f2f2f2;
   }
 
+  /* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  #home-jobtutorial h2 {
+    font-size: 1.5rem;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}

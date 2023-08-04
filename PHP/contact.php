@@ -21,7 +21,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-success pt-3 px-3 fixed-top">
     <div class="container-fluid">
       <!--Logo and name-->
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="../index.html">
         <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
         Job<span>Insights</span></a>
       <!--Toggler-->
@@ -32,7 +32,7 @@
         <!--Nav items-->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
           <!--Data dropdown-->
           <li class="nav-item dropdown">
@@ -40,15 +40,15 @@
               Data
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="job.html">Job</a></li>
+              <li><a class="dropdown-item" href="../HTML/job.html">Job</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="weather.html">Weather</a></li>
+              <li><a class="dropdown-item" href="../HTML/weather.html">Weather</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="financial.html">Financial</a></li>
+              <li><a class="dropdown-item" href="../HTML/financial.html">Financial</a></li>
             </ul>
           </li>
           <!--Tutorials dropdown-->
@@ -57,20 +57,20 @@
               Tutorials
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="jobtutorial.html">Job Tutorial</a></li>
+              <li><a class="dropdown-item" href="../HTML/jobtutorial.html">Job Tutorial</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="weathertutorial.html">Weather Tutorial</a></li>
+              <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="financialtutorial.html">Financial Tutorial</a></li>
+              <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial Tutorial</a></li>
             </ul>
           </li>
           <!--Tutotrials dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link" href="newsletter.html">Newsletter</a>
+            <a class="nav-link" href="../HTML/newsletter.html">Newsletter</a>
           </li>
           <!--About dropdown-->
           <li class="nav-item dropdown">
@@ -78,16 +78,16 @@
               About
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="website.html">Website</a></li>
+              <li><a class="dropdown-item" href="../HTML/website.html">Website</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="developers.html">Developers</a></li>
+              <li><a class="dropdown-item" href="../HTML/author.html">Developers</a></li>
             </ul>
           </li>
           <!--About dropdown ends here-->
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
+            <a class="nav-link active" aria-current="page" href="contact.php">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -186,7 +186,7 @@
     <div class="container-fluid bg-success text-white p-4">
       <div class="row">
         <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="../index.html">
             <img src="../IMAGES/logo.png" alt="logo" width="60" height="60" class="d-inline-block align-text-center" />
             Job<span>Insights</span></a>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum inventore aliquid, accusantium quis iusto
@@ -196,13 +196,13 @@
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
           <h5 class="fw-bold">USEFUL LINKS</h5>
           <ul style="list-style-type: square;">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="job.html">Job Data</a></li>
-            <li><a href="weather.html">Weather Data</a></li>
-            <li><a href="financial.html">Financial Data</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="website.html">About Website</a></li>
-            <li><a href="developers.html">About Developers</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../HTML/job.html">Job Data</a></li>
+            <li><a href="../HTML/weather.html">Weather Data</a></li>
+            <li><a href="../HTML/financial.html">Financial Data</a></li>
+            <li><a href="../HTML/newsletter.html">Newsletter</a></li>
+            <li><a href="../HTML/website.html">About Website</a></li>
+            <li><a href="../HTML/author.html">About Developers</a></li>
           </ul>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-3">
@@ -237,7 +237,7 @@
     </div>
     <div class="text-white text-center p-4" style="background-color: #6c757d;">
       © 2023 Copyright:
-      <a class="fw-bold" href="index.html">Job Insights</a>
+      <a class="fw-bold" href="../index.html">Job Insights</a>
     </div>
   </footer>
 
