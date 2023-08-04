@@ -4,7 +4,7 @@ async function fetchData() {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+      'X-RapidAPI-Key': 'b059a9314dmshc7cfa4f532ef633p134d10jsne9b89f2993c7',
       'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
     }
   };
@@ -19,8 +19,6 @@ async function fetchData() {
     createBubbleChart(result.quotes);
 
     console.log(result.quotes[0].marketCap);
-
-
   } catch (error) {
     console.error(error);
   }
@@ -28,16 +26,25 @@ async function fetchData() {
 
 let originalData;
 
-// Function to create the bar chart
 function createBarChart(data) {
   const container = d3.select("#chart");
+
+   // Add dropdown for sorting order
+   const dropdown = container.insert("select", "svg")
+   .on("change", () => updateChart(dropdown.node().value));
+
+ dropdown.append("option").text("Sort by:");
+ dropdown.append("option").text("Highest Order").attr("value", "highest");
+ dropdown.append("option").text("Lowest Order").attr("value", "lowest");
+ dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
+
+
   const svg = container.append("svg")
-    .attr("width", 1300)
+    .attr("width", 1000)
     .attr("height", 600);
 
   let chartData = data;
   originalData = [...chartData];
-
 
   const xScale = d3.scaleBand()
     .domain(chartData.map(d => d.symbol))
@@ -48,10 +55,10 @@ function createBarChart(data) {
     .domain([0, d3.max(chartData, d => parseFloat(d.regularMarketPrice))])
     .range([450, 2]);
 
-      // Define the color scale for different companies
+  // Define the color scale for different companies
   const colorScale = d3.scaleOrdinal()
-  .domain(chartData.map(d => d.symbol))
-  .range(d3.schemeCategory10);
+    .domain(chartData.map(d => d.symbol))
+    .range(d3.schemeCategory10);
 
   const tooltip = container
     .append("div")
@@ -92,8 +99,6 @@ function createBarChart(data) {
         .transition()
         .duration(200)
         .attr("fill", d => colorScale(d.symbol));
-
-
       tooltip.style("opacity", 0);
     })
     .transition()
@@ -128,7 +133,7 @@ function createBarChart(data) {
   // Create legend
   const legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(900, 10)");
+    .attr("transform", "translate(850, 10)");
 
   const legendItems = legend.selectAll(".legend-item")
     .data(chartData)
@@ -148,54 +153,49 @@ function createBarChart(data) {
     .attr("font-size", "12px")
     .text(d => d.longName);
 
-  // Create the form element
-  const form = document.createElement("form");
-
-  // Create the label element
-  const label = document.createElement("label");
-  label.textContent = "Order: ";
-
-  // Create the select element
-  const select = document.createElement("select");
-
-  // Create the option elements
-  const optionAscending = document.createElement("option");
-  optionAscending.value = "ascending";
-  optionAscending.textContent = "Ascending";
-
-  const optionDescending = document.createElement("option");
-  optionDescending.value = "descending";
-  optionDescending.textContent = "Descending";
-
-  // Append the option elements to the select element
-  select.appendChild(optionAscending);
-  select.appendChild(optionDescending);
-
-  // Append the label and select elements to the form element
-  form.appendChild(label);
-  form.appendChild(select);
-
-  // Add event listener to handle order selection change
-  select.addEventListener("change", function () {
-    const selectedOrder = this.value;
-    if (selectedOrder === "ascending") {
-      updateAscending();
-    } else if (selectedOrder === "descending") {
-      updateDescending();
-    }
-  });
-
-  // Append the form element to the desired container in the HTML
-  const excontainer = document.getElementById("form-container");
-  excontainer.appendChild(form);
-
-
-
   function getColor(index) {
     const colors = ["steelblue", "green", "red", "orange", "purple"]; // Define an array of colors
-    return colors[index % colors.length]; // Return a color based on the index
+    return colors[index % colors.length];
   }
+
+  
+
+   function updateChart(order) {
+  switch (order) {
+    case "highest":
+      chartData.sort((a, b) => parseFloat(b.regularMarketPrice) - parseFloat(a.regularMarketPrice));
+      break;
+    case "lowest":
+      chartData.sort((a, b) => parseFloat(a.regularMarketPrice) - parseFloat(b.regularMarketPrice));
+      break;
+    case "alphabetical":
+      chartData.sort((a, b) => a.symbol.localeCompare(b.symbol));
+      break;
+  }
+
+  selectedSymbolOrder = chartData.map(d => d.symbol);
+  xScale.domain(selectedSymbolOrder);
+
+  svg.selectAll("rect")
+    .data(chartData, d => d.symbol)
+    .transition()
+    .duration(800)
+    .attr("x", d => xScale(d.symbol))
+    .attr("y", d => yScale(parseFloat(d.regularMarketPrice)))
+    .attr("height", d => 450 - yScale(parseFloat(d.regularMarketPrice)))
+    .attr("fill", (d, i) => getColor(i));
+
+  svg.select(".x-axis")
+    .transition()
+    .duration(800)
+    .call(d3.axisBottom(xScale)
+      .tickValues(selectedSymbolOrder) // Set tick values to selected order
+    );
 }
+
+}
+
+
 
 // Function to create the bubble chart
 function createBubbleChart(data) {
@@ -208,10 +208,9 @@ function createBubbleChart(data) {
     symbol: d.symbol,
     marketCap: parseFloat(d.marketCap),
     forwardPE: parseFloat(d.forwardPE),
-    longName: d.longName
-
-
+    longName: d.longName,
   }));
+
 
   const xScale = d3.scaleBand()
     .domain(chartData.map(d => d.symbol))
@@ -232,7 +231,7 @@ function createBubbleChart(data) {
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-    svg.selectAll("circle")
+  svg.selectAll("circle")
     .data(chartData)
     .enter()
     .append("circle")
@@ -310,6 +309,27 @@ function createBubbleChart(data) {
     .style("font-size", "12px")
     .text(d => d.symbol);
 }
+
+
+// function resizeCharts() {
+//   // Adjust chart sizes based on the container or window dimensions
+//   const containerWidth = document.getElementById("chart-container")a;
+//   const svgWidth = containerWidth >= 1000 ? containerWidth : 1000; // Minimum width is 1000
+//   const svgHeight = svgWidth >= 1000 ? 900 : (svgWidth * 0.9); // Maintain 9:10 aspect ratio
+
+//   d3.select("#chart svg")
+//     .attr("width", svgWidth)
+//     .attr("height", svgHeight);
+
+//   d3.select("#chart-container svg")
+//     .attr("width", svgWidth)
+//     .attr("height", svgHeight);
+// }
+// // Call the resizeCharts function initially
+// resizeCharts();
+
+// // Bind the resizeCharts function to the window resize event
+// window.addEventListener("resize", resizeCharts);
 
 // Call the fetchData function to retrieve data and create visualizations
 fetchData();

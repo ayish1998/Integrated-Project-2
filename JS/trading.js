@@ -22,115 +22,118 @@ async function fetchData() {
 async function drawBubbleChart() {
   const data = await fetchData();
 
-  const width = 1000;
+  const width = 900;
   const height = 600;
-  const margin = 40;
+  const margin = 90;
 
   const svg = d3.select("#chart")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
   const maxTotalValue = d3.max(data, d => d.tot_value);
   const maxShares = d3.max(data, d => +d.num_shares_own);
   const maxPrice = d3.max(data, d => +d.aveg_pricePerShare);
 
   const radiusScale = d3.scaleSqrt()
-      .domain([0, maxTotalValue])
-      .range([0, 50]);
+    .domain([0, maxTotalValue])
+    .range([0, 50]);
 
   const xScale = d3.scaleLinear()
-      .domain([0, maxPrice])
-      .range([margin, width - margin]);
+    .domain([0, maxPrice])
+    .range([margin, width - margin]);
 
   const yScale = d3.scaleLinear()
-      .domain([0, maxShares])
-      .range([height - margin, margin]);
+    .domain([0, maxShares])
+    .range([height - margin, margin]);
 
   const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
   // Create tooltips
-  const tooltip = d3.select("#chart")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
+  const tooltip = d3.select("body") // Attach tooltip to the body
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("pointer-events", "none"); // Prevent the tooltip from blocking mouse interactions with the chart
 
   svg.selectAll("circle")
-      .data(data)
-      .enter()
-      .append("circle")
-      .attr("cx", d => xScale(+d.aveg_pricePerShare))
-      .attr("cy", d => yScale(+d.num_shares_own))
-      .attr("r", d => radiusScale(d.tot_value))
-      .attr("fill", d => colorScale(d.relationship))
-      .attr("opacity", 0.7)
-      .on("mouseover", handleMouseOver)
-      .on("mouseout", handleMouseOut);
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xScale(+d.aveg_pricePerShare))
+    .attr("cy", d => yScale(+d.num_shares_own))
+    .attr("r", d => radiusScale(d.tot_value))
+    .attr("fill", d => colorScale(d.relationship))
+    .attr("opacity", 0.7)
+    .on("mouseover", handleMouseOver)
+    .on("mouseout", handleMouseOut);
 
-  function handleMouseOver(d) {
-      // Enlarge the bubble when hovered
-      d3.select(this)
-          .transition()
-          .duration(200)
-          .attr("r", d => radiusScale(d.tot_value) + 10)
-          .attr("opacity", 1);
+  function handleMouseOver(d, event) {
+    // Enlarge the bubble when hovered
+    d3.select(this)
+      .transition()
+      .duration(200)
+      .attr("r", d => radiusScale(d.tot_value) + 10)
+      .attr("opacity", 1);
 
-      // Show the tooltip with additional details about the insider's trading activity
-      tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
+    // Show the tooltip with additional details about the insider's trading activity
+    tooltip.transition()
+      .duration(200)
+      .style("opacity", 0.9);
 
-      // Calculate the position for the tooltip based on the mouse position
-      const [xPos, yPos] = d3.pointer(event);
+    // Calculate the position for the tooltip based on the mouse position
+    const [xPos, yPos] = d3.pointer(event);
 
-      tooltip.style("left", `${xPos + 10}px`)
-          .style("top", `${yPos - 10}px`)
-          .html(
-              `Insider: ${d.relationship}<br/>` +
-              `Company: ${d.symbol}<br/>` +
-              `Number of Shares: ${d.num_shares_own}<br/>` +
-              `Average Price per Share: ${d.aveg_pricePerShare}<br/>` +
-              `Total Value: ${d.tot_value}`
-          );
+    tooltip.style("left", `${xPos + 10}px`)
+      .style("top", `${yPos - 10}px`)
+      .html(
+        `Insider: ${d.relationship}<br/>` +
+        `Company: ${d.symbol}<br/>` +
+        `Number of Shares: ${d.num_shares_own}<br/>` +
+        `Average Price per Share: ${d.aveg_pricePerShare}<br/>` +
+        `Total Value: ${d.tot_value}`
+      );
   }
 
   function handleMouseOut(d) {
-      // Restore the original size of the bubble when not hovered
-      d3.select(this)
-          .transition()
-          .duration(200)
-          .attr("r", d => radiusScale(d.tot_value))
-          .attr("opacity", 0.7);
+    // Restore the original size of the bubble when not hovered
+    d3.select(this)
+      .transition()
+      .duration(200)
+      .attr("r", d => radiusScale(d.tot_value))
+      .attr("opacity", 0.7);
 
-      // Hide the tooltip when the mouse is moved away from the bubble.
-      tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
+    // Hide the tooltip when the mouse is moved away from the bubble.
+    tooltip.transition()
+      .duration(500)
+      .style("opacity", 0);
   }
 
   // Add axes titles
   svg.append("text")
-      .attr("x", width / 2)
-      .attr("y", height - 10)
-      .attr("text-anchor", "middle")
-      .text("Average Price per Share");
+    .attr("x", width / 2)
+    .attr("y", height - 10)
+    .attr("text-anchor", "middle")
+    .text("Average Price per Share");
 
   svg.append("text")
-      .attr("x", 10)
-      .attr("y", height / 2)
-      .attr("text-anchor", "middle")
-      .attr("transform", "rotate(-90, 10, " + height / 2 + ")")
-      .text("Number of Shares Owned");
+    .attr("x", 10)
+    .attr("y", height / 2)
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90, 10, " + height / 2 + ")")
+    .text("Number of Shares Owned");
 
   // Append axes
   svg.append("g")
-      .attr("transform", `translate(0, ${height - margin})`)
-      .call(d3.axisBottom(xScale));
+    .attr("transform", `translate(0, ${height - margin})`)
+    .call(d3.axisBottom(xScale));
 
   svg.append("g")
-      .attr("transform", `translate(${margin}, 0)`)
-      .call(d3.axisLeft(yScale));
+    .attr("transform", `translate(${margin}, 0)`)
+    .call(d3.axisLeft(yScale));
 }
+
 
 
 drawBubbleChart();

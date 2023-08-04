@@ -242,7 +242,7 @@ width:100%
 
 /*** Center styling ***/
 #center {
-    background-image: linear-gradient(rgba(15, 13, 13, 0.3), rgba(5, 4, 46, 0.7)), url(../IMAGES/istockphoto-1133595964-612x612.webp);
+    background-image: linear-gradient(rgba(15, 13, 13, 0.75), rgba(5, 4, 46, 0.7)), url(../IMAGES/istockphoto-1133595964-612x612.webp);
     height: 80vh;
     background-size: cover;
     background-position: center;
