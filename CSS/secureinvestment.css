@@ -1,6 +1,7 @@
 
-    /* to here. Give the div after the navbar a padding of 30px at the top if the div is showing under the navbar */
-  
+ .container{
+    margin-top:120px;
+    }
   
     .content{
       height: 900px;
