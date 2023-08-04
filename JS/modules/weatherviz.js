@@ -142,8 +142,8 @@ const padding = 80;
 //*******************************************************************************************************
 //INIT MAP FUNCTION
 //*******************************************************************************************************
-// const apiKey = "df918deb135cc4c83828b9026095bfc1";
-// const units = "metric";
+const apiKey = "df918deb135cc4c83828b9026095bfc1";
+const units = "metric";
 
 export function initMap(userLatLng) {
   console.log(userLatLng);
