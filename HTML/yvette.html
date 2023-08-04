@@ -267,6 +267,12 @@
     </div>
   </footer>
 
+   <!--Back to top button-->
+<div id="topbtn" class="back-to-top">
+  <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+</div>
+
+
    <!--Bootstrap JS links-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!--Darkmode-->
@@ -283,6 +289,20 @@
   // event listener for the dark mode switch
   const darkModeSwitch = document.getElementById('dark-mode-switch');
   darkModeSwitch.addEventListener('change', toggleDarkMode);
+</script>
+
+<!--Script for Back-to-top button-->
+<script>
+  topBtn = document.getElementById("topbtn");
+  var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 500) {
+      topBtn.className = " back-to-top open"
+    } else {
+      topBtn.className = " back-to-top keep"
+    }
+  };
+  window.addEventListener("scroll", myScrollFunc);
 </script>
 
 </body>
