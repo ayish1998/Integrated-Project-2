@@ -2,9 +2,9 @@
 //*******************************************************************************************************
 //RENDER HEATMAP FUNCTION
 //*******************************************************************************************************
-const titleDiv = document.getElementById('title');
 
 export const renderHeatmap = (heatmapData) => {
+  const titleDiv = document.getElementById('title');
   console.log(heatmapData);
   const variables = ['temp', 'uv', 'precip', 'rh', 'wind_spd'];
   const variableLabels = {
@@ -142,8 +142,8 @@ const padding = 80;
 //*******************************************************************************************************
 //INIT MAP FUNCTION
 //*******************************************************************************************************
-// const apiKey = "df918deb135cc4c83828b9026095bfc1";
-// const units = "metric";
+const apiKey = "df918deb135cc4c83828b9026095bfc1";
+const units = "metric";
 
 export function initMap(userLatLng) {
   console.log(userLatLng);

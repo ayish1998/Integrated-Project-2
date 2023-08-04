@@ -7,40 +7,40 @@ import{
 } from './weatherdata.js'
 
 
-// //Daily weather Rapid API
-// const dailyAPIUrl = 'https://weatherapi-com.p.rapidapi.com/forecast.json';
-// const dailyHeaders = {
-//   'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-//   'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-// };
+//Daily weather Rapid API
+const dailyAPIUrl = 'https://weatherapi-com.p.rapidapi.com/forecast.json';
+const dailyHeaders = {
+  'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
+  'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+};
 
-// //Weekly weather data api
-// const apiUrl = 'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily';
-// const headers = {
-//   'X-RapidAPI-Key': '1ca8a0fb66msh23fd26fd3e1d4f5p19d955jsndb437160b2d1', //'9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795', //'6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892', //'1ca8a0fb66msh23fd26fd3e1d4f5p19d955jsndb437160b2d1', 
-//   'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
-// };
+//Weekly weather data api
+const apiUrl = 'https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily';
+const headers = {
+  'X-RapidAPI-Key': '9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'9ce3025d18msh24f6271c3e62f96p166c6djsn00ebb3963f6a', //'1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795', //'6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892', //'1ca8a0fb66msh23fd26fd3e1d4f5p19d955jsndb437160b2d1', 
+  'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+};
 
-// //Search autocomplete Rapid API
-// const searchApiUrl = 'https://weatherapi-com.p.rapidapi.com/search.json';
-// const searchHeaders = {
-//   'X-RapidAPI-Key': '6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892',
-//   'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-// };
+//Search autocomplete Rapid API
+const searchApiUrl = 'https://weatherapi-com.p.rapidapi.com/search.json';
+const searchHeaders = {
+  'X-RapidAPI-Key': '6cbee0e4e6mshf61f1a0cbd22aa9p124cc0jsnfd36b4991892',
+  'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+};
 
-// //Air Quality Rapid API
-// const airApiUrl = 'https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality';
-// const airHeaders = {
-//   'X-RapidAPI-Key': 'dc4b4555fdmsh5c18d8c366dfd18p132b94jsnf94eb119e74c',
-//   'X-RapidAPI-Host': 'air-quality-by-api-ninjas.p.rapidapi.com'
-// };
+//Air Quality Rapid API
+const airApiUrl = 'https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality';
+const airHeaders = {
+  'X-RapidAPI-Key': 'dc4b4555fdmsh5c18d8c366dfd18p132b94jsnf94eb119e74c',
+  'X-RapidAPI-Host': 'air-quality-by-api-ninjas.p.rapidapi.com'
+};
 
-// //News Rapid API
-// const newsApiUrl = 'https://weather338.p.rapidapi.com/news/list?offset=0&limit=10';
-// const newsHeaders = {
-//   'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
-//   'X-RapidAPI-Host': 'weather338.p.rapidapi.com'
-// };
+//News Rapid API
+const newsApiUrl = 'https://weather338.p.rapidapi.com/news/list?offset=0&limit=10';
+const newsHeaders = {
+  'X-RapidAPI-Key': '1bb0b0932amshadc927c7f447973p1e25e2jsn0eb548483795',
+  'X-RapidAPI-Host': 'weather338.p.rapidapi.com'
+};
 
 //Function to get current location's weather data
 async function getCurrentLocationWeather() {

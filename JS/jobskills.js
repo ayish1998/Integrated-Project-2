@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 		});
 	}
-
+	
 	// Function to retrieve country list from the Rest Countries API
 	async function getCountryList() {
 		const url = 'https://restcountries.com/v3.1/all';
@@ -17,48 +17,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 			console.error(error);
 		}
 	}
-	//Function to retrieve job data from the API
+	// Function to retrieve job data from the API
 	async function getJobData(selectedCountry) {
-	  const countryList = await getCountryList();
-	  const country = countryList.find(
-	    (country) => country === toTitleCase(selectedCountry)
-	  );
+		const countryList = await getCountryList();
+		const country = countryList.find(
+			(country) => country === toTitleCase(selectedCountry)
+		);
 
-	  if (!country) {
-	    console.error('Country not found.');
-	    return null;
-	  }
+		if (!country) {
+			console.error('Country not found.');
+			return null;
+		}
 
-	  const formattedCountry = encodeURIComponent(country); // Format the country name for the API request
-	  const jobTitle = 'NodeJS Developer'; // Set the desired job title here
+		const formattedCountry = encodeURIComponent(country); // Format the country name for the API request
+		const jobTitle = 'NodeJS Developer'; // Set the desired job title here
 
-	  const jobUrl = `https://jsearch.p.rapidapi.com/search?query=${formattedCountry}&page=1&num_pages=1`;
-	  const salaryUrl = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${encodeURIComponent(
-	    jobTitle
-	  )}&location=${formattedCountry}&radius=100`;
-	  const jobOptions = {
-	    method: 'GET',
-	    headers: {
-	      'X-RapidAPI-Key': '60ecf98851mshfffdee5656efa2ap15d724jsn20fe0d4a5e49',
-	      'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-	    },
-	  };
+		const jobUrl = `https://jsearch.p.rapidapi.com/search?query=${formattedCountry}&page=1&num_pages=1`;
+		const salaryUrl = `https://jsearch.p.rapidapi.com/estimated-salary?job_title=${encodeURIComponent(
+			jobTitle
+		)}&location=${formattedCountry}&radius=100`;
+		const jobOptions = {
+			method: 'GET',
+			headers: {
+				'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+				'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+			},
+		};
 
-	  const [jobResponse, salaryResponse] = await Promise.all([
-	    fetch(jobUrl, jobOptions),
-	    fetch(salaryUrl, jobOptions),
-	  ]);
+		const [jobResponse, salaryResponse] = await Promise.all([
+			fetch(jobUrl, jobOptions),
+			fetch(salaryUrl, jobOptions),
+		]);
 
-	  const jobData = await jobResponse.json();
-	  const salaryData = await salaryResponse.json();
+		const jobData = await jobResponse.json();
+		const salaryData = await salaryResponse.json();
 
-	  // Combine job data and salary data using job IDs
-	  const combinedData = jobData.data.map((job) => ({
-	    ...job,
-	    estimated_salary: findEstimatedSalary(job.job_title, salaryData.data),
-	  }));
+		// Combine job data and salary data using job IDs
+		const combinedData = jobData.data.map((job) => ({
+			...job,
+			estimated_salary: findEstimatedSalary(job.job_title, salaryData.data),
+		}));
 
-	  return combinedData;
+		return combinedData;
 	}
 	// Helper function to find the estimated salary for a job ID from salary data
 	function findEstimatedSalary(jobId, salaryData) {
@@ -82,12 +82,41 @@ document.addEventListener('DOMContentLoaded', async () => {
 			jobData.job_required_skills :
 			'N/A';
 
+		// Replace newline characters with </p><p> to split paragraphs
+		const descriptionWithParagraphs = jobData.job_description.replace(/\n/g, '</p><p>');
+
 		// Update the following lines with the correct property names based on the jobData object
-		explanation.innerHTML += `<p>Job Title: ${jobData.job_title}</p>`;
-		explanation.innerHTML += `<p>Job City: ${jobData.job_city}</p>`;
-		explanation.innerHTML += `<p>Job Country: ${jobData.job_country}</p>`;
-		explanation.innerHTML += `<p>Required Skills: ${requiredSkills}</p>`;
-		explanation.innerHTML += `<p>Job Description: ${jobData.job_description}</p>`;
+		const content = `
+		<div class="container" id="job-info">
+		     <div class="row"> 
+			     <div class="col-md-2">
+				   <img src="${jobData.employer_logo}" alt="Company Logo" id="company-logo">
+				 </div>
+
+				 <div class="col-md-10">
+					 <h6 id="company-name">${jobData.employer_name}</h6>
+					 <h4>${jobData.job_title}</h4>
+					
+					 <div style="display: flex;">
+					 	   <i class="fa-solid fa-location-dot"></i> 
+							<p>${jobData.job_city}</p>,
+							<p>${jobData.job_country}</p>
+
+						<p style="margin-left: 10px;">${jobData.job_employment_type}</p>
+					</div>
+				 </div>
+			 </div>
+	                <p>${descriptionWithParagraphs}</p>
+		
+		        <p>Required Skills: ${requiredSkills}</p>
+			
+				<a href="${jobData.job_apply_link}" id="apply-link">Apply Here</a>
+
+		</div>
+	  `;
+
+
+		explanation.innerHTML = content;
 	}
 
 	// Declare a global variable to store the chart instance

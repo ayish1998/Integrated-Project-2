@@ -74,29 +74,6 @@ h3 {
   text-align: center;
 }
 
-/* navbar starts here */
-nav a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar-brand {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.navbar-brand span {
-  color: grey;
-}
-
-.navbar-nav {
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-/* navbar ends here */
-
 /* news section starts here */
 #news {
   padding: 30px;
@@ -140,7 +117,6 @@ nav a {
 h3,
 h4 {
   font-weight: 600;
-  cursor: pointer;
 }
 
 #newsletter {
@@ -168,11 +144,98 @@ h4 {
 
 /* news section ends here */
 
-/* footer starts here */
-footer a {
-  text-decoration: none;
-  color: white;
+body.darkmode {
+  background-color: #1A1B1F;
+  color: #8a8a8a;
 }
+
+.darkmode .container {
+  color: #8a8a8a;
+}
+
+.darkmode #newsletter h2 {
+  color: #8a8a8a;
+}
+
+/* The darkmode switch */
+.dark-mode-switch {
+  margin-top: 70px;
+  position: fixed;
+  top: 30px;
+  right: 16px;
+  z-index: 9999;
+}
+
+.switch-label {
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+/* the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  margin-left: 4px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1A1B1F;
+  transition: .2s;
+  box-shadow: 2px 2px 3px #ffffff,
+    -2px -2px 3px #bebebe;
+}
+
+.darkmode .slider {
+  box-shadow: 2px 2px 3px #34353a,
+    -2px -2px 3px #000104;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background: #9294b8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #f4f4f4;
+}
+
+input:checked+.slider:before {
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 11px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
 
 /* Add responsive styles for tablet and mobile devices */
 @media screen and (max-width: 1024px) {

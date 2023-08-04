@@ -4,32 +4,6 @@
   padding: 0;
 }
 
-/* Nav */
-nav a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar-brand {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.navbar-brand span {
-  color: grey;
-}
-
-.navbar-nav {
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-footer a {
-  text-decoration: none;
-  color: white;
-}
-
 .content {
   margin-top: 80px;
   padding-top: 30px;
@@ -470,17 +444,6 @@ width: 50%;
   justify-content: center;
 }
 
-.news {
-  color: #198754;
-}
-
-.news a {
-  color: black
-}
-
-.news a:hover {
-  color: #198754;
-}
 
 svg {
   background-color: grey;
