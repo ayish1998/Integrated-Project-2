@@ -29,14 +29,25 @@ let originalData;
 function createBarChart(data) {
   const container = d3.select("#chart");
 
-   // Add dropdown for sorting order
-   const dropdown = container.insert("select", "svg")
-   .on("change", () => updateChart(dropdown.node().value));
+   
+// Add a container for the label and dropdown
+const labelContainer = container.append("div")
+  .attr("class", "label-container");
 
- dropdown.append("option").text("Sort by:");
- dropdown.append("option").text("Highest Order").attr("value", "highest");
- dropdown.append("option").text("Lowest Order").attr("value", "lowest");
- dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
+// Add a label for the dropdown
+labelContainer.append("label")
+  .text("Order by:")
+  .attr("for", "sort-dropdown"); // Associate the label with the dropdown
+
+// Add dropdown for sorting order
+const dropdown = labelContainer.append("select")
+  .on("change", () => updateChart(dropdown.node().value))
+  .attr("class", "sort-dropdown")
+  .attr("id", "sort-dropdown"); // Add an id for associating with the label
+
+dropdown.append("option").text("Highest Order").attr("value", "highest");
+dropdown.append("option").text("Lowest Order").attr("value", "lowest");
+dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
 
 
   const svg = container.append("svg")

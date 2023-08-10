@@ -155,7 +155,7 @@
       <div id="form-container"></div>
 
 
-      <div id="chart" style="height: 600; margin-top: 120px;"></div>
+      <div id="chart" style="height: 100%; width: 100%;"></div>
 
       <h5 style="margin-bottom: 20px;"><u>Relationship between the market capitalization (market cap) and the forward
           price-to-earnings ratio (forward
@@ -182,6 +182,34 @@
       </div>
 
       <style>
+        /* Style for the label container */
+        #chart .label-container {
+          display: flex;
+          /* Use flex display to position items */
+          align-items: center;
+          /* Center items vertically */
+          margin-bottom: 10px;
+          /* Add spacing at the bottom */
+        }
+
+        /* Style for the label */
+        #chart label {
+          font-size: 16px;
+          margin-right: 5px;
+          /* Add some spacing between label and dropdown */
+        }
+
+        /* Style for the dropdown */
+        #chart select.sort-dropdown {
+          padding: 8px;
+          font-size: 16px;
+          border-radius: 5px;
+        }
+
+
+
+
+
         #form-container label {
           margin: 2rem;
         }
@@ -226,7 +254,20 @@
   <div id="spacer" style="height: 100px;"></div>
 
 
+  <div class="dark-mode-switch">
+    <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-switch">
+      <span class="slider round"></span>
+    </label>
+  </div>
   <!--Footer-->
+
+
+  <!--Back to top button-->
+  <div id="topbtn" class="back-to-top">
+    <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+  </div>
 
   <footer>
     <div class="container-fluid bg-success text-white p-4">
@@ -300,7 +341,34 @@
 
   <script src="../JS/finTu.js"></script>
 
+  <!--Darkmode-->
+  <script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      // Get body element
+      const body = document.querySelector('body');
 
+      // Toggle the 'darkmode' class on the body element
+      body.classList.toggle('darkmode');
+    }
+
+    // event listener for the dark mode switch
+    const darkModeSwitch = document.getElementById('dark-mode-switch');
+    darkModeSwitch.addEventListener('change', toggleDarkMode);
+  </script>
+
+  <script>
+    topBtn = document.getElementById("topbtn");
+    var myScrollFunc = function () {
+      var y = window.scrollY;
+      if (y >= 500) {
+        topBtn.className = " back-to-top open"
+      } else {
+        topBtn.className = " back-to-top keep"
+      }
+    };
+    window.addEventListener("scroll", myScrollFunc);
+  </script>
 
 </body>
 

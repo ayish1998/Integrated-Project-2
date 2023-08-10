@@ -1014,6 +1014,22 @@ const y = d3.scaleLinear()
 
   <div id="spacer" style="height: 100px;"></div>
 
+  
+  <div class="dark-mode-switch">
+    <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-switch">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  
+    <!--Back to top button-->
+<div id="topbtn" class="back-to-top">
+  <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+</div>
+
+
   <!--Main Layout Section ends-->
   <!-- Footer section starts here-->
   <footer>
@@ -1113,6 +1129,36 @@ const y = d3.scaleLinear()
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Custom JS links-->
   <script src="../JS/jobdata.js"></script>
+
+  <!--Darkmode-->
+  <script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      // Get body element
+      const body = document.querySelector('body');
+  
+      // Toggle the 'darkmode' class on the body element
+      body.classList.toggle('darkmode');
+    }
+  
+    // event listener for the dark mode switch
+    const darkModeSwitch = document.getElementById('dark-mode-switch');
+    darkModeSwitch.addEventListener('change', toggleDarkMode);
+  </script>
+
+
+<script>
+  topBtn = document.getElementById("topbtn");
+  var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 500) {
+      topBtn.className = " back-to-top open"
+    } else {
+      topBtn.className = " back-to-top keep"
+    }
+  };
+  window.addEventListener("scroll", myScrollFunc);
+</script>
 </body>
 
 </html>

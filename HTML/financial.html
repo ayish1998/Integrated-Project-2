@@ -167,7 +167,9 @@
               <div class="card-text">
                 <p>
                   Relationship between a company's Price-to-Earnings (PE) ratio, Price/Earnings-to-Growth (PEG) ratio,
-                  and their Market Capitalization.
+                  and their Market Capitalization. Representing stock data with information about various stocks, including their earnings per share (EPS)
+                  trailing twelve months, EPS forward, and trailing price-to-earnings (PE) ratio. The function filters the
+                  stocks based on certain criteria and returns an array of filtered stocks.
 
                 </p>
               </div>
@@ -286,6 +288,20 @@
 
 
 
+    <div class="dark-mode-switch">
+      <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+      <label class="switch">
+        <input type="checkbox" id="dark-mode-switch">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    
+    <!--Back to top button-->
+<div id="topbtn" class="back-to-top">
+  <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+</div>
+
 
     <!-- footer starts here -->
 
@@ -359,6 +375,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"></script>
+
+      <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          // Get body element
+          const body = document.querySelector('body');
+      
+          // Toggle the 'darkmode' class on the body element
+          body.classList.toggle('darkmode');
+        }
+      
+        // event listener for the dark mode switch
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        darkModeSwitch.addEventListener('change', toggleDarkMode);
+      </script>
+
+<script>
+  topBtn = document.getElementById("topbtn");
+  var myScrollFunc = function () {
+    var y = window.scrollY;
+    if (y >= 500) {
+      topBtn.className = " back-to-top open"
+    } else {
+      topBtn.className = " back-to-top keep"
+    }
+  };
+  window.addEventListener("scroll", myScrollFunc);
+</script>
+    
   </body>
 
 </html>

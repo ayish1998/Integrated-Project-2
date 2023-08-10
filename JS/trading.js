@@ -3,7 +3,7 @@ async function fetchData() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+            'X-RapidAPI-Key': 'b059a9314dmshc7cfa4f532ef633p134d10jsne9b89f2993c7',
             'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
         }
     };

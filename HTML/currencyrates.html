@@ -13,7 +13,7 @@
 
     <!--fontawesome icons-->
     <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../CSS/financial.css">
     <link rel="stylesheet" href="../CSS/utils.css">
@@ -184,12 +184,55 @@
                 trailing twelve months, EPS forward, and trailing price-to-earnings (PE) ratio. The function filters the
                 stocks based on certain criteria and returns an array of filtered stocks.</p></div> -->
 
-            <div id="chart" class="chart" style="height: 600;"></div>
 
             <div id="legend-container"></div>
 
             <!-- SVG container for the bubble pie chart -->
             <div id="bubble-chart"></div>
+
+            <h5>Undervalued Growth Stocks Analysis</h5>
+            <table>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Company Name</th>
+                    <th>Price</th>
+                    <th>Dividend Yield</th>
+                    <th>PE Ratio</th>
+                    <th>Market Cap</th>
+                    <th>52-Week High Change (%)</th>
+                    <th>Avg. Daily Volume (3 Months)</th>
+                    <th>Exchange</th>
+
+                    <!-- Add headers for charts -->
+                    <th>Price Chart</th>
+                    <th>Dividend Yield Chart</th>
+                </tr>
+            </table>
+
+            <div id="combined-price-chart">
+                <svg id="chart-container2"></svg>
+            </div>
+
+            <script>
+                async function fetchInfo() {
+                    const url = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/timeseries?start_date=2019-01-01&end_date=2019-01-02&from=USD&to=EUR%2CGBP';
+                    const options = {
+                        method: 'GET',
+                        headers: {
+                            'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+                            'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+                        }
+                    };
+
+                    try {
+                        const response = await fetch(url, options);
+                        const result = await response.text();
+                        console.log(result);
+                    } catch (error) {
+                        console.error(error);
+                    }
+                }
+            </script>
 
             <style>
                 .tooltip {
@@ -200,6 +243,26 @@
                     padding: 10px;
                     pointer-events: none;
                 }
+
+                #combined-price-chart {
+                    overflow-x: scroll;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                th,
+                td {
+                    border: 1px solid black;
+                    padding: 8px;
+                    text-align: center;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                }
             </style>
 
 
@@ -208,8 +271,20 @@
 
     </section>
 
+    <div class="dark-mode-switch">
+        <label class="switch-label" for="dark-mode-switch">Dark mode</label>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-switch">
+            <span class="slider round"></span>
+        </label>
+    </div>
 
 
+
+    <!--Back to top button-->
+    <div id="topbtn" class="back-to-top">
+        <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+    </div>
 
     <!--Footer-->
 
@@ -222,7 +297,8 @@
                             class="d-inline-block align-text-center" />
                         Job<span>Insights</span></a>
                     <p>One-stop destination for global job, weather, and financial data and visualizations.
-                        Explore the world of opportunities, stay updated with the latest weather forecasts, and keep track of
+                        Explore the world of opportunities, stay updated with the latest weather forecasts, and keep
+                        track of
                         financial trends—all in one place.</p>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
@@ -254,9 +330,10 @@
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
                     <form class="d-block" action="../PHP/subscribe.php" method="post">
                         <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
-                          aria-label="Email">
-                        <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
-                      </form>
+                            aria-label="Email">
+                        <button class="btn btn-secondary btn-outline-light" name="subscribe"
+                            type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <hr>
@@ -288,6 +365,34 @@
 
     <script src="../JS/currency.js"></script>
 
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            // Get body element
+            const body = document.querySelector('body');
+
+            // Toggle the 'darkmode' class on the body element
+            body.classList.toggle('darkmode');
+        }
+
+        // event listener for the dark mode switch
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        darkModeSwitch.addEventListener('change', toggleDarkMode);
+    </script>
+
+    <script>
+        topBtn = document.getElementById("topbtn");
+        var myScrollFunc = function () {
+            var y = window.scrollY;
+            if (y >= 500) {
+                topBtn.className = " back-to-top open"
+            } else {
+                topBtn.className = " back-to-top keep"
+            }
+        };
+        window.addEventListener("scroll", myScrollFunc);
+    </script>
 </body>
 
 </html>
