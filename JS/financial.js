@@ -29,40 +29,48 @@ let originalData;
 function createBarChart(data) {
   const container = d3.select("#chart");
 
-   
 // Add a container for the label and dropdown
 const labelContainer = container.append("div")
-  .attr("class", "label-container");
+  .attr("class", "label-container")
+  .style("margin-top", "40px");
+
 
 // Add a label for the dropdown
 labelContainer.append("label")
   .text("Order by:")
   .attr("for", "sort-dropdown"); // Associate the label with the dropdown
 
-// Add dropdown for sorting order
+  // Add dropdown for sorting order
 const dropdown = labelContainer.append("select")
-  .on("change", () => updateChart(dropdown.node().value))
-  .attr("class", "sort-dropdown")
-  .attr("id", "sort-dropdown"); // Add an id for associating with the label
+.on("change", () => updateChart(dropdown.node().value))
+.attr("class", "sort-dropdown")
+.attr("id", "sort-dropdown"); // Add an id for associating with the label
 
 dropdown.append("option").text("Highest Order").attr("value", "highest");
 dropdown.append("option").text("Lowest Order").attr("value", "lowest");
 dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
 
 
-  const svg = container.append("svg")
-    .attr("width", 1000)
-    .attr("height", 600);
+ // Create a container for the SVG with a fixed width
+ const svgContainer = container.append("div")
+ .attr("class", "svg-container")
+ .style("width", "100%")
+ .style("overflow-x", "auto");
+
+const svg = svgContainer.append("svg")
+.attr("width", 700*2) // Set an initial width for the SVG
+.attr("height", 600);
 
   let chartData = data;
   originalData = [...chartData];
 
   const xScale = d3.scaleBand()
     .domain(chartData.map(d => d.symbol))
-    .range([50, 800])
+    .range([50, container.node().getBoundingClientRect().width - 40])
     .padding(0.2);
 
-  const yScale = d3.scaleLinear()
+  
+    const yScale = d3.scaleLinear()
     .domain([0, d3.max(chartData, d => parseFloat(d.regularMarketPrice))])
     .range([450, 2]);
 
@@ -126,12 +134,12 @@ dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
     .attr("transform", "translate(50, 0)")
     .call(d3.axisLeft(yScale));
 
-  // Add x-axis title
-  svg.append("text")
-    .attr("x", 500)
-    .attr("y", 500)
-    .attr("text-anchor", "middle")
-    .text("Companies");
+   // Adjust x-axis title position
+   svg.append("text")
+   .attr("x", container.node().getBoundingClientRect().width / 2)
+   .attr("y", 500)
+   .attr("text-anchor", "middle")
+   .text("Companies");
 
   // Add y-axis title
   svg.append("text")
@@ -144,7 +152,7 @@ dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
   // Create legend
   const legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(850, 10)");
+    .attr("transform", "translate(1200, 10)");
 
   const legendItems = legend.selectAll(".legend-item")
     .data(chartData)
@@ -171,38 +179,48 @@ dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
 
   
 
-   function updateChart(order) {
-  switch (order) {
-    case "highest":
-      chartData.sort((a, b) => parseFloat(b.regularMarketPrice) - parseFloat(a.regularMarketPrice));
-      break;
-    case "lowest":
-      chartData.sort((a, b) => parseFloat(a.regularMarketPrice) - parseFloat(b.regularMarketPrice));
-      break;
-    case "alphabetical":
-      chartData.sort((a, b) => a.symbol.localeCompare(b.symbol));
-      break;
+  function updateChart(order) {
+    switch (order) {
+      case "highest":
+        chartData.sort((a, b) => parseFloat(b.regularMarketPrice) - parseFloat(a.regularMarketPrice));
+        break;
+      case "lowest":
+        chartData.sort((a, b) => parseFloat(a.regularMarketPrice) - parseFloat(b.regularMarketPrice));
+        break;
+      case "alphabetical":
+        chartData.sort((a, b) => a.symbol.localeCompare(b.symbol));
+        break;
+    }
+  
+    selectedSymbolOrder = chartData.map(d => d.symbol);
+    xScale.domain(selectedSymbolOrder);
+  
+    svg.selectAll("rect")
+      .data(chartData, d => d.symbol)
+      .transition()
+      .duration(800)
+      .attr("x", d => xScale(d.symbol))
+      .attr("y", d => yScale(parseFloat(d.regularMarketPrice)))
+      .attr("height", d => 450 - yScale(parseFloat(d.regularMarketPrice)))
+      .attr("fill", (d, i) => getColor(i));
+  
+    // Update x-axis ticks
+    svg.select(".x-axis")
+      .transition()
+      .duration(800)
+      .call(d3.axisBottom(xScale)
+        .tickValues(selectedSymbolOrder) // Set tick values to selected order
+      );
+  
+    // Update x-axis tick labels
+    svg.selectAll(".x-axis .tick text")
+      .text(d => chartData.find(item => item.symbol === d).longName)
+      .attr("transform", "rotate(-45)")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em");
   }
-
-  selectedSymbolOrder = chartData.map(d => d.symbol);
-  xScale.domain(selectedSymbolOrder);
-
-  svg.selectAll("rect")
-    .data(chartData, d => d.symbol)
-    .transition()
-    .duration(800)
-    .attr("x", d => xScale(d.symbol))
-    .attr("y", d => yScale(parseFloat(d.regularMarketPrice)))
-    .attr("height", d => 450 - yScale(parseFloat(d.regularMarketPrice)))
-    .attr("fill", (d, i) => getColor(i));
-
-  svg.select(".x-axis")
-    .transition()
-    .duration(800)
-    .call(d3.axisBottom(xScale)
-      .tickValues(selectedSymbolOrder) // Set tick values to selected order
-    );
-}
+  
 
 }
 
@@ -211,9 +229,15 @@ dropdown.append("option").text("Alphabetical").attr("value", "alphabetical");
 // Function to create the bubble chart
 function createBubbleChart(data) {
   const container = d3.select("#chart-container");
-  const svg = container.append("svg")
-    .attr("width", 1000)
-    .attr("height", 900);
+  // Create a container for the SVG with a fixed width
+  const svgContainer = container.append("div")
+    .attr("class", "svg-container")
+    .style("width", "100%")
+    .style("overflow-x", "auto")
+
+  const svg = svgContainer.append("svg")
+    .attr("width", 700*2) // Set an initial width for the SVG
+    .attr("height", 750);
 
   const chartData = data.map(d => ({
     symbol: d.symbol,
@@ -299,7 +323,7 @@ function createBubbleChart(data) {
   // Add legend
   const legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(950, 20)");
+    .attr("transform", "translate(950, 5)");
 
   const legendItems = legend.selectAll(".legend-item")
     .data(chartData)

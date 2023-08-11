@@ -1,396 +1,273 @@
-
-
-async function fetchInfo() {
-  const url = 'https://mboum-finance.p.rapidapi.com/co/collections/undervalued_growth_stocks?start=0';
+async function fetchCurrencies() {
+  const url = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols';
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'b059a9314dmshc7cfa4f532ef633p134d10jsne9b89f2993c7',
-      'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+      'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+      'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
     }
   };
 
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    createVisualization(data.quotes);
+    const symbols = data.symbols;
 
-    console.log(data.quotes);
+    console.log(symbols);
+
+    // Sort the symbols alphabetically
+    const sortedSymbols = Object.keys(symbols).sort();
+
+    const fromCurrencySelect = document.getElementById('fromCurrency');
+    const toCurrencySelect = document.getElementById('toCurrency');
+
+    // Populate the dropdowns with sorted currencies
+    for (const symbol of sortedSymbols) {
+      const option = document.createElement('option');
+      option.value = symbol;
+      option.textContent = `${symbol} - ${symbols[symbol]}`;
+      fromCurrencySelect.appendChild(option);
+
+      const option2 = document.createElement('option');
+      option2.value = symbol;
+      option2.textContent = `${symbol} - ${symbols[symbol]}`;
+      toCurrencySelect.appendChild(option2);
+    }
   } catch (error) {
     console.error(error);
   }
 }
 
-function createVisualization(data) {
-  // Define dimensions for the chart
-  const width = 900;
-  const height = 700;
 
-  // Define the scale for market cap (bubble size)
-  const marketCapScale = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.marketCap))
-    .range([5, 30]);
+async function convertCurrency() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const fromCurrency = document.getElementById('fromCurrency').value;
+  const toCurrency = document.getElementById('toCurrency').value;
 
-  // Define the scale for earnings growth rate (bubble color)
-  const growthRateScale = d3.scaleLinear()
-    .domain([25, d3.max(data, d => d.epsForward)])
-    .range(['lightgreen', 'darkgreen']);
+  if (isNaN(amount)) {
+    alert('Please enter a valid amount.');
+    return;
+  }
 
-  // Define the scale for PE ratio (x-axis)
-  const peRatioScale = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.trailingPE))
-    .range([50, width - 50]);
+  try {
+    const url = `https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+        'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+      }
+    };
 
-  // Define the scale for PEG ratio (y-axis)
-  const pegRatioScale = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.epsForward / d.epsTrailingTwelveMonths))
-    .range([height - 50, 50]);
+    const response = await fetch(url, options);
+    const resultData = await response.json();
 
-  const svg = d3.select("#chart-container")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-  const tooltip = d3.select("#chart-container")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-  // Create circles for each stock (bubble chart)
-  svg.selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("cx", d => peRatioScale(d.trailingPE))
-    .attr("cy", d => pegRatioScale(d.epsForward / d.epsTrailingTwelveMonths))
-    .attr("r", d => marketCapScale(d.marketCap))
-    .attr("fill", d => growthRateScale(d.epsForward))
-    .attr("opacity", 0.7)
-    .on("mouseover", (event, d) => {
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", 0.9);
-
-      tooltip.html(`<strong>${d.displayName}</strong><br>
-        Market Cap: $${d.marketCap.toFixed(2)}B<br>
-        PE Ratio: ${d.trailingPE.toFixed(2)}<br>
-        PEG Ratio: ${(d.epsForward / d.epsTrailingTwelveMonths).toFixed(2)}<br>
-        Earnings Growth Rate: ${(d.epsForward * 100).toFixed(2)}%<br>
-        Fifty Two Week Range: ${d.fiftyTwoWeekRange}<br>
-        Dividend Yield: ${d.dividendYield.toFixed(2)}%<br>
-        Trailing PE: ${d.trailingPE.toFixed(2)}<br>
-        Forward PE: ${d.forwardPE.toFixed(2)}`)
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY - 30) + "px");
-    })
-    .on("mouseout", () => {
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", 0);
+    const rate = resultData.info.rate.toFixed(6);
+    const rawDate = new Date(resultData.date);
+    const formattedDate = rawDate.toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
     });
 
-  // Add x-axis
-  svg.append("g")
-    .attr("transform", "translate(0," + (height - 50) + ")")
-    .call(d3.axisBottom(peRatioScale));
+    const convertedAmount = resultData.result.toFixed(2);
+    const fromCurrencyName = resultData.query.from;
+    const toCurrencyName = resultData.query.to;
 
-  // Add y-axis
-  svg.append("g")
-    .attr("transform", "translate(50,0)")
-    .call(d3.axisLeft(pegRatioScale));
+    const conversionText = `
+  <div id="conversionResult">
+    <div id="amount">${amount} ${fromCurrencyName} = <br> <span> ${convertedAmount} ${toCurrencyName} </span></div>
+    <div id="rate"> Rate: 1 ${fromCurrencyName} = ${rate} ${toCurrencyName}</div>
+  </div>
+  
+  <div id="date">Last updated: ${formattedDate}</div>
+`;
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = conversionText;
 
-  // Add the chart title
-  svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .style("font-size", "20px")
-    .text("Undervalued Growth Stocks Bubble Chart");
-
-  // Add x-axis title
-  svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", height - 10)
-    .attr("text-anchor", "middle")
-    .style("font-size", "14px")
-    .text("Price-to-Earnings (PE) Ratio");
-
-  // Add y-axis title
-  svg.append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("x", -height / 2)
-    .attr("y", 20)
-    .attr("text-anchor", "middle")
-    .style("font-size", "14px")
-    .text("Price/Earnings-to-Growth (PEG) Ratio");
-
-  // Bubble size legend
-  const legendContainer = svg.append("g")
-    .attr("class", "legend")
-    .attr("transform", `translate(${width - 100}, ${height - 200})`);
-
-  const legendData = [1, 10, 30]; // You can adjust these values based on your data
-
-  // Adjust these values based on your layout
-  const xCircle = 100;
-  const yCircle = 100;
-  const xLabel = 150;
-
-  // Add legend: circles
-  legendContainer.selectAll("legend")
-    .data(legendData)
-    .enter()
-    .append("circle")
-    .attr("cx", xCircle)
-    .attr("cy", d => yCircle - marketCapScale(d))
-    .attr("r", d => marketCapScale(d))
-    .style("fill", "none")
-    .attr("stroke", "black");
-
-  // Add legend: segments
-  legendContainer.selectAll("legend")
-    .data(legendData)
-    .enter()
-    .append("line")
-    .attr('x1', d => xCircle + marketCapScale(d))
-    .attr('x2', xLabel)
-    .attr('y1', d => yCircle - marketCapScale(d))
-    .attr('y2', d => yCircle - marketCapScale(d))
-    .attr('stroke', 'black')
-    .style('stroke-dasharray', ('2,2'));
-
-  // Add legend: labels
-  legendContainer.selectAll("legend")
-    .data(legendData)
-    .enter()
-    .append("text")
-    .attr('x', xLabel)
-    .attr('y', d => yCircle - marketCapScale(d))
-    .text(d => d)
-    .style("font-size", 10)
-    .attr('alignment-baseline', 'middle');
+    // Hide the Convert button
+    document.getElementById('convertBtn').style.display = 'none';
+  } catch (error) {
+    console.error(error);
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = 'Conversion failed. Please try again later.';
+  }
 }
-fetchInfo();
 
-let isChartCreated = false; // Define isChartCreated outside the function
+// Clear the result and show the Convert button when a new currency is selected
+function clearResult() {
+  const resultElement = document.getElementById('result');
+  resultElement.textContent = '';
+  document.getElementById('convertBtn').style.display = 'block';
+}
 
-async function fetchData() {
-  const url = 'https://mboum-finance.p.rapidapi.com/co/collections/undervalued_growth_stocks?start=0';
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchCurrencies();
+  document.getElementById('convertBtn').addEventListener('click', convertCurrency);
+  document.getElementById('swapBtn').addEventListener('click', swapCurrencies);
+
+  // Call clearResult when new currency selections are made
+  document.getElementById('fromCurrency').addEventListener('change', clearResult);
+  document.getElementById('toCurrency').addEventListener('change', clearResult);
+});
+
+
+function swapCurrencies() {
+  const fromCurrencySelect = document.getElementById('fromCurrency');
+  const toCurrencySelect = document.getElementById('toCurrency');
+
+  const fromCurrencyValue = fromCurrencySelect.value;
+  const toCurrencyValue = toCurrencySelect.value;
+
+  // Swap the selected currencies
+  fromCurrencySelect.value = toCurrencyValue;
+  toCurrencySelect.value = fromCurrencyValue;
+}
+
+
+
+
+//     const fetchData = async () => {
+//         const ratesUrl = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest?from=USD&to=EUR%2CGBP';
+//         const countryCodeUrl = 'https://geosource-api.p.rapidapi.com/currencyByCountry.php?country=us';
+//         const ratesHeaders = {
+//             'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+//             'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+//         };
+//         const countryCodeHeaders = {
+//             'X-RapidAPI-Key': 'b059a9314dmshc7cfa4f532ef633p134d10jsne9b89f2993c7',
+//             'X-RapidAPI-Host': 'geosource-api.p.rapidapi.com'
+//         };
+
+//         try {
+//             const ratesResponse = await fetch(ratesUrl, { method: 'GET', headers: ratesHeaders });
+//             const countryCodeResponse = await fetch(countryCodeUrl, { method: 'GET', headers: countryCodeHeaders });
+
+//             const ratesResult = await ratesResponse.json();
+//             const countryCodeResult = await countryCodeResponse.json();
+
+//             const currencyToCountryMap = {}; // Initialize an empty mapping
+
+//             // Check if ratesResult and ratesResult.rates are defined
+//             if (ratesResult && ratesResult.rates) {
+//                 // Map currency codes to country codes and rates
+//                 for (const currency of countryCodeResult) {
+//                     const countryCode = currency.CountryCode;
+//                     if (ratesResult.rates.hasOwnProperty(currency.Currency)) {
+//                         currencyToCountryMap[countryCode] = ratesResult.rates[currency.Currency];
+//                     }
+//                 }
+//             }
+
+//             visualizeMap(currencyToCountryMap);
+//         } catch (error) {
+//             console.error(error);
+//         }
+//     };
+
+//     const visualizeMap = (currencyToCountryMap) => {
+// d3.json('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson').then((data) => {
+//     const svg = d3.select('#map').append('svg')
+//         .attr('width', 900)
+//         .attr('height', 500);
+
+//     // Create a color scale based on currency rates
+//     const colorScale = d3.scaleSequential(d3.interpolateViridis)
+//         .domain([0, d3.max(Object.values(currencyToCountryMap))]);
+
+//     // Create a map projection
+//     const projection = d3.geoMercator()
+//         .fitSize([800, 500], data);
+
+//     // Create a path generator
+//     const path = d3.geoPath().projection(projection);
+
+//     // Create a tooltip
+//     const tooltip = d3.select('body').append('div')
+//         .attr('class', 'tooltip')
+//         .style('position', 'absolute')
+//         .style('visibility', 'hidden')
+//         .style('background-color', 'rgba(0, 0, 0, 0.7)')
+//         .style('color', 'white')
+//         .style('font-size', '12px')
+//         .style('border-radius', '4px')
+//         .style('padding', '8px')
+//         .style('pointer-events', 'none');
+
+//     // Draw map
+//     svg.selectAll('path')
+//         .data(data.features)
+//         .enter().append('path')
+//         .attr('d', path)
+//         .attr('fill', (d) => {
+//             const countryCode = d.properties.ISO_A2;
+//             const rate = currencyToCountryMap[countryCode];
+//             return rate !== undefined ? colorScale(rate) : 'gray';
+//         })
+//         .on('mouseover', function (event, d) {
+//             const countryCode = d.properties.ISO_A2;
+//             const rate = currencyToCountryMap[countryCode];
+//             const countryName = d.properties.NAME;
+//             const tooltipText = rate !== undefined ? `${countryName}: ${rate.toFixed(6)}` : `${countryName}: N/A`;
+
+//             // Show tooltip
+//             tooltip
+//                 .style('visibility', 'visible')
+//                 .html(tooltipText)
+//                 .style('top', event.pageY + 'px')
+//                 .style('left', event.pageX + 'px');
+//         })
+//         .on('mouseout', function () {
+//             // Hide tooltip
+//             tooltip.style('visibility', 'hidden');
+//         });
+
+//             // ... Rest of the code ...
+
+//             // Add a legend
+//             // ... Add legend code from previous responses ...
+//         });
+//     };
+
+//     // Call the fetchData function to fetch data and visualize the map
+//     fetchData();
+
+async function fetchCurrent() {
+  const url = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest?from=USD&to=EUR%2CGBP';
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'b059a9314dmshc7cfa4f532ef633p134d10jsne9b89f2993c7',
-      'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
+      'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
+      'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
     }
   };
 
   try {
     const response = await fetch(url, options);
-    const data = await response.json();
-
-    const table = document.querySelector('table');
-    const tbody = table.querySelector('tbody');
-
-    data.quotes.forEach(stock => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${stock.symbol}</td>
-        <td>${stock.displayName}</td>
-        <td>${stock.regularMarketPrice}</td>
-        <td>${stock.dividendYield}</td>
-        <td>${stock.trailingPE}</td>
-        <td>${stock.marketCap}</td>
-        <td>${stock.fiftyTwoWeekHighChangePercent}</td>
-        <td>${stock.averageDailyVolume3Month}</td>
-        <td>${stock.exchange}</td>
-
-        <td>
-          <div id="${stock.symbol}-price-chart"></div>
-        </td>
-        <td>
-          <div id="${stock.symbol}-dividend-chart"></div>
-        </td>
-      `;
-      tbody.appendChild(row);
-
-      // Create Price Chart
-      // createPriceChart(stock);
-
-      // Create Dividend Yield Chart
-      // createDividendChart(stock);
-    });
-
-    if (!isChartCreated) {
-      const combinedData = data.quotes.map(stock => ({
-        symbol: stock.symbol,
-        priceData: [stock.regularMarketPrice, stock.fiftyDayAverage, stock.twoHundredDayAverage]
-      }));
-
-      createCombinedPriceChart(combinedData);
-      isChartCreated = true;
-    }
-
+    const apiData = await response.json();
+    populateTable(apiData);
   } catch (error) {
     console.error(error);
   }
 }
 
+function populateTable(apiData) {
+  const currencyTable = document.getElementById('currency-table');
+  const tbody = currencyTable.querySelector('tbody');
 
-fetchData();
+  const currencies = Object.keys(apiData.rates);
+  const rates = Object.values(apiData.rates);
 
-  // function createPriceChart(stock) {
-  //   const margin = { top: 10, right: 30, bottom: 30, left: 60 };
-  //   const width = 250 - margin.left - margin.right;
-  //   const height = 120 - margin.top - margin.bottom;
+  const headerRow = document.createElement('tr');
+  headerRow.innerHTML = '<th>Currency</th>' + currencies.map(currency => `<th>${currency}</th>`).join('');
+  tbody.appendChild(headerRow);
 
-  //   const svg = d3.select(`#${stock.symbol}-price-chart`)
-  //     .append("svg")
-  //     .attr("width", width + margin.left + margin.right)
-  //     .attr("height", height + margin.top + margin.bottom)
-  //     .append("g")
-  //     .attr("transform", `translate(${margin.left},${margin.top})`);
+  const rateRow = document.createElement('tr');
+  rateRow.innerHTML = `<th>Exchange Rate</th>${rates.map(rate => `<td>${rate}</td>`).join('')}`;
+  tbody.appendChild(rateRow);
+}
 
-  //   const priceData = [
-  //     stock.regularMarketPrice,  // Example: Current price
-  //     stock.fiftyDayAverage,     // Example: 50-day moving average
-  //     stock.twoHundredDayAverage // Example: 200-day moving average
-  //   ];
-
-  //   const x = d3.scaleLinear().domain([0, priceData.length - 1]).range([0, width]);
-  //   const y = d3.scaleLinear().domain([0, d3.max(priceData)]).range([height, 0]);
-
-  //   const line = d3.line()
-  //     .x((d, i) => x(i))
-  //     .y(d => y(d));
-
-  //   svg.append("path")
-  //     .datum(priceData)
-  //     .attr("class", "line")
-  //     .attr("d", line);
-  // }
-
-  // function createDividendChart(stock) {
-  //   const margin = { top: 10, right: 30, bottom: 30, left: 60 };
-  //   const width = 250 - margin.left - margin.right;
-  //   const height = 120 - margin.top - margin.bottom;
-
-  //   const svg = d3.select(`#${stock.symbol}-dividend-chart`)
-  //     .append("svg")
-  //     .attr("width", width + margin.left + margin.right)
-  //     .attr("height", height + margin.top + margin.bottom)
-  //     .append("g")
-  //     .attr("transform", `translate(${margin.left},${margin.top})`);
-
-  //   const dividendData = [
-  //     stock.dividendYield,              // Example: Dividend Yield
-  //     stock.trailingAnnualDividendYield // Example: Trailing Annual Dividend Yield
-  //   ];
-
-  //   const x = d3.scaleLinear().domain([0, dividendData.length - 1]).range([0, width]);
-  //   const y = d3.scaleLinear().domain([0, d3.max(dividendData)]).range([height, 0]);
-
-  //   const line = d3.line()
-  //     .x((d, i) => x(i))
-  //     .y(d => y(d));
-
-  //   svg.append("path")
-  //     .datum(dividendData)
-  //     .attr("class", "line")
-  //     .attr("d", line);
-  // }
-
-
-
- function createCombinedPriceChart(data) {
-    const margin = { top: 30, right: 30, bottom: 70, left: 70 };
-    const width = 800*3 - margin.left - margin.right;
-    const height = 7 - margin.top - margin.bottom;
-
-    const svg = d3.select("#chart-container2")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .call(d3.zoom().on("zoom", handleZoom))
-      .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
-
-    const colors = d3.scaleOrdinal(d3.schemeCategory10);
-
-    const x = d3.scaleLinear().range([0, width]);
-    const y = d3.scaleLinear().range([height, 0]);
-
-    // Define a custom curve generator for the lines
-    const curveGenerator = d3.line()
-      .x((d, i) => x(i))
-      .y(d => y(d))
-      .curve(d3.curveBasis); // Choose the curve type you like
-
-    x.domain([0, data[0].priceData.length - 1]);
-    y.domain([0, d3.max(data, d => d3.max(d.priceData))]);
-
-    const series = svg.selectAll(".series")
-      .data(data)
-      .enter().append("g")
-      .attr("class", "series");
-
-    series.append("path")
-      .attr("class", "line")
-      .attr("d", d => curveGenerator(d.priceData))
-      .style("stroke", (d, i) => colors(i))
-      .style("fill", "none");
-
-    // Add x-axis
-    svg.append("g")
-      .attr("class", "x-axis")
-      .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(x));
-
-    // Add y-axis
-    svg.append("g")
-      .attr("class", "y-axis")
-      .call(d3.axisLeft(y));
-
-    // Add x-axis title
-    svg.append("text")
-      .attr("transform", `translate(${width / 2},${height + margin.top + 40})`)
-      .style("text-anchor", "middle")
-      .text("Time");
-
-    // Add y-axis title
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x", 0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Price");
-
-    // Add legend
-    const legend = svg.selectAll(".legend")
-      .data(data)
-      .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", (d, i) => `translate(0,${i * 20})`);
-
-    legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", (d, i) => colors(i));
-
-    legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(d => d.symbol);
-  }
-
-  function handleZoom(event) {
-    const transform = event.transform;
-    d3.select("#chart-container > g")
-      .attr("transform", transform);
-  }
-
-
+fetchCurrent();
 
 

@@ -161,16 +161,14 @@
             <div class="card-body">
               <div class="card-title">
                 <h4>
-                  <a href="../HTML/currencyrates.html">Undervalued Growth Rates</a>
+                  <a href="../HTML/currencyrates.html">Currency Rates</a>
                 </h4>
               </div>
               <div class="card-text">
                 <p>
-                  Relationship between a company's Price-to-Earnings (PE) ratio, Price/Earnings-to-Growth (PEG) ratio,
-                  and their Market Capitalization. Representing stock data with information about various stocks, including their earnings per share (EPS)
-                  trailing twelve months, EPS forward, and trailing price-to-earnings (PE) ratio. The function filters the
-                  stocks based on certain criteria and returns an array of filtered stocks.
-
+                  To facilitate currency conversion and provide exchange rate information between various currencies. It
+                  enables users to fetch up-to-date exchange rates, convert amounts from one currency to another, and
+                  access currency-related data for specific countries.
                 </p>
               </div>
 
@@ -296,11 +294,11 @@
       </label>
     </div>
 
-    
+
     <!--Back to top button-->
-<div id="topbtn" class="back-to-top">
-  <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
-</div>
+    <div id="topbtn" class="back-to-top">
+      <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+    </div>
 
 
     <!-- footer starts here -->
@@ -376,34 +374,34 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"></script>
 
-      <script>
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-          // Get body element
-          const body = document.querySelector('body');
-      
-          // Toggle the 'darkmode' class on the body element
-          body.classList.toggle('darkmode');
-        }
-      
-        // event listener for the dark mode switch
-        const darkModeSwitch = document.getElementById('dark-mode-switch');
-        darkModeSwitch.addEventListener('change', toggleDarkMode);
-      </script>
+    <script>
+      // Function to toggle dark mode
+      function toggleDarkMode() {
+        // Get body element
+        const body = document.querySelector('body');
 
-<script>
-  topBtn = document.getElementById("topbtn");
-  var myScrollFunc = function () {
-    var y = window.scrollY;
-    if (y >= 500) {
-      topBtn.className = " back-to-top open"
-    } else {
-      topBtn.className = " back-to-top keep"
-    }
-  };
-  window.addEventListener("scroll", myScrollFunc);
-</script>
-    
+        // Toggle the 'darkmode' class on the body element
+        body.classList.toggle('darkmode');
+      }
+
+      // event listener for the dark mode switch
+      const darkModeSwitch = document.getElementById('dark-mode-switch');
+      darkModeSwitch.addEventListener('change', toggleDarkMode);
+    </script>
+
+    <script>
+      topBtn = document.getElementById("topbtn");
+      var myScrollFunc = function () {
+        var y = window.scrollY;
+        if (y >= 500) {
+          topBtn.className = " back-to-top open"
+        } else {
+          topBtn.className = " back-to-top keep"
+        }
+      };
+      window.addEventListener("scroll", myScrollFunc);
+    </script>
+
   </body>
 
 </html>

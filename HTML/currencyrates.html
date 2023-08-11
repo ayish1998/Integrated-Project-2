@@ -135,141 +135,175 @@
     </header>
 
 
+
     <section id="wrapper">
         <div class="container">
             <div id="title-out">
                 <div class="centered container">
                     <div class="meta-bar">
                         <strong> <a href="../HTML/financial.html">financial data</a></strong> /
-                        undervalued growth rates
+                        currency rates
                     </div>
 
-                    <h1>Undervalued Growth Rates</h1>
+                    <h1>Currency Rates</h1>
 
                 </div>
             </div>
 
 
-
-
-            <!-- EXCHANGE RATES AGAINST THE EURO <br>
-            <label for="currency">Select a currency:</label>
-            <select id="currency" aria-placeholder="USD">
-                <option value="USD">USD</option>
-            </select> -->
-
             <div style="margin: 30px 0;">
-                <h6>Stocks Metrics Bubble Chart</h6>
+                <h6>Currency Conversion</h6>
 
-                <p>Relationship between a company's Price-to-Earnings (PE) ratio, Price/Earnings-to-Growth (PEG) ratio,
-                    and
-                    their Market Capitalization. Each bubble on the chart represents an individual stock, and its size
-                    corresponds to its Market Capitalization, while its color represents the company's projected
-                    Earnings
-                    Growth Rate.</p>
-
-                <p> Each bubble on the chart represents an individual stock, and its size corresponds to its Market
-                    Capitalization, while its color represents the company's projected Earnings Growth Rate.</p>
+                <p>Exchange rates play a crucial role in the global economy, as they determine the relative value of one
+                    currency in terms of another. Exchange rates fluctuate based on a range of factors, including
+                    economic indicators, market sentiment, political events, and central bank policies.p>
 
             </div>
-
-
-
-            <svg id="chart-container" width="1000" height="700"></svg>
-
-            <!-- <div style="margin: 40px 0 30px 0;">
-            <h6>Stocks with earnings growth rates better than 25% and relatively low PE and PEG ratios</h6>
-
-            <p>Representing stock data with information about various stocks, including their earnings per share (EPS)
-                trailing twelve months, EPS forward, and trailing price-to-earnings (PE) ratio. The function filters the
-                stocks based on certain criteria and returns an array of filtered stocks.</p></div> -->
-
-
-            <div id="legend-container"></div>
-
-            <!-- SVG container for the bubble pie chart -->
-            <div id="bubble-chart"></div>
-
-            <h5>Undervalued Growth Stocks Analysis</h5>
-            <table>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Company Name</th>
-                    <th>Price</th>
-                    <th>Dividend Yield</th>
-                    <th>PE Ratio</th>
-                    <th>Market Cap</th>
-                    <th>52-Week High Change (%)</th>
-                    <th>Avg. Daily Volume (3 Months)</th>
-                    <th>Exchange</th>
-
-                    <!-- Add headers for charts -->
-                    <th>Price Chart</th>
-                    <th>Dividend Yield Chart</th>
-                </tr>
-            </table>
-
-            <div id="combined-price-chart">
-                <svg id="chart-container2"></svg>
-            </div>
-
-            <script>
-                async function fetchInfo() {
-                    const url = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/timeseries?start_date=2019-01-01&end_date=2019-01-02&from=USD&to=EUR%2CGBP';
-                    const options = {
-                        method: 'GET',
-                        headers: {
-                            'X-RapidAPI-Key': 'fc67e2b7c2mshc96a0a884cc6c68p17e57fjsn3458cd46e49a',
-                            'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
-                        }
-                    };
-
-                    try {
-                        const response = await fetch(url, options);
-                        const result = await response.text();
-                        console.log(result);
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
-            </script>
-
-            <style>
-                .tooltip {
-                    position: absolute;
-                    background-color: white;
-                    color: black;
-                    border: 1px solid #ccc;
-                    padding: 10px;
-                    pointer-events: none;
-                }
-
-                #combined-price-chart {
-                    overflow-x: scroll;
-                }
-
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                }
-
-                th,
-                td {
-                    border: 1px solid black;
-                    padding: 8px;
-                    text-align: center;
-                }
-
-                th {
-                    background-color: #f2f2f2;
-                }
-            </style>
-
-
 
         </div>
 
     </section>
+
+    <section id="conversion">
+
+        <div class="container mt-5 mb-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="input-group mb-3">
+                        <input type="number" class=" form-select-lg form-control" id="amount"
+                            placeholder="Enter amount">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            id="fromCurrency"></select>
+                    </div>
+                </div>
+                <div class="col-md-1 justify-content-center">
+                    <button class="btn btn-secondary mb-3" id="swapBtn"><img src="../IMAGES/reverse arrow.png"
+                            style="height:1,.3rem; width: 1.3rem;"></button>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            id="toCurrency"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end" style="margin-right: 9%; margin-top: 2%;">
+                <button type="button" class="btn btn-primary" id="convertBtn">Convert</button>
+            </div>
+
+            <div class="row mt-3">
+                <p id="result"></p>
+            </div>
+        </div>
+
+        <div class="container mb-5 ">
+            <h6>Lastest Currency Rates Against 1 EUR</h6>
+
+            <div id="table-container" style="margin-top: 30px;">
+                <table id="currency-table">
+                    <thead>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+
+        </div>
+    </section>
+
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        #table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        #conversion .container {
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border-radius: 10px;
+            padding: 30px;
+            min-height: 40vh;
+        }
+
+        #conversion .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #conversion select,
+        input {
+            margin: 3px;
+        }
+
+        #conversion ::placeholder,
+        .form-select-lg {
+            font-size: 18px;
+        }
+
+        #conversion #swapBtn {
+            background-color: white;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.151);
+        }
+
+        #conversion #convertBtn {
+            background-color: green;
+        }
+
+        #conversion #result {
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        #conversion #result #amount {
+            color: rgb(92, 102, 123);
+            font-weight: 600;
+            margin: 0px;
+            font-size: 1.4rem;
+            max-width: 100%;
+        }
+
+        #conversion #result #amount span {
+            font-size: 3rem;
+            font-weight: 600;
+            color: rgb(46, 60, 87);
+        }
+
+        #conversion #result #rate {
+            line-height: 1.7;
+            font-size: 1.5rem;
+        }
+
+        #conversion #result #date {
+            font-size: 17px;
+        }
+    </style>
+
 
     <div class="dark-mode-switch">
         <label class="switch-label" for="dark-mode-switch">Dark mode</label>

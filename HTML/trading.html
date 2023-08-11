@@ -13,7 +13,7 @@
 
     <!--fontawesome icons-->
     <link rel="stylesheet" href="https://kit.fontawesome.com/9e861a04ca.css" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../CSS/financial.css">
     <link rel="stylesheet" href="../CSS/utils.css">
@@ -78,8 +78,8 @@
                         </li>
                         <!--Tutorials dropdown-->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Tutorials
                             </a>
                             <ul class="dropdown-menu">
@@ -87,11 +87,13 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a></li>
+                                <li><a class="dropdown-item" href="../HTML/weathertutorial.html">Weather Tutorial</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial Tutorial</a></li>
+                                <li><a class="dropdown-item" href="../HTML/financialtutorial.html">Financial
+                                        Tutorial</a></li>
                             </ul>
                         </li>
                         <!--Tutotrials dropdown ends here-->
@@ -117,7 +119,7 @@
                             <a class="nav-link" href="../PHP/contact.php">Contact Us</a>
                         </li>
                     </ul>
-                    
+
                 </div>
             </div>
         </nav>
@@ -141,6 +143,8 @@
 
             <h6 id="table-title">Form Screener</h6>
 
+            <div class="table-container">
+
             <table id="data-table" style="height: 500">
                 <thead>
                     <tr>
@@ -158,17 +162,32 @@
                 </tbody>
             </table>
 
+            <div class="pagination">
+                <button id="prev-page">Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button id="next-page">Next</button>
+              </div>
+              <input type="text" id="search-input" placeholder="Search...">
+            </div>
+
             <div style="margin-top: 40px;">
                 <h5><u>Buuble Chart Insider Trading Visualization</u></h5>
-            <p>The bubble chart below visualizes insider trading activity for various companies in a market. Each bubble
-                in the chart
-                represents an individual insider and is positioned based on the average price per share they transacted
-                and the number of shares they own. The size of each bubble is determined by the total value of their
-                transactions. This visualization helps to identify patterns and trends in insider trading behavior,
-                understand the distribution of transactions across different companies, and possibly gain insights into
-                how insiders' actions may impact the market sentiment or company performance.</p>
-</div>
-          <div class="container" style="padding: 0;"><div id="chart"></div></div>
+                <p>The bubble chart below visualizes insider trading activity for various companies in a market. Each
+                    bubble
+                    in the chart
+                    represents an individual insider and is positioned based on the average price per share they
+                    transacted
+                    and the number of shares they own. The size of each bubble is determined by the total value of their
+                    transactions. This visualization helps to identify patterns and trends in insider trading behavior,
+                    understand the distribution of transactions across different companies, and possibly gain insights
+                    into
+                    how insiders' actions may impact the market sentiment or company performance.</p>
+            </div>
+            <div class="container" style="padding: 0; margin-bottom: 40px;">
+                <div id="chart"></div>
+            </div>
+
+
             <div id="tooltip"></div>
 
 
@@ -190,7 +209,14 @@
                     border: 2px solid rgba(0, 0, 0, 0.9);
                     border-radius: 15px;
                     overflow: hidden;
+                    width: 100%;
                 }
+
+                .table-container {
+                    overflow-x: auto;
+                    max-width: 100%;
+                }
+
 
                 #table-title {
                     font-size: 20px;
@@ -239,19 +265,19 @@
     <div class="dark-mode-switch">
         <label class="switch-label" for="dark-mode-switch">Dark mode</label>
         <label class="switch">
-          <input type="checkbox" id="dark-mode-switch">
-          <span class="slider round"></span>
+            <input type="checkbox" id="dark-mode-switch">
+            <span class="slider round"></span>
         </label>
-      </div>
+    </div>
 
-      
+
     <!--Back to top button-->
-<div id="topbtn" class="back-to-top">
-    <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
-  </div>
-  
+    <div id="topbtn" class="back-to-top">
+        <a href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+    </div>
+
     <!--Footer-->
-<footer>
+    <footer>
         <div class="container-fluid bg-success text-white p-4">
             <div class="row">
                 <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 pe-5">
@@ -260,7 +286,8 @@
                             class="d-inline-block align-text-center" />
                         Job<span>Insights</span></a>
                     <p>One-stop destination for global job, weather, and financial data and visualizations.
-                        Explore the world of opportunities, stay updated with the latest weather forecasts, and keep track of
+                        Explore the world of opportunities, stay updated with the latest weather forecasts, and keep
+                        track of
                         financial trends—all in one place.</p>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 pt-3">
@@ -292,9 +319,10 @@
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-end">
                     <form class="d-block" action="../PHP/subscribe.php" method="post">
                         <input class="form-control me-2 mb-2" name="email" type="email" placeholder="Email Address"
-                          aria-label="Email">
-                        <button class="btn btn-secondary btn-outline-light" name="subscribe" type="submit">Subscribe</button>
-                      </form>
+                            aria-label="Email">
+                        <button class="btn btn-secondary btn-outline-light" name="subscribe"
+                            type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <hr>
@@ -322,33 +350,33 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 
-        <script>
-            // Function to toggle dark mode
-            function toggleDarkMode() {
-              // Get body element
-              const body = document.querySelector('body');
-          
-              // Toggle the 'darkmode' class on the body element
-              body.classList.toggle('darkmode');
-            }
-          
-            // event listener for the dark mode switch
-            const darkModeSwitch = document.getElementById('dark-mode-switch');
-            darkModeSwitch.addEventListener('change', toggleDarkMode);
-          </script>
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            // Get body element
+            const body = document.querySelector('body');
 
-<script>
-    topBtn = document.getElementById("topbtn");
-    var myScrollFunc = function () {
-      var y = window.scrollY;
-      if (y >= 500) {
-        topBtn.className = " back-to-top open"
-      } else {
-        topBtn.className = " back-to-top keep"
-      }
-    };
-    window.addEventListener("scroll", myScrollFunc);
-  </script>
+            // Toggle the 'darkmode' class on the body element
+            body.classList.toggle('darkmode');
+        }
+
+        // event listener for the dark mode switch
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        darkModeSwitch.addEventListener('change', toggleDarkMode);
+    </script>
+
+    <script>
+        topBtn = document.getElementById("topbtn");
+        var myScrollFunc = function () {
+            var y = window.scrollY;
+            if (y >= 500) {
+                topBtn.className = " back-to-top open"
+            } else {
+                topBtn.className = " back-to-top keep"
+            }
+        };
+        window.addEventListener("scroll", myScrollFunc);
+    </script>
 </body>
 
 </html>

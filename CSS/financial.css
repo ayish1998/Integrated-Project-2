@@ -9,6 +9,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 
 .content {
     height: 900px;
@@ -51,8 +55,6 @@
     justify-content: center;
     align-items: center;
 }
-
-
 
 #center h2 {
     color: #DDDDDD;
@@ -157,7 +159,7 @@
 }
 
 #wrapper .container {
-    padding: 0 5rem 0 5rem;
+    padding: 0 3rem 0 3rem;
 }
 
 #wrapper .container p {
