@@ -463,11 +463,15 @@ h6 {
 }
 
 #blog-container .blogs img {
-    width: 65%;
-    height: 50vh;
-    border-radius: 10%;
-    
+    max-width: 100%; /* Set the maximum width to 100% */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra spacing */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 10%; /* Apply border radius */
 }
+
+
+
 
 #blog-container .blogs .post {
     padding-bottom: 60px;
@@ -977,6 +981,8 @@ h6 {
         height: 50vh;
         object-fit: cover;
     }
+    
+
 
     /*Portfolio-inner media queries*/
     #portfolio-inner {
