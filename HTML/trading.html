@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>technology stocks</title>
+    <title>insider tading transactions</title>
 
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -133,7 +133,7 @@
                 <div class="centered container">
                     <div class="meta-bar">
                         <a href="../HTML/financial.html">financial data</a>/
-                        technology stocks
+                        insider trading transactions
                     </div>
 
                     <h2>Latest Insider Trading Transactions</h2>
@@ -144,31 +144,51 @@
             <h6 id="table-title">Form Screener</h6>
 
             <div class="table-container">
+                <div class="filter-sort-bar" style="padding-bottom: 20px;">
+                  <input type="text" id="search-input" placeholder="Search...">
+                  <select id="sort-select">
+                    <option value="date">Date</option>
+                    <option value="num_shares_own">Shares Owned</option>
+                    <option value="symbol">Symbol</option>
+                    <option value="sum_transactionShares">Transaction Shares</option>
+                    <option value="aveg_pricePerShare">Avg Price Per Share</option>
+                    <option value="tot_value">Total Value</option>
+                  </select>
 
-            <table id="data-table" style="height: 500">
-                <thead>
+                  <select id="sort-order">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+
+                  <button id="sort-button" style="width: 7%;">Sort</button>
+
+                </div>
+              
+                <table id="data-table" style="height: 500">
+                  <thead>
                     <tr>
-                        <th>Date/Time</th>
-                        <th>Shares Owned</th>
-                        <th>Relationship</th>
-                        <th>Owner Address</th>
-                        <th>Transaction Shares</th>
-                        <th>Symbol</th>
-                        <th>Total Value</th>
-                        <th>Transaction Code</th>
+                      <th>Date/Time</th>
+                      <th>Shares Owned</th>
+                      <th>Avg Price Per Share</th>
+                      <th>Relationship</th>
+                      <th>Owner Address</th>
+                      <th>Transaction Shares</th>
+                      <th>Symbol</th>
+                      <th>Total Value</th>
+                      <th>Transaction Code</th>
                     </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-
-            <div class="pagination">
-                <button id="prev-page">Previous</button>
-                <span id="page-info">Page 1 of 1</span>
-                <button id="next-page">Next</button>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              
+                <div class="pagination" style="margin-top: 10px; text-align: center;">
+                  <button id="prev-page">Previous</button>
+                  <span id="page-info">Page 1 of 1</span>
+                  <button id="next-page">Next</button>
+                </div>
               </div>
-              <input type="text" id="search-input" placeholder="Search...">
-            </div>
+              
 
             <div style="margin-top: 40px;">
                 <h5><u>Buuble Chart Insider Trading Visualization</u></h5>
@@ -183,8 +203,11 @@
                     into
                     how insiders' actions may impact the market sentiment or company performance.</p>
             </div>
-            <div class="container" style="padding: 0; margin-bottom: 40px;">
+            <div class="container" style="padding: 0; margin-bottom: 40px; width: 100%; overflow-x: scroll;">
+                <div id="legend-container" style="display: flex; justify-content: center; padding-left: 50px;"></div>
+                
                 <div id="chart"></div>
+
             </div>
 
 
@@ -219,7 +242,7 @@
 
 
                 #table-title {
-                    font-size: 20px;
+                    font-size: 14px;
                     padding: 20px 0;
                     margin: 10px 0;
                 }
@@ -257,10 +280,21 @@
             </style>
 
 
+<div class="container" id="related">
+    <h6>Other Financial Visualizations:</h6>
+    <ul class="list-unstyled components mb-5" style="list-style: circle;">
+      <li><a href="../HTML/currencyrates.html">Currency Rates</a> </li>
+      <li><a href="../HTML/technologystocks.html">Technology Stocks</a> </li>
+      <li><a href="../HTML/cryptocurrencies.html">Lastest Cryptocurrencies Updates</a></li>
+      <li><a href="../HTML/secureinvestment.html">Unveiling Trends and Financial-Insights</a></li>
+    </ul>
+  </div>
         </div>
+
+
     </section>
 
-
+      
 
     <div class="dark-mode-switch">
         <label class="switch-label" for="dark-mode-switch">Dark mode</label>

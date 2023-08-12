@@ -152,7 +152,7 @@ const svg = svgContainer.append("svg")
   // Create legend
   const legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(1200, 10)");
+    .attr("transform", "translate(1100, 10)");
 
   const legendItems = legend.selectAll(".legend-item")
     .data(chartData)
@@ -177,7 +177,6 @@ const svg = svgContainer.append("svg")
     return colors[index % colors.length];
   }
 
-  
 
   function updateChart(order) {
     switch (order) {
@@ -212,13 +211,16 @@ const svg = svgContainer.append("svg")
         .tickValues(selectedSymbolOrder) // Set tick values to selected order
       );
   
-    // Update x-axis tick labels
+    // Inside the switch statement
     svg.selectAll(".x-axis .tick text")
+      .transition()
+      .duration(800)
       .text(d => chartData.find(item => item.symbol === d).longName)
       .attr("transform", "rotate(-45)")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", ".15em");
+  
   }
   
 
@@ -345,28 +347,6 @@ function createBubbleChart(data) {
     .text(d => d.symbol);
 }
 
-
-// function resizeCharts() {
-//   // Adjust chart sizes based on the container or window dimensions
-//   const containerWidth = document.getElementById("chart-container")a;
-//   const svgWidth = containerWidth >= 1000 ? containerWidth : 1000; // Minimum width is 1000
-//   const svgHeight = svgWidth >= 1000 ? 900 : (svgWidth * 0.9); // Maintain 9:10 aspect ratio
-
-//   d3.select("#chart svg")
-//     .attr("width", svgWidth)
-//     .attr("height", svgHeight);
-
-//   d3.select("#chart-container svg")
-//     .attr("width", svgWidth)
-//     .attr("height", svgHeight);
-// }
-// // Call the resizeCharts function initially
-// resizeCharts();
-
-// // Bind the resizeCharts function to the window resize event
-// window.addEventListener("resize", resizeCharts);
-
-// Call the fetchData function to retrieve data and create visualizations
 fetchData();
 
 
