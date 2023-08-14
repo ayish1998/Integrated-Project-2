@@ -143,26 +143,19 @@ width:100%
     margin-left: 50px;
   }
 
+  .card:hover {
+    color: #146727;
+    transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transition: 1s;
+  }
  
   hr {
     border: none;
     height: 5px;
     background-color: #070000;
     margin: 10px 0;
-    width: 50%;
 
 }
-
-
-  h5{
-    
-    margin-bottom: 50px;
-    display: flex;
-    justify-content:space-around;
-    align-items: baseline;
-    margin-right: 50px;
-   
-  } 
 
   .date {
     font-size: 16px;
@@ -312,6 +305,30 @@ body.darkmode {
     background-color: #1A1B1F;
     color: #8a8a8a;
    }
+
+.darkmode .card-row .card-body {
+    color: #8a8a8a;
+    background: linear-gradient(145deg, #1c1d21, #17181c);
+    box-shadow: 3px 3px 6px #101114,
+      -3px -3px 6px #24252a;
+}
+
+.descrip a {
+    color: #000104;
+}
+
+.descrip a:hover {
+    color: #146727;
+}
+
+.darkmode .descrip {
+    background: #1A1B1F
+
+}
+
+.darkmode .descrip a {
+    color: #8a8a8a;
+}
 
 /* The darkmode switch */
 .dark-mode-switch {
