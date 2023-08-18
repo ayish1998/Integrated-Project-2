@@ -79,12 +79,18 @@ footer a {
     -3px -3px 6px #24252a;
 }
 
-/*media queries*/
-@media (min-width: 768px) {
-  #disqus_thread {
-    padding: 15px;
-    margin: 85px;
-  }
+@media screen and (min-width: 400px) and (max-width: 768px) {
+.navbar-brand, .navbar-brand span {
+  font-size: 1.5rem !important;
+}
+
+.ftitle {
+  font-size: 0.8rem;
+} 
+footer {
+  font-size: 5pt;
+}
+
 }
 
 /*media queries*/

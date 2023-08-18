@@ -237,6 +237,8 @@ export const loadWeatherData = async (weather) => {
   tabcontent1.appendChild(daytimeSection1);
 
   // Create tab 1 hour section
+  const hourSectionWrapper1 = document.createElement('div');
+  hourSectionWrapper1.className = 'hour-section-wrapper';
   const hourSection1 = document.createElement('table');
   hourSection1.className = 'hour-section';
   const hourSectionBody1 = document.createElement('tbody');
@@ -251,7 +253,8 @@ export const loadWeatherData = async (weather) => {
   });
 
   hourSection1.appendChild(hourSectionBody1);
-  tabcontent1.appendChild(hourSection1);
+  hourSectionWrapper1.appendChild(hourSection1);
+  tabcontent1.appendChild(hourSectionWrapper1);
 
   // Tab 2 ---> Tomorrow's weather data
   // Create tab 2 header
@@ -265,6 +268,8 @@ export const loadWeatherData = async (weather) => {
   tabcontent2.appendChild(daytimeSection2);
 
   // Create tab 2 hour section
+  const hourSectionWrapper2 = document.createElement('div');
+  hourSectionWrapper2.className = 'hour-section-wrapper';
   const hourSection2 = document.createElement('table');
   hourSection2.className = 'hour-section';
   const hourSectionBody2 = document.createElement('tbody');
@@ -279,7 +284,8 @@ export const loadWeatherData = async (weather) => {
   });
 
   hourSection2.appendChild(hourSectionBody2);
-  tabcontent2.appendChild(hourSection2);
+  hourSectionWrapper2.appendChild(hourSection2);
+  tabcontent2.appendChild(hourSectionWrapper2);
 };
 
 //Function to load weekly data

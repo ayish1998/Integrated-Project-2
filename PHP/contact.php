@@ -12,6 +12,7 @@
   <script src="https://kit.fontawesome.com/9e861a04ca.js" crossorigin="anonymous"></script>
   <!--External Stylesheet-->
   <link rel="stylesheet" href="../CSS/contact.css">
+  <link rel="stylesheet" href="../CSS/utils.css">
   <!--Jquery-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -305,7 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
       $mail->Username = 'g.adekunle@alustudent.com';
-      $mail->Password = 'uvkaaxakwxhjmgak';
+      $mail->Password = 'skrzxxwtiliowfkd';
       $mail->SMTPSecure = 'ssl';
       $mail->Port = 465;
 
