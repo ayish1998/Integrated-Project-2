@@ -53,7 +53,6 @@
   margin-right: 0px;
   margin-left: 10px;
   margin-bottom: 10px;
-  overflow: auto;
 }
 
 .darkmode .tabs-container {
@@ -367,10 +366,17 @@ width: 50%;
   margin-top: 0.5rem;
 }
 
+.hour-section-wrapper {
+  overflow-x: auto; 
+  margin-bottom: 10px; 
+}
+
 .hour-section {
   width: 100%;
   text-align: center;
   border-spacing: 0;
+  min-width: 100%;
+  white-space: nowrap;
 }
 
 .hour-row > td {
@@ -469,7 +475,7 @@ g{
   color: #fff;
   padding: 8px;
   font-size: 12px;
-  z-index: 9999; /* Set a higher z-index value */
+  z-index: 9999;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -534,16 +540,20 @@ g{
 
 
 /* Media query for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 400px) and (max-width: 768px) {
   .content {
     margin-top: 80px;
     padding-top: 10px;
     padding-bottom: 10px;
     overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .container {
     flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .aside {
@@ -558,6 +568,7 @@ g{
     order:1;
     flex: 1;
     margin-left: 0;
+    margin-right: 0;
     margin-bottom: 20px;
     padding: 4px;
   }
@@ -588,5 +599,13 @@ g{
   .note {
     font-size: 14px;
     width: 70%;
+  }
+
+  .hour-details {
+    justify-content: space-around;
+  }
+
+  .hour-detail {
+    margin: 5px;
   }
 }
